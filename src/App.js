@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import MyAPIProvider from "./context/APIContext"
 
 import Navbar from './components/navbar';
 import Home from './components/home'
@@ -33,7 +34,7 @@ const App = () => {
 
 
   return (
-    <>
+    <MyAPIProvider>
     <Navbar />
     <Switch>
       <Route
@@ -63,7 +64,7 @@ const App = () => {
         }
       />
     </Switch>
-    </>
+    </MyAPIProvider>
   )
 };
 
