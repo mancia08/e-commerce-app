@@ -9,7 +9,6 @@ import Shop from './components/shop';
 import Map from './components/map';
 import Contact from './components/contact';
 
-
 const App = () => {
 
   const [home, setHome] = useState({
