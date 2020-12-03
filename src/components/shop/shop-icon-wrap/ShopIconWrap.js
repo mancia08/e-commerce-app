@@ -1,9 +1,29 @@
+import ShopIcon from '../shop-icon';
+
+import icon from '../shop-icon/Icon.png';
 import './ShopIconWrap.css';
 
-const ShopIconWrap = props => (
-    <div className="shop-icon_wrap">
-        {props.children}
-    </div>
-);
+const ShopIconWrap = () => {
+
+    const renderItems = () => {
+        let array = [];
+        for (let i = 0; i < 6; i++) {
+            array.push(i);
+        }
+        return array;
+    }
+
+    return (
+        <div className="shop-icon_wrap">
+            { renderItems().map(el => <ShopIcon
+                key={el}
+                icon={icon}
+                title="Shop name"
+                text="Shop adress lorem lorem lorem lorem"
+            />)}
+        </div>
+    )
+};
+
 
 export default ShopIconWrap;
