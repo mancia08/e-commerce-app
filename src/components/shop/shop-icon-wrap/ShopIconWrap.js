@@ -8,7 +8,7 @@ const ShopIconWrap = () => {
     const renderItems = () => {
         let array = [];
         for (let i = 0; i < 6; i++) {
-            array.push(i);
+            array.push(`/shop/${i}`);
         }
         return array;
     }
@@ -16,6 +16,7 @@ const ShopIconWrap = () => {
     return (
         <div className="shop-icon_wrap">
             { renderItems().map(el => <ShopIcon
+                path={el}
                 key={el}
                 icon={icon}
                 title="Shop name"
