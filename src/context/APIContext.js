@@ -18,33 +18,39 @@ class MyAPIProvider extends Component {
       { id: 63861, data: [] }, //set the category. CLOTHES
     ];
     let items = [];
-    const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3
+    const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //i use chrome cors extension, but you can add it in front of the two api call links
     const apiCall = (category) => {
-      const categoryUrl = `${cors}https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByCategory&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${APIkey}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&categoryId=${category.id}&paginationInput.entriesPerPage=${itemsNumber}`;
-      const itemUrl = `${cors}https://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=${APIkey}&siteid=0&version=967&ItemID=`;
-      fetch(categoryUrl) //the main api call function
+      const categoryUrl = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByCategory&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${APIkey}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&categoryId=${category.id}&paginationInput.entriesPerPage=${itemsNumber}`;
+      const itemUrl = `https://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=${APIkey}&siteid=0&version=967&ItemID=`;
+      fetch(categoryUrl)
         .then((response) => response.json())
         .then(
           (itemData) =>
             itemData.findItemsByCategoryResponse[0].searchResult[0].item
         )
         .then((data) => {
-          //start of second api call
           const dataPromisesArray = data.map((el) =>
             fetch(`${itemUrl}${el.itemId}`).then((response) => response.json())
           );
           return Promise.all(dataPromisesArray);
         })
         .then((finalData) => {
-          category.data = finalData;
+          finalData.map((item) =>
+            category.data.push({
+              name: item.Item.Title,
+              imageS: item.Item.GalleryURL,
+              imageL: item.Item.PictureURL[0],
+              price: item.Item.ConvertedCurrentPrice.Value,
+            })
+          );
+          items.push(category.data);
         });
     };
     category.map((e) => apiCall(e)); //making 3 api calls to retrieve data from 3 categories
+
     console.log(category);
-    category.map((categories) =>
-      items.push({ items: categories.data.map((item) => item.Item) })
-    );
     console.log(items);
+    this.setState({ items: items });
   }
 
   render() {
