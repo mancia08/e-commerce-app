@@ -9,54 +9,54 @@ class MyAPIProvider extends Component {
   };
 
   componentDidMount() {
-    //keep this itemsNumber low while in production
-    const itemsNumber = 3; //how many items to pull. note that the api calls are 3x(n+1) (e.g. with 3 items i do 12api calls).
-    //note that if i want 3 items per store i need to pull 9 items
+
+    const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [
       { id: 181033, data: [] }, //set the category. GARDENING
       { id: 15032, data: [] }, //set the category. PHONES
       { id: 63861, data: [] }, //set the category. CLOTHES
     ];
     let items = [];
-    const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //i use chrome cors extension, but you can add it in front of the two api call links
+    const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //USE CHROME CORS EXTENSION
+
     const apiCall = (category) => {
-      const categoryUrl = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByCategory&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${APIkey}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&categoryId=${category.id}&paginationInput.entriesPerPage=${itemsNumber}`;
+
+      const categoryUrl = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByCategory&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${APIkey}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&categoryId=${category.id}&paginationInput.entriesPerPage=${itemsPerShop*3}`;
       const itemUrl = `https://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=${APIkey}&siteid=0&version=967&ItemID=`;
-      fetch(categoryUrl)
-        .then((response) => response.json())
-        .then(
-          (itemData) =>
-            itemData.findItemsByCategoryResponse[0].searchResult[0].item
-        )
-        .then((data) => {
-          const dataPromisesArray = data.map((el) =>
-            fetch(`${itemUrl}${el.itemId}`).then((response) => response.json())
-          );
+
+      fetch(categoryUrl)  //first API call (getting ID of items from categories)
+        .then(response => response.json())
+        .then(categoryData => categoryData.findItemsByCategoryResponse[0].searchResult[0].item)
+        .then(result => {  //second API call (getting data info from item ID)
+          const dataPromisesArray = result.map(items => 
+            fetch(`${itemUrl}${items.itemId}`)
+            .then(response => response.json()));
           return Promise.all(dataPromisesArray);
         })
-        .then((finalData) => {
-          finalData.map((item) =>
-            category.data.push({
-              name: item.Item.Title,
-              imageS: item.Item.GalleryURL,
-              imageL: item.Item.PictureURL[0],
-              price: item.Item.ConvertedCurrentPrice.Value,
+        .then(itemData => {  //storing only what i need inside category.data
+          itemData.map((singleItem) =>
+          category.data.push({
+              name: singleItem.Item.Title,
+              imageS: singleItem.Item.GalleryURL,
+              imageL: singleItem.Item.PictureURL[0],
+              price: singleItem.Item.ConvertedCurrentPrice.Value,
             })
           );
-          console.log(category.data.length)
-          let firstShop = category.data.slice(0, category.data.length/3)
-          let secondShop = category.data.slice(category.data.length/3, 2*category.data.length/3)
-          let thirdShop = category.data.slice(2*category.data.length/3, category.data.length)
-          items.push( {firstShop: firstShop, secondShop: secondShop, thirdShop:thirdShop});
+
+          let firstShop = category.data.slice(0, category.data.length/3);  //splitting that data in 3 (to simulate 3 different shops)
+          let secondShop = category.data.slice(category.data.length/3, 2*category.data.length/3);
+          let thirdShop = category.data.slice(2*category.data.length/3, category.data.length);
+
+          items.push({
+            firstShop: firstShop,
+            secondShop: secondShop,
+            thirdShop: thirdShop,
+          });
         });
     };
-    category.map((e) => apiCall(e)); //making 3 api calls to retrieve data from 3 categories
 
-    console.log(category);
-    console.log(items);
-    this.setState({items: items})
-/* 
-    this.setState({ items: {firstShop: firstShop, secondShop: secondShop, thirdShop:thirdShop} }); */
+    category.map((e) => apiCall(e));
+    this.setState({ items: items });
   }
 
   render() {
