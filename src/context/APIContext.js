@@ -43,14 +43,20 @@ class MyAPIProvider extends Component {
               price: item.Item.ConvertedCurrentPrice.Value,
             })
           );
-          items.push(category.data);
+          console.log(category.data.length)
+          let firstShop = category.data.slice(0, category.data.length/3)
+          let secondShop = category.data.slice(category.data.length/3, 2*category.data.length/3)
+          let thirdShop = category.data.slice(2*category.data.length/3, category.data.length)
+          items.push( {firstShop: firstShop, secondShop: secondShop, thirdShop:thirdShop});
         });
     };
     category.map((e) => apiCall(e)); //making 3 api calls to retrieve data from 3 categories
 
     console.log(category);
     console.log(items);
-    this.setState({ items: items });
+    this.setState({items: items})
+/* 
+    this.setState({ items: {firstShop: firstShop, secondShop: secondShop, thirdShop:thirdShop} }); */
   }
 
   render() {
