@@ -6,6 +6,7 @@ const APIkey = process.env.REACT_APP_EBAY_KEY;
 class MyAPIProvider extends Component {
   state = {
     items: [],
+    pathLinks: []
   };
 
   componentDidMount() {
@@ -19,6 +20,7 @@ class MyAPIProvider extends Component {
     let items = [];
     let finalState = []
     const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //USE CHROME CORS EXTENSION
+
 
     const apiCall = (category) => {
 
@@ -51,12 +53,12 @@ class MyAPIProvider extends Component {
         });
     };
 
-    category.map((e) => apiCall(e));
-
-    console.log(finalState)
+    category.map((e) => apiCall(e))
     
-    this.setState({ items: finalState });
+    this.setState({ items: finalState })
   }
+  
+
 
   render() {
     return (
