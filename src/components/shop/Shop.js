@@ -1,71 +1,110 @@
-import { Switch, Route } from 'react-router-dom'
-import ShopBanner from './shop-banner';
+import { Switch, Route} from "react-router-dom";
+import {useContext} from "react"
+import ShopBanner from "./shop-banner";
+import SingleShop from "./remote-shop/SingleShop";
+import jewerly from "./shop-banner/jewelry.png";
+import jacket from "./shop-banner/jacket.png";
+import laptop from "./shop-banner/laptop.png";
+import ShopIconWrap from "./shop-icon-wrap";
+import {MyAPIContext} from "./../../context/APIContext"
+import "./Shop.css";
 
-import jewerly from './shop-banner/jewelry.png'
-import jacket from './shop-banner/jacket.png'
-import laptop from './shop-banner/laptop.png'
-import ShopIconWrap from './shop-icon-wrap';
-
-import './Shop.css'
-import First from './remote-shop/first';
-import Second from './remote-shop/second';
-import Third from './remote-shop/third';
-import Fourth from './remote-shop/fourth';
-import Fifth from './remote-shop/fifth';
-import Sixth from './remote-shop/sixth';
-
-const Shop = props => (
-    <Switch>
-        <Route
-            exact path='/shop'>
-            <div className="shop_container">
+const Shop = (props) => (
+    <MyAPIContext.Consumer>
+        {value => (
+            <Switch>
+            <Route exact path="/shop">
+              <div className="shop_container">
                 <h1>{props.title}</h1>
                 <ShopBanner
-                    title="LOCAL JEWELRY SHOPS"
-                    text="Lorem lorem lorem lorem lorem lorem"
-                    image={jewerly}
+                  title="LOCAL JEWELRY SHOPS"
+                  text="Lorem lorem lorem lorem lorem lorem"
+                  image={jewerly}
                 />
-                <ShopIconWrap />
+                <ShopIconWrap category="category1" />
                 <ShopBanner
-                    title="LOCAL CLOTHES SHOPS"
-                    text="Lorem lorem lorem lorem lorem lorem"
-                    image={jacket}
+                  title="LOCAL CLOTHES SHOPS"
+                  text="Lorem lorem lorem lorem lorem lorem"
+                  image={jacket}
                 />
-                <ShopIconWrap />
+                <ShopIconWrap category="category2" />
                 <ShopBanner
-                    title="LOCAL ELECTRONIC SHOPS"
-                    text="Lorem lorem lorem lorem lorem lorem"
-                    image={laptop}
+                  title="LOCAL ELECTRONIC SHOPS"
+                  text="Lorem lorem lorem lorem lorem lorem"
+                  image={laptop}
                 />
-                <ShopIconWrap />
-            </div>
-        </Route>
+                <ShopIconWrap category="category3" />
+              </div>
+            </Route>
 
-        <Route path='/shop/0'>
-            <First/>
-        </Route>
 
-        <Route path='/shop/1'>
-            <Second/>
-        </Route>
 
-        <Route path='/shop/2'>
-            <Third/>
-        </Route>
 
-        <Route path='/shop/3'>
-            <Fourth/>
-        </Route>
 
-        <Route path='/shop/4'>
-            <Fifth/>
-        </Route>
 
-        <Route path='/shop/5'>
-            <Sixth/>
-        </Route>
-    </Switch>
 
-)
+
+
+{/* WHY IS THIS NOT WORKING. I CANT USE STRING INTERPOLATION INSIDE PATH? */}
+{/*             {
+        value.state.items.map((category, categoryIndex) =>
+            category.shops.map((shops, shopsIndex) =>{
+            let link = `/shop/category${categoryIndex+1}/${shopsIndex}`
+            console.log(link)
+            <Route path='/shop/category{categoryIndex+1}/{shopsIndex}'>
+                <SingleShop category={categoryIndex+1} shop={shopsIndex} />
+            </Route>
+            }
+            )
+        )} 
+ */}
+        
+
+            <Route path="/shop/:category/:shop children={Child />}"/>
+           
+
+            
+            <Route path="/shop/category1/0">
+              <SingleShop category="1" shop="0" text="shop presentation here" />
+            </Route>
+        
+            <Route path="/shop/category1/1">
+              <SingleShop category="1" shop="1" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category1/2">
+              <SingleShop category="1" shop="2" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category2/0">
+              <SingleShop category="2" shop="0" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category2/1">
+              <SingleShop category="2" shop="1" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category2/2">
+              <SingleShop category="2" shop="2" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category3/0">
+              <SingleShop category="3" shop="0" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category3/1">
+              <SingleShop category="3" shop="1" text="hello" />
+            </Route>
+        
+            <Route path="/shop/category3/2">
+              <SingleShop category="3" shop="2" text="hello" />
+            </Route>
+          </Switch>
+        )
+
+        }
+    </MyAPIContext.Consumer>
+  
+);
 
 export default Shop;
