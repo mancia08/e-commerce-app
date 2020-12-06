@@ -2,8 +2,7 @@ import { render } from "@testing-library/react";
 import React, { Component } from "react";
 export const MyAPIContext = React.createContext();
 
-const APIkey = 'TeikoMan-P2projec-PRD-ff78dd8a1-e42e974f'
-//process.env.REACT_APP_EBAY_KEY;
+const APIkey = process.env.REACT_APP_EBAY_KEY;
 
 console.log(APIkey)
 class MyAPIProvider extends Component {
