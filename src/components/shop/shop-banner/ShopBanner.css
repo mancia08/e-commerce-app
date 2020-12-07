@@ -1,5 +1,16 @@
 .shop-banner_wrap {
     display: flex;
+    justify-content: space-evenly;
     background-color: #33a0ff8f;
     color: #fff;
+}
+
+.description_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description_wrap p {
+    margin: 0;
 }

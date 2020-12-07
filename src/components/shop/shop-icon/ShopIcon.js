@@ -1,9 +1,8 @@
-import ShopIconWrap from '../shop-icon-wrap';
 import './ShopIcon.css';
 
 const ShopIcon = ({ icon, title, text }) => (
     <div className="shop-small_wrap">
-        <div>
+        <div className="small_wrap">
             <img src={icon} alt={title}></img>
             <h4>{title}</h4>
         </div>
