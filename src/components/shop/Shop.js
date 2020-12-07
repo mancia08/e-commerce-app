@@ -44,7 +44,7 @@ const Shop = (props) => (
             value.state.items.map((category, categoryIndex) =>
               category.shops.map((shops, shopsIndex) => {
                 let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`
-                return <Route path={link}>
+                return <Route exact path={link}>
                   <SingleShop
                     path={link}
                     category={categoryIndex + 1} shop={shopsIndex} />
@@ -53,7 +53,7 @@ const Shop = (props) => (
               )
             )}
             
-                 <Route path="/shop/category1/0/0">
+                 <Route exact="/shop/category1/0/0">
                  <Tesstt/>
                </Route>
             
