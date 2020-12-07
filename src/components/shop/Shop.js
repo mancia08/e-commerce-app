@@ -52,6 +52,11 @@ const Shop = (props) => (
               }
               )
             )}
+            
+                 <Route path="/shop/category1/0/0">
+                 <Tesstt/>
+               </Route>
+            
         </Switch>
     )
 

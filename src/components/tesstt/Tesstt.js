@@ -1,5 +1,11 @@
-const Tesstt = () => (
-    <h1>lalalalala</h1>
-)
+import React from 'react';
+
+function Tesstt(props) {
+    return (
+        <div>
+            lalala
+        </div>
+    );
+}
 
 export default Tesstt;
