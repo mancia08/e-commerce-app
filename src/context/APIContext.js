@@ -8,7 +8,7 @@ console.log(APIkey);
 class MyAPIProvider extends Component {
   state = {
     items: [
-      {
+      /* {
         id: "something",
         shops: [
           [
@@ -199,16 +199,16 @@ class MyAPIProvider extends Component {
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
-            },
-          ],
+            }, */
+    /*       ],
         ],
-      },
+      }, */
     ],
     pathLinks: [],
     loding: false,
   };
 
-  /*  componentDidMount() {
+   componentDidMount() {
     const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [
       { id: 181033, data: [] }, //set the category. GARDENING
@@ -224,9 +224,9 @@ class MyAPIProvider extends Component {
       fetch(categoryUrl)  //first API call (getting ID of items from categories)
         .then(response => response.json())
         .then(categoryData => categoryData.findItemsByCategoryResponse[0].searchResult[0].item)
-        .then(result => { console.log(result[0].itemId) //second API call (getting data info from item ID)
+        .then(result => { //second API call (getting data info from item ID)
           const dataPromisesArray = result.map(items =>
-            fetch(`${itemUrl}${items.itemId[0]}`)
+            console.log(`${itemUrl}${items.itemId[0]}`)
               .then(response => response.json()));
           return Promise.all(dataPromisesArray);
         })
@@ -250,7 +250,7 @@ class MyAPIProvider extends Component {
     category.map((e) => apiCall(e))
     this.setState({ items: finalState, loading: false })
   }
- */
+
 
   render() {
     return (
