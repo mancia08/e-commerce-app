@@ -19,56 +19,104 @@ const Shop = props => (
                     text="Lorem lorem lorem lorem lorem lorem"
                     image={jewerly}
                 />
-                <ShopIconWrap />
+                <ShopIconWrap 
+                    category="category1"
+                    />
                 <ShopBanner
                     title="LOCAL CLOTHES SHOPS"
                     text="Lorem lorem lorem lorem lorem lorem"
                     image={jacket}
                 />
-                <ShopIconWrap />
+                <ShopIconWrap 
+                    category="category2"
+                    />
                 <ShopBanner
                     title="LOCAL ELECTRONIC SHOPS"
                     text="Lorem lorem lorem lorem lorem lorem"
                     image={laptop}
                 />
-                <ShopIconWrap />
+                <ShopIconWrap 
+                    category="category3"
+                    />
             </div>
         </Route>
 
-        <Route path='/shop/category1/firstShop'>
-            <SingleShop/>
+
+
+
+
+
+{/* to do: get those number dinamically working on the length of the myapicontext array */}
+        <Route path='/shop/category1/0'>
+            <SingleShop
+                category = "1"
+                shop = "0"
+                text = "shop presentation here"
+            />
         </Route>
 
-        <Route path='/shop/category1/secondShop'>
-            <SingleShop/>
+        <Route path='/shop/category1/1'>
+        <SingleShop
+                category = "1"
+                shop = "1"
+                text = "hello"
+            />
         </Route>
 
-        <Route path='/shop/category1/thirdShop'>
-            <SingleShop/>
+        <Route path='/shop/category1/2'>
+        <SingleShop
+                category = "1"
+                shop = "2"
+                text = "hello"
+            />
         </Route>
         
-        <Route path='/shop/category2/firstShop'>
-            <SingleShop/>
+        <Route path='/shop/category2/0'>
+        <SingleShop
+                category = "2"
+                shop = "0"
+                text = "hello"
+            />
         </Route>
 
-        <Route path='/shop/category2/secondShop'>
-            <SingleShop/>
+        <Route path='/shop/category2/1'>
+        <SingleShop
+                category = "2"
+                shop = "1"
+                text = "hello"
+            />
         </Route>
 
-        <Route path='/shop/category2/thirdShop'>
-            <SingleShop/>
+        <Route path='/shop/category2/2'>
+        <SingleShop
+                category = "2"
+                shop = "2"
+                text = "hello"
+            />
         </Route>
         
-        <Route path='/shop/category3/firstShop'>
-            <SingleShop/>
+        <Route path='/shop/category3/0'>
+        <SingleShop
+                category = "3"
+                shop = "0"
+                text = "hello"
+            />
         </Route>
 
-        <Route path='/shop/category3/secondShop'>
-            <SingleShop/>
+        <Route path='/shop/category3/1'>
+        <SingleShop
+                category = "3"
+                shop = "1"
+                text = "hello"
+            />
         </Route>
 
-        <Route path='/shop/category3/thirdShop'>
-            <SingleShop/>
+        <Route path='/shop/category3/2'>
+        <SingleShop
+                category = "3"
+                shop = "2"
+                text = "hello"
+            />
         </Route>
     </Switch>
 
