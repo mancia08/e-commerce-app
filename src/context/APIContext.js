@@ -14,7 +14,7 @@ class MyAPIProvider extends Component {
 
   componentDidMount() {
 
-    const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
+    const itemsPerShop = 3; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [
       { id: 181033, data: [] }, //set the category. GARDENING
       { id: 15032, data: [] }, //set the category. PHONES
