@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import "./App.css"
 import MyAPIProvider from "./context/APIContext"
-
 import Navbar from './components/navbar';
 import Home from './components/home'
 import Logo from './components/logo';
