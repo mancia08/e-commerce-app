@@ -9,6 +9,10 @@ import ShopIconWrap from './shop-icon-wrap';
 import './Shop.css'
 import First from './remote-shop/first';
 import Second from './remote-shop/second';
+import Third from './remote-shop/third';
+import Fourth from './remote-shop/fourth';
+import Fifth from './remote-shop/fifth';
+import Sixth from './remote-shop/sixth';
 
 const Shop = props => (
     <Switch>
@@ -43,6 +47,22 @@ const Shop = props => (
 
         <Route path='/shop/1'>
             <Second/>
+        </Route>
+
+        <Route path='/shop/2'>
+            <Third/>
+        </Route>
+
+        <Route path='/shop/3'>
+            <Fourth/>
+        </Route>
+
+        <Route path='/shop/4'>
+            <Fifth/>
+        </Route>
+
+        <Route path='/shop/5'>
+            <Sixth/>
         </Route>
     </Switch>
 
