@@ -7,12 +7,34 @@ const APIkey = process.env.REACT_APP_EBAY_KEY
 console.log(APIkey)
 class MyAPIProvider extends Component {
   state = {
-    items: [],
+    items: [
+      {id: "something",
+    shops: [
+      {
+        name: "singleItem.Item.Title",
+              imageS: "singleItem.Item.GalleryURL",
+              imageL: "singleItem.Item.PictureURL[0]",
+              price: "singleItem.Item.ConvertedCurrentPrice.Value"
+      },
+      {
+        name: "singleItem.Item.Title",
+              imageS: "singleItem.Item.GalleryURL",
+              imageL: "singleItem.Item.PictureURL[0]",
+              price: "singleItem.Item.ConvertedCurrentPrice.Value"
+      },
+      {
+        name: "singleItem.Item.Title",
+              imageS: "singleItem.Item.GalleryURL",
+              imageL: "singleItem.Item.PictureURL[0]",
+              price: "singleItem.Item.ConvertedCurrentPrice.Value"
+      }
+    ]}
+    ],
     pathLinks: [],
     loding: false
   };
 
-  componentDidMount() {
+ /*  componentDidMount() {
 
     const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [
@@ -32,9 +54,9 @@ class MyAPIProvider extends Component {
       fetch(categoryUrl)  //first API call (getting ID of items from categories)
         .then(response => response.json())
         .then(categoryData => categoryData.findItemsByCategoryResponse[0].searchResult[0].item)
-        .then(result => {  //second API call (getting data info from item ID)
+        .then(result => { console.log(result[0].itemId) //second API call (getting data info from item ID)
           const dataPromisesArray = result.map(items =>
-            fetch(`${itemUrl}${items.itemId}`)
+            fetch(`${itemUrl}${items.itemId[0]}`)
               .then(response => response.json()));
           return Promise.all(dataPromisesArray);
         })
@@ -60,7 +82,7 @@ class MyAPIProvider extends Component {
     this.setState({ items: finalState, loading: false })
   }
 
-
+ */
 
   render() {
     return (
