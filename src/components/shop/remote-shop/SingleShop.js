@@ -6,7 +6,7 @@ const SingleShop = (props) => (
     {(value) => (
       <>
         <h1>{props.text}</h1>
-        {value.state.items[props.category - 1].shops[props.shop].map(
+        {!value.state.loading && value.state.items[props.category - 1].shops[props.shop].map(
           (shop, index) => (
             <SingleShopCard
               key={index}
