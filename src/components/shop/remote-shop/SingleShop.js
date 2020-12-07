@@ -1,25 +1,24 @@
-import SingleShopCard from "./SingleShopCard"
-import {MyAPIContext} from "./../../../context/APIContext"
+import SingleShopCard from "./SingleShopCard";
+import { MyAPIContext } from "./../../../context/APIContext";
 
 const SingleShop = (props) => (
-    <MyAPIContext.Consumer>
-        {value => (
-            <>
-            <h1>{props.text}</h1>
-            {value.state.items[props.category-1].shops[props.shop].map((shop, index) =>
+  <MyAPIContext.Consumer>
+    {(value) => (
+      <>
+        <h1>{props.text}</h1>
+        {value.state.items[props.category - 1].shops[props.shop].map(
+          (shop, index) => (
             <SingleShopCard
-            key = {index}
-            imageS = {shop.imageS}
-            name = {shop.name}
-            price = {shop.price}
-        />
-            )}
-
-            </>
+              key={index}
+              imageS={shop.imageL}
+              name={shop.name}
+              price={shop.price}
+            />
+          )
         )}
-    
-
-    </MyAPIContext.Consumer>
-)
+      </>
+    )}
+  </MyAPIContext.Consumer>
+);
 
 export default SingleShop;
