@@ -7,6 +7,7 @@ import Logo from './components/logo';
 import Shop from './components/shop';
 import Map from './components/map';
 import Contact from './components/contact';
+import DataProvider from './context/DataProvider';
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
 
 
   return (
+    <DataProvider>
     <>
     <Navbar />
     <Switch>
@@ -64,6 +66,7 @@ const App = () => {
       />
     </Switch>
     </>
+    </DataProvider>
   )
 };
 

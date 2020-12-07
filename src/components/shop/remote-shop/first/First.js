@@ -1,6 +1,20 @@
+import { ApiContext } from '../../../../context/DataProvider';
+import { useContext, useEffect } from 'react';
+const First = () => {
+    const context = useContext(ApiContext);
 
-const First = () => (
-    <h1>I am the first shop here!</h1>
-)
+    useEffect(() => {
+        context.getByCategory('electronics');
+    }, [])
+
+
+    return (
+        <div>
+            { !context.loading && console.log(context.data)}
+        </div>
+   
+    )
+}
+    
 
 export default First;
