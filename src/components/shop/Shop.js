@@ -46,18 +46,19 @@ const Shop = (props) => (
 
 
 {/* WHY IS THIS NOT WORKING. I CANT USE STRING INTERPOLATION INSIDE PATH? */}
-{/*             {
+            {
         value.state.items.map((category, categoryIndex) =>
             category.shops.map((shops, shopsIndex) =>{
-            let link = `/shop/category${categoryIndex+1}/${shopsIndex}`
+              console.log(`/shop/category${categoryIndex+1}/${shopsIndex}`)
+           /*  let link = `/shop/category${categoryIndex+1}/${shopsIndex}`
             console.log(link)
-            <Route path='/shop/category{categoryIndex+1}/{shopsIndex}'>
+            <Route path=`/shop/category${categoryIndex+1}/${shopsIndex}`>
                 <SingleShop category={categoryIndex+1} shop={shopsIndex} />
-            </Route>
+            </Route> */
             }
             )
-        )} 
- */}
+        )}  
+
         
 
             <Route path="/shop/:category/:shop children={Child />}"/>

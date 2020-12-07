@@ -17,7 +17,6 @@ class MyAPIProvider extends Component {
       { id: 15032, data: [] }, //set the category. PHONES
       { id: 63861, data: [] }, //set the category. CLOTHES
     ];
-    let items = [];
     let finalState = []
     const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //USE CHROME CORS EXTENSION
 
