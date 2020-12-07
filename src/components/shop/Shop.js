@@ -13,22 +13,19 @@ const Shop = props => (
         text="Lorem lorem lorem lorem lorem lorem"
         image={jewerly}
         />
-        <ShopIconWrap>
-        </ShopIconWrap>
+        <ShopIconWrap/>
         <ShopBanner
         title="LOCAL CLOTHES SHOPS"
         text="Lorem lorem lorem lorem lorem lorem"
         image={jacket}
         />
-        <ShopIconWrap>
-        </ShopIconWrap>
+        <ShopIconWrap/>
         <ShopBanner
         title="LOCAL ELECTRONIC SHOPS"
         text="Lorem lorem lorem lorem lorem lorem"
         image={laptop}
         />
-        <ShopIconWrap>
-        </ShopIconWrap>
+        <ShopIconWrap/>
     </div>
 )
 
