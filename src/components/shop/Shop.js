@@ -1,5 +1,4 @@
-import { Switch, Route, Redirect } from "react-router-dom";
-import { useContext } from "react"
+import { Switch, Route, Link } from "react-router-dom";
 import ShopBanner from "./shop-banner";
 import SingleShop from "./remote-shop/SingleShop";
 import jewerly from "./shop-banner/jewelry.png";
@@ -9,7 +8,7 @@ import ShopIconWrap from "./shop-icon-wrap";
 import Spinner from '../spinner'
 import { MyAPIContext } from "./../../context/APIContext"
 import "./Shop.css";
-import Tesstt from "../tesstt/Tesstt";
+import SingleShopCard from "./remote-shop/SingleShopCard";
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
@@ -40,26 +39,38 @@ const Shop = (props) => (
             </div>
           </Route>
 
-          {
-            value.state.items.map((category, categoryIndex) =>
-              category.shops.map((shops, shopsIndex) => {
-                let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`
-                return <Route exact path={link}>
-                  <SingleShop
-                    path={link}
-                    category={categoryIndex + 1} shop={shopsIndex} />
-                </Route>
-              }
-              )
-            )}
-            
-                 <Route exact="/shop/category1/0/0">
-                 <Tesstt/>
-               </Route>
-            
-        </Switch>
-    )
+        {
+          value.state.items.map((category, categoryIndex) =>
+            category.shops.map((shops, shopsIndex) => {
+              let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`
+              return <Route exact path={link}>
+                <SingleShop category={categoryIndex + 1} shop={shopsIndex} />
+              </Route>
+            }
+            )
+          )
 
+        }
+
+        <Route exact={props.match.url + "/index"} render={
+          () => {
+            const category = Number(props.location.pathname.slice(-5).slice(0, -4) - 1);
+            const shop = Number(props.location.pathname.slice(-3).slice(0, -2));
+            const index = Number(props.location.pathname.slice(-1));
+            return (
+              <>
+              <SingleShopCard
+              name={value.state.items[category].shops[shop][index].name}
+              key={props.index}
+              price={value.state.items[category].shops[shop][index].price}
+            />
+            <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
+            </>
+            )
+          }
+        } />
+      </Switch>
+    )
     }
   </MyAPIContext.Consumer>
 
