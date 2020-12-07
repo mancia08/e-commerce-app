@@ -1,8 +1,11 @@
 import React from "react";
+import { Link, Route, Switch } from "react-router-dom";
 
 function SingleShopCard(props) {
   return (
-    <div>
+    <div
+    onClick={() => props.onClick()}
+    >
       <img src={props.imageS} alt={props.name} />
       <h3>{props.name}</h3>
       <p>
@@ -15,6 +18,7 @@ function SingleShopCard(props) {
       <h1>ADD TO CART BUTTON</h1>
       <p>{props.price} £</p>
     </div>
+  
   );
 }
 
