@@ -8,6 +8,7 @@ import laptop from "./shop-banner/laptop.png";
 import ShopIconWrap from "./shop-icon-wrap";
 import { MyAPIContext } from "./../../context/APIContext"
 import "./Shop.css";
+import Tesstt from "../tesstt/Tesstt";
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
@@ -47,6 +48,10 @@ const Shop = (props) => (
             }
             )
           )}
+
+          <Route path={`/shop/category1/0/0`}>
+            <Tesstt/>
+          </Route>
 
       </Switch>
     )
