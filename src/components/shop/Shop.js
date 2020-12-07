@@ -1,18 +1,12 @@
 import { Switch, Route } from 'react-router-dom'
 import ShopBanner from './shop-banner';
-
+import SingleShop from "./remote-shop/SingleShop"
 import jewerly from './shop-banner/jewelry.png'
 import jacket from './shop-banner/jacket.png'
 import laptop from './shop-banner/laptop.png'
 import ShopIconWrap from './shop-icon-wrap';
 
 import './Shop.css'
-import First from './remote-shop/first';
-import Second from './remote-shop/second';
-import Third from './remote-shop/third';
-import Fourth from './remote-shop/fourth';
-import Fifth from './remote-shop/fifth';
-import Sixth from './remote-shop/sixth';
 
 const Shop = props => (
     <Switch>
@@ -41,28 +35,40 @@ const Shop = props => (
             </div>
         </Route>
 
-        <Route path='/shop/0'>
-            <First/>
+        <Route path='/shop/category1/firstShop'>
+            <SingleShop/>
         </Route>
 
-        <Route path='/shop/1'>
-            <Second/>
+        <Route path='/shop/category1/secondShop'>
+            <SingleShop/>
         </Route>
 
-        <Route path='/shop/2'>
-            <Third/>
+        <Route path='/shop/category1/thirdShop'>
+            <SingleShop/>
+        </Route>
+        
+        <Route path='/shop/category2/firstShop'>
+            <SingleShop/>
         </Route>
 
-        <Route path='/shop/3'>
-            <Fourth/>
+        <Route path='/shop/category2/secondShop'>
+            <SingleShop/>
         </Route>
 
-        <Route path='/shop/4'>
-            <Fifth/>
+        <Route path='/shop/category2/thirdShop'>
+            <SingleShop/>
+        </Route>
+        
+        <Route path='/shop/category3/firstShop'>
+            <SingleShop/>
         </Route>
 
-        <Route path='/shop/5'>
-            <Sixth/>
+        <Route path='/shop/category3/secondShop'>
+            <SingleShop/>
+        </Route>
+
+        <Route path='/shop/category3/thirdShop'>
+            <SingleShop/>
         </Route>
     </Switch>
 

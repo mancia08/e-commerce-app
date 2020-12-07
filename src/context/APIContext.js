@@ -17,6 +17,7 @@ class MyAPIProvider extends Component {
       { id: 63861, data: [] }, //set the category. CLOTHES
     ];
     let items = [];
+    let finalState = []
     const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //USE CHROME CORS EXTENSION
 
     const apiCall = (category) => {
@@ -42,21 +43,19 @@ class MyAPIProvider extends Component {
               price: singleItem.Item.ConvertedCurrentPrice.Value,
             })
           );
-
           let firstShop = category.data.slice(0, category.data.length/3);  //splitting that data in 3 (to simulate 3 different shops)
           let secondShop = category.data.slice(category.data.length/3, 2*category.data.length/3);
           let thirdShop = category.data.slice(2*category.data.length/3, category.data.length);
 
-          items.push({
-            firstShop: firstShop,
-            secondShop: secondShop,
-            thirdShop: thirdShop,
-          });
+          finalState.push({id: category.id, shops:[firstShop, secondShop, thirdShop]})
         });
     };
 
     category.map((e) => apiCall(e));
-    this.setState({ items: items });
+
+    console.log(finalState)
+    
+    this.setState({ items: finalState });
   }
 
   render() {
