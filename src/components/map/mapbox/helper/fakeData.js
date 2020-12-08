@@ -1,4 +1,4 @@
-import { shopData } from '../../../data/shopData';
+import { shopData } from '../../../../data/shopData';
 
 const fakeData = () => {
 
