@@ -23,7 +23,7 @@ class ShopProvider extends Component {
     this.setState({ password: event.target.value, loginFailed: false });
   login = () => {
     const account = loginData.filter(
-      (pizza) => pizza.user === this.state.username
+      (account) => account.user === this.state.username
     );
     account.length === 0
       ? this.setState({ loginFailed: true, username: "", password: "" })
@@ -32,6 +32,8 @@ class ShopProvider extends Component {
           isLoggedIn: true,
           homeIconClicked: false,
           loginFailer: false,
+          username: "",
+          password: ""
         })
       : this.setState({ loginFailed: true });
   };
