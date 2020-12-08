@@ -31,7 +31,6 @@ const App = () => {
       {(value) => (
         <>
           {!value.state.isHomePage && <Navbar />}
-
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route path="/home" render={() => <Home />} />

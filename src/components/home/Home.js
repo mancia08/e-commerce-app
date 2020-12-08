@@ -34,10 +34,10 @@ const Home = () => (
                   <p>{textData.login.password}</p>
                   <input onChange={value.password} value={value.state.password}></input>
                   <button onClick={value.login}>{textData.login.submit}</button>
-                  <Link to="/contact">
+                  <Link to="/contact" onClick={value.showNavbar}>
                     <h5>{textData.login.register}</h5>
                   </Link>
-                  <Link to="/contact">
+                  <Link to="/contact" onClick={value.showNavbar}>
                     <h5>{textData.login.text1}</h5>
                   </Link>
                   <a href="https://www.google.com" target="_blank">

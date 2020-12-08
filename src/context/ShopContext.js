@@ -15,12 +15,14 @@ class ShopProvider extends Component {
 
   /*NAVBAR TOGGLE*/
   showNavbar = () => {
-    console.logthis.setState({ isHomePage: false });
+  this.setState({ isHomePage: false });
   };
   hideNavbar = () => this.setState({ isHomePage: true });
   homeIconToggle = () =>
     this.setState({ homeIconClicked: !this.state.homeIconClicked });
-
+    /*something like this onload?*/
+ /*    navbarToggle = () =>
+    window.location.href==="http://localhost:3000/" ? this.setState({isHomePage: true}) : this.setState({isHomePage: false}) */
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) => this.setState({ username: event.target.value });
   password = (event) => this.setState({ password: event.target.value });
@@ -50,6 +52,7 @@ class ShopProvider extends Component {
           state: this.state,
           showNavbar: this.showNavbar,
           hideNavbar: this.hideNavbar,
+          navbarToggle: this. navbarToggle,
           homeIconToggle: this.homeIconToggle,
           login: this.login,
           logout: this.logout,
