@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
+import {loginData} from "./../data/loginData"
 export const ShopContext = React.createContext();
 
 class ShopProvider extends Component {
@@ -7,6 +8,8 @@ class ShopProvider extends Component {
     isHomePage: true,
     homeIconClicked: false,
     isLoggedIn: false,
+    username:"",
+    password:""
   };
 
   /*NAVBAR TOGGLE*/
@@ -16,7 +19,13 @@ class ShopProvider extends Component {
     this.setState({ homeIconClicked: !this.state.homeIconClicked });
 
   /*LOGIN AND LOGOUT LOGIC*/
-  login = () => this.setState({ isLoggedIn: true, homeIconClicked: false });
+  username = (event) => this.setState({username: event.target.value})
+  password = (event) => this.setState({password: event.target.value})
+  login = () => {
+    const account = loginData.filter(pizza => pizza.user===this.state.username)
+    console.log(this.state.username)
+    console.log(account)
+    this.setState({ isLoggedIn: true, homeIconClicked: false })};
   logout = () =>
     this.setState({
       isLoggedIn: !this.state.isLoggedIn,
@@ -32,6 +41,8 @@ class ShopProvider extends Component {
           homeIconToggle: this.homeIconToggle,
           login: this.login,
           logout: this.logout,
+          username: this.username,
+          password: this.password
         }}
       >
         {this.props.children}

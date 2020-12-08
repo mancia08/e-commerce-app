@@ -29,9 +29,9 @@ const Home = () => (
                   <button onClick={value.homeIconToggle}>X</button>
                   <h1>{textData.login.title}</h1>
                   <p>{textData.login.user}</p>
-                  <input></input>
+                  <input onChange={value.username}></input>
                   <p>{textData.login.password}</p>
-                  <input></input>
+                  <input onChange={value.password}></input>
                   <button onClick={value.login}>{textData.login.submit}</button>
                   <Link to="/contact">
                     <h5>{textData.login.register}</h5>
