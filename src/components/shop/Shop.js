@@ -63,6 +63,7 @@ const Shop = (props) => (
               <>
               <SingleShopCard
               name={value.state.items[category].shops[shop][index].name}
+              imageS={value.state.items[category].shops[shop][index].imageS}
               key={props.index}
               price={value.state.items[category].shops[shop][index].price}
             />
