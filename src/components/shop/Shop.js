@@ -54,9 +54,11 @@ const Shop = (props) => (
 
         <Route exact={props.match.url + "/index"} render={
           () => {
-            const category = Number(props.location.pathname.slice(-5).slice(0, -4) - 1);
-            const shop = Number(props.location.pathname.slice(-3).slice(0, -2));
-            const index = Number(props.location.pathname.slice(-1));
+            const regExp = /\d+\/\d+\/\d+/;
+            let res = props.location.pathname.match(regExp)[0].split('/').map(el => Number(el));
+            const category = res[0] - 1;
+            const shop = res[1];
+            const index = res[2];
             return (
               <>
               <SingleShopCard
