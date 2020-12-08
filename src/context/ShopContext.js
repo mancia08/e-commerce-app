@@ -10,6 +10,8 @@ class ShopProvider extends Component {
     username: "",
     password: "",
     loginFailed: false,
+    addedItems: [],
+    itemsPrice: 23.33,
   };
 
   /*ACCOUNT ICON TOGGLE*/
@@ -42,6 +44,14 @@ class ShopProvider extends Component {
       isLoggedIn: !this.state.isLoggedIn,
       homeIconClicked: !this.state.homeIconClicked,
     });
+
+    /*ADD STUFF TO CART LOGIC HERE*/
+    /*addedItems:[] is already in state*/
+
+    /*SHOP PRICE LOGIC HERE*/
+    /*itemsPrice inside state and hardcoded*/
+
+
   render() {
     return (
       <ShopContext.Provider

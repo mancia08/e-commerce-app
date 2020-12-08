@@ -1,25 +1,22 @@
 import Button from "./../atoms/button/Button";
-import banner from "./../../styles/images/banner.jpg";
+import Banner from "../atoms/banner/Banner"
 import { textData } from "./../../data/textData";
 import { Link } from "react-router-dom";
 import { ShopContext } from "./../../context/ShopContext";
 import userlogged from "./../../styles/images/userlogged.jpg";
 import userunknown from "./../../styles/images/userunknown.jpg";
 import logo from "./../../styles/images/logo.jpg";
+import SuperNav from "./../atoms/SuperNav"
 
 const Home = () => (
   <ShopContext.Consumer>
     {(value) => (
       <main>
-        <img src={banner} alt="banner" />
+        <Banner/>
         {/* toggle function. icon---login modal */}
         <div>
           {!value.state.homeIconClicked ? (
-            <img
-              src={value.state.isLoggedIn ? userlogged : userunknown}
-              alt="user"
-              onClick={value.homeIconToggle}
-            />
+            <SuperNav type="home"/>
           ) : (
             <div>
               {/* if i am not logged in it shows me the form */}
