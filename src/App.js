@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import MyAPIProvider from "./context/APIContext"
 
-import Navbar from './components/navbar';
+import Navbar from './components/atoms/navbar';
 import Home from './components/home'
-import Logo from './components/logo';
+import Logo from './components/atoms/logo';
 import Shop from './components/shop';
 import Map from './components/map';
 import Contact from './components/contact';

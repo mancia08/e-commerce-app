@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledNav, StyledLink, LogoLink } from '../../styles/styles'
+import { StyledNav, StyledLink, LogoLink } from '../../../styles/styles'
 
 
 const Navbar = () => (
