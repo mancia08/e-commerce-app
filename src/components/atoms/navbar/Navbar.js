@@ -6,20 +6,20 @@ import logo from "./../../../styles/images/logo.jpg"
 const Navbar = () => (
   <ShopContext.Consumer>
     {(value) => (
-      <StyledNav>
-        <LogoLink onClick={value.hideNavbar} to="/home">
+      <StyledNav onLoad={value.navbarToggle}>
+        <LogoLink to="/home">
           <img src={logo} alt="logo"/>
         </LogoLink>
-        <StyledLink onClick={value.hideNavbar} to="/home">
+        <StyledLink to="/home">
           Home
         </StyledLink>
-        <StyledLink onClick={value.showNavbar} to="/shop">
+        <StyledLink to="/shop">
           Shop
         </StyledLink>
-        <StyledLink onClick={value.showNavbar} to="/map">
+        <StyledLink to="/map">
           Map
         </StyledLink>
-        <StyledLink onClick={value.showNavbar} to="/contact">
+        <StyledLink to="/contact">
           Contact
         </StyledLink>
       </StyledNav>

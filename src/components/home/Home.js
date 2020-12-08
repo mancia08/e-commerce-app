@@ -34,10 +34,10 @@ const Home = () => (
                   <p>{textData.login.password}</p>
                   <input onChange={value.password} value={value.state.password}></input>
                   <button onClick={value.login}>{textData.login.submit}</button>
-                  <Link to="/contact" onClick={value.showNavbar}>
+                  <Link to="/contact">
                     <h5>{textData.login.register}</h5>
                   </Link>
-                  <Link to="/contact" onClick={value.showNavbar}>
+                  <Link to="/contact">
                     <h5>{textData.login.text1}</h5>
                   </Link>
                   <a href="https://www.google.com" target="_blank">
@@ -60,13 +60,13 @@ const Home = () => (
           <h2>{textData.homepage.title2}</h2>
           <h2>{textData.homepage.title3}</h2>
         </div>
-        <Link onClick={value.showNavbar} to="/shop">
+        <Link to="/shop">
           <Button text={textData.buttons.homepage.first} />
         </Link>
-        <Link onClick={value.showNavbar} to="/map">
+        <Link to="/map">
           <Button text={textData.buttons.homepage.second} />
         </Link>
-        <Link onClick={value.showNavbar} to="/contact">
+        <Link to="/contact">
           <Button text={textData.buttons.homepage.third} />
         </Link>
       </main>

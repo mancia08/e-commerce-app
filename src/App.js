@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Navbar from "./components/atoms/navbar";
 import Home from "./components/home";
-import Logo from "./components/atoms/logo";
 import Shop from "./components/shop";
 import Map from "./components/map";
 import Contact from "./components/contact";
@@ -30,7 +28,6 @@ const App = () => {
     <ShopContext.Consumer>
       {(value) => (
         <>
-          {!value.state.isHomePage && <Navbar />}
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route path="/home" render={() => <Home />} />

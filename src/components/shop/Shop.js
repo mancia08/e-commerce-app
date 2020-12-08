@@ -8,6 +8,7 @@ import ShopIconWrap from "./shop-icon-wrap";
 import Spinner from "../atoms/spinner";
 import { MyAPIContext } from "./../../context/APIContext";
 import "./Shop.css";
+import Navbar from "./../atoms/navbar/Navbar"
 import SingleShopCard from "./remote-shop/SingleShopCard";
 
 const Shop = (props) => (
@@ -16,6 +17,8 @@ const Shop = (props) => (
       value.state.loading ? (
         <Spinner />
       ) : (
+        <>
+        <Navbar/>
         <Switch>
           <Route exact path="/shop">
             <div className="shop_container">
@@ -64,7 +67,7 @@ const Shop = (props) => (
               const shop = res[1];
               const index = res[2];
               return (
-                <>
+                <> 
                   <SingleShopCard
                     name={value.state.items[category].shops[shop][index].name}
                     key={props.index}
@@ -76,6 +79,7 @@ const Shop = (props) => (
             }}
           />
         </Switch>
+        </>
       )
     }
   </MyAPIContext.Consumer>

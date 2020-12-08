@@ -5,7 +5,6 @@ export const ShopContext = React.createContext();
 
 class ShopProvider extends Component {
   state = {
-    isHomePage: true,
     homeIconClicked: false,
     isLoggedIn: false,
     username: "",
@@ -13,29 +12,21 @@ class ShopProvider extends Component {
     loginFailed: false,
   };
 
-  /*NAVBAR TOGGLE*/
-  showNavbar = () => {
-  this.setState({ isHomePage: false });
-  };
-  hideNavbar = () => this.setState({ isHomePage: true });
+  /*ACCOUNT ICON TOGGLE*/
   homeIconToggle = () =>
     this.setState({ homeIconClicked: !this.state.homeIconClicked });
-    /*something like this onload?*/
- /*    navbarToggle = () =>
-    window.location.pathname!==http://localhost:3000/ ? this.setState({isHomePage: true}) : this.setState({isHomePage: false}) */
-    
-    /* V2 */
-    /* navbarToggle = () => {window.location.pathname !== "/" || window.location.pathname !== "/home" ? this.setState({isHomePage : false}) : this.setState({isHomePage : true})
-  } */
+
   /*LOGIN AND LOGOUT LOGIC*/
-  username = (event) => this.setState({ username: event.target.value });
-  password = (event) => this.setState({ password: event.target.value });
+  username = (event) =>
+    this.setState({ username: event.target.value, loginFailed: false });
+  password = (event) =>
+    this.setState({ password: event.target.value, loginFailed: false });
   login = () => {
     const account = loginData.filter(
       (pizza) => pizza.user === this.state.username
     );
     account.length === 0
-      ? this.setState({ loginFailed: true, username:"", password:"" })
+      ? this.setState({ loginFailed: true, username: "", password: "" })
       : account[0].password === this.state.password
       ? this.setState({
           isLoggedIn: true,
@@ -54,9 +45,6 @@ class ShopProvider extends Component {
       <ShopContext.Provider
         value={{
           state: this.state,
-          showNavbar: this.showNavbar,
-          hideNavbar: this.hideNavbar,
-          navbarToggle: this. navbarToggle,
           homeIconToggle: this.homeIconToggle,
           login: this.login,
           logout: this.logout,
