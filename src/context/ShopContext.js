@@ -5,10 +5,13 @@ export const ShopContext = React.createContext();
 class ShopProvider extends Component {
   state = {
     isHomePage: true,
+    homeIconClicked: false,
+    isLoggedIn: false
   };
 
   showNavbar = () => this.setState({isHomePage: false})
   hideNavbar = () => this.setState({isHomePage:true})
+  homeIconToggle = () => this.setState({homeIconClicked: !this.state.homeIconClicked})
 
   render() {
     return (
@@ -16,7 +19,8 @@ class ShopProvider extends Component {
         value={{
           state: this.state,
           showNavbar: this.showNavbar,
-          hideNavbar: this.hideNavbar
+          hideNavbar: this.hideNavbar,
+          homeIconToggle: this.homeIconToggle
         }}
       >
         {this.props.children}
