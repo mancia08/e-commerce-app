@@ -13,19 +13,19 @@ class MyAPIProvider extends Component {
         shops: [
           [
             {
-              name: "singleItem.Item.Title",
+              name: "singleItem.Item.Title1",
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
             },
             {
-              name: "singleItem.Item.Title",
+              name: "singleItem.Item.Title2",
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
             },
             {
-              name: "singleItem.Item.Title",
+              name: "singleItem.Item.Title3",
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
@@ -33,19 +33,19 @@ class MyAPIProvider extends Component {
           ],
           [
             {
-              name: "singleItem.Item.Title",
+              name: "singleItem.Item.Title4",
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
             },
             {
-              name: "singleItem.Item.Title",
+              name: "singleItem.Item.Title5",
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
             },
             {
-              name: "singleItem.Item.Title",
+              name: "singleItem.Item.Title6",
               imageS: "singleItem.Item.GalleryURL",
               imageL: "singleItem.Item.PictureURL[0]",
               price: "singleItem.Item.ConvertedCurrentPrice.Value",
