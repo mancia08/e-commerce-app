@@ -366,7 +366,7 @@ class MyAPIProvider extends Component {
       },
     ],
     pathLinks: [],
-    loding: false,
+    loding: false,  //change to true when componentDidMount
   };
 
    /* componentDidMount() {

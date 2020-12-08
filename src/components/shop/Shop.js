@@ -9,16 +9,19 @@ import Spinner from "../atoms/spinner";
 import { MyAPIContext } from "./../../context/APIContext";
 import "./Shop.css";
 import Navbar from "./../atoms/navbar/Navbar"
+import SuperNav from "./../atoms/SuperNav/SuperNav"
 import SingleShopCard from "./remote-shop/SingleShopCard";
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
     {(value) =>
-      value.state.loading ? (
+    <>
+    <SuperNav/>
+    <Navbar/>
+      {value.state.loading ? (
         <Spinner />
       ) : (
         <>
-        <Navbar/>
         <Switch>
           <Route exact path="/shop">
             <div className="shop_container">
@@ -79,7 +82,8 @@ const Shop = (props) => (
           />
         </Switch>
         </>
-      )
+      )}
+      </>
     }
   </MyAPIContext.Consumer>
 );
