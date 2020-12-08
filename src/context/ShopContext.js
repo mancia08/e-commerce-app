@@ -7,11 +7,16 @@ class ShopProvider extends Component {
     isHomePage: true,
   };
 
+  showNavbar = () => this.setState({isHomePage: false})
+  hideNavbar = () => this.setState({isHomePage:true})
+
   render() {
     return (
       <ShopContext.Provider
         value={{
           state: this.state,
+          showNavbar: this.showNavbar,
+          hideNavbar: this.hideNavbar
         }}
       >
         {this.props.children}
