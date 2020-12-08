@@ -2,3 +2,7 @@
     background-color: aqua;
     width: 300px;
 }
+
+.single-card_wrap img {
+    width: 300px;
+}
