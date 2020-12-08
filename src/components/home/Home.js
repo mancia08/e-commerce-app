@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "./../../context/ShopContext";
 import userlogged from "./../../styles/images/userlogged.jpg";
 import userunknown from "./../../styles/images/userunknown.jpg";
+import logo from "./../../styles/images/logo.jpg"
 
 const Home = () => (
   <ShopContext.Consumer>
@@ -13,7 +14,7 @@ const Home = () => (
         <img src={banner} alt="banner" />
 
         <div>
-          {value.state.homeIconClicked ? (
+          {!value.state.homeIconClicked ? (
             <img
               src={value.state.isLoggedIn ? userlogged : userunknown}
               alt="user"
@@ -21,7 +22,18 @@ const Home = () => (
             />
           ) : (
             <div>
+              <img src={logo} alt="logo"/>
               <button onClick={value.homeIconToggle}>X</button>
+              <h1>{textData.login.title}</h1>
+              <p>{textData.login.user}</p>
+              <input></input>
+              <p>{textData.login.password}</p>
+              <input></input>
+              <h3>{textData.login.submit}</h3>
+              <h3>{textData.login.register}</h3>
+              <h5>{textData.login.text1}</h5>
+              <h5>{textData.login.text2}</h5>
+              <h5>{textData.login.text3}</h5>
             </div>
           )}
         </div>
