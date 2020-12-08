@@ -8,10 +8,6 @@ import Contact from "./components/contact";
 import { ShopContext } from "./context/ShopContext";
 
 const App = () => {
-  const [logo, setLogo] = useState({
-    title: "This is logo component",
-  });
-
   const [shop, setShop] = useState({
     title: "This is shop component",
   });

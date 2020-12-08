@@ -5,7 +5,7 @@ export const ShopContext = React.createContext();
 
 class ShopProvider extends Component {
   state = {
-    homeIconClicked: false,
+    loginIconClicked: false,
     isLoggedIn: false,
     username: "",
     password: "",
@@ -15,8 +15,9 @@ class ShopProvider extends Component {
   };
 
   /*ACCOUNT ICON TOGGLE*/
-  homeIconToggle = () =>
-    this.setState({ homeIconClicked: !this.state.homeIconClicked });
+  loginIconToggle = () =>
+    this.setState({ loginIconClicked: !this.state.loginIconClicked });
+    closeLogin = () => this.setState({loginIconClicked: false})
 
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) =>
@@ -32,7 +33,7 @@ class ShopProvider extends Component {
       : account[0].password === this.state.password
       ? this.setState({
           isLoggedIn: true,
-          homeIconClicked: false,
+          loginIconClicked: false,
           loginFailer: false,
           username: "",
           password: ""
@@ -42,7 +43,7 @@ class ShopProvider extends Component {
   logout = () =>
     this.setState({
       isLoggedIn: !this.state.isLoggedIn,
-      homeIconClicked: !this.state.homeIconClicked,
+      loginIconClicked: !this.state.loginIconClicked,
     });
 
     /*ADD STUFF TO CART LOGIC HERE*/
@@ -57,11 +58,12 @@ class ShopProvider extends Component {
       <ShopContext.Provider
         value={{
           state: this.state,
-          homeIconToggle: this.homeIconToggle,
+          loginIconToggle: this.loginIconToggle,
           login: this.login,
           logout: this.logout,
           username: this.username,
           password: this.password,
+          closeLogin: this.closeLogin
         }}
       >
         {this.props.children}
