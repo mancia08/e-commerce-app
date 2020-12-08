@@ -2,9 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import ReactDOM from "react-dom";
 import mapboxgl from 'mapbox-gl';
 
-import Marker from './marker';
 import Popup from './popup'
-import fetchFakeData from './api/fetchFakeData';
+import fakeData from './helper/fakeData';
 
 import './Map.css';
 
@@ -34,35 +33,7 @@ const Map = () => {
                         'type': 'geojson',
                         'data': {
                             'type': 'FeatureCollection',
-                            'features': [
-                                {
-                                    'type': 'Feature',
-                                    'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [
-                                            -0.0719384,
-                                            51.5289945
-                                        ]
-                                    },
-                                    'properties': {
-                                        'name': 'lalala',
-                                        'title': 'Teiko',
-                                        'description':'hjgdjdghjdjjd'
-                                    }
-                                },
-                                {
-                                    'type': 'Feature',
-                                    'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [-0.1428859, 51.5539548]
-                                    },
-                                    'properties': {
-                                        'name': 'lalala',
-                                        'title': 'Llala Zheniya',
-                                        'description':'hjgdjdghjdjjd'
-                                    }
-                                }
-                            ]
+                            'features': fakeData().flat()
                         }
                     });
                     map.addLayer({
@@ -83,16 +54,6 @@ const Map = () => {
                 }
             );
         });
-
-        // map.on('moveend', async () => {
-        //     // get new center coordinates
-        //     const { lng, lat } = map.getCenter();
-        //     // fetch new data
-        //     const results = await fetchFakeData(lng, lat);
-        //     // update "random-points-data" source with new data
-        //     // all layers that consume the "random-points-data" data source will be updated automatically
-        //     map.getSource('random-points-data').setData(results);
-        // });
 
         map.on('click', 'random-points-layer', e => {
             if (e.features.length) {
