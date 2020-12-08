@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Navbar from "./components/atoms/navbar";
 import Home from "./components/home";
-import Logo from "./components/atoms/logo";
 import Shop from "./components/shop";
 import Map from "./components/map";
 import Contact from "./components/contact";
 import { ShopContext } from "./context/ShopContext";
 
 const App = () => {
-
   const [logo, setLogo] = useState({
     title: "This is logo component",
   });
@@ -31,10 +28,9 @@ const App = () => {
     <ShopContext.Consumer>
       {(value) => (
         <>
-          {!value.state.isHomePage && <Navbar />}
           <Switch>
-            <Route exact path="/" render={() => <Home/>} />
-            <Route path="/home" render={() => <Home/>} />
+            <Route exact path="/" render={() => <Home />} />
+            <Route path="/home" render={() => <Home />} />
 
             <Route
               path="/shop"

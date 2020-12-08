@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/App.css";
 import MyAPIProvider from "./context/APIContext";
-import ShopProvider from "./context/ShopContext";
+import ShopProvider, { ShopContext } from "./context/ShopContext";
 
 ReactDOM.render(
   <React.StrictMode>
