@@ -226,7 +226,7 @@ class MyAPIProvider extends Component {
         .then(categoryData => categoryData.findItemsByCategoryResponse[0].searchResult[0].item)
         .then(result => { //second API call (getting data info from item ID)
           const dataPromisesArray = result.map(items =>
-            console.log(`${itemUrl}${items.itemId[0]}`)
+            fetch(`${itemUrl}${items.itemId}`)
               .then(response => response.json()));
           return Promise.all(dataPromisesArray);
         })
