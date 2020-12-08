@@ -1,0 +1,8 @@
+.marker {
+    background-image: url('https://toppng.com/uploads/preview/map-marker-pin-icon-symbol-vector-black-place-icon-11553495811735w0ozyjq.png');
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
