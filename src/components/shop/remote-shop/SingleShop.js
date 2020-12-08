@@ -9,6 +9,7 @@ const SingleShop = (props) => (
         {!value.state.loading && value.state.items[props.category - 1].shops[props.shop].map(
           (shop, index) => (
             <SingleShopCard
+              path={`/shop/category${props.category}/${props.shop}/${index}`}
               key={index}
               imageS={shop.imageL}
               name={shop.name}
