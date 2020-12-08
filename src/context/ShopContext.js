@@ -22,7 +22,11 @@ class ShopProvider extends Component {
     this.setState({ homeIconClicked: !this.state.homeIconClicked });
     /*something like this onload?*/
  /*    navbarToggle = () =>
-    window.location.href==="http://localhost:3000/" ? this.setState({isHomePage: true}) : this.setState({isHomePage: false}) */
+    window.location.pathname!==http://localhost:3000/ ? this.setState({isHomePage: true}) : this.setState({isHomePage: false}) */
+    
+    /* V2 */
+    /* navbarToggle = () => {window.location.pathname !== "/" || window.location.pathname !== "/home" ? this.setState({isHomePage : false}) : this.setState({isHomePage : true})
+  } */
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) => this.setState({ username: event.target.value });
   password = (event) => this.setState({ password: event.target.value });
