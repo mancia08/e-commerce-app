@@ -1,7 +1,5 @@
-import Button from "./../atoms/button/Button";
 import Banner from "../atoms/banner/Banner";
 import { textData } from "./../../data/textData";
-import { Link } from "react-router-dom";
 import { ShopContext } from "./../../context/ShopContext";
 import SuperNav from "./../atoms/SuperNav";
 import Navbar from "./../atoms/navbar/Navbar";
