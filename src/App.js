@@ -34,35 +34,42 @@ const App = () => {
 
   return (
     <MyAPIProvider>
-    <Navbar />
-    <Switch>
-      <Route
-        exact path='/'
-        render={props =>
-          <Home {...props} title={home.title} />
-        }
-      />
-      <Route path='/logo'
-        render={props =>
-          <Logo {...props} title={logo.title} />
-        }
-      />
-      <Route path='/shop'
-        render={props =>
-          <Shop {...props} title={shop.title} />
-        }
-      />
-      <Route path='/map'
-        render={props =>
-          <Map {...props} title={map.title} />
-        }
-      />
-      <Route path='/contact'
-        render={props =>
-          <Contact {...props} title={contact.title} />
-        }
-      />
-    </Switch>
+      <Navbar />
+      <Switch>
+          <Route
+            exact path='/'
+            render={props =>
+              <Home {...props} title={home.title} />
+            }
+          />
+        <Route
+          path='/home'
+          render={props =>
+            <Home {...props} title={home.title} />
+          }
+        />
+        {/* Not needed path 
+        <Route path='/logo'
+          render={props =>
+            <Logo {...props} title={logo.title} />
+          } */}
+        />
+        <Route path='/shop'
+          render={props =>
+            <Shop {...props} title={shop.title} />
+          }
+        />
+        <Route path='/map'
+          render={props =>
+            <Map {...props} title={map.title} />
+          }
+        />
+        <Route path='/contact'
+          render={props =>
+            <Contact {...props} title={contact.title} />
+          }
+        />
+      </Switch>
     </MyAPIProvider>
   )
 };

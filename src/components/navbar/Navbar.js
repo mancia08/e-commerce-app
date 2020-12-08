@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { StyledNav, StyledLink, LogoLink } from '../../styles/styles'
+
 
 const Navbar = () => (
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/logo'>Logo</Link></li>
-          <li><Link to='/shop'>Shop</Link></li>
-          <li><Link to='/map'>Map</Link></li>
-          <li><Link to='/contact'>Contact</Link></li>
-        </ul>
+  <StyledNav>
+    <LogoLink to='/home'>Find an image here!</LogoLink>
+    <StyledLink to='/home'>Home</StyledLink>
+    <StyledLink to='/shop'>Shop</StyledLink>
+    <StyledLink to='/map'>Map</StyledLink>
+    <StyledLink to='/contact'>Contact</StyledLink>
+  </StyledNav>
 )
 
 export default Navbar;

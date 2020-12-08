@@ -1,0 +1,31 @@
+/* 
+========================
+Setting root variables
+========================
+*/
+
+* {
+    /* Colors */
+    --primary: #33A0FF;
+    --secondary: #33A0FF40;
+    --light: #FFFFFF;
+    --dark: #000000;
+    /* Fonts */
+    --font-common: monospace;
+    --font-fallback: sans-serif;
+    /* Font-sizes */
+    --font-size-18: 18px;
+    --font-size-24: 24px;
+    --font-size-30: 30px;
+    --font-size-48: 48px;
+    /* Spacers */
+    --spacer-8: 8px;
+    --spacer-double: calc(var(--spacer-8) * 2);
+    --spacer-triple: calc(var(--spacer-8) * 3);
+    --spacer-quad: calc(var(--spacer-8) * 4);
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-common), var(--font-fallback);
+}
