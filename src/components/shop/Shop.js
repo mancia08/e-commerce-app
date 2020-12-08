@@ -39,40 +39,40 @@ const Shop = (props) => (
             </div>
           </Route>
 
-        {
-          value.state.items.map((category, categoryIndex) =>
-            category.shops.map((shops, shopsIndex) => {
-              let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`
-              return <Route exact path={link}>
-                <SingleShop category={categoryIndex + 1} shop={shopsIndex} />
-              </Route>
-            }
+          {
+            value.state.items.map((category, categoryIndex) =>
+              category.shops.map((shops, shopsIndex) => {
+                let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`
+                return <Route exact path={link}>
+                  <SingleShop category={categoryIndex + 1} shop={shopsIndex} />
+                </Route>
+              }
+              )
             )
-          )
 
-        }
-
-        <Route exact={props.match.url + "/index"} render={
-          () => {
-            const regExp = /\d+\/\d+\/\d+/;
-            let res = props.location.pathname.match(regExp)[0].split('/').map(el => Number(el));
-            const category = res[0] - 1;
-            const shop = res[1];
-            const index = res[2];
-            return (
-              <>
-              <SingleShopCard
-              name={value.state.items[category].shops[shop][index].name}
-              imageS={value.state.items[category].shops[shop][index].imageS}
-              key={props.index}
-              price={value.state.items[category].shops[shop][index].price}
-            />
-            <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
-            </>
-            )
           }
-        } />
-      </Switch>
+
+          <Route render={
+            () => {
+              const regExp = /\d+\/\d+\/\d+/;
+              let res = props.location.pathname.match(regExp)[0].split('/').map(el => Number(el));
+              const category = res[0] - 1;
+              const shop = res[1];
+              const index = res[2];
+              return (
+                <>
+                  <SingleShopCard
+                    name={value.state.items[category].shops[shop][index].name}
+                    key={props.index}
+                    price={value.state.items[category].shops[shop][index].price}
+                    path={props.match.url}
+                  />
+                  <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
+                </>
+              )
+            }
+          } />
+        </Switch>
     )
     }
   </MyAPIContext.Consumer>

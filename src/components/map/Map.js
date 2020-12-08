@@ -18,62 +18,59 @@ const Map = () => {
         const map = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-104.9876, 39.7405],
+            center: [-0.118092, 51.509865],
             zoom: 12.5,
         });
 
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
         map.on('load', function () {
-            // Add an image to use as a custom marker
             map.loadImage(
                 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
                 function (error, image) {
                     if (error) throw error;
                     map.addImage('custom-marker', image);
-                    // Add a GeoJSON source with 2 points
                     map.addSource('random-points-data', {
                         'type': 'geojson',
                         'data': {
                             'type': 'FeatureCollection',
                             'features': [
                                 {
-                                    // feature for Mapbox DC
                                     'type': 'Feature',
                                     'geometry': {
                                         'type': 'Point',
                                         'coordinates': [
-                                            -77.03238901390978,
-                                            38.913188059745586
+                                            -0.0719384,
+                                            51.5289945
                                         ]
                                     },
                                     'properties': {
-                                        'title': 'Hey Teiko!'
+                                        'name': 'lalala',
+                                        'title': 'Teiko',
+                                        'description':'hjgdjdghjdjjd'
                                     }
                                 },
                                 {
-                                    // feature for Mapbox SF
                                     'type': 'Feature',
                                     'geometry': {
                                         'type': 'Point',
-                                        'coordinates': [-122.414, 37.776]
+                                        'coordinates': [-0.1428859, 51.5539548]
                                     },
                                     'properties': {
-                                        'title': 'Llala Zheniya'
+                                        'name': 'lalala',
+                                        'title': 'Llala Zheniya',
+                                        'description':'hjgdjdghjdjjd'
                                     }
                                 }
                             ]
                         }
                     });
-
-                    // Add a symbol layer
                     map.addLayer({
                         'id': 'random-points-layer',
                         'type': 'symbol',
                         'source': 'random-points-data',
                         'layout': {
                             'icon-image': 'custom-marker',
-                            // get the title name from the source's "title" property
                             'text-field': ['get', 'title'],
                             'text-font': [
                                 'Open Sans Semibold',
@@ -100,13 +97,21 @@ const Map = () => {
         map.on('click', 'random-points-layer', e => {
             if (e.features.length) {
                 const feature = e.features[0];
-                // create popup node
                 const popupNode = document.createElement('div');
                 ReactDOM.render(<Popup feature={feature} />, popupNode);
-                // set popup on map
                 popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(map);
             }
         });
+
+        map.on('mouseenter', 'random-points-layer', e => {
+            if (e.features.length) {
+              map.getCanvas().style.cursor = 'pointer';
+            }
+          });
+          
+          map.on('mouseleave', 'random-points-layer', () => {
+            map.getCanvas().style.cursor = '';
+          });
 
         return () => map.remove();
     }, []);
