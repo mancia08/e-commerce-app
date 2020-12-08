@@ -1,11 +1,11 @@
 import { Switch, Route, Link } from "react-router-dom";
 import ShopBanner from "./shop-banner";
 import SingleShop from "./remote-shop/SingleShop";
-import jewerly from "./shop-banner/jewelry.png";
-import jacket from "./shop-banner/jacket.png";
-import laptop from "./shop-banner/laptop.png";
+import jewerly from "./../../styles/images/jewelry.png";
+import jacket from "./../../styles/images/jacket.png";
+import laptop from "./../../styles/images/laptop.png";
 import ShopIconWrap from "./shop-icon-wrap";
-import Spinner from '../spinner'
+import Spinner from '../atoms/spinner'
 import { MyAPIContext } from "./../../context/APIContext"
 import "./Shop.css";
 import SingleShopCard from "./remote-shop/SingleShopCard";
