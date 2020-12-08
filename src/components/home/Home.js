@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "./../../context/ShopContext";
 import userlogged from "./../../styles/images/userlogged.jpg";
 import userunknown from "./../../styles/images/userunknown.jpg";
-import logo from "./../../styles/images/logo.jpg"
+import logo from "./../../styles/images/logo.jpg";
 
 const Home = () => (
   <ShopContext.Consumer>
     {(value) => (
       <main>
         <img src={banner} alt="banner" />
-
+        {/* toggle function. icon---login modal */}
         <div>
           {!value.state.homeIconClicked ? (
             <img
@@ -22,18 +22,34 @@ const Home = () => (
             />
           ) : (
             <div>
-              <img src={logo} alt="logo"/>
-              <button onClick={value.homeIconToggle}>X</button>
-              <h1>{textData.login.title}</h1>
-              <p>{textData.login.user}</p>
-              <input></input>
-              <p>{textData.login.password}</p>
-              <input></input>
-              <h3>{textData.login.submit}</h3>
-              <h3>{textData.login.register}</h3>
-              <h5>{textData.login.text1}</h5>
-              <h5>{textData.login.text2}</h5>
-              <h5>{textData.login.text3}</h5>
+              {/* if i am not logged in it shows me the form */}
+              {!value.state.isLoggedIn ? (
+                <>
+                  <img src={logo} alt="logo" />
+                  <button onClick={value.homeIconToggle}>X</button>
+                  <h1>{textData.login.title}</h1>
+                  <p>{textData.login.user}</p>
+                  <input></input>
+                  <p>{textData.login.password}</p>
+                  <input></input>
+                  <button onClick={value.login}>{textData.login.submit}</button>
+                  <Link to="/contact">
+                    <h5>{textData.login.register}</h5>
+                  </Link>
+                  <Link to="/contact">
+                    <h5>{textData.login.text1}</h5>
+                  </Link>
+                  <a href="https://www.google.com" target="_blank">
+                    <h5>{textData.login.text2}</h5>
+                  </a>
+                  <a href="https://www.facebook.com" target="_blank">
+                    <h5>{textData.login.text3}</h5>
+                  </a>
+                </>
+              ) : (
+                /* if im already logged in it shows me a logout button */
+                <button onClick={value.logout}>logout</button>
+              )}
             </div>
           )}
         </div>

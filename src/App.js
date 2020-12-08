@@ -10,7 +10,6 @@ import Contact from "./components/contact";
 import { ShopContext } from "./context/ShopContext";
 
 const App = () => {
-
   const [logo, setLogo] = useState({
     title: "This is logo component",
   });
@@ -32,9 +31,10 @@ const App = () => {
       {(value) => (
         <>
           {!value.state.isHomePage && <Navbar />}
+
           <Switch>
-            <Route exact path="/" render={() => <Home/>} />
-            <Route path="/home" render={() => <Home/>} />
+            <Route exact path="/" render={() => <Home />} />
+            <Route path="/home" render={() => <Home />} />
 
             <Route
               path="/shop"

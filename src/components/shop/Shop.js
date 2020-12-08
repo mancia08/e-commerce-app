@@ -5,15 +5,17 @@ import jewerly from "./../../styles/images/jewelry.png";
 import jacket from "./../../styles/images/jacket.png";
 import laptop from "./../../styles/images/laptop.png";
 import ShopIconWrap from "./shop-icon-wrap";
-import Spinner from '../atoms/spinner'
-import { MyAPIContext } from "./../../context/APIContext"
+import Spinner from "../atoms/spinner";
+import { MyAPIContext } from "./../../context/APIContext";
 import "./Shop.css";
 import SingleShopCard from "./remote-shop/SingleShopCard";
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
-    {value => (
-      value.state.loading ? <Spinner /> :
+    {(value) =>
+      value.state.loading ? (
+        <Spinner />
+      ) : (
         <Switch>
           <Route exact path="/shop">
             <div className="shop_container">
@@ -39,46 +41,47 @@ const Shop = (props) => (
             </div>
           </Route>
 
-        {
-          value.state.items.map((category, categoryIndex) =>
+          {value.state.items.map((category, categoryIndex) =>
             category.shops.map((shops, shopsIndex) => {
-              let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`
-              return <Route exact path={link}>
-                <SingleShop category={categoryIndex + 1} shop={shopsIndex} />
-              </Route>
-            }
-            )
-          )
+              let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`;
+              return (
+                <Route exact path={link}>
+                  <SingleShop category={categoryIndex + 1} shop={shopsIndex} />
+                </Route>
+              );
+            })
+          )}
 
-        }
-
-        <Route exact={props.match.url + "/index"} render={
-          () => {
-            const regExp = /\d+\/\d+\/\d+/;
-            let res = props.location.pathname.match(regExp)[0].split('/').map(el => Number(el));
-            const category = res[0] - 1;
-            const shop = res[1];
-            const index = res[2];
-            return (
-              <>
-              <SingleShopCard
-              name={value.state.items[category].shops[shop][index].name}
-              key={props.index}
-              price={value.state.items[category].shops[shop][index].price}
-            />
-            <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
-            </>
-            )
-          }
-        } />
-      </Switch>
-    )
+          <Route
+            exact={props.match.url + "/index"}
+            render={() => {
+              const regExp = /\d+\/\d+\/\d+/;
+              let res = props.location.pathname
+                .match(regExp)[0]
+                .split("/")
+                .map((el) => Number(el));
+              const category = res[0] - 1;
+              const shop = res[1];
+              const index = res[2];
+              return (
+                <>
+                  <SingleShopCard
+                    name={value.state.items[category].shops[shop][index].name}
+                    key={props.index}
+                    price={value.state.items[category].shops[shop][index].price}
+                  />
+                  <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
+                </>
+              );
+            }}
+          />
+        </Switch>
+      )
     }
   </MyAPIContext.Consumer>
-
 );
 
-export default Shop;/* 
+export default Shop; /* 
 
 
 import { Switch, Route, Redirect } from "react-router-dom";

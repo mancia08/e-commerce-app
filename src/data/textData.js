@@ -9,9 +9,10 @@ export const textData = {
     user: "User",
     password: "password",
     register: "Register",
+    submit: "LOGIN!",
     text1: "Forgotten your password?",
     text2: "Login with Google",
-    text3: "Login with Facebook"
+    text3: "Login with Facebook",
   },
   buttons: {
     homepage: {
