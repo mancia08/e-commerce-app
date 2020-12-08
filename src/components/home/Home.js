@@ -28,10 +28,11 @@ const Home = () => (
                   <img src={logo} alt="logo" />
                   <button onClick={value.homeIconToggle}>X</button>
                   <h1>{textData.login.title}</h1>
+                  {value.state.loginFailed && <p>{textData.login.fail}</p>}
                   <p>{textData.login.user}</p>
-                  <input onChange={value.username}></input>
+                  <input onChange={value.username} value={value.state.username}></input>
                   <p>{textData.login.password}</p>
-                  <input onChange={value.password}></input>
+                  <input onChange={value.password} value={value.state.password}></input>
                   <button onClick={value.login}>{textData.login.submit}</button>
                   <Link to="/contact">
                     <h5>{textData.login.register}</h5>

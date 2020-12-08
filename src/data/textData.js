@@ -13,6 +13,7 @@ export const textData = {
     text1: "Forgotten your password?",
     text2: "Login with Google",
     text3: "Login with Facebook",
+    fail: "Login failed. Please try again"
   },
   buttons: {
     homepage: {
