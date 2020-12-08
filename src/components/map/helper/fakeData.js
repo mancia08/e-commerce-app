@@ -18,12 +18,11 @@ const fakeData = () => {
                     'id': index,
                     'name': element.name,
                     'title': element.name,
-                    'description':`
-                        ${element.email}, 
-                        ${element.phone}, 
-                        ${element.address}, 
-                        ${element.address2}, 
-                        ${element.address3}`,
+                    'description': element.email,
+                    'phone': element.phone,
+                    'address': element.address,
+                    'address2': element.address2,
+                    'address3': element.address3
                 },
             })
         })
