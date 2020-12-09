@@ -34,19 +34,19 @@ const Shop = (props) => (
                 text="Lorem lorem lorem lorem lorem lorem"
                 image={jewerly}
               />
-              <ShopIconWrap category="category1" />
+              <ShopIconWrap category="category1" id="0" />
               <ShopBanner
                 title="LOCAL CLOTHES SHOPS"
                 text="Lorem lorem lorem lorem lorem lorem"
                 image={jacket}
               />
-              <ShopIconWrap category="category2" />
+              <ShopIconWrap category="category2" id="1"/>
               <ShopBanner
                 title="LOCAL ELECTRONIC SHOPS"
                 text="Lorem lorem lorem lorem lorem lorem"
                 image={laptop}
               />
-              <ShopIconWrap category="category3" />
+              <ShopIconWrap category="category3" id="2"/>
             </div>
           </Route>
 
