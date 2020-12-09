@@ -1,7 +1,7 @@
 import React from "react";
 import { ShopContext } from "../../../context/ShopContext";
-import { StyledNav, StyledLink, LogoLink } from "../../../styles/styles";
-import logo from "./../../../styles/images/logo.jpg";
+import { StyledNav, StyledLink, LogoLink, LogoImg } from "../../../styles/styles";
+import logo from "./../../../styles/images/logonorris.png";
 
 const Navbar = (props) => (
   <ShopContext.Consumer>
@@ -10,21 +10,21 @@ const Navbar = (props) => (
         {props.type !== "home" && (
           <>
             <LogoLink to="/home" onClick={value.closeLogin}>
-              <img src={logo} alt="logo" />
+              <LogoImg src={logo} alt="logo" />
             </LogoLink>
             <StyledLink to="/home" onClick={value.closeLogin}>
-              Home
+              HOME
             </StyledLink>
           </>
         )}
         <StyledLink to="/shop" onClick={value.closeLogin}>
-          Shop
+          SHOP
         </StyledLink>
         <StyledLink to="/map" onClick={value.closeLogin}>
-          Map
+          MAP
         </StyledLink>
         <StyledLink to="/contact" onClick={value.closeLogin}>
-          Contact
+          CONTACT
         </StyledLink>
       </StyledNav>
     )}
