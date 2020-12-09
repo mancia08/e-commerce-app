@@ -59,3 +59,14 @@ export const StyledBtnS = styled.button`
   padding: 0 var(--spacer-double);
 `;
 
+export const HomeModal = styled.div`
+  background-color: yellow;
+`;
+
+export const LoginPopUp = styled.div`
+  background-color: blue;
+`;
+
+export const LogoutPopUp = styled.div`
+  background-color: blue;
+`;

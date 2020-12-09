@@ -28,7 +28,6 @@ const Shop = (props) => (
         <Switch>
           <Route exact path="/shop">
             <div className="shop_container">
-              <h1>{props.title}</h1>
               <ShopBanner
                 title="LOCAL JEWELRY SHOPS"
                 text="Lorem lorem lorem lorem lorem lorem"
