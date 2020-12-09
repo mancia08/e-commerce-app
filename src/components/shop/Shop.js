@@ -12,13 +12,15 @@ import Navbar from "./../atoms/navbar/Navbar"
 import SuperNav from "./../atoms/SuperNav/SuperNav"
 import SingleShopCard from "./remote-shop/SingleShopCard";
 
-// import ButtonS from "./../atoms/button/ButtonS"
+import Button from "./../atoms/button/Button"
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
     {(value) =>
     <>
-    {/* <ButtonS text='Button'/> */}
+
+    <Button text='Button'/>
+
     <SuperNav/>
     <Navbar/>
       {value.state.loading ? (

@@ -35,10 +35,14 @@ export const LogoImg = styled.img`
   height: var(--height-nav);
 `;
 
-export const StyledBtnS = styled.button`
+export const StyledBtn = styled.button`
   font-size: var(--font-size-18);
   line-height: var(--heightS-btn);
   height: var(--heightS-btn);
   padding: 0 var(--spacer-double);
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-radius: var(--spacer-8);
+  border: 1px solid var(--primary);
 `;
 
