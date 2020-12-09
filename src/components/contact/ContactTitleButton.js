@@ -1,6 +1,6 @@
 import ContactImage from "./ContactImage"
 
-import ButtonS from "../atoms/button/ButtonS"
+// import Button from "../atoms/button/Button"
 
 const ContactTitleButton = props => (
     <>
