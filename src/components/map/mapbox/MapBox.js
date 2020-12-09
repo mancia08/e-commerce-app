@@ -25,7 +25,6 @@ const Map = props => {
         });
 
         setMap(map);
-        console.log(myMap)
 
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
@@ -39,27 +38,6 @@ const Map = props => {
         stores.features.map((store, i) => {
             return store.properties.key = i;
         });
-
-
-
-        // function flyToStore(currentFeature) {
-        //     map.flyTo({
-        //         center: currentFeature.geometry.coordinates,
-        //         zoom: 15
-        //     });
-        // }
-
-        // function createPopUp(currentFeature) {
-        //     var popUps = document.getElementsByClassName('mapboxgl-popup');
-        //     /** Check if there is already a popup on the map and if so, remove it */
-        //     if (popUps[0]) popUps[0].remove();
-
-        //     var popup = new mapboxgl.Popup({ closeOnClick: false })
-        //         .setLngLat(currentFeature.geometry.coordinates)
-        //         .setHTML('<h3>Sweetgreen</h3>' +
-        //             '<h4>' + currentFeature.properties.address + '</h4>')
-        //         .addTo(map);
-        // }
 
 
         //   link.addEventListener('click', function(e){
@@ -77,40 +55,8 @@ const Map = props => {
         //     this.parentNode.classList.add('active');
         //   });
 
-        // const handleClick = (e) => {
-        //     console.log(e.target.id)
-        //     for (let i = 0; i < stores.features.length; i++) {
-        //         if (e.target.id === "listing-" + stores.features[i].properties.key) {
-        //             const clickedListing = stores.features[i].geometry.coordinates;
-        //             myMap.flyTo({
-        //                 center: clickedListing,
-        //                 zoom: 15
-        //             });
-        //             // flyToStore(clickedListing);
-        //             // createPopUp(clickedListing);
-        //         }
-        //     }
-        // }
-
-        // const buildLocationList = () => {
-        //    return  <div id='listings' className='listings'>
-        //             {stores.features.map((store) => {
-        //                 const { key, address, city, phone } = store.properties;
-        //                 return <Tab
-        //                     id={key}
-        //                     address={address}
-        //                     city={city}
-        //                     phone={phone}
-        //                     onClick={handleClick}
-        //                 />
-        //             })}
-        //         </div>
-        // }
-
-
         map.on('load', function () {
             mainMarker.togglePopup();
-            //buildLocationList();
             map.loadImage(
                 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
                 function (error, image) {
@@ -175,11 +121,16 @@ const Map = props => {
                     center: clickedListing,
                     zoom: 15
                 });
-                // createPopUp(clickedListing);
+                const popUps = document.getElementsByClassName('mapboxgl-popup');
+                if (popUps[0]) popUps[0].remove();
+                const popup = new mapboxgl.Popup({ closeOnClick: false })
+                .setLngLat(stores.features[i].geometry.coordinates)
+                .setHTML('<h3>Sweetgreen</h3>' +
+                    '<h4>' + stores.features[i].properties.address + '</h4>')
+                .addTo(myMap);
             }
         }
     }
-
 
     return (
         <div className="stuff_wrap">
