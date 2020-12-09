@@ -57,7 +57,7 @@ export const shopData = [
           address3: "E1 5JP"
         },
         {
-          name: "AIDA Schroditch/",
+          name: "AIDA Schroditch",
           LAT: 51.5265515,
           LON: -0.0804012,
           phone: "+442077392811",

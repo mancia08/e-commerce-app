@@ -3,8 +3,10 @@ import { shopData } from '../../../../data/shopData';
 const fakeData = () => {
 
     const result = shopData.map((el, idx) => {
+        console.log(idx, 'idx')
         let array = [];
         el.shops.map((element, index) => {
+            console.log(index, 'index')
             array.push({
                 'type': 'Feature',
                 'geometry': {
@@ -15,6 +17,7 @@ const fakeData = () => {
                     ]
                 },
                 'properties': {
+                    'category': idx,
                     'id': index,
                     'name': element.name,
                     'title': element.name,
