@@ -2,6 +2,7 @@ import ShopIcon from "../shop-icon";
 import { MyAPIContext } from "../../../context/APIContext";
 import icon from "../shop-icon/Icon.png";
 import "./ShopIconWrap.css";
+import {shopData} from "./../../../data/shopData"
 
 const ShopIconWrap = (props) => (
   <MyAPIContext.Consumer>
@@ -12,8 +13,8 @@ const ShopIconWrap = (props) => (
             path={`/shop/${props.category}/${index}`}
             key={index}
             icon={icon}
-            title="Shop name"
-            text="Shop adress lorem lorem lorem lorem"
+            title={shopData[props.id].shops[index].name}
+            text={`${shopData[props.id].shops[index].address}${shopData[props.id].shops[index].address2} ${shopData[props.id].shops[index].address3} ${shopData[props.id].shops[index].city}`}
           />
         ))}
       </div>
