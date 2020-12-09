@@ -23,7 +23,7 @@ export const StyledText = styled.p`
       : "var(--dark)"};
   font-size: ${(p) =>
     p.size === "S"
-      ? "var(--font-size-18)" 
+      ? "var(--font-size-18)"
       : p.size === "M"
       ? "var(--font-size-24)"
       : p.size === "L"
@@ -36,16 +36,16 @@ export const StyledTextLogin = styled.p`
     p.color === "primary"
       ? "var(--primary)"
       : p.color === "light"
-        ? "var(--light)"
-        : "var(--dark)"};
+      ? "var(--light)"
+      : "var(--dark)"};
   font-size: ${(p) =>
     p.size === "S"
       ? "var(--font-size-18)"
       : p.size === "M"
-        ? "var(--font-size-24)"
-        : p.size === "L"
-          ? "var(--font-size-30)"
-          : "var(--font-size-48)"};
+      ? "var(--font-size-24)"
+      : p.size === "L"
+      ? "var(--font-size-30)"
+      : "var(--font-size-48)"};
   :hover {
     cursor: pointer;
   }
@@ -56,16 +56,16 @@ export const StyledTextCart = styled.p`
     p.color === "primary"
       ? "var(--primary)"
       : p.color === "light"
-        ? "var(--light)"
-        : "var(--dark)"};
+      ? "var(--light)"
+      : "var(--dark)"};
   font-size: ${(p) =>
     p.size === "S"
       ? "var(--font-size-18)"
       : p.size === "M"
-        ? "var(--font-size-24)"
-        : p.size === "L"
-          ? "var(--font-size-30)"
-          : "var(--font-size-48)"};
+      ? "var(--font-size-24)"
+      : p.size === "L"
+      ? "var(--font-size-30)"
+      : "var(--font-size-48)"};
   background-color: var(--red);
   border-radius: 50%;
   text-align: center;
@@ -75,41 +75,42 @@ export const StyledTextCart = styled.p`
 
 // Buttons
 export const StyledBtn = styled.button`
-  height:${(p) =>
+  height: ${(p) =>
     p.size === "S"
-    ? "var(--heightS-btn)"
+      ? "var(--heightS-btn)"
       : p.size === "M"
       ? "var(--heightM-btn)"
-        : p.size === "L"
-        ? "var(--heightL-btn)"
-        : "var(--heightXL-btn)"};
+      : p.size === "L"
+      ? "var(--heightL-btn)"
+      : "var(--heightXL-btn)"};
   color: ${(p) =>
     p.color === "primary"
       ? "var(--primary)"
       : p.color === "light"
-        ? "var(--light)"
-        : "var(--dark)"};
+      ? "var(--light)"
+      : "var(--dark)"};
   font-size: ${(p) =>
     p.size === "S"
       ? "var(--font-size-18)"
       : p.size === "M"
-        ? "var(--font-size-24)"
-        : p.size === "L"
-          ? "var(--font-size-30)"
-          : "var(--font-size-48)"};
+      ? "var(--font-size-24)"
+      : p.size === "L"
+      ? "var(--font-size-30)"
+      : "var(--font-size-48)"};
   line-height: ${(p) =>
     p.size === "S"
       ? "var(--heightS-btn)"
       : p.size === "M"
-        ? "var(--heightM-btn)"
-        : p.size === "L"
-          ? "var(--heightL-btn)"
-          : "var(--heightXL-btn)"};
-  padding: 0 ${(p) =>
-    p.size === "S"
-    ? "var(--spacer-8)"
-      : p.size === "M"
-      ? "var(--spacer-double)"
+      ? "var(--heightM-btn)"
+      : p.size === "L"
+      ? "var(--heightL-btn)"
+      : "var(--heightXL-btn)"};
+  padding: 0
+    ${(p) =>
+      p.size === "S"
+        ? "var(--spacer-8)"
+        : p.size === "M"
+        ? "var(--spacer-double)"
         : p.size === "L"
         ? "var(--spacer-triple)"
         : "var(--spacer-quad)"};
@@ -118,10 +119,10 @@ export const StyledBtn = styled.button`
     p.size === "S"
       ? "var(--spacer-8)"
       : p.size === "M"
-        ? "var(--spacer-double)"
-        : p.size === "L"
-          ? "var(--spacer-triple)"
-          : "var(--spacer-quad)"};
+      ? "var(--spacer-double)"
+      : p.size === "L"
+      ? "var(--spacer-triple)"
+      : "var(--spacer-quad)"};
   border: 1px solid var(--primary);
   :hover {
     background-color: var(--primary);
@@ -130,53 +131,54 @@ export const StyledBtn = styled.button`
 `;
 
 export const StyledBtnX = styled.button`
-  height:${(p) =>
+  height: ${(p) =>
     p.size === "S"
       ? "var(--heightS-btn)"
       : p.size === "M"
-        ? "var(--heightM-btn)"
-        : p.size === "L"
-          ? "var(--heightL-btn)"
-          : "var(--heightXL-btn)"};
+      ? "var(--heightM-btn)"
+      : p.size === "L"
+      ? "var(--heightL-btn)"
+      : "var(--heightXL-btn)"};
   color: ${(p) =>
     p.color === "primary"
       ? "var(--primary)"
       : p.color === "light"
-        ? "var(--light)"
-        : "var(--dark)"};
+      ? "var(--light)"
+      : "var(--dark)"};
   font-size: ${(p) =>
     p.size === "S"
       ? "var(--font-size-18)"
       : p.size === "M"
-        ? "var(--font-size-24)"
-        : p.size === "L"
-          ? "var(--font-size-30)"
-          : "var(--font-size-48)"};
+      ? "var(--font-size-24)"
+      : p.size === "L"
+      ? "var(--font-size-30)"
+      : "var(--font-size-48)"};
   line-height: ${(p) =>
     p.size === "S"
       ? "var(--heightS-btn)"
       : p.size === "M"
-        ? "var(--heightM-btn)"
-        : p.size === "L"
-          ? "var(--heightL-btn)"
-          : "var(--heightXL-btn)"};
-  padding: 0 ${(p) =>
-    p.size === "S"
-      ? "var(--spacer-8)"
-      : p.size === "M"
+      ? "var(--heightM-btn)"
+      : p.size === "L"
+      ? "var(--heightL-btn)"
+      : "var(--heightXL-btn)"};
+  padding: 0
+    ${(p) =>
+      p.size === "S"
+        ? "var(--spacer-8)"
+        : p.size === "M"
         ? "var(--spacer-double)"
         : p.size === "L"
-          ? "var(--spacer-triple)"
-          : "var(--spacer-quad)"};
+        ? "var(--spacer-triple)"
+        : "var(--spacer-quad)"};
   background-color: var(--primary);
   border-radius: ${(p) =>
     p.size === "S"
       ? "var(--spacer-8)"
       : p.size === "M"
-        ? "var(--spacer-double)"
-        : p.size === "L"
-          ? "var(--spacer-triple)"
-          : "var(--spacer-quad)"};
+      ? "var(--spacer-double)"
+      : p.size === "L"
+      ? "var(--spacer-triple)"
+      : "var(--spacer-quad)"};
   border: none;
   :hover {
     color: var(--dark);
@@ -196,7 +198,6 @@ export const LoginPopUp = styled.div`
 export const LogoutPopUp = styled.div`
   background-color: var(--primary);
 `;
-
 
 // Navs & related components
 export const StyledNav = styled.div`
@@ -225,6 +226,20 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
+export const SubMenu = styled.div`
+  display: none;
+  background-color: red;
+  width: 80vw;
+  height: 500px;
+`;
+export const HoverLink = styled(StyledLink)`
+  :hover {
+    ${SubMenu} {
+      display: block;
+    }
+  }
+`;
+
 export const LogoLink = styled(NavLink)`
   margin-right: auto;
 `;
@@ -249,4 +264,3 @@ export const SuperNavImg = styled.img`
   height: var(--heightS-btn);
   cursor: pointer;
 `;
-

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 import {
   StyledNav,
+  SubMenu,
+  HoverLink,
   StyledLink,
   LogoLink,
   LogoImg,
@@ -31,9 +33,10 @@ class Navbar extends Component {
                 </>
               )}
               
-              <StyledLink to="/shop" onClick={value.closeLogin}>
+              <HoverLink to="/shop" onClick={value.closeLogin}>
                 SHOP
-              </StyledLink>
+              </HoverLink>
+              <SubMenu></SubMenu>
               <StyledLink to="/map" onClick={value.closeLogin}>
                 MAP
               </StyledLink>
