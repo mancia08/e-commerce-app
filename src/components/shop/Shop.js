@@ -12,14 +12,11 @@ import Navbar from "./../atoms/navbar/Navbar"
 import SuperNav from "./../atoms/SuperNav/SuperNav"
 import SingleShopCard from "./remote-shop/SingleShopCard";
 
-import Button from "./../atoms/button/Button"
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
     {(value) =>
     <>
-
-    <Button text='Button'/>
 
     <SuperNav/>
     <Navbar/>

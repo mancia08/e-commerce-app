@@ -16,6 +16,20 @@ export const StyledText = styled.p`
       : p.size === "L"
       ? "var(--font-size-30)"
       : "var(--font-size-48)"};
+  line-height: ${(p) =>
+    p.size === "S"
+      ? "var(--heightS-btn)"
+      : p.size === "M"
+        ? "var(--heightM-btn)"
+        : p.size === "L"
+          ? "var(--heightL-btn)"
+          : "var(--heightXL-btn)"};
+  :hover {
+    color: ${(p) =>
+      p.hoverColor === "light"
+        ? "var(--light)"
+        : "var(--primary)"};
+    }
 `;
 
 export const StyledNav = styled.div`
@@ -32,7 +46,7 @@ export const StyledLink = styled(NavLink)`
   font-family: var(--font-common), var(--font-fallback);
   width: 10%;
   text-align: center;
-  line-height: var(--height50-nav);
+  line-height: var(--height-nav);
   text-decoration: none;
   &.active {
     color: var(--primary);
@@ -53,13 +67,42 @@ export const LogoImg = styled.img`
 `;
 
 export const StyledBtn = styled.button`
-  font-size: var(--font-size-18);
-  line-height: var(--heightS-btn);
-  height: var(--heightS-btn);
-  padding: 0 var(--spacer-double);
+  height:${(p) =>
+    p.size === "S"
+    ? "var(--heightS-btn)"
+      : p.size === "M"
+      ? "var(--heightM-btn)"
+        : p.size === "L"
+        ? "var(--heightL-btn)"
+        : "var(--heightXL-btn)"};
+  line-height: ${(p) =>
+    p.size === "S"
+      ? "var(--heightS-btn)"
+      : p.size === "M"
+        ? "var(--heightM-btn)"
+        : p.size === "L"
+          ? "var(--heightL-btn)"
+          : "var(--heightXL-btn)"};
+  padding: 0 ${(p) =>
+    p.size === "S"
+    ? "var(--spacer-8)"
+      : p.size === "M"
+      ? "var(--spacer-double)"
+        : p.size === "L"
+        ? "var(--spacer-triple)"
+        : "var(--spacer-quad)"};
   background-color: var(--secondary);
-  color: var(--primary);
-  border-radius: var(--spacer-8);
+  border-radius: ${(p) =>
+    p.size === "S"
+      ? "var(--spacer-8)"
+      : p.size === "M"
+        ? "var(--spacer-double)"
+        : p.size === "L"
+          ? "var(--spacer-triple)"
+          : "var(--spacer-quad)"};
   border: 1px solid var(--primary);
+  :hover {
+    background-color: var(--primary);
+  }
 `;
 
