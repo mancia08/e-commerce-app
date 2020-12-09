@@ -18,6 +18,8 @@ Setting variables
     --secondary: #33A0FF40;
     --light: #FFFFFF;
     --dark: #000000;
+    --grey: #F0F0F0;
+    --red: #ff0000;
     /* Fonts */
     --font-common: Inder;
     --font-fallback: sans-serif;

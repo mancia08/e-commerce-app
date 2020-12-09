@@ -1,4 +1,4 @@
-const { default: ButtonS } = require("../atoms/button/ButtonS");
+// const { default: ButtonS } = require("../atoms/button/ButtonS");
 
 const ContactForm = props => (
                 <form>

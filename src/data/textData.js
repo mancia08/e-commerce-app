@@ -6,8 +6,8 @@ export const textData = {
   },
   login: {
     title: "Login",
-    user: "User",
-    password: "password",
+    user: "Username",
+    password: "Password",
     register: "Register",
     submit: "LOGIN!",
     text1: "Forgotten your password?",

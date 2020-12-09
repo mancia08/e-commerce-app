@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "./../atoms/navbar/Navbar"
 import SuperNav from "./../atoms/SuperNav"
+import Hr from "../atoms/hr/Hr"
 import ContactForm from "./ContactForm"
 import ContactImage from './ContactImage';
 import ContactTitleButton from './ContactTitleButton';
@@ -38,8 +39,10 @@ class Contact extends Component {
         return (
             <div>
         <SuperNav/>
+        <Hr />
         <Navbar/>
         <h2>Feel free to contact us</h2>
+        
         <ContactTitleButton
             text="Click here for contacting our customer service"
             heading="Did you have any issue with your order?"

@@ -8,19 +8,20 @@ import ShopIconWrap from "./shop-icon-wrap";
 import Spinner from "../atoms/spinner";
 import { MyAPIContext } from "./../../context/APIContext";
 import "./Shop.css";
-import Navbar from "./../atoms/navbar/Navbar"
-import SuperNav from "./../atoms/SuperNav/SuperNav"
+import Navbar from "./../atoms/navbar/Navbar";
+import SuperNav from "./../atoms/SuperNav/SuperNav";
 import SingleShopCard from "./remote-shop/SingleShopCard";
-
-// import ButtonS from "./../atoms/button/ButtonS"
+import Button from "../atoms/button/Button";
+import ButtonX from "../atoms/button/ButtonX";
+import Hr from "../atoms/hr/Hr"
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>
     {(value) =>
     <>
-    {/* <ButtonS text='Button'/> */}
-    <SuperNav/>
-    <Navbar/>
+    <SuperNav />
+    <Hr />
+    <Navbar />
       {value.state.loading ? (
         <Spinner />
       ) : (
