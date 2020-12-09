@@ -49,5 +49,13 @@ export const LogoLink = styled(NavLink)`
 
 export const LogoImg = styled.img`
   width: auto;
-  height: var(--height50-nav);
+  height: var(--height-nav);
 `;
+
+export const StyledBtnS = styled.button`
+  font-size: var(--font-size-18);
+  line-height: var(--heightS-btn);
+  height: var(--heightS-btn);
+  padding: 0 var(--spacer-double);
+`;
+

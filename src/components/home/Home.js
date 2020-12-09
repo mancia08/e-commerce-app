@@ -26,15 +26,15 @@ const Home = () => (
 
         </div>
 
-        {/* <Banner /> */}
-        {/* <SuperNav /> */}
+        <Banner />
+        <SuperNav />
 
-       {/*  <div>
+        <div>
           <h1>{textData.homepage.title1}</h1>
           <h2>{textData.homepage.title2}</h2>
           <h2>{textData.homepage.title3}</h2>
-        </div> */}
-        {/* <Navbar type="home" /> */}
+        </div>
+        <Navbar type="home" />
       </main>
     )}
   </ShopContext.Consumer>
