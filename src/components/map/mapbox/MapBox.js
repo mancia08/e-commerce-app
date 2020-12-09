@@ -29,38 +29,28 @@ const Map = props => {
             color: "#ff6347",
         })
             .setLngLat([-0.118092, 51.509865])
-            .setPopup(new mapboxgl.Popup().setHTML("<h1>We are here!!!</h1>"))
+            .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML("<h1>We are here!!!</h1>"))
             .addTo(map);
 
         stores.features.forEach(function (store, i) {
-            store.properties.id = i;
+            store.properties.key = i;
         });
 
-        function buildLocationList(data) {
-            data.features.forEach(function(store, i){
-              /**
-               * Create a shortcut for `store.properties`,
-               * which will be used several times below.
-              **/
-              var prop = store.properties;
-          
-              /* Add a new listing section to the sidebar. */
-              var listings = document.getElementById('listings');
-              var listing = listings.appendChild(document.createElement('div'));
-              /* Assign a unique `id` to the listing. */
+        const buildLocationList = (data) => {
+            data.features.forEach((store, i) => {
+              const prop = store.properties;
+              const listings = document.getElementById('listings');
+              const listing = listings.appendChild(document.createElement('div'));
               listing.id = "listing-" + prop.id;
-              /* Assign the `item` class to each listing for styling. */
               listing.className = 'item';
-          
-              /* Add the link to the individual listing created above. */
-              var link = listing.appendChild(document.createElement('a'));
+
+              const link = listing.appendChild(document.createElement('a'));
               link.href = '#';
               link.className = 'title';
               link.id = "link-" + prop.id;
               link.innerHTML = prop.address;
           
-              /* Add details to the individual listing. */
-              var details = listing.appendChild(document.createElement('div'));
+              const details = listing.appendChild(document.createElement('div'));
               details.innerHTML = prop.city;
               if (prop.phone) {
                 details.innerHTML += ' · ' + prop.phone;
@@ -142,11 +132,11 @@ const Map = props => {
 
     return (
         <div className="stuff_wrap">
-            <div class='sidebar'>
-                <div class='heading'>
+            <div className='sidebar'>
+                <div className='heading'>
                     <h1>Our locations</h1>
                 </div>
-                <div id='listings' class='listings'></div>
+                <div id='listings' className='listings'></div>
             </div>
             <div className="map-container" ref={mapContainerRef} />
         </div>
