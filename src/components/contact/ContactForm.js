@@ -12,11 +12,11 @@ const ContactForm = props => (
             <input type="text" name="orderID" />
         </label>
         <label>
-            <Text color="dark" size="M" text="Email" />
+            <Text color="dark" size="M" text="Email:" />
             <input type="text" name="email" />
         </label>
         <label>
-            <Text color="dark" size="M" text="Telephone number" />
+            <Text color="dark" size="M" text="Telephone number:" />
             <input type="text" name="telephoneNumber" />
         </label>
         <Button action={props.action} size="M" text="Submit" color="light" />
