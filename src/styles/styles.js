@@ -1,12 +1,29 @@
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+
+export const StyledText = styled.p`
+  color: ${(p) =>
+    p.color === "primary"
+      ? "var(--primary)"
+      : p.color === "light"
+      ? "var(--light)"
+      : "var(--dark)"};
+  font-size: ${(p) =>
+    p.size === "S"
+      ? "var(--font-size-18)"
+      : p.size === "M"
+      ? "var(--font-size-24)"
+      : p.size === "L"
+      ? "var(--font-size-30)"
+      : "var(--font-size-48)"};
+`;
 
 export const StyledNav = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    top: 0;
-    background-color: var(--light);
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+  background-color: var(--light);
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -34,5 +51,3 @@ export const LogoImg = styled.img`
   width: auto;
   height: var(--height50-nav);
 `;
-
-
