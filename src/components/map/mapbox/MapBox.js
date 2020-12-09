@@ -1,14 +1,12 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import ReactDOM from "react-dom";
 import mapboxgl from 'mapbox-gl';
-
-import Popup from './popup'
-import fakeData from './helper/fakeData';
+import Popup from './popup';
+import Tab from './tab';
 
 import { stores } from './helper/fakeData';
 
 import '../Map.css';
-import Tab from './tab';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -16,19 +14,7 @@ const Map = props => {
     const mapContainerRef = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
 
-    const buildLocationList = () => {
-        stores.features.map((store, i) => {
-            // const { key, address, city, phone } = store.properties;
-            console.log(stores)
-            return (<Tab
-                id={store.properties.key}
-                address={store.properties.address}
-                city={store.properties.city}
-                phone={store.properties.phone}
-                onClick={console.log('works')}
-            />)
-        })
-    }
+    const [myMap, setMap] = useState('')
 
     useEffect(() => {
         const map = new mapboxgl.Map({
@@ -37,6 +23,9 @@ const Map = props => {
             center: [-0.118092, 51.509865],
             zoom: 11.4,
         });
+
+        setMap(map);
+        console.log(myMap)
 
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
@@ -47,8 +36,8 @@ const Map = props => {
             .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML("<h1>We are here!!!</h1>"))
             .addTo(map);
 
-        stores.features.forEach(function (store, i) {
-            store.properties.key = i;
+        stores.features.map((store, i) => {
+            return store.properties.key = i;
         });
 
 
@@ -87,6 +76,36 @@ const Map = props => {
         //     }
         //     this.parentNode.classList.add('active');
         //   });
+
+        // const handleClick = (e) => {
+        //     console.log(e.target.id)
+        //     for (let i = 0; i < stores.features.length; i++) {
+        //         if (e.target.id === "listing-" + stores.features[i].properties.key) {
+        //             const clickedListing = stores.features[i].geometry.coordinates;
+        //             myMap.flyTo({
+        //                 center: clickedListing,
+        //                 zoom: 15
+        //             });
+        //             // flyToStore(clickedListing);
+        //             // createPopUp(clickedListing);
+        //         }
+        //     }
+        // }
+
+        // const buildLocationList = () => {
+        //    return  <div id='listings' className='listings'>
+        //             {stores.features.map((store) => {
+        //                 const { key, address, city, phone } = store.properties;
+        //                 return <Tab
+        //                     id={key}
+        //                     address={address}
+        //                     city={city}
+        //                     phone={phone}
+        //                     onClick={handleClick}
+        //                 />
+        //             })}
+        //         </div>
+        // }
 
 
         map.on('load', function () {
@@ -147,6 +166,20 @@ const Map = props => {
         return () => map.remove();
     }, []);
 
+    const handleClick = (e) => {
+        console.log(e.target.id)
+        for (let i = 0; i < stores.features.length; i++) {
+            if (e.target.id === "listing-" + stores.features[i].properties.key) {
+                const clickedListing = stores.features[i].geometry.coordinates;
+                myMap.flyTo({
+                    center: clickedListing,
+                    zoom: 15
+                });
+                // createPopUp(clickedListing);
+            }
+        }
+    }
+
 
     return (
         <div className="stuff_wrap">
@@ -155,14 +188,14 @@ const Map = props => {
                     <h1>Our locations</h1>
                 </div>
                 <div id='listings' className='listings'>
-                    {stores.features.map((store, i) => {
+                    {stores.features.map((store) => {
                         const { key, address, city, phone } = store.properties;
                         return <Tab
                             id={key}
                             address={address}
                             city={city}
                             phone={phone}
-                            onClick={console.log('works')}
+                            onClick={handleClick}
                         />
                     })}
                 </div>
