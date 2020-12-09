@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Text from "./../../atoms/text/Text"
+import Button from "../../atoms/button/Button"
 
 import './SingleCard.css'
 
@@ -15,9 +16,8 @@ function SingleShopCard(props) {
         incidunt illo expedita? Recusandae obcaecati illum eum sequi, ullam
         veniam vel possimus totam omnis non vitae iste soluta nulla nesciunt
         autem aliquid maiores ad laborum at sed, laudantium rem cum."/>
-      <button>
-        <Text color="primary" size="S" text="add to cart"/>
-      </button>
+      {/* Add method here */}
+      <Button action="" size="S" text="Add to cart" color="primary" />
       <Text color="primary" size="S" text={props.price}/>
     </div>
     </Link>

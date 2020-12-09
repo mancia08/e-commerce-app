@@ -10,7 +10,7 @@ const Navbar = (props) => (
         {props.type !== "home" && (
           <>
             <LogoLink to="/home" onClick={value.closeLogin}>
-              <LogoImg src={logo} alt="logo" />
+              <LogoImg src={logo} alt="Norris Inc. logo" />
             </LogoLink>
             <StyledLink to="/home" onClick={value.closeLogin}>
               HOME
