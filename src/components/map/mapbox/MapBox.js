@@ -23,7 +23,7 @@ const Map = () => {
 
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
         
-        new mapboxgl.Marker({
+        const mainMarker = new mapboxgl.Marker({
             color: "#ff6347",
         })
             .setLngLat([-0.118092, 51.509865])
@@ -70,6 +70,10 @@ const Map = () => {
                 ReactDOM.render(<Popup feature={feature} />, popupNode);
                 popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(map);
             }
+            map.flyTo({
+                center: e.features[0].geometry.coordinates,
+                zoom: 15
+              });
         });
 
         map.on('mouseenter', 'random-points-layer', e => {
