@@ -106,3 +106,14 @@ export const StyledBtn = styled.button`
   }
 `;
 
+export const HomeModal = styled.div`
+  background-color: yellow;
+`;
+
+export const LoginPopUp = styled.div`
+  background-color: blue;
+`;
+
+export const LogoutPopUp = styled.div`
+  background-color: blue;
+`;

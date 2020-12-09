@@ -2,35 +2,39 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShopContext } from "./../../../context/ShopContext";
 import { textData } from "./../../../data/textData";
-import logo from "./../../../styles/images/logo.jpg";
+import { LoginPopUp } from "./../../../styles/styles";
+import Text from "./../text/Text";
+import Logo from "./../logo/Logo"
 
 const LoginModal = () => (
   <ShopContext.Consumer>
-    {value => 
-      <div>
-        <img src={logo} alt="logo" />
+    {(value) => (
+      <LoginPopUp>
+        <Logo/>
         <button onClick={value.loginIconToggle}>X</button>
-        <h1>{textData.login.title}</h1>
-        {value.state.loginFailed && <p>{textData.login.fail}</p>}
-        <p>{textData.login.user}</p>
+        <Text color="light" size="XL" text={textData.login.title} />
+        {value.state.loginFailed && (
+          <Text color="light" size="L" text={textData.login.fail} />
+        )}
+        <Text color="light" size="L" text={textData.login.user} />
         <input onChange={value.username} value={value.state.username}></input>
-        <p>{textData.login.password}</p>
+        <Text color="light" size="L" text={textData.login.password} />
         <input onChange={value.password} value={value.state.password}></input>
         <button onClick={value.login}>{textData.login.submit}</button>
         <Link to="/contact">
-          <h5>{textData.login.register}</h5>
+          <Text color="light" size="L" text={textData.login.register} />
         </Link>
         <Link to="/contact">
-          <h5>{textData.login.text1}</h5>
+          <Text color="light" size="L" text={textData.login.user} />
         </Link>
         <a href="https://www.google.com" target="_blank">
-          <h5>{textData.login.text2}</h5>
+          <Text color="light" size="L" text={textData.login.text2} />
         </a>
         <a href="https://www.facebook.com" target="_blank">
-          <h5>{textData.login.text3}</h5>
+          <Text color="light" size="L" text={textData.login.text3} />
         </a>
-      </div>
-    }
+      </LoginPopUp>
+    )}
   </ShopContext.Consumer>
 );
 

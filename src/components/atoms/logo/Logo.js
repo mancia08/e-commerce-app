@@ -1,7 +1,6 @@
-const Logo = props => (
-    <div>
-        <h1>{props.title}</h1>
-    </div>
-)
+import logo from "./../../../styles/images/logo.jpg";
+
+const Logo = () =>  <img src={logo} alt="logo" />
+
 
 export default Logo;
