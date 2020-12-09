@@ -41,7 +41,7 @@
   }
   
   .heading {
-    background: #fff;
+    background: #33A0FF40;
     border-bottom: 1px solid #eee;
     height: 60px;
     line-height: 60px;
@@ -64,14 +64,14 @@
   
   .listings .item .title {
     display: block;
-    color: #00853e;
+    color: #33A0FF;
     font-weight: 700;
   }
   
   .listings .item .title small { font-weight: 400; }
   
   .listings .item.active .title,
-  .listings .item .title:hover { color: #8cc63f; }
+  .listings .item .title:hover { color: #33A0FF40; }
   
   .listings .item.active {
     background-color: #f8f8f8;

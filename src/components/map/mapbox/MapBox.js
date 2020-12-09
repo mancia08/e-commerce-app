@@ -5,15 +5,30 @@ import mapboxgl from 'mapbox-gl';
 import Popup from './popup'
 import fakeData from './helper/fakeData';
 
-import {stores} from './helper/fakeData';
+import { stores } from './helper/fakeData';
 
 import '../Map.css';
+import Tab from './tab';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 const Map = props => {
     const mapContainerRef = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
+
+    const buildLocationList = () => {
+        stores.features.map((store, i) => {
+            // const { key, address, city, phone } = store.properties;
+            console.log(stores)
+            return (<Tab
+                id={store.properties.key}
+                address={store.properties.address}
+                city={store.properties.city}
+                phone={store.properties.phone}
+                onClick={console.log('works')}
+            />)
+        })
+    }
 
     useEffect(() => {
         const map = new mapboxgl.Map({
@@ -36,44 +51,47 @@ const Map = props => {
             store.properties.key = i;
         });
 
-        const buildLocationList = (data) => {
-            data.features.forEach((store, i) => {
-              const prop = store.properties;
-              const listings = document.getElementById('listings');
-              const listing = listings.appendChild(document.createElement('div'));
-              listing.id = "listing-" + prop.id;
-              listing.className = 'item';
-
-              const link = listing.appendChild(document.createElement('a'));
-              link.href = '#';
-              link.className = 'title';
-              link.id = "link-" + prop.id;
-              link.innerHTML = prop.address;
-          
-              const details = listing.appendChild(document.createElement('div'));
-              details.innerHTML = prop.city;
-              if (prop.phone) {
-                details.innerHTML += ' · ' + prop.phone;
-              }
-            });
-          }
-          
 
 
+        // function flyToStore(currentFeature) {
+        //     map.flyTo({
+        //         center: currentFeature.geometry.coordinates,
+        //         zoom: 15
+        //     });
+        // }
+
+        // function createPopUp(currentFeature) {
+        //     var popUps = document.getElementsByClassName('mapboxgl-popup');
+        //     /** Check if there is already a popup on the map and if so, remove it */
+        //     if (popUps[0]) popUps[0].remove();
+
+        //     var popup = new mapboxgl.Popup({ closeOnClick: false })
+        //         .setLngLat(currentFeature.geometry.coordinates)
+        //         .setHTML('<h3>Sweetgreen</h3>' +
+        //             '<h4>' + currentFeature.properties.address + '</h4>')
+        //         .addTo(map);
+        // }
 
 
-
-
-
-
-
-
-
+        //   link.addEventListener('click', function(e){
+        //     for (var i=0; i < data.features.length; i++) {
+        //       if (this.id === "link-" + data.features[i].properties.id) {
+        //         var clickedListing = data.features[i];
+        //         flyToStore(clickedListing);
+        //         createPopUp(clickedListing);
+        //       }
+        //     }  
+        //     var activeItem = document.getElementsByClassName('active');
+        //     if (activeItem[0]) {
+        //       activeItem[0].classList.remove('active');
+        //     }
+        //     this.parentNode.classList.add('active');
+        //   });
 
 
         map.on('load', function () {
             mainMarker.togglePopup();
-            buildLocationList(stores);
+            //buildLocationList();
             map.loadImage(
                 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
                 function (error, image) {
@@ -136,7 +154,18 @@ const Map = props => {
                 <div className='heading'>
                     <h1>Our locations</h1>
                 </div>
-                <div id='listings' className='listings'></div>
+                <div id='listings' className='listings'>
+                    {stores.features.map((store, i) => {
+                        const { key, address, city, phone } = store.properties;
+                        return <Tab
+                            id={key}
+                            address={address}
+                            city={city}
+                            phone={phone}
+                            onClick={console.log('works')}
+                        />
+                    })}
+                </div>
             </div>
             <div className="map-container" ref={mapContainerRef} />
         </div>
