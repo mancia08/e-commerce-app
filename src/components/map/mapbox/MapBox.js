@@ -9,7 +9,7 @@ import '../Map.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
-const Map = () => {
+const Map = props => {
     const mapContainerRef = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
 
@@ -22,8 +22,18 @@ const Map = () => {
         });
 
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+        
+        const mainMarker = new mapboxgl.Marker({
+            color: "#ff6347",
+        })
+            .setLngLat([-0.118092, 51.509865])
+            .setPopup(new mapboxgl.Popup().setHTML("<h1>We are here!!!</h1>"))
+            .addTo(map);
+           
+            
 
         map.on('load', function () {
+            mainMarker.togglePopup();
             map.loadImage(
                 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
                 function (error, image) {
@@ -53,26 +63,31 @@ const Map = () => {
                     });
                 }
             );
+
         });
 
         map.on('click', 'random-points-layer', e => {
             if (e.features.length) {
                 const feature = e.features[0];
                 const popupNode = document.createElement('div');
-                ReactDOM.render(<Popup feature={feature} />, popupNode);
+                ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
                 popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(map);
             }
+            map.flyTo({
+                center: e.features[0].geometry.coordinates,
+                zoom: 15
+              });
         });
 
         map.on('mouseenter', 'random-points-layer', e => {
             if (e.features.length) {
-              map.getCanvas().style.cursor = 'pointer';
+                map.getCanvas().style.cursor = 'pointer';
             }
-          });
-          
-          map.on('mouseleave', 'random-points-layer', () => {
+        });
+
+        map.on('mouseleave', 'random-points-layer', () => {
             map.getCanvas().style.cursor = '';
-          });
+        });
 
         return () => map.remove();
     }, []);
