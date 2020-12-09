@@ -10,7 +10,7 @@ class ShopProvider extends Component {
     username: "",
     password: "",
     loginFailed: false,
-    addedItems: [],
+    addedItems: ["laptop", "jacket"],
     itemsPrice: 23.33,
   };
 

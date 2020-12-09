@@ -17,7 +17,6 @@ const App = () => {
   });
 
   const [contact, setContact] = useState({
-    title: "This is contact component",
   });
 
   return (
