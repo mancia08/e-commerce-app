@@ -1,15 +1,14 @@
 import React from "react";
 import { ShopContext } from "../../../context/ShopContext";
-import {LogoutPopUp} from "./../../../styles/styles"
-import Text from "./../text/Text"
+import ButtonX from "../../atoms/button/ButtonX"
 
 const LogoutModal = () => 
   <ShopContext.Consumer>
     {(value) => (
-      <LogoutPopUp>
-        <button onClick={value.logout}><Text color="light" size="L" text="logout" /></button>
-        <button onClick={value.loginIconToggle}><Text color="light" size="L" text="X" /></button>
-      </LogoutPopUp>
+      <>
+        <ButtonX action={value.logout} size="XL" text="Logout" color="light" />
+        <ButtonX action={value.loginIconToggle} size="XL" text="X" color="light" />
+      </>
     )}
   </ShopContext.Consumer>
 ;

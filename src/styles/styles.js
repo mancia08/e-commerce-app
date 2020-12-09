@@ -10,7 +10,7 @@ export const StyledText = styled.p`
       : "var(--dark)"};
   font-size: ${(p) =>
     p.size === "S"
-      ? "var(--font-size-18)"
+      ? "var(--font-size-18)" 
       : p.size === "M"
       ? "var(--font-size-24)"
       : p.size === "L"
@@ -32,7 +32,7 @@ export const StyledLink = styled(NavLink)`
   font-family: var(--font-common), var(--font-fallback);
   width: 10%;
   text-align: center;
-  line-height: var(--height50-nav);
+  line-height: var(--height-nav);
   text-decoration: none;
   &.active {
     color: var(--primary);
@@ -52,11 +52,114 @@ export const LogoImg = styled.img`
   height: var(--height-nav);
 `;
 
-export const StyledBtnS = styled.button`
-  font-size: var(--font-size-18);
-  line-height: var(--heightS-btn);
-  height: var(--heightS-btn);
-  padding: 0 var(--spacer-double);
+export const StyledBtn = styled.button`
+  height:${(p) =>
+    p.size === "S"
+    ? "var(--heightS-btn)"
+      : p.size === "M"
+      ? "var(--heightM-btn)"
+        : p.size === "L"
+        ? "var(--heightL-btn)"
+        : "var(--heightXL-btn)"};
+  color: ${(p) =>
+    p.color === "primary"
+      ? "var(--primary)"
+      : p.color === "light"
+        ? "var(--light)"
+        : "var(--dark)"};
+  font-size: ${(p) =>
+    p.size === "S"
+      ? "var(--font-size-18)"
+      : p.size === "M"
+        ? "var(--font-size-24)"
+        : p.size === "L"
+          ? "var(--font-size-30)"
+          : "var(--font-size-48)"};
+  line-height: ${(p) =>
+    p.size === "S"
+      ? "var(--heightS-btn)"
+      : p.size === "M"
+        ? "var(--heightM-btn)"
+        : p.size === "L"
+          ? "var(--heightL-btn)"
+          : "var(--heightXL-btn)"};
+  padding: 0 ${(p) =>
+    p.size === "S"
+    ? "var(--spacer-8)"
+      : p.size === "M"
+      ? "var(--spacer-double)"
+        : p.size === "L"
+        ? "var(--spacer-triple)"
+        : "var(--spacer-quad)"};
+  background-color: var(--secondary);
+  border-radius: ${(p) =>
+    p.size === "S"
+      ? "var(--spacer-8)"
+      : p.size === "M"
+        ? "var(--spacer-double)"
+        : p.size === "L"
+          ? "var(--spacer-triple)"
+          : "var(--spacer-quad)"};
+  border: 1px solid var(--primary);
+  :hover {
+    background-color: var(--primary);
+    color: var(--light);
+  }
+`;
+
+export const StyledBtnX = styled.button`
+  height:${(p) =>
+    p.size === "S"
+      ? "var(--heightS-btn)"
+      : p.size === "M"
+        ? "var(--heightM-btn)"
+        : p.size === "L"
+          ? "var(--heightL-btn)"
+          : "var(--heightXL-btn)"};
+  color: ${(p) =>
+    p.color === "primary"
+      ? "var(--primary)"
+      : p.color === "light"
+        ? "var(--light)"
+        : "var(--dark)"};
+  font-size: ${(p) =>
+    p.size === "S"
+      ? "var(--font-size-18)"
+      : p.size === "M"
+        ? "var(--font-size-24)"
+        : p.size === "L"
+          ? "var(--font-size-30)"
+          : "var(--font-size-48)"};
+  line-height: ${(p) =>
+    p.size === "S"
+      ? "var(--heightS-btn)"
+      : p.size === "M"
+        ? "var(--heightM-btn)"
+        : p.size === "L"
+          ? "var(--heightL-btn)"
+          : "var(--heightXL-btn)"};
+  padding: 0 ${(p) =>
+    p.size === "S"
+      ? "var(--spacer-8)"
+      : p.size === "M"
+        ? "var(--spacer-double)"
+        : p.size === "L"
+          ? "var(--spacer-triple)"
+          : "var(--spacer-quad)"};
+  background-color: var(--primary);
+  border-radius: ${(p) =>
+    p.size === "S"
+      ? "var(--spacer-8)"
+      : p.size === "M"
+        ? "var(--spacer-double)"
+        : p.size === "L"
+          ? "var(--spacer-triple)"
+          : "var(--spacer-quad)"};
+  border: none;
+  :hover {
+    color: var(--dark);
+    background-color: var(--light);
+  }
 `;
 
 export const HomeModal = styled.div`
@@ -64,9 +167,9 @@ export const HomeModal = styled.div`
 `;
 
 export const LoginPopUp = styled.div`
-  background-color: blue;
+  background-color: var(--primary);
 `;
 
 export const LogoutPopUp = styled.div`
-  background-color: blue;
+  background-color: var(--primary);
 `;

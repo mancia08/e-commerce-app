@@ -2,36 +2,37 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShopContext } from "./../../../context/ShopContext";
 import { textData } from "./../../../data/textData";
-import { LoginPopUp } from "./../../../styles/styles";
+import { LoginPopUp, LogoImg } from "./../../../styles/styles";
 import Text from "./../text/Text";
-import Logo from "./../logo/Logo"
+import logo from "./../../../styles/images/logonorris.png";
+import ButtonX from "../../atoms/button/ButtonX"
 
 const LoginModal = () => (
   <ShopContext.Consumer>
     {(value) => (
       <LoginPopUp>
-        <Logo/>
-        <button onClick={value.loginIconToggle}>X</button>
-        <Text color="light" size="XL" text={textData.login.title} />
+        <LogoImg src={logo} alt="Norris Inc. logo" />
+        <ButtonX action={value.loginIconToggle} size="XL" text="X" color="light" />
+        <Text color="light" size="L" text={textData.login.title} />
         {value.state.loginFailed && (
-          <Text color="light" size="L" text={textData.login.fail} />
+          <Text color="light" size="M" text={textData.login.fail} />
         )}
-        <Text color="light" size="L" text={textData.login.user} />
+        <Text color="light" size="M" text={textData.login.user} />
         <input onChange={value.username} value={value.state.username}></input>
-        <Text color="light" size="L" text={textData.login.password} />
+        <Text color="light" size="M" text={textData.login.password} />
         <input onChange={value.password} value={value.state.password}></input>
-        <button onClick={value.login}>{textData.login.submit}</button>
+        <ButtonX action={value.login} size="M" text={textData.login.submit} color="light" />
         <Link to="/contact">
-          <Text color="light" size="L" text={textData.login.register} />
+          <Text color="light" size="M" text={textData.login.register} />
         </Link>
         <Link to="/contact">
-          <Text color="light" size="L" text={textData.login.user} />
+          <Text color="light" size="M" text={textData.login.user} />
         </Link>
         <a href="https://www.google.com" target="_blank">
-          <Text color="light" size="L" text={textData.login.text2} />
+          <Text color="light" size="M" text={textData.login.text2} />
         </a>
         <a href="https://www.facebook.com" target="_blank">
-          <Text color="light" size="L" text={textData.login.text3} />
+          <Text color="light" size="M" text={textData.login.text3} />
         </a>
       </LoginPopUp>
     )}

@@ -10,7 +10,7 @@ import Text from "./../atoms/text/Text"
 const Home = () => (
   <ShopContext.Consumer>
     {(value) => (
-<main>
+      <main>
 
         <Banner />
         <SuperNav type="home"/>
