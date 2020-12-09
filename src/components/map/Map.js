@@ -5,12 +5,12 @@ import MapBox from './mapbox';
 import Banner from "./../atoms/banner/Banner"
 import Text from "./../atoms/text/Text"
 
-const Map = () => (
+const Map = props => (
     <div>
         <SuperNav/>
         <Navbar/>
         <Banner/>
-        <MapBox/>
+        <MapBox {...props}/>
         <Text color="dark" size="L" 
         text="Lorem ipsum dolor sit,
          amet consectetur adipisicing 

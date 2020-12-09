@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Popup.css';
 
-const Popup = ({ feature }) => {
+const Popup = ({ feature, router }) => {
     const { category, id, name, description, phone, address, address2, address3 } = feature.properties;
     console.log(id, 'id from pop');
     console.log(category, 'category from pop');
+    const handleClick = () => router.history.push(`/shop/category${category + 1}/${id}`)
     return (
 
         <div id={`popup-${id}`} className="map-pop-up">
@@ -14,7 +15,9 @@ const Popup = ({ feature }) => {
             <p>{address}</p>
             <p>{address2}</p>
             <p>{address3}</p>
-            <a href={`/shop/category${category + 1}/${id}`}>Go</a>
+            <button
+            onClick={handleClick}
+            >Go</button>
         </div>
     );
 };
