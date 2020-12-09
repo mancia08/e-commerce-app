@@ -26,6 +26,22 @@ export const StyledNav = styled.div`
   background-color: var(--light);
 `;
 
+export const DropDownContent = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+`;
+
+export const DropDownLink = styled(StyledLink)`
+  display: inline-block;
+  &:hover ${DropDownContent} {
+    display: block;
+  }
+`;
+
 export const StyledLink = styled(NavLink)`
   color: var(--dark);
   box-sizing: border-box;

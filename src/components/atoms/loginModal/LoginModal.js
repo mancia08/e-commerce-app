@@ -19,7 +19,7 @@ const LoginModal = () => (
         <Text color="light" size="L" text={textData.login.user} />
         <input onChange={value.username} value={value.state.username}></input>
         <Text color="light" size="L" text={textData.login.password} />
-        <input onChange={value.password} value={value.state.password}></input>
+        <input type="password" onChange={value.password} value={value.state.password}></input>
         <button onClick={value.login}>{textData.login.submit}</button>
         <Link to="/contact">
           <Text color="light" size="L" text={textData.login.register} />

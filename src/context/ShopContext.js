@@ -46,6 +46,7 @@ class ShopProvider extends Component {
       loginIconClicked: !this.state.loginIconClicked,
     });
 
+
     /*ADD STUFF TO CART LOGIC HERE*/
     /*addedItems:[] is already in state*/
 
@@ -63,7 +64,7 @@ class ShopProvider extends Component {
           logout: this.logout,
           username: this.username,
           password: this.password,
-          closeLogin: this.closeLogin
+          closeLogin: this.closeLogin,
         }}
       >
         {this.props.children}
