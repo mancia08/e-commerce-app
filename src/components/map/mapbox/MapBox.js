@@ -22,6 +22,14 @@ const Map = () => {
         });
 
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+        
+        new mapboxgl.Marker({
+            color: "#ff6347",
+        })
+            .setLngLat([-0.118092, 51.509865])
+            .setPopup(new mapboxgl.Popup().setHTML("<h1>We are here!!!</h1>"))
+            .addTo(map);
+            
 
         map.on('load', function () {
             map.loadImage(
@@ -66,13 +74,13 @@ const Map = () => {
 
         map.on('mouseenter', 'random-points-layer', e => {
             if (e.features.length) {
-              map.getCanvas().style.cursor = 'pointer';
+                map.getCanvas().style.cursor = 'pointer';
             }
-          });
-          
-          map.on('mouseleave', 'random-points-layer', () => {
+        });
+
+        map.on('mouseleave', 'random-points-layer', () => {
             map.getCanvas().style.cursor = '';
-          });
+        });
 
         return () => map.remove();
     }, []);
