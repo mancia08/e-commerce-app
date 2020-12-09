@@ -1,6 +1,14 @@
 /* 
 ========================
-Setting root variables
+Font URL
+========================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet');
+
+/* 
+========================
+Setting variables
 ========================
 */
 
@@ -10,8 +18,9 @@ Setting root variables
     --secondary: #33A0FF40;
     --light: #FFFFFF;
     --dark: #000000;
+    --grey: #F0F0F0;
     /* Fonts */
-    --font-common: monospace;
+    --font-common: Inder;
     --font-fallback: sans-serif;
     /* Font-sizes */
     --font-size-18: 18px;
@@ -20,9 +29,15 @@ Setting root variables
     --font-size-48: 48px;
     /* Spacers */
     --spacer-8: 8px;
-    --spacer-double: calc(var(--spacer-8) * 2);
-    --spacer-triple: calc(var(--spacer-8) * 3);
-    --spacer-quad: calc(var(--spacer-8) * 4);
+    --spacer-double: calc(var(--spacer-8) + var(--spacer-8));
+    --spacer-triple: calc(var(--spacer-8) + var(--spacer-8) + var(--spacer-8));
+    --spacer-quad: calc(var(--spacer-double) + var(--spacer-double));
+    /* Heights */
+    --height-nav: calc(var(--spacer-triple) + var(--spacer-triple));
+    --heightS-btn: var(--spacer-triple);
+    --heightM-btn: calc(var(--spacer-triple) + var(--spacer-triple));
+    --heightL-btn: calc(var(--spacer-triple) + var(--spacer-triple) + var(--spacer-triple));
+    --heightXL-btn: calc(var(--spacer-quad) + var(--spacer-quad) + var(--spacer-quad));
 
     box-sizing: border-box;
     margin: 0;

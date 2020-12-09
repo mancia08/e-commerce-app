@@ -1,77 +1,50 @@
-import React, { useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import MyAPIProvider from "./context/APIContext"
+import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
 
-import Navbar from './components/navbar';
-import Home from './components/home'
-import Logo from './components/logo';
-import Shop from './components/shop';
-import Map from './components/map';
-import Contact from './components/contact';
+import Home from "./components/home";
+import Shop from "./components/shop";
+import Map from "./components/map";
+import Contact from "./components/contact";
+import { ShopContext } from "./context/ShopContext";
 
 const App = () => {
-
-  const [home, setHome] = useState({
-    title: 'This is the home component',
-  });
-
-  const [logo, setLogo] = useState({
-    title: 'This is logo component',
-  });
-
   const [shop, setShop] = useState({
-    title: 'This is shop component',
+    title: "This is shop component",
   });
 
   const [map, setMap] = useState({
-    title: 'This is map component',
+    title: "This is map component",
   });
 
   const [contact, setContact] = useState({
-    title: 'This is contact component',
+    title: "This is contact component",
   });
 
-
   return (
-    <MyAPIProvider>
-      <Navbar />
-      <Switch>
-          <Route
-            exact path='/'
-            render={props =>
-              <Home {...props} title={home.title} />
-            }
-          />
-        <Route
-          path='/home'
-          render={props =>
-            <Home {...props} title={home.title} />
-          }
-        />
-        {/* Not needed path 
-        <Route path='/logo'
-          render={props =>
-            <Logo {...props} title={logo.title} />
-          } */}
-        />
-        <Route path='/shop'
-          render={props =>
-            <Shop {...props} title={shop.title} />
-          }
-        />
-        <Route path='/map'
-          render={props =>
-            <Map {...props} title={map.title} />
-          }
-        />
-        <Route path='/contact'
-          render={props =>
-            <Contact {...props} title={contact.title} />
-          }
-        />
-      </Switch>
-    </MyAPIProvider>
-  )
+    <ShopContext.Consumer>
+      {(value) => (
+        <>
+          <Switch>
+            <Route exact path="/" render={() => <Home />} />
+            <Route path="/home" render={() => <Home />} />
+
+            <Route
+              path="/shop"
+              render={(props) => <Shop {...props} title={shop.title} />}
+            />
+            <Route
+              path="/map"
+              render={(props) => <Map {...props} title={map.title} />}
+            />
+            <Route
+              path="/contact"
+              render={(props) => <Contact {...props} title={contact.title} />}
+            />
+          </Switch>
+        </>
+      )}
+    </ShopContext.Consumer>
+  );
 };
 
 export default App;
