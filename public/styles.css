@@ -1,6 +1,14 @@
 /* 
 ========================
-Setting root variables
+Font URL
+========================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet');
+
+/* 
+========================
+Setting variables
 ========================
 */
 
@@ -11,7 +19,7 @@ Setting root variables
     --light: #FFFFFF;
     --dark: #000000;
     /* Fonts */
-    --font-common: monospace;
+    --font-common: Inder;
     --font-fallback: sans-serif;
     /* Font-sizes */
     --font-size-18: 18px;
@@ -23,6 +31,12 @@ Setting root variables
     --spacer-double: calc(var(--spacer-8) * 2);
     --spacer-triple: calc(var(--spacer-8) * 3);
     --spacer-quad: calc(var(--spacer-8) * 4);
+    /* Heights */
+    --height50-nav: calc(var(--spacer-8) * 6);
+    --heightS-btn: var(--spacer-triple);
+    --heightM-btn: calc(var(--space-8) * 6);
+    --heightL-btn: calc(var(--space-8) * 9);
+    --heightXL-btn: calc(var(--space-8) * 12);
 
     box-sizing: border-box;
     margin: 0;
