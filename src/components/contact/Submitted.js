@@ -1,7 +1,9 @@
-const SubmittedModal = props => (
+import Text from "../atoms/text/Text";
+
+const SubmittedModal = () => (
     <>
-        <p>Your message has been submitted</p>
-        <p>You can safely close the page</p>
+        <Text color="dark" size="M" text="Your message has been submitted" />
+        <Text color="dark" size="M" text="You can safely close the page" />
     </>
 )
 

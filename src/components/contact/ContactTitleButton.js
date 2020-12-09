@@ -1,12 +1,10 @@
-import ContactImage from "./ContactImage"
-
-// import Button from "../atoms/button/Button"
+import Button from "../atoms/button/Button";
+import Text from "../atoms/text/Text";
 
 const ContactTitleButton = props => (
     <>
-        <h3>{props.heading}</h3>
-        <button onClick={props.action}>{props.text}</button> 
-
+        <Text color="dark" size="L" text={props.heading} />
+        <Button action={props.action} size="M" text={props.text} color="light" />
     </>
 )
 
