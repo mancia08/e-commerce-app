@@ -31,6 +31,26 @@ export const StyledText = styled.p`
       : "var(--font-size-48)"};
 `;
 
+export const StyledTextLogin = styled.p`
+  color: ${(p) =>
+    p.color === "primary"
+      ? "var(--primary)"
+      : p.color === "light"
+        ? "var(--light)"
+        : "var(--dark)"};
+  font-size: ${(p) =>
+    p.size === "S"
+      ? "var(--font-size-18)"
+      : p.size === "M"
+        ? "var(--font-size-24)"
+        : p.size === "L"
+          ? "var(--font-size-30)"
+          : "var(--font-size-48)"};
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export const StyledTextCart = styled.p`
   color: ${(p) =>
     p.color === "primary"
@@ -183,7 +203,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: flex-end;
   position: sticky;
-  top: var(--heightS-btn);
+  top: calc(var(--spacer-8) + var(--heightS-btn));
   background-color: var(--light);
 `;
 
@@ -221,11 +241,12 @@ export const StyledSuperNav = styled.nav`
   top: 0;
   background-color: var(--light);
   gap: var(--spacer-double);
-  margin-top: var(--spacer-8);
+  padding-top: var(--spacer-8);
 `;
 
 export const SuperNavImg = styled.img`
   width: auto;
   height: var(--heightS-btn);
+  cursor: pointer;
 `;
 

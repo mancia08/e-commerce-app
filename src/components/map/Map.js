@@ -4,7 +4,7 @@ import SuperNav from "./../atoms/SuperNav/SuperNav"
 import MapBox from './mapbox';
 import Banner from "./../atoms/banner/Banner"
 import Text from "./../atoms/text/Text"
-import Hr from "../atoms/text/Hr"
+import Hr from "../atoms/hr/Hr"
 
 const Map = props => (
     <div>

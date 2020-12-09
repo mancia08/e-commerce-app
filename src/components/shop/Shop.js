@@ -13,7 +13,7 @@ import SuperNav from "./../atoms/SuperNav/SuperNav";
 import SingleShopCard from "./remote-shop/SingleShopCard";
 import Button from "../atoms/button/Button";
 import ButtonX from "../atoms/button/ButtonX";
-import Hr from "../atoms/text/Hr"
+import Hr from "../atoms/hr/Hr"
 
 const Shop = (props) => (
   <MyAPIContext.Consumer>

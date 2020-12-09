@@ -7,6 +7,7 @@ import userunknown from "./../../../styles/images/iconlogout.png";
 import cart from "./../../../styles/images/cart.png";
 import Text from "./../text/Text";
 import TextCart from "./../text/TextCart";
+import TextLogin from "./../text/TextLogin";
 import { StyledSuperNav, SuperNavImg } from "../../../styles/styles";
 
 const SuperNav = (props) => (
@@ -20,7 +21,7 @@ const SuperNav = (props) => (
               alt="icon"
               onClick={value.loginIconToggle}
             />
-            <Text 
+            <TextLogin 
               size="S" 
               color="dark"
               // next line logic to be defined thank you. J.
