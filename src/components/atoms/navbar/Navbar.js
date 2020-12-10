@@ -37,7 +37,8 @@ class Navbar extends Component {
               >
                 SHOP
               </HoverLink>
-              <HoverMenu over={this.hovering} out={this.notHovering} />
+
+              <HoverMenu over={this.hovering} out={this.notHovering} action = {value.closeLogin}/>
 
               <StyledLink to="/map" onClick={value.closeLogin}>
                 MAP

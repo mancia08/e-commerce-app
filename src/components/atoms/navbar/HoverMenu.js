@@ -4,7 +4,7 @@ import HoverMenuContent from "./HoverMenuContent";
 
 const HoverMenu = (props) => (
   <SubMenu onMouseOver={props.over} onMouseOut={props.out}>
-    <HoverMenuContent />
+    <HoverMenuContent action={props.action}/>
   </SubMenu>
 );
 

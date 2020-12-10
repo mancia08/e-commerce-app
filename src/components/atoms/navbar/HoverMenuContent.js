@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { shopData } from "./../../../data/shopData";
 import Text from "./../text/Text";
 
-const HoverMenuContent = () => (
+const HoverMenuContent = (props) => (
   <>
     {shopData.map((category, categoryIndex) => (
       <div key={categoryIndex}>
         <Text color="light" size="M" text={category.category} />
         <div>
           {category.shops.map((shop, shopIndex) => (
-            <Link to={`/shop/category${categoryIndex + 1}/${shopIndex}`}>
+            <Link to={`/shop/category${categoryIndex + 1}/${shopIndex}`} onClick={props.action}>
               <Text color="dark" size="S" key={shopIndex} text={shop.name} />
             </Link>
           ))}

@@ -22,6 +22,7 @@ const SuperNav = (props) => (
               onClick={value.loginIconToggle}
             />
             <TextLogin 
+            action={value.loginIconToggle}
               size="S" 
               color={props.textColor}
               // next line logic to be defined thank you. J.
