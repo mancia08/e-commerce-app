@@ -13,8 +13,10 @@ import logo from "./../../../styles/images/logonorris.png";
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {isHover: false};
   }
+  hovering = () => this.setState({isHover: true})
+  notHovering= () => this.setState({isHover: false})
 
   render() {
     return (
@@ -28,10 +30,11 @@ class Navbar extends Component {
               <StyledLink to="/home" onClick={value.closeLogin}>
                 HOME
               </StyledLink>
-              <HoverLink to="/shop" onClick={value.closeLogin}>
+              <HoverLink hovered={this.state.isHover} to="/shop" onClick={value.closeLogin}>
                 SHOP
               </HoverLink>
-              <SubMenu></SubMenu>
+              <SubMenu onMouseOver={this.hovering} onMouseOut={this.notHovering}></SubMenu>
+              
               <StyledLink to="/map" onClick={value.closeLogin}>
                 MAP
               </StyledLink>

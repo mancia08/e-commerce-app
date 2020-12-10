@@ -230,7 +230,6 @@ export const StyledLink = styled(NavLink)`
 export const LogoLink = styled(NavLink)`
   margin-right: auto;
 `;
-let hover= false
 export const SubMenu = styled.div`
   display: none;
   background-color: var(--primary);
@@ -238,23 +237,24 @@ export const SubMenu = styled.div`
   height: calc(var(--spacer-8) * 35);
   z-index: 1;
   position: absolute;
+  right: calc(2 * var(--heightS-btn));
   top: calc(2 * var(--heightS-btn));
   :hover {
     display: block;
-    .hovered-link {
-      background-color: red;
     }
   }
 `;
 export const HoverLink = styled(StyledLink)`
+background-color:${(p) => p.hovered && "var(--primary)"};
+color:${(p) => p.hovered && "var(--light)"};
+&.active {
+    color: ${(p) => p.hovered && "var(--light)"};
+  }
   :hover {
     ~ ${SubMenu} {
       display: block;
     }
-    ${onmouseover => hover=true}
   }
-  color: ${hover ? "white" : "black"};
-  background-color: ${hover? "blue" : "white"}
 `;
 
 export const LogoImg = styled.img`
