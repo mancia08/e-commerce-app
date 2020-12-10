@@ -228,13 +228,19 @@ export const StyledLink = styled(NavLink)`
 
 export const SubMenu = styled.div`
   display: none;
-  background-color: red;
-  width: 80vw;
-  height: 500px;
-`;
-export const HoverLink = styled(StyledLink)`
+  background-color: var(--primary);
+  width: calc(var(--spacer-8)*125);
+  height: calc(var(--spacer-8)*35);
+  z-index:1;
+  position:absolute;
+  top: calc(2*var(--heightS-btn));
   :hover {
-    ${SubMenu} {
+    display:block
+  }
+`;
+export const HoverLink= styled(StyledLink)`
+  :hover {
+    ~ ${SubMenu} {
       display: block;
     }
   }
