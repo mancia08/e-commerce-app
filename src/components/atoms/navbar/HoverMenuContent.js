@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { shopData } from "./../../../data/shopData";
-import {Link} from "react-router-dom"
-import Text from "./../text/Text"
+import Text from "./../text/Text";
 
 const HoverMenuContent = () => (
   <>
     {shopData.map((category, categoryIndex) => (
       <div key={categoryIndex}>
-        <p>{category.category}</p>
+        <Text color="light" size="M" text={category.category} />
         <div>
           {category.shops.map((shop, shopIndex) => (
-              <Link to={`/shop/category${categoryIndex+1}/${shopIndex}`}><p key={shopIndex}>{shop.name}</p></Link>
-
+            <Link to={`/shop/category${categoryIndex + 1}/${shopIndex}`}>
+              <Text color="dark" size="S" key={shopIndex} text={shop.name} />
+            </Link>
           ))}
         </div>
       </div>

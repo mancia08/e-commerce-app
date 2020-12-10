@@ -245,9 +245,9 @@ export const SubMenu = styled.div`
   }
 `;
 export const HoverLink = styled(StyledLink)`
-background-color:${(p) => p.hovered && "var(--primary)"};
-color:${(p) => p.hovered && "var(--light)"};
-&.active {
+  background-color: ${(p) => p.hovered && "var(--primary)"};
+  color: ${(p) => p.hovered && "var(--light)"};
+  &.active {
     color: ${(p) => p.hovered && "var(--light)"};
   }
   :hover {

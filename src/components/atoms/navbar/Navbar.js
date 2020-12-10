@@ -8,15 +8,15 @@ import {
   LogoImg,
 } from "../../../styles/styles";
 import logo from "./../../../styles/images/logonorris.png";
-import HoverMenu from "./HoverMenu"
+import HoverMenu from "./HoverMenu";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = {isHover: false};
+    this.state = { isHover: false };
   }
-  hovering = () => this.setState({isHover: true})
-  notHovering= () => this.setState({isHover: false})
+  hovering = () => this.setState({ isHover: true });
+  notHovering = () => this.setState({ isHover: false });
 
   render() {
     return (
@@ -30,11 +30,15 @@ class Navbar extends Component {
               <StyledLink to="/home" onClick={value.closeLogin}>
                 HOME
               </StyledLink>
-              <HoverLink hovered={this.state.isHover} to="/shop" onClick={value.closeLogin}>
+              <HoverLink
+                hovered={this.state.isHover}
+                to="/shop"
+                onClick={value.closeLogin}
+              >
                 SHOP
               </HoverLink>
-              <HoverMenu over={this.hovering} out={this.out}/>
-              
+              <HoverMenu over={this.hovering} out={this.out} />
+
               <StyledLink to="/map" onClick={value.closeLogin}>
                 MAP
               </StyledLink>
