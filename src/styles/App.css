@@ -1,3 +1,37 @@
+.mobile-nav-container {
+    display: none;
+    padding: 0 var(--spacer-8);
+}
 
+.supernav-toggle-container {
+    position: sticky;
+    top: 0;
+    background-color: var(--light);
+    padding: 0 var(--spacer-8);
+}
 
+.nav-container {
+    padding: 0 var(--spacer-8);
+    position: sticky;
+    top: calc(var(--spacer-8) + var(--heightS-btn));
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background-color: var(--light);
+    }
+
+    .supernav-toggle-container {
+        display: none;
+    }
+
+    .nav-container {
+        display: none;
+    }
+ }
 

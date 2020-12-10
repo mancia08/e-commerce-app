@@ -1,16 +1,12 @@
 import React from 'react'
-import Navbar from "./../atoms/navbar/Navbar"
-import SuperNav from "./../atoms/SuperNav/SuperNav"
 import MapBox from './mapbox';
 import Banner from "./../atoms/banner/Banner"
 import Text from "./../atoms/text/Text"
-import Hr from "../atoms/hr/Hr"
+import MainNavbar from "../atoms/mainNavbar/MainNavbar"
 
 const Map = props => (
     <div>
-        <SuperNav/>
-        <Hr />
-        <Navbar/>
+        <MainNavbar />
         <Banner/>
         <MapBox {...props}/>
         <Text color="dark" size="L" 
