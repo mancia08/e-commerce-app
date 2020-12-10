@@ -1,3 +1,4 @@
+import { Children } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -226,28 +227,34 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
+export const LogoLink = styled(NavLink)`
+  margin-right: auto;
+`;
+let hover= false
 export const SubMenu = styled.div`
   display: none;
   background-color: var(--primary);
-  width: calc(var(--spacer-8)*125);
-  height: calc(var(--spacer-8)*35);
-  z-index:1;
-  position:absolute;
-  top: calc(2*var(--heightS-btn));
+  width: calc(var(--spacer-8) * 125);
+  height: calc(var(--spacer-8) * 35);
+  z-index: 1;
+  position: absolute;
+  top: calc(2 * var(--heightS-btn));
   :hover {
-    display:block
+    display: block;
+    .hovered-link {
+      background-color: red;
+    }
   }
 `;
-export const HoverLink= styled(StyledLink)`
+export const HoverLink = styled(StyledLink)`
   :hover {
     ~ ${SubMenu} {
       display: block;
     }
+    ${onmouseover => hover=true}
   }
-`;
-
-export const LogoLink = styled(NavLink)`
-  margin-right: auto;
+  color: ${hover ? "white" : "black"};
+  background-color: ${hover? "blue" : "white"}
 `;
 
 export const LogoImg = styled.img`

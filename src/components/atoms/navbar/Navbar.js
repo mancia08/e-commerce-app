@@ -22,17 +22,12 @@ class Navbar extends Component {
         {(value) => (
           <>
             <StyledNav onLoad={value.navbarToggle}>
-              {this.props.type !== "home" && (
-                <>
-                  <LogoLink to="/home" onClick={value.closeLogin}>
-                    <LogoImg src={logo} alt="logo" />
-                  </LogoLink>
-                  <StyledLink to="/home" onClick={value.closeLogin}>
-                    HOME
-                  </StyledLink>
-                </>
-              )}
-              
+              <LogoLink to="/home" onClick={value.closeLogin}>
+                <LogoImg src={logo} alt="logo" />
+              </LogoLink>
+              <StyledLink to="/home" onClick={value.closeLogin}>
+                HOME
+              </StyledLink>
               <HoverLink to="/shop" onClick={value.closeLogin}>
                 SHOP
               </HoverLink>
