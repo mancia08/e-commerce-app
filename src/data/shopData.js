@@ -11,7 +11,7 @@ export const shopData = [
           email: "arrow@wearearrow.com",
           country: "UK",
           city: "London",
-          address: "118 Columbia Road",
+          address: "118 Columbia Road ",
           address2: "",
           address3: "E2 7RG"
         },
@@ -23,7 +23,7 @@ export const shopData = [
           email: "jessica@jessicadelotz.co.uk",
           country: "UK",
           city: "London",
-          address: "49 Fortess Road",
+          address: "49 Fortess Road ",
           address2: "Kentish Town",
           address3: "NW5"
         },
@@ -35,7 +35,7 @@ export const shopData = [
           email: "care@tattydevine.com",
           country: "UK",
           city: "London",
-          address: "Unit 9, Hopewell Business Centre 105",
+          address: "Unit 9, Hopewell Business Centre 105 ",
           address2: "Hopewell Drive Kent",
           address3: "ME5 7DX"
         },
@@ -52,19 +52,19 @@ export const shopData = [
           email: "hello@atikalondon.co.uk",
           country: "UK",
           city: "London",
-          address: "55-59 Hanbury St",
+          address: "55-59 Hanbury St ",
           address2: "",
           address3: "E1 5JP"
         },
         {
-          name: "AIDA Schroditch/",
+          name: "AIDA Schroditch",
           LAT: 51.5265515,
           LON: -0.0804012,
           phone: "+442077392811",
           email: "aida@aidashoreditch.co.uk",
           country: "UK",
           city: "London",
-          address: "133 Shoreditch H. Street",
+          address: "133 Shoreditch H. Street ",
           address2: "Shoreditch",
           address3: "E1 6JE"
         },
@@ -76,7 +76,7 @@ export const shopData = [
           email: "info@alexeagle.co.uk",
           country: "UK",
           city: "London",
-          address: "6-10 Lexington Street",
+          address: "6-10 Lexington Street ",
           address2: "",
           address3: "W1F 0LB"
         },
@@ -93,7 +93,7 @@ export const shopData = [
           email: "sales@mjalltec.com",
           country: "UK",
           city: "London",
-          address: "246 Tottenham Court Road",
+          address: "246 Tottenham Court Road ",
           address2: "",
           address3: "W1T 7QU"
         },
@@ -105,7 +105,7 @@ export const shopData = [
           email: "info@ifixcentre.co.uk",
           country: "UK",
           city: "London",
-          address: "86 Battersea Rise",
+          address: "86 Battersea Rise ",
           address2: "",
           address3: "SW11 1EJ"
         },
@@ -117,7 +117,7 @@ export const shopData = [
           email: "info@powerbuddy.co.uk",   //fake data
           country: "UK",
           city: "London",
-          address: "8, 2 Pinchin St",
+          address: "8, 2 Pinchin St ",
           address2: "Whitechapel",
           address3: "E1 1SA"
         },

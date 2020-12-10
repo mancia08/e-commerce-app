@@ -1,16 +1,20 @@
 import './Popup.css';
 
-const Popup = ({ feature }) => {
-    const { id, name, description, phone, address, address2, address3 } = feature.properties;
-
+const Popup = ({ feature, router }) => {
+    const { category, id, name, address } = feature.properties;
+    const handleClick = () => router.history.push(`/shop/category${category + 1}/${id}`);
     return (
+
         <div id={`popup-${id}`} className="map-pop-up">
             <h3>{name}</h3>
-            <p>{description}</p>
-            <p>{phone}</p>
-            <p>{address}</p>
-            <p>{address2}</p>
-            <p>{address3}</p>
+            <h4>{address}</h4>
+            <div className="map-btn_wrap">
+            <button
+            className="map_btn"
+            onClick={handleClick}
+            >GO SHOPPING!</button>
+            </div>
+            
         </div>
     );
 };

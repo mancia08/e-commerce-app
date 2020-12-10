@@ -10,14 +10,19 @@ class ShopProvider extends Component {
     username: "",
     password: "",
     loginFailed: false,
-    addedItems: [],
+    addedItems: ["laptop", "jacket"],
     itemsPrice: 23.33,
+    mobileMenu: false
   };
+
+  /*MOBILE MENU TOGGLE*/
+  toggleMobileMenu = () => 
+  this.setState({ mobileMenu: !this.state.mobileMenu})
 
   /*ACCOUNT ICON TOGGLE*/
   loginIconToggle = () =>
     this.setState({ loginIconClicked: !this.state.loginIconClicked });
-    closeLogin = () => this.setState({loginIconClicked: false})
+  closeLogin = () => this.setState({loginIconClicked: false});
 
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) =>
@@ -46,6 +51,7 @@ class ShopProvider extends Component {
       loginIconClicked: !this.state.loginIconClicked,
     });
 
+
     /*ADD STUFF TO CART LOGIC HERE*/
     /*addedItems:[] is already in state*/
 
@@ -58,12 +64,13 @@ class ShopProvider extends Component {
       <ShopContext.Provider
         value={{
           state: this.state,
+          toggleMobileMenu: this.toggleMobileMenu,
           loginIconToggle: this.loginIconToggle,
           login: this.login,
           logout: this.logout,
           username: this.username,
           password: this.password,
-          closeLogin: this.closeLogin
+          closeLogin: this.closeLogin,
         }}
       >
         {this.props.children}

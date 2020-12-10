@@ -1,29 +1,46 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import ReactDOM from "react-dom";
 import mapboxgl from 'mapbox-gl';
+import Popup from './popup';
+import Tab from './tab';
 
-import Popup from './popup'
-import fakeData from './helper/fakeData';
+import { stores } from './helper/fakeData';
 
 import '../Map.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
-const Map = () => {
+const Map = props => {
     const mapContainerRef = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
+
+    const [myMap, setMap] = useState('');
 
     useEffect(() => {
         const map = new mapboxgl.Map({
             container: mapContainerRef.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'mapbox://styles/mapbox/light-v10',  //'mapbox://styles/mapbox/streets-v11',
             center: [-0.118092, 51.509865],
             zoom: 11.4,
         });
 
+        setMap(map);
+
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
+        const mainMarker = new mapboxgl.Marker({
+            color: "#ff6347",
+        })
+            .setLngLat([-0.118092, 51.509865])
+            .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML("<h1 class='we-are-here'>We are here!!!</h1>"))
+            .addTo(map);
+
+        stores.features.map((store, i) => {
+            return store.properties.key = i;
+        });
+
         map.on('load', function () {
+            mainMarker.togglePopup();
             map.loadImage(
                 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
                 function (error, image) {
@@ -31,10 +48,7 @@ const Map = () => {
                     map.addImage('custom-marker', image);
                     map.addSource('random-points-data', {
                         'type': 'geojson',
-                        'data': {
-                            'type': 'FeatureCollection',
-                            'features': fakeData().flat()
-                        }
+                        'data': stores
                     });
                     map.addLayer({
                         'id': 'random-points-layer',
@@ -53,32 +67,81 @@ const Map = () => {
                     });
                 }
             );
+
         });
 
         map.on('click', 'random-points-layer', e => {
             if (e.features.length) {
                 const feature = e.features[0];
                 const popupNode = document.createElement('div');
-                ReactDOM.render(<Popup feature={feature} />, popupNode);
+                ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
                 popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(map);
             }
+            map.flyTo({
+                center: e.features[0].geometry.coordinates,
+                zoom: 15,
+                essential: true
+            });
         });
 
         map.on('mouseenter', 'random-points-layer', e => {
             if (e.features.length) {
-              map.getCanvas().style.cursor = 'pointer';
+                map.getCanvas().style.cursor = 'pointer';
             }
-          });
-          
-          map.on('mouseleave', 'random-points-layer', () => {
+        });
+
+        map.on('mouseleave', 'random-points-layer', () => {
             map.getCanvas().style.cursor = '';
-          });
+        });
 
         return () => map.remove();
     }, []);
 
+    const handleClick = (e) => {
+        for (let i = 0; i < stores.features.length; i++) {
+            if (e.target.id === "listing-" + stores.features[i].properties.key) {
+                const clickedListing = stores.features[i].geometry.coordinates;
+                myMap.flyTo({
+                    center: clickedListing,
+                    zoom: 15,
+                    essential: true
+                });
 
-    return <div className="map-container" ref={mapContainerRef} />;
+                const feature = stores.features[i];
+                const popupNode = document.createElement('div');
+                setTimeout(() => {
+                    ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
+                    popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(myMap);
+
+                }, 1000)
+            }
+        }
+    }
+
+    return (
+        <div className="stuff_wrap">
+            <div className='sidebar'>
+                <div className='heading'>
+                    <h1>Our locations</h1>
+                </div>
+                <div id='listings' className='listings'>
+                    {stores.features.map((store, i) => {
+                        const { key, address, city, phone, name } = store.properties;
+                        return <Tab
+                            key={i}
+                            id={key}
+                            name={name}
+                            address={address}
+                            city={city}
+                            phone={phone}
+                            onClick={handleClick}
+                        />
+                    })}
+                </div>
+            </div>
+            <div className="map-container" ref={mapContainerRef} />
+        </div>
+    )
 }
 
 export default Map;
