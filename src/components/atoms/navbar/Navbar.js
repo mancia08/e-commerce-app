@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 import {
   StyledNav,
-  SubMenu,
   HoverLink,
   StyledLink,
   LogoLink,
   LogoImg,
 } from "../../../styles/styles";
 import logo from "./../../../styles/images/logonorris.png";
+import HoverMenu from "./HoverMenu"
 
 class Navbar extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Navbar extends Component {
               <HoverLink hovered={this.state.isHover} to="/shop" onClick={value.closeLogin}>
                 SHOP
               </HoverLink>
-              <SubMenu onMouseOver={this.hovering} onMouseOut={this.notHovering}></SubMenu>
+              <HoverMenu over={this.hovering} out={this.out}/>
               
               <StyledLink to="/map" onClick={value.closeLogin}>
                 MAP
