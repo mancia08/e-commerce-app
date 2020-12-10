@@ -8,13 +8,14 @@ import Hr from "../atoms/hr/Hr"
 
 const Map = props => (
     <div>
-        <SuperNav/>
+        <SuperNav />
         <Hr />
-        <Navbar/>
-        <Banner/>
-        <MapBox {...props}/>
-        <Text color="dark" size="L" 
-        text="Lorem ipsum dolor sit,
+        <Navbar />
+        <Banner />
+        <div className="map_wraper">
+            <MapBox {...props} />
+            <Text color="dark" size="L"
+                text="Lorem ipsum dolor sit,
          amet consectetur adipisicing 
          elit. Temporibus quasi incidunt 
          ducimus fugiat quam unde, 
@@ -27,6 +28,7 @@ const Map = props => (
          repudiandae laudantium quisquam 
          exercitationem possimus modi in 
          ad id. Tempore, maxime."/>
+        </div>
     </div>
 )
 

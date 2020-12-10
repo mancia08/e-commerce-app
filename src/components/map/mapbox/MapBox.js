@@ -14,7 +14,7 @@ const Map = props => {
     const mapContainerRef = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
 
-    const [myMap, setMap] = useState('')
+    const [myMap, setMap] = useState('');
 
     useEffect(() => {
         const map = new mapboxgl.Map({
@@ -118,17 +118,32 @@ const Map = props => {
                 const clickedListing = stores.features[i].geometry.coordinates;
                 myMap.flyTo({
                     center: clickedListing,
-                    zoom: 15
+                    zoom: 12
                 });
 
-                const popUps = document.getElementsByClassName('mapboxgl-popup');
-                if (popUps[0]) popUps[0].remove();
+                // const popUps = document.getElementsByClassName('mapboxgl-popup');
+                // if (popUps[0]) popUps[0].remove();
                 
-                const popup = new mapboxgl.Popup({ closeOnClick: false })
-                .setLngLat(stores.features[i].geometry.coordinates)
-                .setHTML(`<h3>${stores.features[i].properties.name}</h3> 
-                    <h4>${stores.features[i].properties.address}</h4>`)
-                .addTo(myMap);
+                // const popup = new mapboxgl.Popup({ closeOnClick: false })
+                // .setLngLat(stores.features[i].geometry.coordinates)
+                // .setHTML(`<h3>${stores.features[i].properties.name}</h3> 
+                //     <h4>${stores.features[i].properties.address}</h4>`)
+                // .addTo(myMap);
+
+                const feature = stores.features[i];
+                const popupNode = document.createElement('div');
+                ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
+                popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(myMap);
+
+
+                // const feature = stores.features[i];
+                // const popup = new mapboxgl.Popup({ closeOnClick: false })
+                // .setLngLat(stores.features[i].geometry.coordinates)
+                // .setHTML(`<h3>${stores.features[i].properties.name}</h3> 
+                //     <h4>${stores.features[i].properties.address}</h4>
+                //     ${<Popup router={props} feature={feature} />}
+                //     `)
+                // .addTo(myMap);
             }
         }
     }
@@ -141,9 +156,10 @@ const Map = props => {
                 </div>
                 <div id='listings' className='listings'>
                     {stores.features.map((store) => {
-                        const { key, address, city, phone } = store.properties;
+                        const { key, address, city, phone, name } = store.properties;
                         return <Tab
                             id={key}
+                            name={name}
                             address={address}
                             city={city}
                             phone={phone}
