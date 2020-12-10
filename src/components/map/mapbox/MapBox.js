@@ -113,7 +113,6 @@ const Map = props => {
     }, []);
 
     const handleClick = (e) => {
-        console.log(e.target.id)
         for (let i = 0; i < stores.features.length; i++) {
             if (e.target.id === "listing-" + stores.features[i].properties.key) {
                 const clickedListing = stores.features[i].geometry.coordinates;
@@ -121,12 +120,14 @@ const Map = props => {
                     center: clickedListing,
                     zoom: 15
                 });
+
                 const popUps = document.getElementsByClassName('mapboxgl-popup');
                 if (popUps[0]) popUps[0].remove();
+                
                 const popup = new mapboxgl.Popup({ closeOnClick: false })
                 .setLngLat(stores.features[i].geometry.coordinates)
-                .setHTML('<h3>Sweetgreen</h3>' +
-                    '<h4>' + stores.features[i].properties.address + '</h4>')
+                .setHTML(`<h3>${stores.features[i].properties.name}</h3> 
+                    <h4>${stores.features[i].properties.address}</h4>`)
                 .addTo(myMap);
             }
         }
