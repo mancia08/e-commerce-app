@@ -95,7 +95,8 @@ const Map = props => {
             }
             map.flyTo({
                 center: e.features[0].geometry.coordinates,
-                zoom: 15
+                zoom: 15,
+                essential: true
             });
         });
 
@@ -118,7 +119,8 @@ const Map = props => {
                 const clickedListing = stores.features[i].geometry.coordinates;
                 myMap.flyTo({
                     center: clickedListing,
-                    zoom: 12
+                    zoom: 15,
+                    essential: true
                 });
 
                 // const popUps = document.getElementsByClassName('mapboxgl-popup');
@@ -132,9 +134,12 @@ const Map = props => {
 
                 const feature = stores.features[i];
                 const popupNode = document.createElement('div');
-                ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
-                popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(myMap);
-
+                setTimeout(() => {
+                    ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
+                    popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(myMap);
+    
+                }, 1500)
+               
 
                 // const feature = stores.features[i];
                 // const popup = new mapboxgl.Popup({ closeOnClick: false })
