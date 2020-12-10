@@ -12,12 +12,17 @@ class ShopProvider extends Component {
     loginFailed: false,
     addedItems: ["laptop", "jacket"],
     itemsPrice: 23.33,
+    mobileMenu: false
   };
+
+  /*MOBILE MENU TOGGLE*/
+  toggleMobileMenu = () => 
+  this.setState({ mobileMenu: !this.state.mobileMenu})
 
   /*ACCOUNT ICON TOGGLE*/
   loginIconToggle = () =>
     this.setState({ loginIconClicked: !this.state.loginIconClicked });
-    closeLogin = () => this.setState({loginIconClicked: false})
+  closeLogin = () => this.setState({loginIconClicked: false});
 
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) =>
@@ -59,6 +64,7 @@ class ShopProvider extends Component {
       <ShopContext.Provider
         value={{
           state: this.state,
+          toggleMobileMenu: this.toggleMobileMenu,
           loginIconToggle: this.loginIconToggle,
           login: this.login,
           logout: this.logout,

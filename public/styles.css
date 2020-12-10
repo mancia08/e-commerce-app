@@ -8,6 +8,13 @@ Font URL
 
 /* 
 ========================
+Main css inside App.css
+Styled Components css inside styles.js
+========================
+*/
+
+/* 
+========================
 Setting variables
 ========================
 */
@@ -29,6 +36,7 @@ Setting variables
     --font-size-30: 30px;
     --font-size-48: 48px;
     /* Spacers */
+    --spacer-4: 4px;
     --spacer-8: 8px;
     --spacer-double: calc(var(--spacer-8) + var(--spacer-8));
     --spacer-triple: calc(var(--spacer-8) + var(--spacer-8) + var(--spacer-8));
@@ -39,6 +47,9 @@ Setting variables
     --heightM-btn: calc(var(--spacer-triple) + var(--spacer-triple));
     --heightL-btn: calc(var(--spacer-triple) + var(--spacer-triple) + var(--spacer-triple));
     --heightXL-btn: calc(var(--spacer-quad) + var(--spacer-quad) + var(--spacer-quad));
+    /* Media queries */
+    /* @media cannot read global css variables, all breakpoints are hardcoded in styles.js */
+    /* --mobile: 768px */
 
     box-sizing: border-box;
     margin: 0;

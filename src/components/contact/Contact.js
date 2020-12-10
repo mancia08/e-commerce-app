@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from "./../atoms/navbar/Navbar"
-import SuperNav from "./../atoms/SuperNav"
-import Hr from "../atoms/hr/Hr"
 import Text from "./../atoms/text/Text";
 import ContactForm from "./ContactForm"
 import ContactImage from './ContactImage';
 import ContactTitleButton from './ContactTitleButton';
 import Submitted from "./Submitted"
+import MainNavbar from "../atoms/mainNavbar/MainNavbar"
 
 class Contact extends Component {
     state={
@@ -39,9 +37,7 @@ class Contact extends Component {
     render() {
         return (
             <div>
-                <SuperNav />
-                <Hr />
-                <Navbar />
+                <MainNavbar />
                 <Text color="dark" size="L" text="Feel free to contact us" />
                 
                 <ContactTitleButton
