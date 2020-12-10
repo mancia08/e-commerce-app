@@ -23,7 +23,7 @@ const Map = props => (
          repudiandae laudantium quisquam 
          exercitationem possimus modi in 
          ad id. Tempore, maxime."/>
-    </div>
+        </div>
 )
 
 export default Map;

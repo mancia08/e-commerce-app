@@ -28,10 +28,10 @@ const LoginModal = () => (
         <Link to="/contact">
           <Text color="light" size="M" text={textData.login.user} />
         </Link>
-        <a href="https://www.google.com" target="_blank">
+        <a href="https://www.google.com" target="_blank" rel="noreferrer">
           <Text color="light" size="M" text={textData.login.text2} />
         </a>
-        <a href="https://www.facebook.com" target="_blank">
+        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
           <Text color="light" size="M" text={textData.login.text3} />
         </a>
       </LoginPopUp>
