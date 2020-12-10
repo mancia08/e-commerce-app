@@ -32,28 +32,12 @@ const Map = props => {
             color: "#ff6347",
         })
             .setLngLat([-0.118092, 51.509865])
-            .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML("<h1>We are here!!!</h1>"))
+            .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML("<h1 class='we-are-here'>We are here!!!</h1>"))
             .addTo(map);
 
         stores.features.map((store, i) => {
             return store.properties.key = i;
         });
-
-
-        //   link.addEventListener('click', function(e){
-        //     for (var i=0; i < data.features.length; i++) {
-        //       if (this.id === "link-" + data.features[i].properties.id) {
-        //         var clickedListing = data.features[i];
-        //         flyToStore(clickedListing);
-        //         createPopUp(clickedListing);
-        //       }
-        //     }  
-        //     var activeItem = document.getElementsByClassName('active');
-        //     if (activeItem[0]) {
-        //       activeItem[0].classList.remove('active');
-        //     }
-        //     this.parentNode.classList.add('active');
-        //   });
 
         map.on('load', function () {
             mainMarker.togglePopup();
@@ -123,32 +107,13 @@ const Map = props => {
                     essential: true
                 });
 
-                // const popUps = document.getElementsByClassName('mapboxgl-popup');
-                // if (popUps[0]) popUps[0].remove();
-                
-                // const popup = new mapboxgl.Popup({ closeOnClick: false })
-                // .setLngLat(stores.features[i].geometry.coordinates)
-                // .setHTML(`<h3>${stores.features[i].properties.name}</h3> 
-                //     <h4>${stores.features[i].properties.address}</h4>`)
-                // .addTo(myMap);
-
                 const feature = stores.features[i];
                 const popupNode = document.createElement('div');
                 setTimeout(() => {
                     ReactDOM.render(<Popup router={props} feature={feature} />, popupNode);
                     popUpRef.current.setLngLat(feature.geometry.coordinates).setDOMContent(popupNode).addTo(myMap);
-    
-                }, 1500)
-               
 
-                // const feature = stores.features[i];
-                // const popup = new mapboxgl.Popup({ closeOnClick: false })
-                // .setLngLat(stores.features[i].geometry.coordinates)
-                // .setHTML(`<h3>${stores.features[i].properties.name}</h3> 
-                //     <h4>${stores.features[i].properties.address}</h4>
-                //     ${<Popup router={props} feature={feature} />}
-                //     `)
-                // .addTo(myMap);
+                }, 1000)
             }
         }
     }
@@ -160,9 +125,10 @@ const Map = props => {
                     <h1>Our locations</h1>
                 </div>
                 <div id='listings' className='listings'>
-                    {stores.features.map((store) => {
+                    {stores.features.map((store, i) => {
                         const { key, address, city, phone, name } = store.properties;
                         return <Tab
+                            key={i}
                             id={key}
                             name={name}
                             address={address}
