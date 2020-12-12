@@ -10,7 +10,12 @@ class ShopProvider extends Component {
     username: "",
     password: "",
     loginFailed: false,
-    addedItems: ["laptop", "jacket"],
+    addedItems: [{
+      name: "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
+      imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
+      imageL: "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
+      price: 25.99,
+    },],
     itemsPrice: 23.33,
     mobileMenu: false
   };
