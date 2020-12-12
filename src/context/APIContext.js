@@ -6,7 +6,7 @@ const APIkey = process.env.REACT_APP_EBAY_KEY;
 
 class MyAPIProvider extends Component {
   state = {
-    items: [
+     items: [
       {
         id: "181033",
         shops: [
@@ -365,10 +365,12 @@ class MyAPIProvider extends Component {
         ],
       },
     ],
+    /* items: [], */
     pathLinks: [],
     loding: false,  //change to true when componentDidMount
   };
 
+  /* checked 12/12/20. still working (12 items per shop) */
    /* componentDidMount() {
     const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [
@@ -387,7 +389,7 @@ class MyAPIProvider extends Component {
         .then(categoryData => categoryData.findItemsByCategoryResponse[0].searchResult[0].item)
         .then(result => { //second API call (getting data info from item ID)
           const dataPromisesArray = result.map(items =>
-            fetch(`${itemUrl}${items.itemId}`)
+            fetch(`${itemUrl}${items.itemId[0]}`)
               .then(response => response.json()));
           return Promise.all(dataPromisesArray);
         })

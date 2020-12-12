@@ -37,12 +37,13 @@ const SuperNav = (props) => (
         {props.type !== "home" && (
           <>
             <Text color={props.textColor} size="S" text={value.state.itemsPrice + " £"} />
-            <SuperNavImg src={cart} alt="cart" />
+            <SuperNavImg src={cart} alt="cart" onClick={value.cartToggle}/>
+            {value.state.cartShown && <h1>hola</h1>}
             <TextCart
               size="S"
               color={props.textColor}
-              // added 2 items in value.state.addedItems for testing purpose. J.
-              text={value.state.addedItems.length === 0 ? "" : value.state.addedItems.length}
+              text={value.state.addedItems.length}
+              action= {value.cartToggle}
             />
           </>
         )}
