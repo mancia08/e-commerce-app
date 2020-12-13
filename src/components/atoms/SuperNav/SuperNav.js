@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ShopContext } from "../../../context/ShopContext";
 import { MyContext } from "../../../context/APIContext";
 
@@ -13,9 +13,19 @@ import TextLogin from "../text/TextLogin";
 import { StyledSuperNav, SuperNavImg } from "../../../styles/styles";
 import ShoppingCart from '../../shop/shopping-cart';
 
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
+
 const SuperNav = (props) => {
 
   const context = useContext(MyContext);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  }
 
   const renderAddedItems = (arr) => {
     return arr.map(({ name, price, imageS }, i) => {
@@ -26,7 +36,7 @@ const SuperNav = (props) => {
         price={price}
       />
     })
-  } 
+  }
 
   const getTotalPrice = () => {
     if (!context.cart) {
@@ -64,10 +74,18 @@ const SuperNav = (props) => {
         {props.type !== "home" && (
           <>
             <Text color={props.textColor} size="S" text={`${getTotalPrice()} £`} />
-            <SuperNavImg src={cart} alt="cart" onClick={value.cartToggle} />
-            {value.state.cartShown && (
-              context.cart && renderAddedItems(context.cart)
-            )}
+            <SuperNavImg src={cart} alt="cart" onClick={toggleModal} />
+            <Modal
+              isOpen={isOpen}
+              onRequestClose={toggleModal}
+              contentLabel="My dialog"
+            >
+              {
+                context.cart && renderAddedItems(context.cart)
+              }
+              <button onClick={toggleModal}>Close modal</button>
+              <button>Checkout</button>
+            </Modal>
             <TextCart
               size="S"
               color={props.textColor}

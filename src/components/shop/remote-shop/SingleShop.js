@@ -3,7 +3,6 @@ import SingleShopCard from "./SingleShopCard";
 import { MyContext } from "./../../../context/APIContext";
 import Button from '../../atoms/button/Button';
 import Modal from "react-modal";
-import ShoppingCart from '../shopping-cart';
 
 Modal.setAppElement("#root");
 
@@ -12,8 +11,6 @@ const SingleShop = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [item, setItem] = useState('');
-
-  //const [cart, setCart] = useState('');
 
   const context = useContext(MyContext);
 
@@ -27,17 +24,6 @@ const SingleShop = (props) => {
     const result = arr.filter(item => !(!item.addedToCart));
     return result;
   }
-
-  // const renderAddedItems = (arr) => {
-  //   return arr.map(({ name, price, imageS }, i) => {
-  //     return <ShoppingCart
-  //       key={i}
-  //       name={name.split(' ').slice(0, 3).join(' ')}
-  //       image={imageS}
-  //       price={price}
-  //     />
-  //   })
-  // } 
 
   const onAddToCartClick = (e) => {
     context.state.items[props.category - 1].shops[props.shop][e.target.id].addedToCart = true;
@@ -60,10 +46,6 @@ const SingleShop = (props) => {
               onClick={toggleModal}
               onAddItemClick={onAddToCartClick}
             />
-            {/* <Button
-              size="S"
-              text="Add to cart"
-              color="primary" /> */}
           </>
         }
       )}
@@ -84,12 +66,6 @@ const SingleShop = (props) => {
           color="primary" />
         <button onClick={toggleModal}>Close modal</button>
       </Modal>
-      {/* <div className="shopping-cart_wrap">
-        {
-          cart && renderAddedItems(cart)
-        }
-        <span>{cart.length}</span>
-      </div> */}
     </>
   )
 };
