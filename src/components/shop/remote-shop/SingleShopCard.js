@@ -28,7 +28,7 @@ const SingleShopCard = (props) => {   //{ imageS, name, price, onClick, path}
       <button
       id={props.id}
       onClick={(e) => props.onClick(e)}
-      >Add to cart</button>
+      >See the details</button>
       <Text color="primary" size="S" text={props.price} />
     </div>
   );
