@@ -1,25 +1,26 @@
+import React, { useContext } from 'react';
 import SingleShopCard from "./SingleShopCard";
-import { MyAPIContext } from "./../../../context/APIContext";
+import { MyContext } from "./../../../context/APIContext";
 
-const SingleShop = (props) => (
-  <MyAPIContext.Consumer>
-    {(value) => (
-      <>
-        <h1>{props.text}</h1>
-        {!value.state.loading && value.state.items[props.category - 1].shops[props.shop].map(
-          (shop, index) => (
-            <SingleShopCard
-              path={`/shop/category${props.category}/${props.shop}/${index}`}
-              key={index}
-              imageS={shop.imageL}
-              name={shop.name}
-              price={shop.price}
-            />
-          )
-        )}
-      </>
+const SingleShop = (props) => {
+
+  const context = useContext(MyContext);
+  return (
+  <>
+    <h1>{props.text}</h1>
+    {!context.loading && context.state.items[props.category - 1].shops[props.shop].map(
+      (shop, index) => (
+        <SingleShopCard
+          path={`/shop/category${props.category}/${props.shop}/${index}`}
+          key={index}
+          imageS={shop.imageL}
+          name={shop.name}
+          price={shop.price}
+        />
+      )
     )}
-  </MyAPIContext.Consumer>
-);
+  </>
+  )
+};
 
 export default SingleShop;

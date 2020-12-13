@@ -20,29 +20,23 @@ const App = () => {
   });
 
   return (
-    <ShopContext.Consumer>
-      {(value) => (
-        <>
-          <Switch>
-            <Route exact path="/" render={() => <Home />} />
-            <Route path="/home" render={() => <Home />} />
+        <Switch>
+          <Route exact path="/" render={() => <Home />} />
+          <Route path="/home" render={() => <Home />} />
 
-            <Route
-              path="/shop"
-              render={(props) => <Shop {...props} title={shop.title} />}
-            />
-            <Route
-              path="/map"
-              render={(props) => <Map {...props} title={map.title} />}
-            />
-            <Route
-              path="/contact"
-              render={(props) => <Contact {...props} title={contact.title} />}
-            />
-          </Switch>
-        </>
-      )}
-    </ShopContext.Consumer>
+          <Route
+            path="/shop"
+            render={(props) => <Shop {...props} title={shop.title} />}
+          />
+          <Route
+            path="/map"
+            render={(props) => <Map {...props} title={map.title} />}
+          />
+          <Route
+            path="/contact"
+            render={(props) => <Contact {...props} title={contact.title} />}
+          />
+        </Switch>
   );
 };
 
