@@ -13,6 +13,8 @@ const SingleShop = (props) => {
 
   const [item, setItem] = useState('');
 
+  const [cart, setCart] = useState('');
+
   const context = useContext(MyContext);
 
   const toggleModal = (e) => {
@@ -22,14 +24,15 @@ const SingleShop = (props) => {
   }
 
   const findAddedItem = (arr) => {
-    return arr.filter(item => !(!item.addedToCart))
+    const result = arr.filter(item => !(!item.addedToCart));
+    return result;
   }
 
   const renderAddedItems = (arr) => {
     return arr.map(({ name, price }, i) => {
       return <ShoppingCart
         key={i}
-        title={name}
+        name={name}
         price={price}
       />
     })
@@ -37,7 +40,8 @@ const SingleShop = (props) => {
 
   const onAddToCartClick = (e) => {
     context.state.items[props.category - 1].shops[props.shop][e.target.id].addedToCart = true;
-    console.log(Object.entries(context.state.items[props.category - 1].shops[props.shop][e.target.id]));
+    const item = findAddedItem(context.state.items[props.category - 1].shops[props.shop]);
+    setCart(item);
   }
 
   return (
@@ -79,6 +83,12 @@ const SingleShop = (props) => {
           color="primary" />
         <button onClick={toggleModal}>Close modal</button>
       </Modal>
+      <div className="shopping-cart_wrap">
+        {
+          cart && renderAddedItems(cart)
+        }
+        <span>{cart.length}</span>
+      </div>
     </>
   )
 };
