@@ -8,11 +8,11 @@ import './SingleCard.css'
 
 const SingleShopCard = (props) => {   //{ imageS, name, price, onClick, path}
 
-  const context = useContext(MyContext);
+  // const context = useContext(MyContext);
 
-  const onAddClick = () => {
-    console.log(props)
-  }
+  // const onAddClick = () => {
+  //   console.log(props)
+  // }
 
   return (
     <div className="single-card_wrap">
@@ -29,6 +29,10 @@ const SingleShopCard = (props) => {   //{ imageS, name, price, onClick, path}
       id={props.id}
       onClick={(e) => props.onClick(e)}
       >See the details</button>
+      <button
+      id={props.id}
+      onClick={(e) => props.onAddItemClick(e)}
+      >Add to cart</button>
       <Text color="primary" size="S" text={props.price} />
     </div>
   );
