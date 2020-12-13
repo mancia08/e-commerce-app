@@ -8,7 +8,7 @@
 }
 
 .cart_item {
-    display: none;
+    /* display: none; */
     flex-direction: column;
     padding: .5rem;
     max-width: 200px;

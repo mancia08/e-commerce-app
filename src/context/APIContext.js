@@ -11,6 +11,8 @@ const MyAPIProvider = (props) => {
 
   const [loading, setLoading] = useState(false);
 
+  const [cart, setCart] = useState('');
+
   useEffect(() => {
     setState(items);
     setLoading(false);
@@ -18,7 +20,7 @@ const MyAPIProvider = (props) => {
 
  
     return (
-      <MyContext.Provider value={{ state, setState, loading }}>
+      <MyContext.Provider value={{ state, setState, loading, setLoading, cart, setCart }}>
         {props.children}
       </MyContext.Provider>
     );
