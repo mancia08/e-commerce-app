@@ -28,6 +28,16 @@ const SuperNav = (props) => {
     })
   } 
 
+  const getTotalPrice = () => {
+    if (!context.cart) {
+      return
+    }
+    let arr = [];
+    context.cart.map((el) => arr.push(el.price));
+    const result = arr.reduce((acc, val) => (acc + val), 0)
+    return result.toFixed(2);
+  }
+
   return <ShopContext.Consumer>
     {(value) => (
       <StyledSuperNav color={props.color}>
@@ -53,7 +63,7 @@ const SuperNav = (props) => {
           )}
         {props.type !== "home" && (
           <>
-            <Text color={props.textColor} size="S" text={value.state.itemsPrice + " £"} />
+            <Text color={props.textColor} size="S" text={`${getTotalPrice()} £`} />
             <SuperNavImg src={cart} alt="cart" onClick={value.cartToggle} />
             {value.state.cartShown && (
               context.cart && renderAddedItems(context.cart)
