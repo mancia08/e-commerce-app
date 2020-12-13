@@ -1,27 +1,26 @@
 import React, { useContext } from 'react';
-
+import { MyContext } from './../../context/APIContext';
 import { Switch, Route, Link } from "react-router-dom";
+
 import ShopBanner from "./shop-banner";
 import SingleShop from "./remote-shop/SingleShop";
+import ShopIconWrap from "./shop-icon-wrap";
+import Spinner from "../atoms/spinner";
+import SingleShopCard from "./remote-shop/SingleShopCard";
+import MainNavbar from "../atoms/mainNavbar/MainNavbar";
+
+import "./Shop.css";
 import jewerly from "./../../styles/images/jewelry.png";
 import jacket from "./../../styles/images/jacket.png";
 import laptop from "./../../styles/images/laptop.png";
-import ShopIconWrap from "./shop-icon-wrap";
-import Spinner from "../atoms/spinner";
-import { MyContext } from './../../context/APIContext';
-import "./Shop.css";
-import SingleShopCard from "./remote-shop/SingleShopCard";
-import MainNavbar from "../atoms/mainNavbar/MainNavbar";
+
 
 const Shop = (props) => {
 
   const context = useContext(MyContext);
 
-  console.log(context)
-
-
   return (
-    <h1>
+    <>
     <MainNavbar />
         {context.loading ? (
           <Spinner />
@@ -51,7 +50,7 @@ const Shop = (props) => {
               </div>
             </Route>
 
-            {context.state.items.map((category, categoryIndex) =>
+            {context.state && context.state.items.map((category, categoryIndex) =>
               category.shops.map((shops, shopsIndex) => {
                 let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`;
                 return (
@@ -87,7 +86,7 @@ const Shop = (props) => {
           </Switch>
           </>
         )}
-        </h1>
+        </>
     )
 
             };

@@ -17,10 +17,8 @@ const MyAPIProvider = (props) => {
   }, [])
 
  
-
-  console.log(state)
     return (
-      <MyContext.Provider value={{ state, loading }}>
+      <MyContext.Provider value={{ state, setState, loading }}>
         {props.children}
       </MyContext.Provider>
     );
