@@ -51,6 +51,11 @@ Setting variables
     /* @media cannot read global css variables, all breakpoints are hardcoded in styles.js */
     /* --mobile: 768px */
 
+
+
+
+
+    /*keep this after deleting everything. or put that inside app.css*/
     box-sizing: border-box;
     margin: 0;
     padding: 0;
