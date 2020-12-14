@@ -10,6 +10,7 @@ class ShopProvider extends Component {
     cartShown: false,
     isLoggedIn: false,
     username: "",
+    user: "",
     password: "",
     loginFailed: false,
     addedItems: [
@@ -75,13 +76,17 @@ class ShopProvider extends Component {
 
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) =>
-    this.setState({ username: event.target.value, loginFailed: false });
+    this.setState({
+      username: event.target.value,
+      loginFailed: false,
+    });
   password = (event) =>
     this.setState({ password: event.target.value, loginFailed: false });
   login = () => {
     const account = loginData.filter(
       (account) => account.user === this.state.username
     );
+    console.log(account)
     account.length === 0
       ? this.setState({ loginFailed: true, username: "", password: "" })
       : account[0].password === this.state.password
@@ -89,6 +94,7 @@ class ShopProvider extends Component {
           isLoggedIn: true,
           loginIconClicked: false,
           loginFailer: false,
+          user: account[0].name,
           username: "",
           password: "",
         })

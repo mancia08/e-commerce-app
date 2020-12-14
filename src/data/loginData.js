@@ -1,5 +1,5 @@
 export const loginData = [
-  { user: "test", password: "test" },
-  { user: "admin", password: "admin" },
-  { user: "user", password: "user"}
+  { user: "test", password: "test", name: "Jane"},
+  { user: "admin", password: "admin", name: "Jacopo" },
+  { user: "user", password: "user", name: "User"}
 ];

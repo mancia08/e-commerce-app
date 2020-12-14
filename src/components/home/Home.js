@@ -19,6 +19,11 @@ const HomeModal = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (min-width: ${theme.viewport.tablet}){
+    width: 400px;
+    left: calc(4 * ${theme.spacer});
+    text-align:center
+  }
 `;
 const ButtonsWrap = styled.div`
   display: flex;
@@ -27,6 +32,10 @@ const ButtonsWrap = styled.div`
   width: 100vw;
   flex-direction: column;
   align-items: center;
+  @media (min-width: ${theme.viewport.tablet}){
+    height: calc(100vh - 400px);
+    flex-direction:row
+  }
 `;
 
 const Home = () => (
@@ -34,7 +43,7 @@ const Home = () => (
     {(value) => (
       <main>
         <Banner />
-        <SuperNav type="home" />
+        <SuperNav type="home" textColor="light"/>
        {!value.state.loginIconClicked &&  <HomeModal>
           <Text color="light" size="XL" text={textData.homepage.title1} />
           <Text color="light" size="S" text={textData.homepage.title2} />

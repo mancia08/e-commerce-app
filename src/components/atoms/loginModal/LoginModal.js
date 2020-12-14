@@ -17,6 +17,10 @@ const LoginPopUp = styled.div`
   position: absolute;
   top: -${theme.spacer};
   left: calc(-100vw + 3 * ${theme.spacer});
+  @media (min-width: ${theme.viewport.tablet}){
+    width: ${theme.sizes.modals.login.width};
+    height: ${theme.sizes.modals.login.height};
+  }
 `;
 const LoginLogoContainer = styled.div`
   width: 100vw;
@@ -49,6 +53,12 @@ const LoginLinkContainer = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+const LoginSpacer = styled.br`
+  height: ${theme.spacer};
+`;
+const LoginLink = styled(Link)`
+text-decoration:none;
+`
 
 const LoginModal = () => (
   <ShopContext.Consumer>
@@ -80,6 +90,7 @@ const LoginModal = () => (
               onChange={value.password}
               value={value.state.password}
             ></LoginInput>
+            <LoginSpacer />
             <ButtonX
               action={value.login}
               size="M"
@@ -88,18 +99,18 @@ const LoginModal = () => (
             />
           </LoginForm>
           <LoginLinkContainer>
-            <Link to="/contact">
+            <LoginLink to="/contact">
               <Text color="light" size="M" text={textData.login.register} />
-            </Link>
-            <Link to="/contact">
-              <Text color="light" size="M" text={textData.login.user} />
-            </Link>
-            <a href="https://www.google.com" target="_blank" rel="noreferrer">
+            </LoginLink>
+            <LoginLink to="/contact">
+              <Text color="light" size="M" text={textData.login.text1} />
+            </LoginLink>
+            <LoginLink to="/google">
               <Text color="light" size="M" text={textData.login.text2} />
-            </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            </LoginLink>
+            <LoginLink to="/facebook">
               <Text color="light" size="M" text={textData.login.text3} />
-            </a>
+            </LoginLink>
           </LoginLinkContainer>
         </LoginTextContainer>
       </LoginPopUp>

@@ -10,7 +10,7 @@ export const textData = {
     password: "Password",
     register: "Register",
     submit: "LOGIN!",
-    text1: "Forgotten your password?",
+    text1: "Forgot your password?",
     text2: "Login with Google",
     text3: "Login with Facebook",
     fail: "Login failed. Please try again"

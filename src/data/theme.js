@@ -16,6 +16,7 @@ export const theme = {
     sizes: { S: "18px", M: "24px", L: "30px", XL: "48px" },
   },
   spacer: "8px",
+  spacernumber: 8,
   sizes: {
     navbar: 6 * spacer,
     buttons: {
@@ -26,7 +27,7 @@ export const theme = {
     },
     modals: {
       mobile: { height: "100vh", width: "100vw" },
-      login: { height: "700px", width: "800px" },
+      login: { height: "500px", width: "400px" },
       cart: { height: "500px", width: "350px" },
       navbar: { height: "300px", width: "75vw" },
     },

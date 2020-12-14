@@ -26,11 +26,12 @@ const StyledSuperNav = styled.nav`
   gap: ${2 * theme.spacer};
   padding: ${theme.spacer};
   /*homepage*/
+
   z-index: ${(p) => p.type === "home" && "1"};
   position: ${(p) => p.type === "home" && "absolute"};
   top: ${(p) => p.type === "home" && theme.spacer};
   right: ${(p) => p.type === "home" && theme.spacer};
-  background-color: ${(p) => p.type==="home"&& theme.colors.dark2}
+  background-color: ${(p) => p.type === "home" && theme.colors.dark2};
 `;
 
 const SuperNavImg = styled.img`
@@ -86,10 +87,9 @@ const SuperNav = (props) => {
                 action={value.loginIconToggle}
                 size="S"
                 color={props.textColor}
-                // next line logic to be defined thank you. J.
                 text={
                   value.state.isLoggedIn
-                    ? `Hello ${value.state.username}`
+                    ? `Hello ${value.state.user}`
                     : "Login / Sign Up"
                 }
               />
