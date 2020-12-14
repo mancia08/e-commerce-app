@@ -12,36 +12,66 @@ class ShopProvider extends Component {
     username: "",
     password: "",
     loginFailed: false,
-    addedItems: [{
-      name: "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
-      imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
-      imageL: "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
-      price: 25.99,
-    },{
-      name: "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
-      imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
-      imageL: "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
-      price: 25.99,
-    },{
-      name: "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
-      imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
-      imageL: "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
-      price: 25.99,
-    }],
+    addedItems: [
+      {
+        name:
+          "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
+        imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
+        imageL:
+          "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
+        price: 25.99,
+      },
+      {
+        name:
+          "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
+        imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
+        imageL:
+          "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
+        price: 25.99,
+      },
+      {
+        name:
+          "Bonsai Tool Steel Extensive  Set Carbon 14-pc Kit Cutter Scissors W/ Nylon Case",
+        imageS: "https://thumbs1.ebaystatic.com/pict/3930425706848080_1.jpg",
+        imageL:
+          "https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/5-EAAOSw8GZfyato/$_57.JPG?set_id=8800005007",
+        price: 25.99,
+      },
+    ],
     itemsPrice: 23.33,
   };
 
   /*MOBILE MENU TOGGLE*/
-  toggleMobileMenu = () => 
-  this.setState({ mobileMenu: !this.state.mobileMenu})
+  toggleMobileMenu = () =>
+    this.setState({
+      mobileMenu: !this.state.mobileMenu,
+      loginIconClicked: false,
+      cartShown: false,
+    });
 
   /*ACCOUNT ICON TOGGLE*/
   loginIconToggle = () =>
-    this.setState({ loginIconClicked: !this.state.loginIconClicked });
-  closeLogin = () => this.setState({loginIconClicked: false});
+    this.setState({
+      loginIconClicked: !this.state.loginIconClicked,
+      mobileMenu: false,
+      cartShown: false,
+    });
+
+  /*close everything*/
+  closeLogin = () =>
+    this.setState({
+      loginIconClicked: false,
+      mobileMenu: false,
+      cartShown: false,
+    });
 
   /*CART TOGGLE*/
-  cartToggle = () => this.setState({cartShown: !this.state.cartShown})
+  cartToggle = () =>
+    this.setState({
+      cartShown: !this.state.cartShown,
+      mobileMenu: false,
+      loginIconClicked: false,
+    });
 
   /*LOGIN AND LOGOUT LOGIC*/
   username = (event) =>
@@ -60,7 +90,7 @@ class ShopProvider extends Component {
           loginIconClicked: false,
           loginFailer: false,
           username: "",
-          password: ""
+          password: "",
         })
       : this.setState({ loginFailed: true });
   };
@@ -70,13 +100,11 @@ class ShopProvider extends Component {
       loginIconClicked: !this.state.loginIconClicked,
     });
 
+  /*ADD STUFF TO CART LOGIC HERE*/
+  /*addedItems:[] is already in state*/
 
-    /*ADD STUFF TO CART LOGIC HERE*/
-    /*addedItems:[] is already in state*/
-
-    /*SHOP PRICE LOGIC HERE*/
-    /*itemsPrice inside state and hardcoded*/
-
+  /*SHOP PRICE LOGIC HERE*/
+  /*itemsPrice inside state and hardcoded*/
 
   render() {
     return (
@@ -90,7 +118,7 @@ class ShopProvider extends Component {
           username: this.username,
           password: this.password,
           closeLogin: this.closeLogin,
-          cartToggle: this.cartToggle
+          cartToggle: this.cartToggle,
         }}
       >
         {this.props.children}
