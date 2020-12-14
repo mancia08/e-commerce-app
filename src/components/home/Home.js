@@ -44,22 +44,22 @@ const Home = () => (
       <main>
         <Banner />
         <SuperNav type="home" textColor="light"/>
-       {!value.state.loginIconClicked &&  <HomeModal>
+       {!value.state.loginIconClicked && <> <HomeModal>
           <Text color="light" size="XL" text={textData.homepage.title1} />
           <Text color="light" size="S" text={textData.homepage.title2} />
           <Text color="light" size="S" text={textData.homepage.title3} />
-        </HomeModal>}
+        </HomeModal>
         <ButtonsWrap>
-          <Link to="./shop">
-            <Button size="L" text="SHOP" color="primary" />
-          </Link>
-          <Link to="./map">
-            <Button size="L" text="MAP" color="primary" />
-          </Link>
-          <Link to="./contact">
-            <Button size="L" text="CONTACT" color="primary" />
-          </Link>
-        </ButtonsWrap>
+        <Link to="./shop">
+          <Button size="L" text="SHOP" color="primary" />
+        </Link>
+        <Link to="./map">
+          <Button size="L" text="MAP" color="primary" />
+        </Link>
+        <Link to="./contact">
+          <Button size="L" text="CONTACT" color="primary" />
+        </Link>
+      </ButtonsWrap></>}
       </main>
     )}
   </ShopContext.Consumer>

@@ -13,7 +13,7 @@ export const theme = {
     url: "https://fonts.googleapis.com/css2?family=Inder&display=swap",
     name: "Inder",
     fallback: "sans-serif",
-    sizes: { S: "18px", M: "24px", L: "30px", XL: "48px" },
+    sizes: { XS:"12px", S: "18px", M: "24px", L: "30px", XL: "48px" },
   },
   spacer: "8px",
   spacernumber: 8,
@@ -27,7 +27,7 @@ export const theme = {
     },
     modals: {
       mobile: { height: "100vh", width: "100vw" },
-      login: { height: "500px", width: "400px" },
+      login: { height: "500px", width: "450px" },
       cart: { height: "500px", width: "350px" },
       navbar: { height: "300px", width: "75vw" },
     },
