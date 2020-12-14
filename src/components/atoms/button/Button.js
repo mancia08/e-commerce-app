@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledBtn } from "../../../styles/styles";
 
-const Button = (props) => <StyledBtn onClick={props.action} size={props.size} color={props.color}>{props.text}</StyledBtn>;
+const Button = (props) => <StyledBtn id={props.id} onClick={props.action} size={props.size} color={props.color}>{props.text}</StyledBtn>;
 
 export default Button;
 

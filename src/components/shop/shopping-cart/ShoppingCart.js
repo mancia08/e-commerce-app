@@ -8,7 +8,7 @@ const ShoppingCart = ({ name, price, image, length }) => (
         <div className="cart_item">
             <span>{name}</span>
             <img src={image} alt={name}/>
-            <span className="cart-price">{price}$</span>
+            <span className="cart-price">{price} £</span>
         </div>
         <span>{length}</span>
    </div>

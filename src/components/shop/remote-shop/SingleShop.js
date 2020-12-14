@@ -4,6 +4,8 @@ import { MyContext } from "./../../../context/APIContext";
 import Button from '../../atoms/button/Button';
 import Modal from "react-modal";
 
+import { v4 as uuidv4 } from 'uuid';
+
 Modal.setAppElement("#root");
 
 const SingleShop = (props) => {
@@ -42,7 +44,7 @@ const SingleShop = (props) => {
               key={index}
               imageS={shop.imageL}
               name={shop.name}
-              price={shop.price}
+              price={`${shop.price} £`}
               onClick={toggleModal}
               onAddItemClick={onAddToCartClick}
             />
@@ -59,12 +61,21 @@ const SingleShop = (props) => {
       >
         <div>{item && item.name}</div>
         <img className="modal_img" src={item && item.imageL} alt={item && item.name} />
-        <div>{item && item.price}</div>
+        <div>{item && item.price} £</div>
         <Button
+        key={uuidv4()}
+          id={item && item.id}
           size="S"
           text="Add to cart"
-          color="primary" />
-        <button onClick={toggleModal}>Close modal</button>
+          color="primary"
+          action={onAddToCartClick}
+           />
+          
+        <Button
+          size="S"
+          text="Continue shopping"
+          color="primary"
+          action={toggleModal} />
       </Modal>
     </>
   )

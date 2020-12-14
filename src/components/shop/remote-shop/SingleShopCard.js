@@ -1,23 +1,14 @@
-import React, { useContext } from 'react';
-import { MyContext } from "./../../../context/APIContext";
 import Text from "./../../atoms/text/Text";
 import Button from "../../atoms/button/Button";
 
 import './SingleCard.css'
 
 
-const SingleShopCard = (props) => {   //{ imageS, name, price, onClick, path}
-
-  // const context = useContext(MyContext);
-
-  // const onAddClick = () => {
-  //   console.log(props)
-  // }
-
+const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick}) => {   //{ imageS, name, price, onClick, path}
   return (
     <div className="single-card_wrap">
-      <img src={props.imageS} alt={props.name} />
-      <Text color="dark" size="M" text={props.name} />
+      <img src={imageS} alt={name} />
+      <Text color="dark" size="M" text={name} />
       <Text color="dark" size="S" text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, obcaecati,
         porro hic magni aliquid error natus velit, nostrum maxime eligendi
         incidunt illo expedita? Recusandae obcaecati illum eum sequi, ullam
@@ -25,15 +16,21 @@ const SingleShopCard = (props) => {   //{ imageS, name, price, onClick, path}
         autem aliquid maiores ad laborum at sed, laudantium rem cum."/>
       {/* Add method here */}
       {/* <Button action={() => onAddClick()} size="S" text="Add to cart" color="primary" /> */}
-      <button
-      id={props.id}
-      onClick={(e) => props.onClick(e)}
-      >See the details</button>
-      <button
-      id={props.id}
-      onClick={(e) => props.onAddItemClick(e)}
-      >Add to cart</button>
-      <Text color="primary" size="S" text={props.price} />
+      <Button
+      id={id}
+      action={(e) => onClick(e)}
+      size="S"
+      color="primary"
+      text="More details"
+      />
+      <Button
+      id={id}
+      action={(e) => onAddItemClick(e)}
+      size="S"
+      color="primary"
+      text="Add to cart"
+      />
+      <Text color="primary" size="S" text={price} />
     </div>
   );
 }

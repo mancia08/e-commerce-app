@@ -40,7 +40,7 @@ const SuperNav = (props) => {
 
   const getTotalPrice = () => {
     if (!context.cart) {
-      return
+      return 0;
     }
     let arr = [];
     context.cart.map((el) => arr.push(el.price));
@@ -78,12 +78,15 @@ const SuperNav = (props) => {
             <Modal
               isOpen={isOpen}
               onRequestClose={toggleModal}
-              contentLabel="My dialog"
+              contentLabel="shopping-cart"
+              className="mymodal"
+              overlayClassName="myoverlay"
+              closeTimeoutMS={500}
             >
               {
-                context.cart && renderAddedItems(context.cart)
+                !context.cart.length ? <h4>You havent added any items YET</h4> : renderAddedItems(context.cart)
               }
-              <button onClick={toggleModal}>Close modal</button>
+              <button onClick={toggleModal}>Continue shopping</button>
               <button>Checkout</button>
             </Modal>
             <TextCart
