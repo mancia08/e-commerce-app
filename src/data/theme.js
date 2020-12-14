@@ -5,6 +5,7 @@ export const theme = {
     secondary: "#33A0FF40",
     light: "#FFFFFF",
     dark: "#000000",
+    dark2: "#0000004D",
     grey: "#F0F0F0",
     red: "#FF0000",
   },
@@ -14,13 +15,21 @@ export const theme = {
     fallback: "sans-serif",
     sizes: { S: "18px", M: "24px", L: "30px", XL: "48px" },
   },
-  heights: {
+  spacer: "8px",
+  spacernumber: 8,
+  sizes: {
     navbar: 6 * spacer,
     buttons: {
       S: `${3 * spacer}px`,
       M: `${6 * spacer}px`,
       L: `${9 * spacer}px`,
       XL: `${12 * spacer}px`,
+    },
+    modals: {
+      mobile: { height: "100vh", width: "100vw" },
+      login: { height: "500px", width: "400px" },
+      cart: { height: "500px", width: "350px" },
+      navbar: { height: "300px", width: "75vw" },
     },
   },
   viewport: { mobile: "450px", tablet: "768px" },

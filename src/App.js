@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 
 import Home from "./components/home";
 import Shop from "./components/shop";
@@ -36,6 +36,16 @@ const App = () => {
             path="/contact"
             render={(props) => <Contact {...props} title={contact.title} />}
           />
+          <Route path='/google' component={() => { 
+     window.open('https://www.google.com');
+     {/* <Link to ={window.history.back()}/> */}
+     /* routerprovider.history.goBack() ??? */
+     /* routerHistory.provider goback */
+}}/>
+<Route path='/facebook' component={() => { 
+     window.open('https://www.facebook.com');
+     {/* <Link to ={window.history.back()}/> */}
+}}/>
         </Switch>
   );
 };
