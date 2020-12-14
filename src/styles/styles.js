@@ -194,15 +194,6 @@ export const StyledBtnX = styled.button`
   }
 `;
 
-// Modals & PopUps
-export const HomeModal = styled.div`
-  background-color: yellow;
-`;
-
-export const LoginPopUp = styled.div`
-  background-color: var(--primary);
-`;
-
 export const LogoutPopUp = styled.div`
   background-color: var(--primary);
 `;
@@ -289,23 +280,6 @@ export const HoverLink = styled(StyledLink)`
       display: block;
     }
   }
-`;
-
-export const StyledSuperNav = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  background-color: ${(p) =>
-    p.color === "primary"
-      ? "var(--primary)"
-      : "var(--light)"};
-  gap: var(--spacer-double);
-  padding: var(--spacer-8);
-`;
-
-export const SuperNavImg = styled.img`
-  width: auto;
-  height: var(--heightS-btn);
-  cursor: pointer;
 `;
 
 export const StyledBurger = styled.button`
