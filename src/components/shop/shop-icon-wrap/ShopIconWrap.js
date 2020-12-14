@@ -1,20 +1,22 @@
+import React, { useContext } from 'react';
 import ShopIcon from "../shop-icon";
-import { MyAPIContext } from "../../../context/APIContext";
+import { MyContext } from "../../../context/APIContext";
 import icon from "../shop-icon/Icon.png";
 import { shopData } from '../../../data/shopData';
 import "./ShopIconWrap.css";
 
 const ShopIconWrap = (props) => {
+  const context = useContext(MyContext);
+
   const shopNames = shopData.map(el => (
     el.shops.map(elem => elem.name)
   ));
   const shopAdress = shopData.map(el => (
     el.shops.map(elem => elem.address)
   ))
-  return <MyAPIContext.Consumer>
-    {(value) => (
+  return  (
       <div className="shop-icon_wrap">
-        {value.state.items[0].shops.map((el, index) => (
+        {context.state.items[0].shops.map((el, index) => (
           <ShopIcon
             path={`/shop/${props.category}/${index}`}
             key={index}
@@ -24,7 +26,6 @@ const ShopIconWrap = (props) => {
           />
         ))}
       </div>
-    )}
-  </MyAPIContext.Consumer>
+    )
 };
 export default ShopIconWrap;
