@@ -129,9 +129,8 @@ const SuperNav = (props) => {
                   action={toggleModal}
                   text="Continue shopping"
                 />
-                <Button size="S" color="primary" text="Checkout" />
                 <p>
-                  Pay Total of $ {getTotalPrice()}
+                  Pay Total of £ {getTotalPrice()}
                 </p>
                 <p>
                   <StripeCheckoutButton price={getTotalPrice()} />

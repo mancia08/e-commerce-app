@@ -11,7 +11,7 @@ const StripeCheckoutButton = ({ price }) => {
 
     return (
         <StripeCheckout
-        label='Pay Now'
+        label='CHECKOUT'
         name='NORRIS INC.'
         billingAddress
         shippingAddress
