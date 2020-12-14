@@ -319,7 +319,6 @@ export const StyledBurger = styled.button`
     border: none;
     cursor: pointer;
     background: transparent;
-
     div {
       width: 80%;
       height: var(--spacer-4);
