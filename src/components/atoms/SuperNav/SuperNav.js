@@ -14,6 +14,7 @@ import { StyledSuperNav, SuperNavImg } from "../../../styles/styles";
 import ShoppingCart from '../../shop/shopping-cart';
 
 import Modal from "react-modal";
+import Button from '../button/Button';
 
 Modal.setAppElement("#root");
 
@@ -86,8 +87,17 @@ const SuperNav = (props) => {
               {
                 !context.cart.length ? <h4>You havent added any items YET</h4> : renderAddedItems(context.cart)
               }
-              <button onClick={toggleModal}>Continue shopping</button>
-              <button>Checkout</button>
+              <Button
+                size="S"
+                color="primary"
+                action={toggleModal}
+                text="Continue shopping"
+              />
+              <Button
+                size="S"
+                color="primary"
+                text="Checkout"
+              />
             </Modal>
             <TextCart
               size="S"

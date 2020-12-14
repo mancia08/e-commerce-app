@@ -63,14 +63,14 @@ const SingleShop = (props) => {
         <img className="modal_img" src={item && item.imageL} alt={item && item.name} />
         <div>{item && item.price} £</div>
         <Button
-        key={uuidv4()}
+          key={uuidv4()}
           id={item && item.id}
           size="S"
           text="Add to cart"
           color="primary"
           action={onAddToCartClick}
-           />
-          
+        />
+
         <Button
           size="S"
           text="Continue shopping"
