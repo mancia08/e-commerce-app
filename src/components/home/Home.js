@@ -23,7 +23,7 @@ const HomeModal = styled.div`
 const ButtonsWrap = styled.div`
   display: flex;
   justify-content: space-around;
-  height: calc(3 * ${theme.sizes.buttons.XL} + 4 * ${theme.spacer});
+  height: calc(3 * ${theme.sizes.buttons.L} + 4 * ${theme.spacer});
   width: 100vw;
   flex-direction: column;
   align-items: center;
@@ -35,21 +35,20 @@ const Home = () => (
       <main>
         <Banner />
         <SuperNav type="home" />
-
-        <HomeModal>
+       {!value.state.loginIconClicked &&  <HomeModal>
           <Text color="light" size="XL" text={textData.homepage.title1} />
-          <Text color="light" size="L" text={textData.homepage.title1} />
-          <Text color="light" size="L" text={textData.homepage.title1} />
-        </HomeModal>
+          <Text color="light" size="S" text={textData.homepage.title2} />
+          <Text color="light" size="S" text={textData.homepage.title3} />
+        </HomeModal>}
         <ButtonsWrap>
           <Link to="./shop">
-            <Button size="XL" text="SHOP" color="primary" />
+            <Button size="L" text="SHOP" color="primary" />
           </Link>
           <Link to="./map">
-            <Button size="XL" text="MAP" color="primary" />
+            <Button size="L" text="MAP" color="primary" />
           </Link>
           <Link to="./contact">
-            <Button size="XL" text="CONTACT" color="primary" />
+            <Button size="L" text="CONTACT" color="primary" />
           </Link>
         </ButtonsWrap>
       </main>
