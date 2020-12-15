@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledTextCart } from "../../../styles/styles";
 
-const TextCart = (props) => <StyledTextCart color={props.color} size={props.size}>{props.text}</StyledTextCart>
+const TextCart = (props) => <StyledTextCart color={props.color} size={props.size} onClick={props.action}>{props.text}</StyledTextCart>
 
 export default TextCart;

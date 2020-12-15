@@ -1,22 +1,28 @@
+import React, { useContext } from 'react';
+import { MyContext } from './../../context/APIContext';
 import { Switch, Route, Link } from "react-router-dom";
+
 import ShopBanner from "./shop-banner";
 import SingleShop from "./remote-shop/SingleShop";
+import ShopIconWrap from "./shop-icon-wrap";
+import Spinner from "../atoms/spinner";
+import SingleShopCard from "./remote-shop/SingleShopCard";
+import MainNavbar from "../atoms/mainNavbar/MainNavbar";
+
+import "./Shop.css";
 import jewerly from "./../../styles/images/jewelry.png";
 import jacket from "./../../styles/images/jacket.png";
 import laptop from "./../../styles/images/laptop.png";
-import ShopIconWrap from "./shop-icon-wrap";
-import Spinner from "../atoms/spinner";
-import { MyAPIContext } from "./../../context/APIContext";
-import "./Shop.css";
-import SingleShopCard from "./remote-shop/SingleShopCard";
-import MainNavbar from "../atoms/mainNavbar/MainNavbar"
 
-const Shop = (props) => (
-  <MyAPIContext.Consumer>
-    {(value) =>
+
+const Shop = (props) => {
+
+  const context = useContext(MyContext);
+
+  return (
     <>
     <MainNavbar />
-        {value.state.loading ? (
+        {context.loading ? (
           <Spinner />
         ) : (
           <>
@@ -44,7 +50,7 @@ const Shop = (props) => (
               </div>
             </Route>
 
-            {value.state.items.map((category, categoryIndex) =>
+            {context.state && context.state.items.map((category, categoryIndex) =>
               category.shops.map((shops, shopsIndex) => {
                 let link = `/shop/category${categoryIndex + 1}/${shopsIndex}`;
                 return (
@@ -68,9 +74,9 @@ const Shop = (props) => (
                 return (
                   <> 
                     <SingleShopCard
-                      name={value.state.items[category].shops[shop][index].name}
+                      name={context.state.items[category].shops[shop][index].name}
                       key={props.index}
-                      price={value.state.items[category].shops[shop][index].price}
+                      price={context.state.items[category].shops[shop][index].price}
                     />
                     <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
                   </>
@@ -80,9 +86,9 @@ const Shop = (props) => (
           </Switch>
           </>
         )}
-      </>
-    }
-  </MyAPIContext.Consumer>
-);
+        </>
+    )
+
+            };
 
 export default Shop;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 
 import Home from "./components/home";
 import Shop from "./components/shop";
@@ -20,29 +20,33 @@ const App = () => {
   });
 
   return (
-    <ShopContext.Consumer>
-      {(value) => (
-        <>
-          <Switch>
-            <Route exact path="/" render={() => <Home />} />
-            <Route path="/home" render={() => <Home />} />
+        <Switch>
+          <Route exact path="/" render={() => <Home />} />
+          <Route path="/home" render={() => <Home />} />
 
-            <Route
-              path="/shop"
-              render={(props) => <Shop {...props} title={shop.title} />}
-            />
-            <Route
-              path="/map"
-              render={(props) => <Map {...props} title={map.title} />}
-            />
-            <Route
-              path="/contact"
-              render={(props) => <Contact {...props} title={contact.title} />}
-            />
-          </Switch>
-        </>
-      )}
-    </ShopContext.Consumer>
+          <Route
+            path="/shop"
+            render={(props) => <Shop {...props} title={shop.title} />}
+          />
+          <Route
+            path="/map"
+            render={(props) => <Map {...props} title={map.title} />}
+          />
+          <Route
+            path="/contact"
+            render={(props) => <Contact {...props} title={contact.title} />}
+          />
+          <Route path='/google' component={() => { 
+     window.open('https://www.google.com');
+     {/* <Link to ={window.history.back()}/> */}
+     /* routerprovider.history.goBack() ??? */
+     /* routerHistory.provider goback */
+}}/>
+<Route path='/facebook' component={() => { 
+     window.open('https://www.facebook.com');
+     {/* <Link to ={window.history.back()}/> */}
+}}/>
+        </Switch>
   );
 };
 

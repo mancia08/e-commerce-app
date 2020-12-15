@@ -138,71 +138,6 @@ export const StyledBtn = styled.button`
   }
 `;
 
-export const StyledBtnX = styled.button`
-  height: ${(p) =>
-    p.size === "S"
-      ? "var(--heightS-btn)"
-      : p.size === "M"
-      ? "var(--heightM-btn)"
-      : p.size === "L"
-      ? "var(--heightL-btn)"
-      : "var(--heightXL-btn)"};
-  color: ${(p) =>
-    p.color === "primary"
-      ? "var(--primary)"
-      : p.color === "light"
-      ? "var(--light)"
-      : "var(--dark)"};
-  font-size: ${(p) =>
-    p.size === "S"
-      ? "var(--font-size-18)"
-      : p.size === "M"
-      ? "var(--font-size-24)"
-      : p.size === "L"
-      ? "var(--font-size-30)"
-      : "var(--font-size-48)"};
-  line-height: ${(p) =>
-    p.size === "S"
-      ? "var(--heightS-btn)"
-      : p.size === "M"
-      ? "var(--heightM-btn)"
-      : p.size === "L"
-      ? "var(--heightL-btn)"
-      : "var(--heightXL-btn)"};
-  padding: 0
-    ${(p) =>
-      p.size === "S"
-        ? "var(--spacer-8)"
-        : p.size === "M"
-        ? "var(--spacer-double)"
-        : p.size === "L"
-        ? "var(--spacer-triple)"
-        : "var(--spacer-quad)"};
-  background-color: var(--primary);
-  border-radius: ${(p) =>
-    p.size === "S"
-      ? "var(--spacer-8)"
-      : p.size === "M"
-      ? "var(--spacer-double)"
-      : p.size === "L"
-      ? "var(--spacer-triple)"
-      : "var(--spacer-quad)"};
-  border: none;
-  :hover {
-    color: var(--dark);
-    background-color: var(--light);
-  }
-`;
-
-// Modals & PopUps
-export const HomeModal = styled.div`
-  background-color: yellow;
-`;
-
-export const LoginPopUp = styled.div`
-  background-color: var(--primary);
-`;
-
 export const LogoutPopUp = styled.div`
   background-color: var(--primary);
 `;
@@ -289,23 +224,6 @@ export const HoverLink = styled(StyledLink)`
       display: block;
     }
   }
-`;
-
-export const StyledSuperNav = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  background-color: ${(p) =>
-    p.color === "primary"
-      ? "var(--primary)"
-      : "var(--light)"};
-  gap: var(--spacer-double);
-  padding: var(--spacer-8);
-`;
-
-export const SuperNavImg = styled.img`
-  width: auto;
-  height: var(--heightS-btn);
-  cursor: pointer;
 `;
 
 export const StyledBurger = styled.button`
