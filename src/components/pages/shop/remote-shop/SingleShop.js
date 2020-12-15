@@ -33,13 +33,6 @@ const SingleShop = ({ category, shop }) => {
     let copyOfItems = [...context.cart];
     copyOfItems.push(itemSelected);
     context.setCart(copyOfItems);
-
-
-
-
-    // context.state.items[category - 1].shops[shop][e.target.id].addedToCart = true;
-    // const item = findAddedItem(context.state.items[category - 1].shops[shop]);
-    // context.setCart(item);
   }
 
   return (

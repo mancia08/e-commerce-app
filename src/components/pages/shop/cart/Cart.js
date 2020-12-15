@@ -33,6 +33,8 @@ const Cart = ({ textColor }) => {
 
     const findItem = (arr, id) => arr.find(el => el.id === id);
 
+    const findQuontity = (arr, id) => arr.filter(el => el.id === id);
+
     const onRemoveClick = (e) => {
         let element = findItem(context.cart, Number(e.target.id))
         const index = context.cart.indexOf(element);
@@ -43,7 +45,8 @@ const Cart = ({ textColor }) => {
     }
 
     const renderAddedItems = (arr) => {
-        return arr.map(({ id, name, price, imageS }, i) => {
+        return arr.filter((value, index, self) => self.indexOf(value) === index)
+        .map(({ id, name, price, imageS }, i) => {
             return (
                 <CartItem
                     key={i}
@@ -53,7 +56,7 @@ const Cart = ({ textColor }) => {
                     increase
                     decrease
                     remove={onRemoveClick}
-                    quantity
+                    quantity={findQuontity(context.cart, id).length}
                     id={id}
                 />
             );
@@ -93,7 +96,7 @@ const Cart = ({ textColor }) => {
                 />
             </div>
 
-            
+
             <Modal
                 isOpen={isOpen}
                 onRequestClose={toggleModal}
