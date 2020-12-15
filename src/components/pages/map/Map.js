@@ -11,7 +11,7 @@ const Map = (props) => (
       <div>
         <MainNavbar />
         <Banner />
-        {!value.state.mobileMenu && <MapBox {...props} />}
+        {!value.state.mobileMenu && !value.state.loginIconClicked && <MapBox {...props} />}
         <Text
           color="dark"
           size="L"
