@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './ShopIcon.css';
-import Text from "./../../atoms/text/Text"
+import Text from "./../../../atoms/text/Text"
 
 const ShopIcon = ({ path, icon, title, text }) => (
     <Link to={path} className="shop-small_wrap">

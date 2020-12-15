@@ -1,4 +1,4 @@
-import Text from "../atoms/text/Text";
+import Text from "../../atoms/text/Text";
 
 const SubmittedModal = () => (
     <>

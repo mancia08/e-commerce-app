@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
-import { MyContext } from './../../context/APIContext';
+import { MyContext } from './../../../context/APIContext';
 import { Switch, Route, Link } from "react-router-dom";
 
 import ShopBanner from "./shop-banner";
 import SingleShop from "./remote-shop/SingleShop";
 import ShopIconWrap from "./shop-icon-wrap";
-import Spinner from "../atoms/spinner";
+import Spinner from "../../atoms/spinner";
 import SingleShopCard from "./remote-shop/SingleShopCard";
-import MainNavbar from "../atoms/mainNavbar/MainNavbar";
+import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 
 import "./Shop.css";
-import jewerly from "./../../styles/images/jewelry.png";
-import jacket from "./../../styles/images/jacket.png";
-import laptop from "./../../styles/images/laptop.png";
+import jewerly from "./../../../styles/images/jewelry.png";
+import jacket from "./../../../styles/images/jacket.png";
+import laptop from "./../../../styles/images/laptop.png";
 
 
 const Shop = (props) => {

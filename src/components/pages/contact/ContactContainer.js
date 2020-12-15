@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { theme } from '../../data/theme'
+import { theme } from '../../../data/theme'
 import styled from "styled-components";
 
-import Text from "../atoms/text/Text";
+import Text from "../../atoms/text/Text";
 import ContactForm from "./ContactForm"
 import ContactImage from './ContactImage';
 import ContactTitleButton from './ContactTitleButton';

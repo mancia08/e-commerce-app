@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Switch, Route/* , BrowserRouter as Router  */} from "react-router-dom";
 
-import Home from "./components/home";
-import Shop from "./components/shop";
-import Map from "./components/map";
-import Contact from "./components/contact";
+import Home from "./components/pages/home";
+import Shop from "./components/pages/shop";
+import Map from "./components/pages/map";
+import Contact from "./components/pages/contact";
 import { ShopContext } from "./context/ShopContext";
 
 const App = () => {

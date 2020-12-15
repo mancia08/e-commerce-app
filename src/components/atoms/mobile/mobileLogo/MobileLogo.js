@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyledMobileLogo, LogoImg } from "../../../../styles/styles";
 import logo from "../../../../styles/images/logonorris.png"
-import SuperNav from '../../SuperNav/SuperNav';
 
 const MobileLogo = props => {
     return(
