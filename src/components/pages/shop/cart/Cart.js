@@ -60,6 +60,10 @@ const Cart = ({ textColor }) => {
         });
     };
 
+    const clearAllItems = () => {
+        context.setCart('');
+    }
+
     const getTotalPrice = () => {
         if (!context.cart) {
             return 0;
@@ -113,6 +117,7 @@ const Cart = ({ textColor }) => {
                     size="S"
                     color="primary"
                     text="clear"
+                    action={clearAllItems}
                 />
                 <p>
                     Total Items
