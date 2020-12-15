@@ -31,20 +31,21 @@ const Cart = ({ textColor }) => {
         setIsOpen(!isOpen);
     };
 
+    const findItem = (arr, id) => arr.find(el => el.id === id);
+
     const removeItem = (arr) => {
-        const result = arr.filter(item => !(!item.addedToCart));
+        const result = arr.filter(item => item.addedToCart === false);
         return result;
     }
 
-    const onRemoveClick = (e) => {
-        console.log(e.target.id)
-        // context.cart.addedToCart = true;
-        // const item = removeItem(context.state.items[category - 1].shops[shop]);
-        // context.setCart(item);
+    const onRemoveClick = (index) => {
+        let copyOfItems = [...context.cart];
+        copyOfItems.splice(index, 1);
+        context.setCart(copyOfItems);
     }
 
     const renderAddedItems = (arr) => {
-        return arr.map(({ name, price, imageS }, i) => {
+        return arr.map(({ id, name, price, imageS }, i) => {
             return (
                 <CartItem
                     key={i}
@@ -55,6 +56,7 @@ const Cart = ({ textColor }) => {
                     decrease
                     remove={onRemoveClick}
                     quantity
+                    id={id}
                 />
             );
         });

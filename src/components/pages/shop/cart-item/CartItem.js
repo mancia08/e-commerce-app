@@ -2,8 +2,8 @@
 import React from 'react';
 import './CartItem.css';
 
-const CartItem = ({ name, price, image, increase, decrease, quantity, remove }) => (
-    <div>
+const CartItem = ({ id, name, price, image, increase, decrease, quantity, remove, index }) => (
+    <div id={id}>
         <div className="cart_item">
             <span>{name}</span>
             <img src={image} alt={name} />
@@ -16,7 +16,11 @@ const CartItem = ({ name, price, image, increase, decrease, quantity, remove }) 
             <button onClick={(e) => increase(e)}>+</button>
         </p>
         <p>
-        <button onClick={(e) => remove(e)}>Remove From Cart</button>
+            <button
+                id={id}
+                onClick={() => remove(index)}
+            >Remove From Cart
+            </button>
         </p>
     </div>
 )
