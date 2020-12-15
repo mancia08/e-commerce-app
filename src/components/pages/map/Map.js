@@ -4,6 +4,8 @@ import Banner from "./../../atoms/banner/Banner";
 import Text from "./../../atoms/text/Text";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import { ShopContext } from "./../../../context/ShopContext";
+import styled from "styled-components";
+
 
 const Map = (props) => (
   <ShopContext.Consumer>

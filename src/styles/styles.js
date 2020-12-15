@@ -71,28 +71,6 @@ export const StyledTextLogin = styled.p`
   }
 `;
 
-export const StyledTextCart = styled.p`
-  color: ${(p) =>
-    p.color === "primary"
-      ? "var(--primary)"
-      : p.color === "light"
-      ? "var(--light)"
-      : "var(--dark)"};
-  font-size: ${(p) =>
-    p.size === "S"
-      ? "var(--font-size-18)"
-      : p.size === "M"
-      ? "var(--font-size-24)"
-      : p.size === "L"
-      ? "var(--font-size-30)"
-      : "var(--font-size-48)"};
-  background-color: var(--red);
-  border-radius: 50%;
-  text-align: center;
-  width: var(--font-size-24);
-  height: var(--font-size-24);
-`;
-
 // Buttons
 export const StyledBtn = styled.button`
   width: ${(p) =>
@@ -240,44 +218,4 @@ export const HoverLink = styled(StyledLink)`
   }
 `;
 
-export const StyledBurger = styled.button`
-  @media (max-width: 768px) {
-    height: var(--spacer-quad);
-    width: var(--spacer-quad);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    background: transparent;
-    div {
-      width: 80%;
-      height: var(--spacer-4);
-      background-color: var(--dark);
-      border-radius: 10px;
-    }
-  }
-`;
 
-export const StyledMobileLogo = styled(NavLink)`
-  display: none;
-  margin-right: auto;
-
-  @media (max-width: 768px) {
-    display: inline-block;
-  }
-`;
-
-export const StyledMobileMenu = styled.div`
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--primary);
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  div {
-    display: flex;
-  }
-`;

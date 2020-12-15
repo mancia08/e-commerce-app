@@ -16,8 +16,8 @@ const LoginPopUp = styled.div`
   height: ${theme.sizes.modals.mobile.height};
   z-index: 1;
   position: absolute;
-  top: -${theme.spacer};
-  left: calc(-100vw + 3 * ${theme.spacer});
+  top: ${(p) => p.type==="mobile" ? 0 : `-${theme.spacer}`};
+  left: ${(p) => p.type==="mobile" ? 0 : `calc(-100vw + 3 * ${theme.spacer})`};
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -75,10 +75,10 @@ const LoginHLink = styled.a`
   text-decoration: none;
 `;
 
-const LoginModal = () => (
+const LoginModal = (props) => (
   <ShopContext.Consumer>
     {(value) => (
-      <LoginPopUp>
+      <LoginPopUp type={props.type} >
         <LoginLogoContainer>
           <LogoImg src={logo} alt="Norris Inc. logo" />
           <ButtonX

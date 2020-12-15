@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { MyContext } from './../../../context/APIContext';
+import {ShopContext} from "./../../../context/ShopContext"
 import { Switch, Route, Link } from "react-router-dom";
 
 import ShopBanner from "./shop-banner";
@@ -18,15 +19,16 @@ import laptop from "./../../../styles/images/laptop.png";
 const Shop = (props) => {
 
   const context = useContext(MyContext);
-
   return (
-    <>
-    <MainNavbar />
+    <ShopContext.Consumer>
+    {value => (
+      <>
+      <MainNavbar />
         {context.loading ? (
           <Spinner />
         ) : (
           <>
-          <Switch>
+          {!value.state.mobileMenu && <Switch>
             <Route exact path="/shop">
               <div className="shop_container">
                 <ShopBanner
@@ -72,21 +74,23 @@ const Shop = (props) => {
                 const shop = res[1];
                 const index = res[2];
                 return (
-                  <> 
-                    <SingleShopCard
-                      name={context.state.items[category].shops[shop][index].name}
-                      key={props.index}
-                      price={context.state.items[category].shops[shop][index].price}
-                    />
-                    <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
+                  <>
+                  <SingleShopCard
+                    name={context.state.items[category].shops[shop][index].name}
+                    key={props.index}
+                    price={context.state.items[category].shops[shop][index].price}
+                  />
+                  <Link to={`/shop/category${category + 1}/${shop}`}>BACK</Link>
                   </>
                 );
               }}
             />
-          </Switch>
+          </Switch>}
           </>
         )}
-        </>
+      </>
+    )}
+        </ShopContext.Consumer>
     )
 
             };
