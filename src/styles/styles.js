@@ -48,7 +48,7 @@ export const StyledText = styled.p`
   text-align: ${(p) =>
     p.align === "center"
       ? "center"
-      : "left"}
+      : "left"};
 `;
 
 export const StyledTextLogin = styled.p`
@@ -73,6 +73,10 @@ export const StyledTextLogin = styled.p`
 
 // Buttons
 export const StyledBtn = styled.button`
+  width: ${(p) =>
+    p.width === "parent"
+      ? "100%"
+      : "auto"};
   height: ${(p) =>
     p.size === "S"
       ? "var(--heightS-btn)"

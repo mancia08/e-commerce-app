@@ -20,6 +20,12 @@ const StyledContactContainer = styled.div`
         align-items: center;
         gap: calc(2 * ${theme.spacer});
     }
+     @media (max-width: ${theme.viewport.tablet}) {
+        flex-direction: column;
+        section {
+            width: 100%;
+        }
+     }
 `;
 
 class ContactContainer extends Component {
@@ -82,7 +88,7 @@ class ContactContainer extends Component {
                                                 ? <ContactForm name="Shop ID" id="order ID" action={this.handleSubmit} />
                                                 : ""}
                                         </>
-                                    :<ContactImage />}
+                                    : <ContactImage />}
                             </section>
                         </>
                 }
