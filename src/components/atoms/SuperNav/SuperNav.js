@@ -26,7 +26,7 @@ const StyledSuperNav = styled.nav`
     p.color === "primary" ? theme.colors.primary : theme.colors.light};
   gap: ${2 * theme.spacer};
   padding: ${theme.spacer};
- /*homepage*/
+  /*homepage*/
   z-index: ${(p) => p.type === "home" && "1"};
   position: ${(p) => p.type === "home" && "absolute"};
   top: ${(p) => p.type === "home" && theme.spacer};
@@ -38,7 +38,7 @@ const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
-  margin-right:calc(1.5 * ${theme.spacer})
+  margin-left: calc(1.2 * ${theme.spacer});
 `;
 
 const SuperNav = (props) => {
@@ -79,34 +79,39 @@ const SuperNav = (props) => {
         <StyledSuperNav type={props.type} color={props.color}>
           {!value.state.loginIconClicked ? (
             <>
-              <SuperNavImg type={props.type}
+              <SuperNavImg
+                type={props.type}
                 src={value.state.isLoggedIn ? userlogged : userunknown}
                 alt="icon"
                 onClick={value.loginIconToggle}
               />
-              {props.type !== "mobile" && <TextLogin
-                action={value.loginIconToggle}
-                size="S"
-                color={props.textColor}
-                text={
-                  value.state.isLoggedIn
-                    ? `Hello ${value.state.user}`
-                    : "Login / Sign Up"
-                }
-              />}
+              {props.type !== "mobile" && (
+                <TextLogin
+                  action={value.loginIconToggle}
+                  size="S"
+                  color={props.textColor}
+                  text={
+                    value.state.isLoggedIn
+                      ? `Hello ${value.state.user}`
+                      : "Login / Sign Up"
+                  }
+                />
+              )}
             </>
           ) : (
-              <div>
-                {!value.state.isLoggedIn ? <LoginModal /> : <LogoutModal />}
-              </div>
-            )}
+            <div>
+              {!value.state.isLoggedIn ? <LoginModal /> : <LogoutModal />}
+            </div>
+          )}
           {props.type !== "home" && (
             <>
-              {props.type !=="mobile" && <Text
-                color={props.textColor}
-                size="S"
-                text={`${getTotalPrice()} £`}
-              />}
+              {props.type !== "mobile" && (
+                <Text
+                  color={props.textColor}
+                  size="S"
+                  text={`${getTotalPrice()} £`}
+                />
+              )}
               <SuperNavImg src={cart} alt="cart" onClick={toggleModal} />
               <Modal
                 isOpen={isOpen}
@@ -119,27 +124,27 @@ const SuperNav = (props) => {
                 {!context.cart.length ? (
                   <h4>You havent added any items YET</h4>
                 ) : (
-                    renderAddedItems(context.cart)
-                  )}
+                  renderAddedItems(context.cart)
+                )}
                 <Button
                   size="S"
                   color="primary"
                   action={toggleModal}
                   text="Continue shopping"
                 />
-                <p>
-                  Pay Total of £ {getTotalPrice()}
-                </p>
+                <p>Pay Total of £ {getTotalPrice()}</p>
                 <p>
                   <StripeCheckoutButton price={getTotalPrice()} />
                 </p>
               </Modal>
-              {context.cart.length>0 && <TextCart
-                size="S"
-                color={props.textColor}
-                text={context.cart && context.cart.length}
-                action={toggleModal}
-              />}
+              {context.cart.length > 0 && (
+                <TextCart
+                  size="S"
+                  color={props.textColor}
+                  text={context.cart && context.cart.length}
+                  action={toggleModal}
+                />
+              )}
             </>
           )}
         </StyledSuperNav>

@@ -71,28 +71,6 @@ export const StyledTextLogin = styled.p`
   }
 `;
 
-export const StyledTextCart = styled.p`
-  color: ${(p) =>
-    p.color === "primary"
-      ? "var(--primary)"
-      : p.color === "light"
-      ? "var(--light)"
-      : "var(--dark)"};
-  font-size: ${(p) =>
-    p.size === "S"
-      ? "var(--font-size-18)"
-      : p.size === "M"
-      ? "var(--font-size-24)"
-      : p.size === "L"
-      ? "var(--font-size-30)"
-      : "var(--font-size-48)"};
-  background-color: var(--red);
-  border-radius: 50%;
-  text-align: center;
-  width: var(--font-size-24);
-  height: var(--font-size-24);
-`;
-
 // Buttons
 export const StyledBtn = styled.button`
   height: ${(p) =>
