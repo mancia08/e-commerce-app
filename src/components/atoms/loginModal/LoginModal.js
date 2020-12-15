@@ -8,6 +8,7 @@ import { LogoImg } from "./../../../styles/styles";
 import Text from "./../text/Text";
 import logo from "./../../../styles/images/logonorris.png";
 import ButtonX from "../../atoms/button/ButtonX";
+import LoginInput from "../../atoms/input/LoginInput";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -54,14 +55,7 @@ const LoginForm = styled.form`
   align-items: center;
   justify-content: center;
 `;
-const LoginInput = styled.input`
-  height: calc(1.5 * ${theme.sizes.buttons.S});
-  width: 120%;
-  margin-top: ${theme.spacer};
-  @media (min-width: ${theme.viewport.tablet}) {
-    height: ${theme.sizes.buttons.S};
-  }
-`;
+
 const LoginLinkContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -113,9 +107,9 @@ const LoginModal = () => (
               text={textData.login.user}
             />
             <LoginInput
-              onChange={value.username}
+              action={value.username}
               value={value.state.username}
-            ></LoginInput>
+            />
             <Text
               type="login"
               color="light"
@@ -124,9 +118,9 @@ const LoginModal = () => (
             />
             <LoginInput
               type="password"
-              onChange={value.password}
+              action={value.password}
               value={value.state.password}
-            ></LoginInput>
+            />
             <LoginSpacer />
             <ButtonX
               action={value.login}
