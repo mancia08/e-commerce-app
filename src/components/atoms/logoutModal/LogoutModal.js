@@ -14,21 +14,41 @@ const LogoutPopUp = styled.div`
   position: absolute;
   top: -${theme.spacer};
   left: calc(-100vw + 3 * ${theme.spacer});
+  display:flex;
+  justify-content: space-around;
+  flex-direction:column;
+  @media (min-width: ${theme.viewport.tablet}) {
+    width: ${theme.sizes.modals.login.width};
+    height: calc(${theme.sizes.modals.login.height} / 1.5);
+    position: sticky;
+    right: 0px;
+  }
 `;
 const LogoutLogoContainer = styled.div`
   width: 100vw;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: calc(3 * ${theme.spacer});
+  @media (min-width: ${theme.viewport.tablet}) {
+    width: ${theme.sizes.modals.login.width};
+  }
 `;
 const LogoutTextContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 2 * ${theme.sizes.buttons.XL});
+  height: calc(100vh - ${theme.sizes.buttons.XL});
+  justify-content:center;
+  @media (min-width: ${theme.viewport.tablet}) {
+    height: calc(
+      ${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M}
+    );
+  }
 `;
+
 const LogoutModal = () => (
   <ShopContext.Consumer>
     {(value) => (

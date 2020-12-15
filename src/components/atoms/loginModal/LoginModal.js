@@ -17,9 +17,14 @@ const LoginPopUp = styled.div`
   position: absolute;
   top: -${theme.spacer};
   left: calc(-100vw + 3 * ${theme.spacer});
-  @media (min-width: ${theme.viewport.tablet}){
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
     height: ${theme.sizes.modals.login.height};
+    position: sticky;
+    right: 0px;
   }
 `;
 const LoginLogoContainer = styled.div`
@@ -28,14 +33,21 @@ const LoginLogoContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-left: calc(3 * ${theme.spacer});
+  @media (min-width: ${theme.viewport.tablet}) {
+    width: ${theme.sizes.modals.login.width};
+  }
 `;
 const LoginTextContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 2 * ${theme.sizes.buttons.XL});
+  height: calc(100vh - ${theme.sizes.buttons.XL});
+  @media (min-width: ${theme.viewport.tablet}) {
+    height: calc(${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M});
+  }
 `;
+
 const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -46,19 +58,28 @@ const LoginInput = styled.input`
   height: calc(1.5 * ${theme.sizes.buttons.S});
   width: 120%;
   margin-top: ${theme.spacer};
+  @media (min-width: ${theme.viewport.tablet}) {
+    height: ${theme.sizes.buttons.S};
+  }
 `;
 const LoginLinkContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  @media (min-width: ${theme.viewport.tablet}) {
+    justify-content: space-between;
+  }
 `;
 const LoginSpacer = styled.br`
   height: ${theme.spacer};
 `;
 const LoginLink = styled(Link)`
-text-decoration:none;
-`
+  text-decoration: none;
+`;
+const LoginHLink = styled.a`
+  text-decoration: none;
+`;
 
 const LoginModal = () => (
   <ShopContext.Consumer>
@@ -74,17 +95,33 @@ const LoginModal = () => (
           />
         </LoginLogoContainer>
         <LoginTextContainer>
-          <Text color="light" size="XL" text={textData.login.title} />
+          <Text
+            type="login"
+            color="light"
+            size="XL"
+            text={textData.login.title}
+          />
+          <LoginSpacer />
           {value.state.loginFailed && (
             <Text color="light" size="M" text={textData.login.fail} />
           )}
           <LoginForm>
-            <Text color="light" size="S" text={textData.login.user} />
+            <Text
+              type="login"
+              color="light"
+              size="S"
+              text={textData.login.user}
+            />
             <LoginInput
               onChange={value.username}
               value={value.state.username}
             ></LoginInput>
-            <Text color="light" size="S" text={textData.login.password} />
+            <Text
+              type="login"
+              color="light"
+              size="S"
+              text={textData.login.password}
+            />
             <LoginInput
               type="password"
               onChange={value.password}
@@ -100,17 +137,37 @@ const LoginModal = () => (
           </LoginForm>
           <LoginLinkContainer>
             <LoginLink to="/contact">
-              <Text color="light" size="M" text={textData.login.register} />
+              <Text
+                type="login"
+                color="light"
+                size="M"
+                text={textData.login.register}
+              />
             </LoginLink>
             <LoginLink to="/contact">
-              <Text color="light" size="M" text={textData.login.text1} />
+              <Text
+                type="login"
+                color="light"
+                size="M"
+                text={textData.login.text1}
+              />
             </LoginLink>
-            <LoginLink to="/google">
-              <Text color="light" size="M" text={textData.login.text2} />
-            </LoginLink>
-            <LoginLink to="/facebook">
-              <Text color="light" size="M" text={textData.login.text3} />
-            </LoginLink>
+            <LoginHLink href="www.google.it" target="_blank">
+              <Text
+                type="login"
+                color="light"
+                size="M"
+                text={textData.login.text2}
+              />
+            </LoginHLink>
+            <LoginHLink href="www.facebook.it" target="_blank">
+              <Text
+                type="login"
+                color="light"
+                size="M"
+                text={textData.login.text3}
+              />
+            </LoginHLink>
           </LoginLinkContainer>
         </LoginTextContainer>
       </LoginPopUp>

@@ -10,13 +10,11 @@ Atoms Components
 // Hr
 
 export const StyledHr = styled.hr`
-  border-top: 2px solid ${(p) =>
-    p.color === "light"
-      ? "var(--light)"
-      : "var(--primary)"};
+  border-top: 2px solid
+    ${(p) => (p.color === "light" ? "var(--light)" : "var(--primary)")};
   margin: var(--spacer-8);
 
-    /* @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     display: none;
   } */
 `;
@@ -30,7 +28,17 @@ export const StyledText = styled.p`
       ? "var(--light)"
       : "var(--dark)"};
   font-size: ${(p) =>
-    p.size === "S"
+    p.type === "login"
+      ? p.size === "S"
+        ? "var(--font-size-12)"
+        : p.size === "M"
+        ? "var(--font-size-18)"
+        : p.size === "L"
+        ? "var(--font-size-24)"
+        : "var(--font-size-30)"
+      : p.size === "XS"
+      ? "var(--font-size-12)"
+      : p.size === "S"
       ? "var(--font-size-18)"
       : p.size === "M"
       ? "var(--font-size-24)"
@@ -161,7 +169,7 @@ export const StyledNav = styled.div`
   justify-content: flex-end;
   background-color: var(--light);
   @media (max-width: 768px) {
-    background-color : var(--primary);
+    background-color: var(--primary);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -201,7 +209,7 @@ export const StyledLink = styled(NavLink)`
 
 export const SubMenu = styled.div`
   display: none;
-    background-color: var(--primary);
+  background-color: var(--primary);
   width: calc(var(--spacer-8) * 125);
   height: calc(var(--spacer-8) * 35);
   z-index: 1;
@@ -209,13 +217,11 @@ export const SubMenu = styled.div`
   right: calc(2 * var(--heightS-btn));
   top: calc(2 * var(--heightS-btn));
   :hover {
-    display: block
+    display: block;
   }
   @media (max-width: 768px) {
-    display:none !important
+    display: none !important;
   }
- 
-  
 `;
 export const HoverLink = styled(StyledLink)`
   background-color: ${(p) => p.hovered && "var(--primary)"};
@@ -231,7 +237,7 @@ export const HoverLink = styled(StyledLink)`
 `;
 
 export const StyledBurger = styled.button`
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
     height: var(--spacer-quad);
     width: var(--spacer-quad);
     display: flex;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledText } from "../../../styles/styles";
 
-const Text = (props) => <StyledText color={props.color} size={props.size} align={props.align}>{props.text}</StyledText>
+const Text = (props) => <StyledText color={props.color} size={props.size} align={props.align} type={props.type}>{props.text}</StyledText>
 
 export default Text;
 
