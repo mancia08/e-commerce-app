@@ -1,13 +1,25 @@
 import React from "react";
-import MobileLogo from "../mobileLogo/MobileLogo";
 import Hr from "../../hr/Hr";
 import NavBar from "../../navbar/Navbar";
 import ButtonX from "../../button/ButtonX";
 import { ShopContext } from "../../../../context/ShopContext";
-import { StyledMobileMenu } from "../../../../styles/styles";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import Logo from "../../logo/Logo"
+
+const StyledMobileMenu = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background-color: ${theme.colors.primary};
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  div {
+    display: flex;
+  }
+`;
+
 
 const MobileLogoContainer = styled.div`
   width: 100vw;

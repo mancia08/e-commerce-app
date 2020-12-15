@@ -26,8 +26,7 @@ const StyledSuperNav = styled.nav`
     p.color === "primary" ? theme.colors.primary : theme.colors.light};
   gap: ${2 * theme.spacer};
   padding: ${theme.spacer};
-  /*homepage*/
-
+ /*homepage*/
   z-index: ${(p) => p.type === "home" && "1"};
   position: ${(p) => p.type === "home" && "absolute"};
   top: ${(p) => p.type === "home" && theme.spacer};
@@ -39,6 +38,7 @@ const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
+  margin-right:calc(1.5 * ${theme.spacer})
 `;
 
 const SuperNav = (props) => {
@@ -79,7 +79,7 @@ const SuperNav = (props) => {
         <StyledSuperNav type={props.type} color={props.color}>
           {!value.state.loginIconClicked ? (
             <>
-              <SuperNavImg
+              <SuperNavImg type={props.type}
                 src={value.state.isLoggedIn ? userlogged : userunknown}
                 alt="icon"
                 onClick={value.loginIconToggle}

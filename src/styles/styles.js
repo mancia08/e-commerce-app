@@ -236,44 +236,4 @@ export const HoverLink = styled(StyledLink)`
   }
 `;
 
-export const StyledBurger = styled.button`
-  @media (max-width: 768px) {
-    height: var(--spacer-quad);
-    width: var(--spacer-quad);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    background: transparent;
-    div {
-      width: 80%;
-      height: var(--spacer-4);
-      background-color: var(--dark);
-      border-radius: 10px;
-    }
-  }
-`;
 
-export const StyledMobileLogo = styled(NavLink)`
-  display: none;
-  margin-right: auto;
-
-  @media (max-width: 768px) {
-    display: inline-block;
-  }
-`;
-
-export const StyledMobileMenu = styled.div`
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--primary);
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  div {
-    display: flex;
-  }
-`;
