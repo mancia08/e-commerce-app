@@ -1,25 +1,43 @@
-import React from 'react';
+import React from "react";
 import MobileLogo from "../mobileLogo/MobileLogo";
-import SuperNav from "../../SuperNav/SuperNav"
-import Hr from "../../hr/Hr"
-import NavBar from "../../navbar/Navbar"
-import ButtonX from "../../button/ButtonX"
-import { ShopContext } from "../../../../context/ShopContext"
+import Hr from "../../hr/Hr";
+import NavBar from "../../navbar/Navbar";
+import ButtonX from "../../button/ButtonX";
+import { ShopContext } from "../../../../context/ShopContext";
 import { StyledMobileMenu } from "../../../../styles/styles";
+import styled from "styled-components";
+import { theme } from "../../../../data/theme";
+import Logo from "../../logo/Logo"
 
-const MobileMenu = (props) =>
-<ShopContext.Consumer>
-    {value => (
-        <StyledMobileMenu>
-        <div>
-            <MobileLogo path={props.path} action={props.action} />
-            <SuperNav color="primary" textColor="light" />
-            <ButtonX text="X" color="light" size="L" action={value.toggleMobileMenu}/>
-        </div>
+const MobileLogoContainer = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: calc(3 * ${theme.spacer});
+  @media (min-width: ${theme.viewport.tablet}) {
+    width: ${theme.sizes.modals.login.width};
+  }
+`;
+
+const MobileMenu = (props) => (
+  <ShopContext.Consumer>
+    {(value) => (
+      <StyledMobileMenu>
+        <MobileLogoContainer>
+         <Logo/>
+          <ButtonX
+            text="X"
+            color="light"
+            size="L"
+            action={value.toggleMobileMenu}
+          />
+        </MobileLogoContainer>
         <Hr color="light" />
         <NavBar />
-    </StyledMobileMenu>
+      </StyledMobileMenu>
     )}
-</ShopContext.Consumer>
+  </ShopContext.Consumer>
+);
 
 export default MobileMenu;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import contactimg from '../../styles/images/contactimg.jpg';
+import contactimg from '../../../styles/images/contactimg.jpg';
 
 const StyledContactImage = styled.img`
     width: 100%;

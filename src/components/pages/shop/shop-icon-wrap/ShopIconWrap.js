@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import ShopIcon from "../shop-icon";
-import { MyContext } from "../../../context/APIContext";
+import { MyContext } from "../../../../context/APIContext";
 import icon from "../shop-icon/Icon.png";
-import { shopData } from '../../../data/shopData';
+import { shopData } from '../../../../data/shopData';
 import "./ShopIconWrap.css";
 
 const ShopIconWrap = (props) => {

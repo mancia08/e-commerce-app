@@ -1,12 +1,12 @@
-import Banner from "../atoms/banner/Banner";
+import Banner from "../../atoms/banner/Banner";
 import styled from "styled-components";
-import { theme } from "./../../data/theme";
+import { theme } from "../../../data/theme";
 import { Link } from "react-router-dom";
-import { textData } from "./../../data/textData";
-import { ShopContext } from "./../../context/ShopContext";
-import SuperNav from "./../atoms/SuperNav";
-import Text from "./../atoms/text/Text";
-import Button from "./../atoms/button/Button";
+import { textData } from "../../../data/textData";
+import { ShopContext } from "../../../context/ShopContext";
+import SuperNav from "../../atoms/SuperNav";
+import Text from "../../atoms/text/Text";
+import Button from "../../atoms/button/Button";
 
 const HomeModal = styled.div`
   background-color: ${theme.colors.dark2};

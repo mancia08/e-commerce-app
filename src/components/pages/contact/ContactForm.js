@@ -1,5 +1,5 @@
-import Button from "../atoms/button/Button";
-import Text from "../atoms/text/Text";
+import Button from "../../atoms/button/Button";
+import Text from "../../atoms/text/Text";
 import ContactInput from "../atoms/input/ContactInput"
 import TextArea from "../atoms/input/TextArea"
 
