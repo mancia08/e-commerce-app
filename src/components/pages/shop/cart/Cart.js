@@ -5,16 +5,13 @@ import styled from "styled-components";
 
 import ShoppingCart from "../shopping-cart";
 import Text from '../../../atoms/text/Text';
+import TextCart from "../../../atoms/text/TextCart";
 import Button from "../../../atoms/button/Button";
 import StripeCheckoutButton from "../stripe-button";
 
-import { theme } from "../../../../data/theme";
 import './Cart.css';
+import { theme } from "../../../../data/theme";
 import cart from "../../../../styles/images/cart.png";
-import TextCart from "../../../atoms/text/TextCart";
-
-
-
 
 Modal.setAppElement("#root");
 
@@ -24,7 +21,7 @@ const SuperNavImg = styled.img`
     cursor: pointer;
 `;
 
-const Cart = (props) => {
+const Cart = ({ textColor }) => {
 
     const context = useContext(MyContext);
 
@@ -63,7 +60,7 @@ const Cart = (props) => {
         onClick={toggleModal}
         >
             <Text
-                color={props.textColor}
+                color={textColor}
                 size="S"
                 text={`${getTotalPrice()} £`}
             />
@@ -97,9 +94,8 @@ const Cart = (props) => {
             </Modal>
             <TextCart
                 size="S"
-                color={props.textColor}
+                color={textColor}
                 text={context.cart && context.cart.length}
-                // action={value.cartToggle}
               />
         </div>
     );
