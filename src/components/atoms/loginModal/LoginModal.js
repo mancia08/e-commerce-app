@@ -17,9 +17,9 @@ const LoginPopUp = styled.div`
   position: absolute;
   top: -${theme.spacer};
   left: calc(-100vw + 3 * ${theme.spacer});
-  display:flex;
+  display: flex;
   justify-content: space-around;
-  flex-direction:column;
+  flex-direction: column;
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
     height: ${theme.sizes.modals.login.height};
@@ -44,9 +44,7 @@ const LoginTextContainer = styled.div`
   align-items: center;
   height: calc(100vh - ${theme.sizes.buttons.XL});
   @media (min-width: ${theme.viewport.tablet}) {
-    height: calc(
-      ${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M}
-    );
+    height: calc(${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M});
   }
 `;
 
@@ -61,7 +59,7 @@ const LoginInput = styled.input`
   width: 120%;
   margin-top: ${theme.spacer};
   @media (min-width: ${theme.viewport.tablet}) {
-    height: ${theme.sizes.buttons.S}
+    height: ${theme.sizes.buttons.S};
   }
 `;
 const LoginLinkContainer = styled.div`
@@ -70,13 +68,16 @@ const LoginLinkContainer = styled.div`
   align-items: center;
   flex-direction: column;
   @media (min-width: ${theme.viewport.tablet}) {
-    justify-content:space-between
+    justify-content: space-between;
   }
 `;
 const LoginSpacer = styled.br`
   height: ${theme.spacer};
 `;
 const LoginLink = styled(Link)`
+  text-decoration: none;
+`;
+const LoginHLink = styled.a`
   text-decoration: none;
 `;
 
@@ -100,7 +101,7 @@ const LoginModal = () => (
             size="XL"
             text={textData.login.title}
           />
-          <LoginSpacer/>
+          <LoginSpacer />
           {value.state.loginFailed && (
             <Text color="light" size="M" text={textData.login.fail} />
           )}
@@ -151,22 +152,22 @@ const LoginModal = () => (
                 text={textData.login.text1}
               />
             </LoginLink>
-            <LoginLink to="/google">
+            <LoginHLink href="www.google.it" target="_blank">
               <Text
                 type="login"
                 color="light"
                 size="M"
                 text={textData.login.text2}
               />
-            </LoginLink>
-            <LoginLink to="/facebook">
+            </LoginHLink>
+            <LoginHLink href="www.facebook.it" target="_blank">
               <Text
                 type="login"
                 color="light"
                 size="M"
                 text={textData.login.text3}
               />
-            </LoginLink>
+            </LoginHLink>
           </LoginLinkContainer>
         </LoginTextContainer>
       </LoginPopUp>

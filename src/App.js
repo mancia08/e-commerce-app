@@ -38,20 +38,6 @@ const App = () => {
             path="/contact"
             render={(props) => <Contact {...props} title={contact.title} />}
           />
-          <Route path='/google' component={() => { 
-     window.open('https://www.google.com');
-     {/* <Link to ={window.history.back()}/> */}
-     /* routerprovider.history.goBack() ??? */
-     /* routerHistory.provider goback */
-/*      console.log(value) */
-/* console.log(this) */ /* undefined */
-/* console.log(window.history) */ /* back() inside proto history */
-/* console.log(History) */ /* something about native code */
-}}/>
-<Route path='/facebook' component={() => { 
-     window.open('https://www.facebook.com');
-     {/* <Link to ={window.history.back()}/> */}
-}}/>
         </Switch>
   );
 };
