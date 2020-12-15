@@ -37,7 +37,7 @@ const MobileMenu = (props) => (
     {(value) => (
       <StyledMobileMenu>
         <MobileLogoContainer>
-         <Logo/>
+         <Logo type="mobile"/>
           <ButtonX
             text="X"
             color="light"

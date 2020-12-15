@@ -4,6 +4,8 @@ import Banner from "./../../atoms/banner/Banner";
 import Text from "./../../atoms/text/Text";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import { ShopContext } from "./../../../context/ShopContext";
+import styled from "styled-components";
+
 
 const Map = (props) => (
   <ShopContext.Consumer>
@@ -11,7 +13,7 @@ const Map = (props) => (
       <div>
         <MainNavbar />
         <Banner />
-        {!value.state.mobileMenu && !value.state.loginIconClicked && <MapBox {...props} />}
+        {!value.state.mobileMenu && <MapBox {...props} />}
         <Text
           color="dark"
           size="L"
