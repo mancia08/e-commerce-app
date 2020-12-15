@@ -18,7 +18,7 @@ const CartItem = ({ id, name, price, image, increase, decrease, quantity, remove
         <p>
             <button
                 id={id}
-                onClick={() => remove(index)}
+                onClick={(e) => remove(e)}
             >Remove From Cart
             </button>
         </p>

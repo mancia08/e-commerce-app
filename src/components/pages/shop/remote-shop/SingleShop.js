@@ -29,9 +29,17 @@ const SingleShop = ({ category, shop }) => {
   }
 
   const onAddToCartClick = (e) => {
-    context.state.items[category - 1].shops[shop][e.target.id].addedToCart = true;
-    const item = findAddedItem(context.state.items[category - 1].shops[shop]);
-    context.setCart(item);
+    let itemSelected = context.state.items[category - 1].shops[shop][e.target.id]
+    let copyOfItems = [...context.cart];
+    copyOfItems.push(itemSelected);
+    context.setCart(copyOfItems);
+
+
+
+
+    // context.state.items[category - 1].shops[shop][e.target.id].addedToCart = true;
+    // const item = findAddedItem(context.state.items[category - 1].shops[shop]);
+    // context.setCart(item);
   }
 
   return (

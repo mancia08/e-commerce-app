@@ -33,12 +33,10 @@ const Cart = ({ textColor }) => {
 
     const findItem = (arr, id) => arr.find(el => el.id === id);
 
-    const removeItem = (arr) => {
-        const result = arr.filter(item => item.addedToCart === false);
-        return result;
-    }
+    const onRemoveClick = (e) => {
+        let element = findItem(context.cart, Number(e.target.id))
+        const index = context.cart.indexOf(element);
 
-    const onRemoveClick = (index) => {
         let copyOfItems = [...context.cart];
         copyOfItems.splice(index, 1);
         context.setCart(copyOfItems);
