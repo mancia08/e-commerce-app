@@ -2,8 +2,6 @@ import React, { useContext, useState } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 import { MyContext } from "../../../context/APIContext";
 
-
-
 import LoginModal from "../loginModal/LoginModal";
 import LogoutModal from "../logoutModal/LogoutModal";
 import userlogged from "./../../../styles/images/iconlogin.png";
