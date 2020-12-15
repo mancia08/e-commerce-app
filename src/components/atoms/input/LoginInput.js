@@ -11,7 +11,7 @@ const StyledLoginInput = styled.input`
 `;
 
 const LoginInput = props => (
-    <StyledLoginInput type={props.type} onChange={props.action} value={props.value} />
+    <StyledLoginInput type={props.type} onChange={props.action} value={props.value} required />
 )
 
 export default LoginInput;
