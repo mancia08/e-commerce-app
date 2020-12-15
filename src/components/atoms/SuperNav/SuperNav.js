@@ -1,23 +1,24 @@
 import React, { useContext, useState } from "react";
 import { ShopContext } from "../../../context/ShopContext";
-import { MyContext } from "../../../context/APIContext";
+//import { MyContext } from "../../../context/APIContext";
 
 import LoginModal from "../loginModal/LoginModal";
 import LogoutModal from "../logoutModal/LogoutModal";
 import userlogged from "./../../../styles/images/iconlogin.png";
 import userunknown from "./../../../styles/images/iconlogout.png";
-import cart from "./../../../styles/images/cart.png";
+//import cart from "./../../../styles/images/cart.png";
 import Text from "../text/Text";
 import TextCart from "../text/TextCart";
 import TextLogin from "../text/TextLogin";
-import ShoppingCart from "../../pages/shop/shopping-cart";
+//import ShoppingCart from "../../pages/shop/shopping-cart";
 import styled from "styled-components";
 import { theme } from "./../../../data/theme";
-import Modal from "react-modal";
-import Button from "../button/Button";
-import StripeCheckoutButton from "../../pages/shop/stripe-button";
+import Cart from "../../pages/shop/cart";
+// import Modal from "react-modal";
+//import Button from "../button/Button";
+//import StripeCheckoutButton from "../../pages/shop/stripe-button";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 const StyledSuperNav = styled.nav`
   display: flex;
@@ -42,36 +43,36 @@ const SuperNavImg = styled.img`
 `;
 
 const SuperNav = (props) => {
-  const context = useContext(MyContext);
+  // const context = useContext(MyContext);
 
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleModal = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
-  const renderAddedItems = (arr) => {
-    return arr.map(({ name, price, imageS }, i) => {
-      return (
-        <ShoppingCart
-          key={i}
-          name={name.split(" ").slice(0, 3).join(" ")}
-          image={imageS}
-          price={price}
-        />
-      );
-    });
-  };
+  // const renderAddedItems = (arr) => {
+  //   return arr.map(({ name, price, imageS }, i) => {
+  //     return (
+  //       <ShoppingCart
+  //         key={i}
+  //         name={name.split(" ").slice(0, 3).join(" ")}
+  //         image={imageS}
+  //         price={price}
+  //       />
+  //     );
+  //   });
+  // };
 
-  const getTotalPrice = () => {
-    if (!context.cart) {
-      return 0;
-    }
-    let arr = [];
-    context.cart.map((el) => arr.push(el.price));
-    const result = arr.reduce((acc, val) => acc + val, 0);
-    return result.toFixed(2);
-  };
+  // const getTotalPrice = () => {
+  //   if (!context.cart) {
+  //     return 0;
+  //   }
+  //   let arr = [];
+  //   context.cart.map((el) => arr.push(el.price));
+  //   const result = arr.reduce((acc, val) => acc + val, 0);
+  //   return result.toFixed(2);
+  // };
 
   return (
     <ShopContext.Consumer>
@@ -100,49 +101,8 @@ const SuperNav = (props) => {
                 {!value.state.isLoggedIn ? <LoginModal /> : <LogoutModal />}
               </div>
             )}
-          {props.type !== "home" && (
-            <>
-              <Text
-                color={props.textColor}
-                size="S"
-                text={`${getTotalPrice()} £`}
-              />
-              <SuperNavImg src={cart} alt="cart" onClick={toggleModal} />
-              <Modal
-                isOpen={isOpen}
-                onRequestClose={toggleModal}
-                contentLabel="shopping-cart"
-                className="mymodal"
-                overlayClassName="myoverlay"
-                closeTimeoutMS={500}
-              >
-                {!context.cart.length ? (
-                  <h4>You havent added any items YET</h4>
-                ) : (
-                    renderAddedItems(context.cart)
-                  )}
-                <Button
-                  size="S"
-                  color="primary"
-                  action={toggleModal}
-                  text="Continue shopping"
-                />
-                <p>
-                  Pay Total of £ {getTotalPrice()}
-                </p>
-                <p>
-                  <StripeCheckoutButton
-                    price={getTotalPrice()} />
-                </p>
-              </Modal>
-              <TextCart
-                size="S"
-                color={props.textColor}
-                text={context.cart && context.cart.length}
-                action={value.cartToggle}
-              />
-            </>
-          )}
+          {props.type !== "home" && <Cart/> 
+          }
         </StyledSuperNav>
       )}
     </ShopContext.Consumer>

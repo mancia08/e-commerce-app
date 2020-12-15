@@ -32,9 +32,6 @@ const SingleShop = ({ category, shop }) => {
     context.state.items[category - 1].shops[shop][e.target.id].addedToCart = true;
     const item = findAddedItem(context.state.items[category - 1].shops[shop]);
     context.setCart(item);
-    if (!context.loading) {
-      console.log(context.ebayItems)
-    }
   }
 
   return (
@@ -76,6 +73,7 @@ const SingleShop = ({ category, shop }) => {
         />
 
         <Button
+          key={uuidv4()}
           size="S"
           text="Continue shopping"
           color="primary"
@@ -85,7 +83,7 @@ const SingleShop = ({ category, shop }) => {
         </p>
         <p>
           <StripeCheckoutButton
-           price={item && item.price} />
+            price={item && item.price} />
         </p>
       </Modal>
     </>
