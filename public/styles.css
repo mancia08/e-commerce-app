@@ -63,3 +63,9 @@ Setting variables
     outline: none;
     font-family: var(--font-common), var(--font-fallback);
 };
+
+
+/*map?*/
+
+.mapboxgl-ctrl-top-right{z-index:0 !important}
+.mapboxgl-popup-tip{z-index:0 !important}

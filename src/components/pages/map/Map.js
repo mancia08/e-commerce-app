@@ -5,6 +5,8 @@ import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import MapImage from "./MapImage"
 
 import { ShopContext } from "./../../../context/ShopContext";
+import styled from "styled-components";
+
 
 const Map = (props) => (
   <ShopContext.Consumer>
