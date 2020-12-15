@@ -5,6 +5,7 @@ import Button from '../../atoms/button/Button';
 import Modal from "react-modal";
 
 import { v4 as uuidv4 } from 'uuid';
+import StripeCheckoutButton from '../stripe-button';
 
 Modal.setAppElement("#root");
 
@@ -76,6 +77,12 @@ const SingleShop = (props) => {
           text="Continue shopping"
           color="primary"
           action={toggleModal} />
+        <p>
+          Pay Total of £ {item && item.price}
+        </p>
+        <p>
+          <StripeCheckoutButton price={item && item.price} />
+        </p>
       </Modal>
     </>
   )
