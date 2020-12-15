@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 import { MyContext } from "../../../context/APIContext";
 
+
+
 import LoginModal from "../loginModal/LoginModal";
 import LogoutModal from "../logoutModal/LogoutModal";
 import userlogged from "./../../../styles/images/iconlogin.png";
@@ -15,6 +17,7 @@ import styled from "styled-components";
 import { theme } from "./../../../data/theme";
 import Modal from "react-modal";
 import Button from "../button/Button";
+import StripeCheckoutButton from "../../shop/stripe-button";
 
 Modal.setAppElement("#root");
 
@@ -95,10 +98,10 @@ const SuperNav = (props) => {
               />
             </>
           ) : (
-            <div>
-              {!value.state.isLoggedIn ? <LoginModal /> : <LogoutModal />}
-            </div>
-          )}
+              <div>
+                {!value.state.isLoggedIn ? <LoginModal /> : <LogoutModal />}
+              </div>
+            )}
           {props.type !== "home" && (
             <>
               <Text
@@ -118,15 +121,20 @@ const SuperNav = (props) => {
                 {!context.cart.length ? (
                   <h4>You havent added any items YET</h4>
                 ) : (
-                  renderAddedItems(context.cart)
-                )}
+                    renderAddedItems(context.cart)
+                  )}
                 <Button
                   size="S"
                   color="primary"
                   action={toggleModal}
                   text="Continue shopping"
                 />
-                <Button size="S" color="primary" text="Checkout" />
+                <p>
+                  Pay Total of £ {getTotalPrice()}
+                </p>
+                <p>
+                  <StripeCheckoutButton price={getTotalPrice()} />
+                </p>
               </Modal>
               <TextCart
                 size="S"
