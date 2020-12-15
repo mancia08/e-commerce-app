@@ -100,7 +100,7 @@ const SuperNav = (props) => {
             </>
           ) : (
             <div>
-              {!value.state.isLoggedIn ? <LoginModal /> : <LogoutModal />}
+              {!value.state.isLoggedIn ? <LoginModal type={props.type} /> : <LogoutModal type={props.type}/>}
             </div>
           )}
           {props.type !== "home" && (

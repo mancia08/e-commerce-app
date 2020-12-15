@@ -12,8 +12,8 @@ const LogoutPopUp = styled.div`
   height: ${theme.sizes.modals.mobile.height};
   z-index: 1;
   position: absolute;
-  top: -${theme.spacer};
-  left: calc(-100vw + 3 * ${theme.spacer});
+  top: ${(p) => p.type==="mobile" ? 0 : `-${theme.spacer}`};
+  left: ${(p) => p.type==="mobile" ? 0 : `calc(-100vw + 3 * ${theme.spacer})`};
   display:flex;
   justify-content: space-around;
   flex-direction:column;
@@ -49,10 +49,10 @@ const LogoutTextContainer = styled.div`
   }
 `;
 
-const LogoutModal = () => (
+const LogoutModal = (props) => (
   <ShopContext.Consumer>
     {(value) => (
-      <LogoutPopUp>
+      <LogoutPopUp type={props.type}>
         <LogoutLogoContainer>
           <LogoImg src={logo} alt="Norris Inc. logo" />
           <ButtonX
