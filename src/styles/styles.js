@@ -37,6 +37,10 @@ export const StyledText = styled.p`
       : p.size === "L"
       ? "var(--font-size-30)"
       : "var(--font-size-48)"};
+  text-align: ${(p) =>
+    p.align === "center"
+      ? "center"
+      : "left"}
 `;
 
 export const StyledTextLogin = styled.p`
