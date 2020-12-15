@@ -31,6 +31,18 @@ const Cart = ({ textColor }) => {
         setIsOpen(!isOpen);
     };
 
+    const removeItem = (arr) => {
+        const result = arr.filter(item => !(!item.addedToCart));
+        return result;
+    }
+
+    const onRemoveClick = (e) => {
+        console.log(e.target.id)
+        // context.cart.addedToCart = true;
+        // const item = removeItem(context.state.items[category - 1].shops[shop]);
+        // context.setCart(item);
+    }
+
     const renderAddedItems = (arr) => {
         return arr.map(({ name, price, imageS }, i) => {
             return (
@@ -39,6 +51,10 @@ const Cart = ({ textColor }) => {
                     name={name.split(" ").slice(0, 3).join(" ")}
                     image={imageS}
                     price={`Price ${price}`}
+                    increase
+                    decrease
+                    remove={onRemoveClick}
+                    quantity
                 />
             );
         });
@@ -55,16 +71,25 @@ const Cart = ({ textColor }) => {
     };
 
     return (
-        <div 
-        className="cart_wrap"
-        onClick={toggleModal}
-        >
-            <Text
-                color={textColor}
-                size="S"
-                text={`${getTotalPrice()} £`}
-            />
-            <SuperNavImg src={cart} alt="cart" />
+        <div>
+            <div
+                className="cart_wrap"
+                onClick={toggleModal}
+            >
+                <Text
+                    color={textColor}
+                    size="S"
+                    text={`${getTotalPrice()} £`}
+                />
+                <SuperNavImg src={cart} alt="cart" />
+                <TextCart
+                    size="S"
+                    color={textColor}
+                    text={context.cart && context.cart.length}
+                />
+            </div>
+
+            
             <Modal
                 isOpen={isOpen}
                 onRequestClose={toggleModal}
@@ -84,19 +109,22 @@ const Cart = ({ textColor }) => {
                     action={toggleModal}
                     text="Continue shopping"
                 />
+                <Button
+                    size="S"
+                    color="primary"
+                    text="clear"
+                />
                 <p>
-                    Pay Total of £ {getTotalPrice()}
+                    Total Items
+                </p>
+                <p>
+                    Total Payment £ {getTotalPrice()}
                 </p>
                 <p>
                     <StripeCheckoutButton
                         price={getTotalPrice()} />
                 </p>
             </Modal>
-            <TextCart
-                size="S"
-                color={textColor}
-                text={context.cart && context.cart.length}
-              />
         </div>
     );
 
