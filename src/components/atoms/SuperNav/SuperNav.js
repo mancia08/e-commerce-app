@@ -132,7 +132,7 @@ const SuperNav = (props) => {
                 </p>
                 <p>
                   <StripeCheckoutButton
-                   price={getTotalPrice()} />
+                    price={getTotalPrice()} />
                 </p>
               </Modal>
               <TextCart

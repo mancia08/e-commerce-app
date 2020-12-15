@@ -5,7 +5,7 @@ import icon from "../shop-icon/Icon.png";
 import { shopData } from '../../../../data/shopData';
 import "./ShopIconWrap.css";
 
-const ShopIconWrap = (props) => {
+const ShopIconWrap = ({ category }) => {
   const context = useContext(MyContext);
 
   const shopNames = shopData.map(el => (
@@ -18,11 +18,11 @@ const ShopIconWrap = (props) => {
       <div className="shop-icon_wrap">
         {context.state.items[0].shops.map((el, index) => (
           <ShopIcon
-            path={`/shop/${props.category}/${index}`}
+            path={`/shop/${category}/${index}`}
             key={index}
             icon={icon}
-            title={shopNames[props.category.slice(-1) - 1][index]}
-            text={shopAdress[props.category.slice(-1) - 1][index]}
+            title={shopNames[category.slice(-1) - 1][index]}
+            text={shopAdress[category.slice(-1) - 1][index]}
           />
         ))}
       </div>

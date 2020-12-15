@@ -9,7 +9,7 @@ import StripeCheckoutButton from '../stripe-button';
 
 Modal.setAppElement("#root");
 
-const SingleShop = (props) => {
+const SingleShop = ({ category, shop }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,7 +18,7 @@ const SingleShop = (props) => {
   const context = useContext(MyContext);
 
   const toggleModal = (e) => {
-    const item = context.state.items[props.category - 1].shops[props.shop][e.target.id];
+    const item = context.state.items[category - 1].shops[shop][e.target.id];
     setItem(item);
     setIsOpen(!isOpen);
   }
@@ -29,19 +29,22 @@ const SingleShop = (props) => {
   }
 
   const onAddToCartClick = (e) => {
-    context.state.items[props.category - 1].shops[props.shop][e.target.id].addedToCart = true;
-    const item = findAddedItem(context.state.items[props.category - 1].shops[props.shop]);
+    context.state.items[category - 1].shops[shop][e.target.id].addedToCart = true;
+    const item = findAddedItem(context.state.items[category - 1].shops[shop]);
     context.setCart(item);
+    if (!context.loading) {
+      console.log(context.ebayItems)
+    }
   }
 
   return (
     <>
-      {!context.loading && context.state.items[props.category - 1].shops[props.shop].map(
+      {!context.loading && context.state.items[category - 1].shops[shop].map(
         (shop, index) => {
           return <>
             <SingleShopCard
               id={shop.id}
-              path={`/shop/category${props.category}/${props.shop}/${index}`}
+              path={`/shop/category${category}/${shop}/${index}`}
               key={index}
               imageS={shop.imageL}
               name={shop.name}
@@ -81,7 +84,8 @@ const SingleShop = (props) => {
           Pay Total of £ {item && item.price}
         </p>
         <p>
-          <StripeCheckoutButton price={item && item.price} />
+          <StripeCheckoutButton
+           price={item && item.price} />
         </p>
       </Modal>
     </>
