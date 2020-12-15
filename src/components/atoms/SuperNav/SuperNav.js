@@ -26,8 +26,8 @@ const StyledSuperNav = styled.nav`
     p.color === "primary" ? theme.colors.primary : theme.colors.light};
   gap: ${2 * theme.spacer};
   padding: ${theme.spacer};
+  z-index:10;
   /*homepage*/
-  z-index: ${(p) => p.type === "home" && "1"};
   position: ${(p) => p.type === "home" && "absolute"};
   top: ${(p) => p.type === "home" && theme.spacer};
   right: ${(p) => p.type === "home" && theme.spacer};
