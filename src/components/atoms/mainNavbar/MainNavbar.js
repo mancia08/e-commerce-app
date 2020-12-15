@@ -14,7 +14,7 @@ const MainNavbar = () =>
             <>
                 <div className="mobile-nav-container">
                 <MobileLogo path="/home" action={value.closeLogin} />
-                <SuperNav />
+                <SuperNav type="mobile"/>
                 <Burger action={value.toggleMobileMenu} />
                 {value.state.mobileMenu &&
                 <MobileMenu path="/home" action={value.closeLogin}/>

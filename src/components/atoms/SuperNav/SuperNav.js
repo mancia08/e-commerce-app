@@ -84,7 +84,7 @@ const SuperNav = (props) => {
                 alt="icon"
                 onClick={value.loginIconToggle}
               />
-              <TextLogin
+              {props.type !== "mobile" && <TextLogin
                 action={value.loginIconToggle}
                 size="S"
                 color={props.textColor}
@@ -93,7 +93,7 @@ const SuperNav = (props) => {
                     ? `Hello ${value.state.user}`
                     : "Login / Sign Up"
                 }
-              />
+              />}
             </>
           ) : (
               <div>
@@ -102,11 +102,11 @@ const SuperNav = (props) => {
             )}
           {props.type !== "home" && (
             <>
-              <Text
+              {props.type !=="mobile" && <Text
                 color={props.textColor}
                 size="S"
                 text={`${getTotalPrice()} £`}
-              />
+              />}
               <SuperNavImg src={cart} alt="cart" onClick={toggleModal} />
               <Modal
                 isOpen={isOpen}
@@ -134,12 +134,12 @@ const SuperNav = (props) => {
                   <StripeCheckoutButton price={getTotalPrice()} />
                 </p>
               </Modal>
-              <TextCart
+              {context.cart.length>0 && <TextCart
                 size="S"
                 color={props.textColor}
                 text={context.cart && context.cart.length}
-                action={value.cartToggle}
-              />
+                action={toggleModal}
+              />}
             </>
           )}
         </StyledSuperNav>
