@@ -1,5 +1,5 @@
-import Text from "./../../atoms/text/Text";
-import Button from "../../atoms/button/Button";
+import Text from "./../../../atoms/text/Text";
+import Button from "../../../atoms/button/Button";
 
 import './SingleCard.css'
 

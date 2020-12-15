@@ -10,12 +10,12 @@ import cart from "./../../../styles/images/cart.png";
 import Text from "../text/Text";
 import TextCart from "../text/TextCart";
 import TextLogin from "../text/TextLogin";
-import ShoppingCart from "../../shop/shopping-cart";
+import ShoppingCart from "../../pages/shop/shopping-cart";
 import styled from "styled-components";
 import { theme } from "./../../../data/theme";
 import Modal from "react-modal";
 import Button from "../button/Button";
-import StripeCheckoutButton from "../../shop/stripe-button";
+import StripeCheckoutButton from "../../pages/shop/stripe-button";
 
 Modal.setAppElement("#root");
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNavbar from "../atoms/mainNavbar/MainNavbar"
+import MainNavbar from "../../atoms/mainNavbar/MainNavbar"
 import ContactContainer from './ContactContainer'
 
 const Contact = () => (
