@@ -62,7 +62,7 @@ const SingleShop = ({ category, shop }) => {
       >
         <div>{item && item.name}</div>
         <img className="modal_img" src={item && item.imageL} alt={item && item.name} />
-        <div>{item && item.price} £</div>
+        <div>Price {item && item.price} £</div>
         <Button
           key={uuidv4()}
           id={item && item.id}

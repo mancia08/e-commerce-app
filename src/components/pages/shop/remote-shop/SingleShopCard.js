@@ -21,7 +21,7 @@ const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick}) => 
       action={(e) => onClick(e)}
       size="S"
       color="primary"
-      text="More details"
+      text="Details"
       />
       <Button
       id={id}

@@ -3,7 +3,7 @@ import { MyContext } from "../../../../context/APIContext";
 import Modal from "react-modal";
 import styled from "styled-components";
 
-import ShoppingCart from "../shopping-cart";
+import CartItem from "../cart-item";
 import Text from '../../../atoms/text/Text';
 import TextCart from "../../../atoms/text/TextCart";
 import Button from "../../../atoms/button/Button";
@@ -34,11 +34,11 @@ const Cart = ({ textColor }) => {
     const renderAddedItems = (arr) => {
         return arr.map(({ name, price, imageS }, i) => {
             return (
-                <ShoppingCart
+                <CartItem
                     key={i}
                     name={name.split(" ").slice(0, 3).join(" ")}
                     image={imageS}
-                    price={price}
+                    price={`Price ${price}`}
                 />
             );
         });
