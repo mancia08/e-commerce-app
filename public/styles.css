@@ -31,6 +31,7 @@ Setting variables
     --font-common: Inder;
     --font-fallback: sans-serif;
     /* Font-sizes */
+    --font-size-9: 9px;
     --font-size-18: 18px;
     --font-size-24: 24px;
     --font-size-30: 30px;
