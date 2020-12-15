@@ -45,6 +45,10 @@ export const StyledText = styled.p`
       : p.size === "L"
       ? "var(--font-size-30)"
       : "var(--font-size-48)"};
+  text-align: ${(p) =>
+    p.align === "center"
+      ? "center"
+      : "left"}
 `;
 
 export const StyledTextLogin = styled.p`
@@ -243,7 +247,6 @@ export const StyledBurger = styled.button`
     border: none;
     cursor: pointer;
     background: transparent;
-
     div {
       width: 80%;
       height: var(--spacer-4);
