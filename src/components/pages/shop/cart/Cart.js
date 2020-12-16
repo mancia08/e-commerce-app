@@ -43,6 +43,13 @@ const Cart = ({ textColor, type }) => {
 
   const findQuontity = (arr, id) => arr.filter((el) => el.id === id);
 
+  const onIncrease = (e) => {
+    let element = findItem(context.cart, Number(e.target.id));
+    let copyOfItems = [...context.cart];
+    copyOfItems.push(element);
+    context.setCart(copyOfItems);
+  }
+
   const onRemoveClick = (e) => {
     let element = findItem(context.cart, Number(e.target.id));
     const index = context.cart.indexOf(element);
@@ -62,8 +69,8 @@ const Cart = ({ textColor, type }) => {
             name={name.split(" ").slice(0, 3).join(" ")}
             image={imageS}
             price={`Price ${price}`}
-            increase
-            decrease
+            increase={onIncrease}
+            decrease={onRemoveClick}
             remove={onRemoveClick}
             quantity={findQuontity(context.cart, id).length}
             id={id}
