@@ -13,6 +13,7 @@ class ShopProvider extends Component {
     user: "",
     password: "",
     loginFailed: false,
+    paymentOpen: false,
     addedItems: [
       {
         name:
@@ -42,9 +43,18 @@ class ShopProvider extends Component {
     itemsPrice: 23.33,
   };
 
+  /* TOGGLE PAYMENT */
+  togglePayment = () =>
+  this.setState({
+    paymentOpen: !this.state.paymentOpen,
+    mobileMenu: false,
+      loginIconClicked: false,
+      cartShown: false,
+  })
   /*MOBILE MENU TOGGLE*/
   toggleMobileMenu = () =>
     this.setState({
+    paymentOpen: false,
       mobileMenu: !this.state.mobileMenu,
       loginIconClicked: false,
       cartShown: false,
@@ -53,6 +63,7 @@ class ShopProvider extends Component {
   /*ACCOUNT ICON TOGGLE*/
   loginIconToggle = () =>
     this.setState({
+      paymentOpen: false,
       loginIconClicked: !this.state.loginIconClicked,
       mobileMenu: false,
       cartShown: false,
@@ -61,6 +72,7 @@ class ShopProvider extends Component {
   /*close everything*/
   closeLogin = () =>
     this.setState({
+      paymentOpen: false,
       loginIconClicked: false,
       mobileMenu: false,
       cartShown: false,
@@ -69,6 +81,7 @@ class ShopProvider extends Component {
   /*CART TOGGLE*/
   cartToggle = () =>
     this.setState({
+      paymentOpen: false,
       cartShown: !this.state.cartShown,
       mobileMenu: false,
       loginIconClicked: false,
@@ -125,6 +138,7 @@ class ShopProvider extends Component {
           password: this.password,
           closeLogin: this.closeLogin,
           cartToggle: this.cartToggle,
+          togglePayment: this.togglePayment
         }}
       >
         {this.props.children}
