@@ -1,22 +1,34 @@
 # Project 2 : "Norris Inc. E-commerce webapp"
-## Table of contents
-- [Project 2 : "Norris Inc. E-commerce webapp"](#project-2--norris-inc-e-commerce-webapp)
-  - [Table of contents](#table-of-contents)
-  - [:seedling: Some history](#seedling-some-history)
-  - [:lock: Constraints](#lock-constraints)
-  - [:rugby_football: Scrum Team](#rugby_football-scrum-team)
-  - [:question: Unmet needs](#question-unmet-needs)
-  - [:money_with_wings: Objectives](#money_with_wings-objectives)
-  - [:walking: User personas](#walking-user-personas)
-    - [Persona #1: Buyer](#persona-1-buyer)
-    - [Persona #2: Seller](#persona-2-seller)
-  - [:brain: Explorations + Decisions](#brain-explorations--decisions)
-  - [:link: Other documents](#link-other-documents)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Javascript](https://aleen42.github.io/badges/src/javascript.svg)
+![React](https://aleen42.github.io/badges/src/react.svg)
+![React-Router](https://aleen42.github.io/badges/src/router.svg)
+![NodeJs](https://github.com/aleen42/badges/raw/master/src/node.svg)
+
+> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may now be already full flegded developpers (check on their linked in profiles)
+
+## Install
+```bash
+npm install
+```
+## Table of Contents
+- [Install](#install)
+- [Table of Contents](#table-of-contents)
+- [:seedling: Some history](#seedling-some-history)
+- [:lock: Constraints](#lock-constraints)
+- [:rugby_football: Scrum Team](#rugby_football-scrum-team)
+- [:question: Unmet needs](#question-unmet-needs)
+- [:money_with_wings: Objectives](#money_with_wings-objectives)
+- [:walking: User personas](#walking-user-personas)
+- [:brain: Explorations + Decisions](#brain-explorations--decisions)
+- [:link: Other information](#link-other-information)
+- [License](#license)
+
 
 ## :seedling: Some history
-We are 4 students of Wild Code School and at the moment these lines are being written, we are attending the "Web and mobile developer" bootcamp. This training program is 5 months long and is teaching us all the technical know-how and knowledge to develop interactive websites using HTML, CSS, JavaScript, so we can take a React and Node JS development project to completion.
+We are 4 students of [Wild Code School](https://www.wildcodeschool.com/) and at the moment these lines are being written, we are attending a ["Web developer"](https://www.wildcodeschool.com/en-GB/trainings/web-developer-full-time) bootcamp. This training program is 5 months long and is teaching us all the technical know-how and knowledge to develop interactive websites using HTML, CSS, JavaScript, so we can take a React and Node JS development project to completion.
 
-After learning the fundamentals of React, we were asked to team up and develop a simple web application with a few constraints. Basically, we had to use React for the user interface, use data that would be fetched from an API of our choosing and we had close to 48 hours of allotted time in our agendas distributed in two months of calendar time. Then, we were given free rein to do whatever kind of app that we wanted in whatever style we wanted.
+After learning the fundamentals of React, we were asked to team up and develop a simple web application with a few constraints. Basically, we had to use React for the user interface, use data that would be fetched from an API of our choosing and we had close to 48 hours of allotted time in our agendas distributed in two months of calendar time. Other than that, we were given free rein to do whatever kind of app that we wanted in whatever style we wanted.
 
 Despite coming from different backgrounds and all over the world, we became friends very quickly, so we decided to form a team and work together for this project. After brainstorming and discussing, we ended up deciding to do a simple E-commerce web application following the current trends caused by the onset of the COVID-19 pandemic. We actually dreamed up a whole narrative about us being a Scrum Team working for a fictional company called “Norris Inc.”, and how we were asked to create the web app following a line of reasoning explained in the “Unmet needs” sections.
 
@@ -87,4 +99,8 @@ Doesn't have warehouses or shipping service so there is trepidation about sellin
 ## :brain: Explorations + Decisions
 Talk a little about the brainstorm session, the JED session and the mock spring so to explain how the idea came to be.
 
-## :link: Other documents
+## :link: Other information
+
+
+## License
+See the LICENSE file for license rights and limitations (MIT).
