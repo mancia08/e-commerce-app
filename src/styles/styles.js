@@ -150,6 +150,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: flex-end;
   background-color: var(--light);
+  z-index:10;
   @media (max-width: 768px) {
     background-color: var(--primary);
     display: flex;

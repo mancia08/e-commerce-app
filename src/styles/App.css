@@ -3,12 +3,14 @@
 .supernav-toggle-container {
     position: sticky;
     top: 0;
+    z-index:10;
     background-color: var(--light);
     padding: 0 var(--spacer-8);
 }
 
 .nav-container {
     padding: 0 var(--spacer-8);
+    z-index: 10;
     position: sticky;
     top: calc(var(--spacer-8) + var(--heightS-btn));
 }

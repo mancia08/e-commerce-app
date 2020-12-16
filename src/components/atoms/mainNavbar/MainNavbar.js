@@ -16,6 +16,7 @@ const MobileMainNavContainer = styled.div`
   position: sticky;
   top: 0;
   background-color: ${theme.colors.light};
+  z-index:10;
   @media (min-width: ${theme.viewport.tablet}) {
     display: none;
     padding: 0 ${theme.spacer};
