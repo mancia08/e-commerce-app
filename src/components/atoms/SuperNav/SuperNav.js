@@ -37,7 +37,7 @@ const SuperNavImg = styled.img`
 const LoginWrapper = styled.div`
   position: absolute;
   z-index: 11;
-  top: calc(12 * ${theme.spacer})
+  top: calc(12 * ${theme.spacer});
 `;
 
 const SuperNav = ({ type, color, textColor }) => {

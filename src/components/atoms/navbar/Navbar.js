@@ -22,8 +22,8 @@ class Navbar extends Component {
   render() {
     return (
       <ShopContext.Consumer>
-        {(value) =>
-          ( <>
+        {(value) => (
+          <>
             <StyledNav onLoad={value.navbarToggle}>
               <LogoLink to="/home" onClick={value.closeLogin}>
                 <LogoImg src={logo} alt="logo" />
@@ -52,8 +52,8 @@ class Navbar extends Component {
                 CONTACT
               </StyledLink>
             </StyledNav>
-          </>)
-        }
+          </>
+        )}
       </ShopContext.Consumer>
     );
   }
