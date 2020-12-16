@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { MyContext } from "../../../../context/APIContext";
 import Modal from "react-modal";
 import styled from "styled-components";
@@ -31,6 +31,10 @@ const Cart = ({ textColor }) => {
         setIsOpen(!isOpen);
     };
 
+    if (context.payment) {
+        toggleModal();
+    }
+
     const findItem = (arr, id) => arr.find(el => el.id === id);
 
     const findQuontity = (arr, id) => arr.filter(el => el.id === id);
@@ -46,21 +50,21 @@ const Cart = ({ textColor }) => {
 
     const renderAddedItems = (arr) => {
         return arr.filter((value, index, self) => self.indexOf(value) === index)
-        .map(({ id, name, price, imageS }, i) => {
-            return (
-                <CartItem
-                    key={i}
-                    name={name.split(" ").slice(0, 3).join(" ")}
-                    image={imageS}
-                    price={`Price ${price}`}
-                    increase
-                    decrease
-                    remove={onRemoveClick}
-                    quantity={findQuontity(context.cart, id).length}
-                    id={id}
-                />
-            );
-        });
+            .map(({ id, name, price, imageS }, i) => {
+                return (
+                    <CartItem
+                        key={i}
+                        name={name.split(" ").slice(0, 3).join(" ")}
+                        image={imageS}
+                        price={`Price ${price}`}
+                        increase
+                        decrease
+                        remove={onRemoveClick}
+                        quantity={findQuontity(context.cart, id).length}
+                        id={id}
+                    />
+                );
+            });
     };
 
     const clearAllItems = () => {
