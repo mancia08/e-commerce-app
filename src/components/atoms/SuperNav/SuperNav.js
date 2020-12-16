@@ -17,7 +17,7 @@ const StyledSuperNav = styled.nav`
   justify-content: flex-end;
   background-color: ${(p) =>
     p.color === "primary" ? theme.colors.primary : theme.colors.light};
-  gap: ${2 * theme.spacer};
+  gap: calc(2 * ${theme.spacer});
   padding: ${theme.spacer};
   /*homepage*/
   position: ${(p) => p.type === "home" && "absolute"};
@@ -30,8 +30,8 @@ const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
-  margin-left: calc(1.2 * ${theme.spacer});
 `;
+
 
 const SuperNav = ({ type, color, textColor }) => {
 
@@ -65,7 +65,7 @@ const SuperNav = ({ type, color, textColor }) => {
             {!value.state.isLoggedIn ? <LoginModal type={type} /> : <LogoutModal type={type}/>}
           </div>
         )}
-        {type !== "home" && <Cart />}
+        {type !== "home" && <Cart type={type}/>}
       </StyledSuperNav>
       )}
     </ShopContext.Consumer>
