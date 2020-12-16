@@ -35,14 +35,18 @@ Despite coming from different backgrounds and all over the world, we became frie
 The project went very well, we were able to work together with little to no conflict and we actually succeeded in creating the web app that we wanted. We also learned a lot, both in term of coding know-how and about working in a web development project. We started using Scrum for the project management and we even completed two short sprints but then we decided that it wasn't a good fit for us, as a team of students and for such a time frame. So, even if we all liked very much to work with Scrum, we decided to switch to Kanban for the final leg of the project. We don't expect to always be switching the project management approach but, in this case, we felt that it was justified and it's also quite normal for students to want to experiment new things.
 
 All in all, it was a very fun project, we learned a lot from it, and we will all treasure the moments spent together working as a team. We hope that you will like it and if you have any questions, comments or you want to reach us, you can do so thru our Linked In profiles:
-…
+
+### Who are we
+[Carlos](https://www.linkedin.com/in/carlosaore/),
+[Evgeniya](https://www.linkedin.com/in/evgeniya-gabrikova/),
+...
 
 ## :lock: Constraints
 - Try to use Scrum as best as possible to manage the project.
 - Must use React.
 - It has to be some kind of web application that uses data coming from an API.
-- Limited time: 2 months calendar but just ~40 effective hours.
-- Only 4 students as developers, no Scrum Master and no Product Owner.
+- Limited time: 2 months of calendar time but actually just ~48 effective hours.
+- Only 4 students as developers, no Scrum Master, no Product Owner and no specific boundaries.
 
 ## :rugby_football: Scrum Team
 We are Scrum team working under a fictional company called “Norris Inc.” that sells workwear through with a “direct-to-consumer” business model through an online E-commerce platform. The clothes are made by a third party to our specifications.
@@ -103,4 +107,4 @@ Talk a little about the brainstorm session, the JED session and the mock spring 
 
 
 ## License
-See the LICENSE file for license rights and limitations (MIT).
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
