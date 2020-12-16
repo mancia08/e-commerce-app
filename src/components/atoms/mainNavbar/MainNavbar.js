@@ -59,10 +59,12 @@ const MainNavbar = () => {
                 <MobileMenu path="/home" action={value.closeLogin} />
               )}
             </MobileMainNavContainer>
+
             <SuperNavToggleContainer>
-              <SuperNav />
+              <SuperNav/>
               <Hr />
             </SuperNavToggleContainer>
+            
             <NavContainer>
               <Navbar />
             </NavContainer>
