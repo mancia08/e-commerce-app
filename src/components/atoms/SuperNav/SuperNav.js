@@ -20,9 +20,10 @@ import StripeCheckoutButton from "../../pages/shop/stripe-button";
 const StyledSuperNav = styled.nav`
   display: flex;
   justify-content: flex-end;
+
   background-color: ${(p) =>
     p.color === "primary" ? theme.colors.primary : theme.colors.light};
-  gap: ${2 * theme.spacer};
+  gap: calc(2 * ${theme.spacer});
   padding: ${theme.spacer};
   /*homepage*/
   position: ${(p) => p.type === "home" && "absolute"};
@@ -35,12 +36,14 @@ const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
-  margin-left: calc(1.2 * ${theme.spacer});
+`;
+
+const PriceText = styled.div`/* 
+  margin-left: calc(1.2 * 8px); */
 `;
 
 const SuperNav = (props) => {
   const context = useContext(MyContext);
-
 
   const getTotalPrice = () => {
     if (!context.cart) {
@@ -56,53 +59,63 @@ const SuperNav = (props) => {
     <ShopContext.Consumer>
       {(value) => (
         <StyledSuperNav type={props.type} color={props.color}>
-        {!value.state.loginIconClicked ? (
-          <>
-            <SuperNavImg
-              type={props.type}
-              src={value.state.isLoggedIn ? userlogged : userunknown}
-              alt="icon"
-              onClick={value.loginIconToggle}
-            />
-            {props.type !== "mobile" && (
-              <TextLogin
-                action={value.loginIconToggle}
-                size="S"
-                color={props.textColor}
-                text={
-                  value.state.isLoggedIn
-                    ? `Hello ${value.state.user}`
-                    : "Login / Sign Up"
-                }
+          {!value.state.loginIconClicked ? (
+            <>
+              <SuperNavImg
+                type={props.type}
+                src={value.state.isLoggedIn ? userlogged : userunknown}
+                alt="icon"
+                onClick={value.loginIconToggle}
               />
-            )}
-          </>
-        ) : (
-          <div>
-            {!value.state.isLoggedIn ? <LoginModal type={props.type} /> : <LogoutModal type={props.type}/>}
-          </div>
-        )}
-        {props.type !== "home" && (
-          <>
-            <div onClick={value.togglePayment}>{props.type !== "mobile" && (
-              <Text
-                color={props.textColor}
-                size="S"
-                text={`${getTotalPrice()}£`}
+              {props.type !== "mobile" && (
+                <TextLogin
+                  action={value.loginIconToggle}
+                  size="S"
+                  color={props.textColor}
+                  text={
+                    value.state.isLoggedIn
+                      ? `Hello ${value.state.user}`
+                      : "Login / Sign Up"
+                  }
+                />
+              )}
+            </>
+          ) : (
+            <div>
+              {!value.state.isLoggedIn ? (
+                <LoginModal type={props.type} />
+              ) : (
+                <LogoutModal type={props.type} />
+              )}
+            </div>
+          )}
+          {props.type !== "home" && (
+            <>
+              <PriceText onClick={value.togglePayment}>
+                {props.type !== "mobile" && (
+                  <Text
+                    color={props.textColor}
+                    size="S"
+                    text={`${getTotalPrice()}£`}
+                  />
+                )}
+              </PriceText>
+              <SuperNavImg
+                src={cart}
+                alt="cart"
+                onClick={value.togglePayment}
               />
-            )}</div>
-            <SuperNavImg src={cart} alt="cart" onClick={value.togglePayment} />
-            {context.cart.length > 0 && (
-              <TextCart
-                size="S"
-                color={props.textColor}
-                text={context.cart && context.cart.length}
-                action={value.togglePayment}
-              />
-            )}
-          </>
-        )}
-      </StyledSuperNav>
+              {context.cart.length > 0 && (
+                <TextCart
+                  size="S"
+                  color={props.textColor}
+                  text={context.cart && context.cart.length}
+                  action={value.togglePayment}
+                />
+              )}
+            </>
+          )}
+        </StyledSuperNav>
       )}
     </ShopContext.Consumer>
   );
