@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from "styled-components"
-import {theme} from "../../../../data/theme"
-
+import React from "react";
+import styled from "styled-components";
+import { theme } from "../../../../data/theme";
 
 const StyledBurger = styled.button`
   @media (max-width: ${theme.viewport.tablet}) {
@@ -26,13 +25,13 @@ const StyledBurger = styled.button`
 `;
 
 const Burger = (props) => {
-    return (
-        <StyledBurger onClick={props.action}>
-            <div />
-            <div />
-            <div />
-        </StyledBurger>
-    )
-}
+  return (
+    <StyledBurger onClick={props.action}>
+      <div />
+      <div />
+      <div />
+    </StyledBurger>
+  );
+};
 
 export default Burger;

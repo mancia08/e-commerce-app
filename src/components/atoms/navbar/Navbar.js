@@ -9,7 +9,8 @@ import {
 } from "../../../styles/styles";
 import logo from "./../../../styles/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
-
+import styled from "styled-components";
+import { theme } from "./../../../data/theme";
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +39,11 @@ class Navbar extends Component {
                 SHOP
               </HoverLink>
 
-              <HoverMenu over={this.hovering} out={this.notHovering} action = {value.closeLogin}/>
+              <HoverMenu
+                over={this.hovering}
+                out={this.notHovering}
+                action={value.closeLogin}
+              />
 
               <StyledLink to="/map" onClick={value.closeLogin}>
                 MAP
