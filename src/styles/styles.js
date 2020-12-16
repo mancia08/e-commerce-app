@@ -51,25 +51,6 @@ export const StyledText = styled.p`
       : "left"};
 `;
 
-export const StyledTextLogin = styled.p`
-  color: ${(p) =>
-    p.color === "primary"
-      ? "var(--primary)"
-      : p.color === "light"
-      ? "var(--light)"
-      : "var(--dark)"};
-  font-size: ${(p) =>
-    p.size === "S"
-      ? "var(--font-size-18)"
-      : p.size === "M"
-      ? "var(--font-size-24)"
-      : p.size === "L"
-      ? "var(--font-size-30)"
-      : "var(--font-size-48)"};
-  :hover {
-    cursor: pointer;
-  }
-`;
 
 // Buttons
 export const StyledBtn = styled.button`
