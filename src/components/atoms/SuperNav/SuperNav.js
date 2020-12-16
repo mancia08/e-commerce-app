@@ -15,7 +15,6 @@ import { theme } from "./../../../data/theme";
 const StyledSuperNav = styled.nav`
   display: flex;
   justify-content: flex-end;
-
   background-color: ${(p) =>
     p.color === "primary" ? theme.colors.primary : theme.colors.light};
   gap: calc(2 * ${theme.spacer});
@@ -33,9 +32,6 @@ const SuperNavImg = styled.img`
   cursor: pointer;
 `;
 
-const PriceText = styled.div`/* 
-  margin-left: calc(1.2 * 8px); */
-`;
 
 const SuperNav = ({ type, color, textColor }) => {
 
@@ -69,7 +65,7 @@ const SuperNav = ({ type, color, textColor }) => {
             {!value.state.isLoggedIn ? <LoginModal type={type} /> : <LogoutModal type={type}/>}
           </div>
         )}
-        {type !== "home" && <Cart />}
+        {type !== "home" && <Cart type={type}/>}
       </StyledSuperNav>
       )}
     </ShopContext.Consumer>
