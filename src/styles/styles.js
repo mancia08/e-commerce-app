@@ -2,22 +2,7 @@ import { Children } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-/*
-========================
-Atoms Components
-========================
-*/
-// Hr
 
-export const StyledHr = styled.hr`
-  border-top: 2px solid
-    ${(p) => (p.color === "light" ? "var(--light)" : "var(--primary)")};
-  margin: var(--spacer-8);
-
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
-`;
 
 // Texts
 export const StyledText = styled.p`

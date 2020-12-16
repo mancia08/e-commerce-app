@@ -3,7 +3,7 @@ import MapBox from "./mapbox";
 import Text from "./../../atoms/text/Text";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import MapImage from "./MapImage"
-
+import Footer from "./../../atoms/footer/Footer"
 import { ShopContext } from "./../../../context/ShopContext";
 import styled from "styled-components";
 
@@ -16,6 +16,7 @@ const Map = (props) => (
         <MapImage />
         <Text color="dark" size="M" text="Buy local from our partern sellers!" />
         {!value.state.mobileMenu && <MapBox {...props} />}
+        <Footer/>
       </div>
     )}
   </ShopContext.Consumer>
