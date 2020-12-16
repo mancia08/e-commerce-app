@@ -31,7 +31,7 @@ const SuperNavToggleContainer = styled.div`
     z-index: 10;
     background-color: ${theme.colors.light};
     padding: 0 ${theme.spacer};
-    display:block
+    display: block;
   }
 `;
 const NavContainer = styled.div`
@@ -41,7 +41,7 @@ const NavContainer = styled.div`
     z-index: 10;
     position: sticky;
     top: calc(4 * ${theme.spacer});
-    display:block
+    display: block;
   }
 `;
 
