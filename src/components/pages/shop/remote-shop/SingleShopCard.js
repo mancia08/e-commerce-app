@@ -4,7 +4,7 @@ import Button from "../../../atoms/button/Button";
 import './SingleCard.css'
 
 
-const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick}) => {   //{ imageS, name, price, onClick, path}
+const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick, index}) => {   //{ imageS, name, price, onClick, path}
   return (
     <div className="single-card_wrap">
       <img src={imageS} alt={name} />
@@ -21,7 +21,7 @@ const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick}) => 
       action={(e) => onClick(e)}
       size="S"
       color="primary"
-      text="More details"
+      text="Details"
       />
       <Button
       id={id}

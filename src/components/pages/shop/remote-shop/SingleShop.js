@@ -9,7 +9,7 @@ import StripeCheckoutButton from '../stripe-button';
 
 Modal.setAppElement("#root");
 
-const SingleShop = (props) => {
+const SingleShop = ({ category, shop }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,7 +18,7 @@ const SingleShop = (props) => {
   const context = useContext(MyContext);
 
   const toggleModal = (e) => {
-    const item = context.state.items[props.category - 1].shops[props.shop][e.target.id];
+    const item = context.state.items[category - 1].shops[shop][e.target.id];
     setItem(item);
     setIsOpen(!isOpen);
   }
@@ -29,19 +29,20 @@ const SingleShop = (props) => {
   }
 
   const onAddToCartClick = (e) => {
-    context.state.items[props.category - 1].shops[props.shop][e.target.id].addedToCart = true;
-    const item = findAddedItem(context.state.items[props.category - 1].shops[props.shop]);
-    context.setCart(item);
+    let itemSelected = context.state.items[category - 1].shops[shop][e.target.id]
+    let copyOfItems = [...context.cart];
+    copyOfItems.push(itemSelected);
+    context.setCart(copyOfItems);
   }
 
   return (
     <>
-      {!context.loading && context.state.items[props.category - 1].shops[props.shop].map(
+      {!context.loading && context.state.items[category - 1].shops[shop].map(
         (shop, index) => {
           return <>
             <SingleShopCard
               id={shop.id}
-              path={`/shop/category${props.category}/${props.shop}/${index}`}
+              path={`/shop/category${category}/${shop}/${index}`}
               key={index}
               imageS={shop.imageL}
               name={shop.name}
@@ -62,7 +63,7 @@ const SingleShop = (props) => {
       >
         <div>{item && item.name}</div>
         <img className="modal_img" src={item && item.imageL} alt={item && item.name} />
-        <div>{item && item.price} £</div>
+        <div>Price {item && item.price} £</div>
         <Button
           key={uuidv4()}
           id={item && item.id}
@@ -73,6 +74,7 @@ const SingleShop = (props) => {
         />
 
         <Button
+          key={uuidv4()}
           size="S"
           text="Continue shopping"
           color="primary"
@@ -81,7 +83,8 @@ const SingleShop = (props) => {
           Pay Total of £ {item && item.price}
         </p>
         <p>
-          <StripeCheckoutButton price={item && item.price} />
+          <StripeCheckoutButton
+            price={item && item.price} />
         </p>
       </Modal>
     </>
