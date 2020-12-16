@@ -23,11 +23,6 @@ const SingleShop = ({ category, shop }) => {
     setIsOpen(!isOpen);
   }
 
-  const findAddedItem = (arr) => {
-    const result = arr.filter(item => !(!item.addedToCart));
-    return result;
-  }
-
   const onAddToCartClick = (e) => {
     let itemSelected = context.state.items[category - 1].shops[shop][e.target.id]
     let copyOfItems = [...context.cart];
