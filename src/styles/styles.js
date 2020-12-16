@@ -66,6 +66,9 @@ export const StyledBtn = styled.button`
       : p.size === "L"
       ? "var(--heightL-btn)"
       : "var(--heightXL-btn)"};
+  height: ${(p) =>
+    p.height === "parent"
+    && "100%"};
   color: ${(p) =>
     p.color === "primary"
       ? "var(--primary)"
