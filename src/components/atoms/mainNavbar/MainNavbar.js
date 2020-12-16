@@ -27,9 +27,7 @@ const MobileMainNavContainer = styled.div`
 const MainNavbar = () => {
   
   return (<ShopContext.Consumer>
-    {(value) => ( value.state.paymentOpen ?
-         {}
-       :
+    {(value) => ( !value.state.paymentOpen &&
       <>
         <MobileMainNavContainer>
           <MobileLogo path="/home" action={value.closeLogin} />

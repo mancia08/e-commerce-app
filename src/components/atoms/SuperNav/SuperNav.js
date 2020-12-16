@@ -23,7 +23,9 @@ const StyledSuperNav = styled.nav`
   position: ${(p) => p.type === "home" && "absolute"};
   top: ${(p) => p.type === "home" && theme.spacer};
   right: ${(p) => p.type === "home" && theme.spacer};
-  background-color: ${(p) => p.type === "home" && theme.colors.dark2};
+  background-color: ${(p) => p.type === "home" && theme.colors.dark};
+  opacity: ${(p) =>
+    p.type === "home" && theme.opacity.sixty * theme.opacity.eigthy};
 `;
 
 const SuperNavImg = styled.img`
@@ -32,41 +34,49 @@ const SuperNavImg = styled.img`
   cursor: pointer;
 `;
 
+const LoginWrapper = styled.div`
+  position: absolute;
+  z-index: 11;
+  top: calc(12 * ${theme.spacer})
+`;
 
 const SuperNav = ({ type, color, textColor }) => {
-
   return (
     <ShopContext.Consumer>
       {(value) => (
         <StyledSuperNav type={type} color={color}>
-        {!value.state.loginIconClicked ? (
-          <>
-            <SuperNavImg
-              type={type}
-              src={value.state.isLoggedIn ? userlogged : userunknown}
-              alt="icon"
-              onClick={value.loginIconToggle}
-            />
-            {type !== "mobile" && (
-              <TextLogin
-                action={value.loginIconToggle}
-                size="S"
-                color={textColor}
-                text={
-                  value.state.isLoggedIn
-                    ? `Hello ${value.state.user}`
-                    : "Login / Sign Up"
-                }
+          {!value.state.loginIconClicked ? (
+            <>
+              <SuperNavImg
+                type={type}
+                src={value.state.isLoggedIn ? userlogged : userunknown}
+                alt="icon"
+                onClick={value.loginIconToggle}
               />
-            )}
-          </>
-        ) : (
-          <div>
-            {!value.state.isLoggedIn ? <LoginModal type={type} /> : <LogoutModal type={type}/>}
-          </div>
-        )}
-        {type !== "home" && <Cart type={type}/>}
-      </StyledSuperNav>
+              {type !== "mobile" && (
+                <TextLogin
+                  action={value.loginIconToggle}
+                  size="S"
+                  color={textColor}
+                  text={
+                    value.state.isLoggedIn
+                      ? `Hello ${value.state.user}`
+                      : "Login / Sign Up"
+                  }
+                />
+              )}
+            </>
+          ) : (
+            <LoginWrapper>
+              {!value.state.isLoggedIn ? (
+                <LoginModal type={type} />
+              ) : (
+                <LogoutModal type={type} />
+              )}
+            </LoginWrapper>
+          )}
+          {type !== "home" && <Cart type={type} />}
+        </StyledSuperNav>
       )}
     </ShopContext.Consumer>
   );
