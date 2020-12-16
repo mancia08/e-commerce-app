@@ -186,7 +186,7 @@ export const SubMenu = styled.div`
   :hover {
     display: block;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: calc(1.5 * var(--spacer-quad));
   }
   @media (max-width: 768px) {
