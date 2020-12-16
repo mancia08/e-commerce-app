@@ -9,6 +9,8 @@ import Text from "./../text/Text";
 import logo from "./../../../styles/images/logonorris.png";
 import ButtonX from "../../atoms/button/ButtonX";
 import LoginInput from "../../atoms/input/LoginInput";
+import Login from "../../pages/home/login";
+import Logout from "../../pages/home/logout";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -143,14 +145,16 @@ const LoginModal = (props) => (
                 text={textData.login.text1}
               />
             </LoginLink>
-            <LoginHLink href="www.google.it" target="_blank">
+            {/* <LoginHLink href="www.google.it" target="_blank">
               <Text
                 type="login"
                 color="light"
                 size="M"
                 text={textData.login.text2}
               />
-            </LoginHLink>
+            </LoginHLink> */}
+            <Login/>
+            <Logout/>
             <LoginHLink href="www.facebook.it" target="_blank">
               <Text
                 type="login"
