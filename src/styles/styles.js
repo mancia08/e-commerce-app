@@ -2,22 +2,7 @@ import { Children } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-/*
-========================
-Atoms Components
-========================
-*/
-// Hr
 
-export const StyledHr = styled.hr`
-  border-top: 2px solid
-    ${(p) => (p.color === "light" ? "var(--light)" : "var(--primary)")};
-  margin: var(--spacer-8);
-
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
-`;
 
 // Texts
 export const StyledText = styled.p`
@@ -186,7 +171,7 @@ export const SubMenu = styled.div`
   :hover {
     display: block;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: calc(1.5 * var(--spacer-quad));
   }
   @media (max-width: 768px) {

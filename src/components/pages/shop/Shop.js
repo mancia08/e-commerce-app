@@ -9,6 +9,7 @@ import ShopIconWrap from "./shop-icon-wrap";
 import Spinner from "../../atoms/spinner";
 import SingleShopCard from "./remote-shop/SingleShopCard";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
+import Footer from "./../../atoms/footer/Footer"
 
 import "./Shop.css";
 import jewerly from "./../../../styles/images/jewelry.png";
@@ -88,6 +89,7 @@ const Shop = (props) => {
           </Switch>}
           </>
         )}
+        <Footer/>
       </>
     )}
         </ShopContext.Consumer>

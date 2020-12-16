@@ -23,21 +23,13 @@ const StyledSuperNav = styled.nav`
   position: ${(p) => p.type === "home" && "absolute"};
   top: ${(p) => p.type === "home" && theme.spacer};
   right: ${(p) => p.type === "home" && theme.spacer};
-  background-color: ${(p) => p.type === "home" && theme.colors.dark};
-  opacity: ${(p) =>
-    p.type === "home" && theme.opacity.sixty * theme.opacity.eigthy};
+  background-color: ${(p) => p.type === "home" && theme.colors.dark2};
 `;
 
 const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
-`;
-
-const LoginWrapper = styled.div`
-  position: absolute;
-  z-index: 11;
-  top: calc(12 * ${theme.spacer});
 `;
 
 const SuperNav = ({ type, color, textColor }) => {
@@ -67,13 +59,13 @@ const SuperNav = ({ type, color, textColor }) => {
               )}
             </>
           ) : (
-            <LoginWrapper>
+          <>
               {!value.state.isLoggedIn ? (
                 <LoginModal type={type} />
               ) : (
                 <LogoutModal type={type} />
               )}
-            </LoginWrapper>
+            </>
           )}
           {type !== "home" && <Cart type={type} />}
         </StyledSuperNav>
