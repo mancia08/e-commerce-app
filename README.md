@@ -1,15 +1,17 @@
 # Project 2 : "Norris Inc. E-commerce webapp"
 ## Table of contents
-  * [:seedling: Some history](#-seedling--some-history)
-  * [:lock: Constraints](#-lock--constraints)
-  * [:rugby_football: Scrum Team](#-rugby-football--scrum-team)
-  * [:question: Unmet needs](#-question--unmet-needs)
-  * [:money_with_wings: Objectives](#-money-with-wings--objectives)
-  * [:walking: User personas](#-walking--user-personas)
-    + [Persona #1: Buyer](#persona--1--buyer)
-    + [Persona #2: Seller](#persona--2--seller)
-  * [:brain: Explorations + Decisions](#-brain--explorations---decisions)
-  * [:link: Other documents](#-link--other-documents)
+- [Project 2 : "Norris Inc. E-commerce webapp"](#project-2--norris-inc-e-commerce-webapp)
+  - [Table of contents](#table-of-contents)
+  - [:seedling: Some history](#seedling-some-history)
+  - [:lock: Constraints](#lock-constraints)
+  - [:rugby_football: Scrum Team](#rugby_football-scrum-team)
+  - [:question: Unmet needs](#question-unmet-needs)
+  - [:money_with_wings: Objectives](#money_with_wings-objectives)
+  - [:walking: User personas](#walking-user-personas)
+    - [Persona #1: Buyer](#persona-1-buyer)
+    - [Persona #2: Seller](#persona-2-seller)
+  - [:brain: Explorations + Decisions](#brain-explorations--decisions)
+  - [:link: Other documents](#link-other-documents)
 
 ## :seedling: Some history
 We are 4 students of Wild Code School and at the moment these lines are being written, we are attending the "Web and mobile developer" bootcamp. This training program is 5 months long and is teaching us all the technical know-how and knowledge to develop interactive websites using HTML, CSS, JavaScript, so we can take a React and Node JS development project to completion.
