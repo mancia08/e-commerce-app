@@ -7,7 +7,7 @@ const StyledMapImage = styled.img`
     width: 100%;
     height: 600px;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: ${theme.opacity.eigthy};
     @media (max-width: ${theme.viewport.tablet}) {
         height: 400px;
     }

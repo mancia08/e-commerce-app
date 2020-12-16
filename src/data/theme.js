@@ -33,4 +33,5 @@ export const theme = {
     },
   },
   viewport: { mobile: "450px", tablet: "768px" },
+  opacity: { sixty: "0.6", eigthy: "0.8"}
 };
