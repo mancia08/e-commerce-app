@@ -7,10 +7,13 @@ import Text from "../../atoms/text/Text"
 
 const StyledHomeImg = styled.div`
     width: 100%;
-    height: 600px;
+    height: 60vh;
     object-fit: cover;
     opacity: ${theme.opacity.sixty};
     background-image: url(${homeimg});
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
