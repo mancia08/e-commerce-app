@@ -1,16 +1,50 @@
 import React, { useRef, useEffect, useState } from 'react';
 import ReactDOM from "react-dom";
+import styled from "styled-components";
+import { theme } from "../../../../data/theme";
 import mapboxgl from 'mapbox-gl';
-import Popup from './popup';
-import Tab from './tab';
-
 import { stores } from './helper/fakeData';
+
+import Popup from './popup/Popup';
+import Tab from './tab/Tab';
+import Text from "../../../atoms/text/Text"
 
 import '../Map.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
-const Map = props => {
+const StyledMapBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: ${theme.spacer};
+    @media (min-width: ${theme.viewport.tablet}) {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+`;
+
+const StyledMapContainer = styled.div`
+    width: 100%;
+    height: 600px;
+    border-radius: 10px;
+    @media (min-width: ${theme.viewport.tablet}) {
+        width: 40%;
+    }
+    .mapboxgl-popup-close-button {
+        display: none;
+    }
+`;
+
+const StyledSidebar = styled.div`
+    width: 100%;
+    height: 600px;
+    @media (min-width: ${theme.viewport.tablet}) {
+        width: 40%;
+    }
+`;
+
+const MapBox = props => {
     const mapContainerRef = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
 
@@ -32,7 +66,9 @@ const Map = props => {
             color: "#ff6347",
         })
             .setLngLat([-0.118092, 51.509865])
-            .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML("<h1 class='we-are-here'>We are here!!!</h1>"))
+            .setPopup(new mapboxgl.Popup({ closeOnClick: false }).setHTML(
+                "<p style='color: #33A0FF; text-align: center;'>WE ARE HERE!!</p>"
+            ))
             .addTo(map);
 
         stores.features.map((store, i) => {
@@ -116,14 +152,13 @@ const Map = props => {
                 }, 1000)
             }
         }
-    }
+    };
 
     return (
-        <div className="stuff_wrap">
-            <div className='sidebar'>
-                <div className='heading'>
-                    <h1>Our locations</h1>
-                </div>
+        <StyledMapBox>
+            <StyledMapContainer ref={mapContainerRef} />
+            <StyledSidebar>
+                <Text color="light" size="L" align="center" text="Partner shops" type="map" />
                 <div id='listings' className='listings'>
                     {stores.features.map((store, i) => {
                         const { key, address, city, phone, name } = store.properties;
@@ -138,10 +173,10 @@ const Map = props => {
                         />
                     })}
                 </div>
-            </div>
-            <div className="map-container" ref={mapContainerRef} />
-        </div>
+            </StyledSidebar>
+            
+        </StyledMapBox>
     )
 }
 
-export default Map;
+export default MapBox;

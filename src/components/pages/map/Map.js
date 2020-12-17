@@ -1,22 +1,21 @@
 import React from "react";
-import MapBox from "./mapbox";
+import MapBox from "./mapbox/MapBox";
 import Text from "./../../atoms/text/Text";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
-import MapImage from "./MapImage"
+import MapImage from "../../atoms/images/MapImage"
 
 import { ShopContext } from "./../../../context/ShopContext";
 import styled from "styled-components";
 
-
 const Map = (props) => (
   <ShopContext.Consumer>
     {(value) => (
-      <div>
+      <>
         <MainNavbar />
         <MapImage />
-        <Text color="dark" size="M" text="Buy local from our partern sellers!" />
+        <Text color="primary" size="M" text="Buy local from our partner sellers!" align="center" />
         {!value.state.mobileMenu && <MapBox {...props} />}
-      </div>
+      </>
     )}
   </ShopContext.Consumer>
 );

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Text from "../../atoms/text/Text";
 import ContactForm from "./ContactForm"
-import ContactImage from './ContactImage';
+import ContactImage from '../../atoms/images/ContactImage';
 import ContactTitleButton from './ContactTitleButton';
 import Submitted from "./Submitted"
 

@@ -49,6 +49,12 @@ export const StyledText = styled.p`
     p.align === "center"
       ? "center"
       : "left"};
+  background-color: ${(p) =>
+    p.type === "map"
+      && "var(--primary)"};
+  padding: ${(p) =>
+    p.type === "map"
+  && "var(--spacer-8)"};
 `;
 
 
