@@ -12,16 +12,23 @@ const LogoutPopUp = styled.div`
   height: ${theme.sizes.modals.mobile.height};
   z-index: 1;
   position: absolute;
-  top: ${(p) => p.type==="mobile" ? 0 : `-${theme.spacer}`};
-  left: ${(p) => p.type==="mobile" ? 0 : `calc(-100vw + 3 * ${theme.spacer})`};
-  display:flex;
+  top: 0;
+  left: 0;
+  display: flex;
+  top: ${(p) => p.type==="home" && `-${theme.spacer}`};
+  left: ${(p) => p.type==="home" &&`calc(-100vw + 3 * ${theme.spacer})`};
+  display: flex;
   justify-content: space-around;
-  flex-direction:column;
+  flex-direction: column;
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
-    height: calc(${theme.sizes.modals.login.height} / 1.5);
+    height: ${theme.sizes.modals.login.height};
     position: sticky;
     right: 0px;
+    position: ${(p) => p.type !=="home" && "absolute"};
+    left: ${(p) => p.type !=="home" && "auto"};
+    right: ${(p) => p.type !=="home" && "0"};
+    top: ${(p) => p.type !=="home" && `calc(12 * ${theme.spacer})`}
   }
 `;
 const LogoutLogoContainer = styled.div`
@@ -41,11 +48,9 @@ const LogoutTextContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - ${theme.sizes.buttons.XL});
-  justify-content:center;
+  justify-content: center;
   @media (min-width: ${theme.viewport.tablet}) {
-    height: calc(
-      ${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M}
-    );
+    height: calc(${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M});
   }
 `;
 

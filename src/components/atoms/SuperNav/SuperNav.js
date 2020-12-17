@@ -32,41 +32,43 @@ const SuperNavImg = styled.img`
   cursor: pointer;
 `;
 
-
 const SuperNav = ({ type, color, textColor }) => {
-
   return (
     <ShopContext.Consumer>
       {(value) => (
         <StyledSuperNav type={type} color={color}>
-        {!value.state.loginIconClicked ? (
-          <>
-            <SuperNavImg
-              type={type}
-              src={value.state.isLoggedIn ? userlogged : userunknown}
-              alt="icon"
-              onClick={value.loginIconToggle}
-            />
-            {type !== "mobile" && (
-              <TextLogin
-                action={value.loginIconToggle}
-                size="S"
-                color={textColor}
-                text={
-                  value.state.isLoggedIn
-                    ? `Hello ${value.state.user}`
-                    : "Login / Sign Up"
-                }
+          {!value.state.loginIconClicked ? (
+            <>
+              <SuperNavImg
+                type={type}
+                src={value.state.isLoggedIn ? userlogged : userunknown}
+                alt="icon"
+                onClick={value.loginIconToggle}
               />
-            )}
-          </>
-        ) : (
-          <div>
-            {!value.state.isLoggedIn ? <LoginModal type={type} /> : <LogoutModal type={type}/>}
-          </div>
-        )}
-        {type !== "home" && <Cart type={type}/>}
-      </StyledSuperNav>
+              {type !== "mobile" && (
+                <TextLogin
+                  action={value.loginIconToggle}
+                  size="S"
+                  color={textColor}
+                  text={
+                    value.state.isLoggedIn
+                      ? `Hello ${value.state.user}`
+                      : "Login / Sign Up"
+                  }
+                />
+              )}
+            </>
+          ) : (
+          <>
+              {!value.state.isLoggedIn ? (
+                <LoginModal type={type} />
+              ) : (
+                <LogoutModal type={type} />
+              )}
+            </>
+          )}
+          {type !== "home" && <Cart type={type} />}
+        </StyledSuperNav>
       )}
     </ShopContext.Consumer>
   );

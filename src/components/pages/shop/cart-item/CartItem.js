@@ -12,8 +12,12 @@ const CartItem = ({ id, name, price, image, increase, decrease, quantity, remove
         <p >Qty: {quantity}</p>
         <p>
             Item Count:
-             <button onClick={(e) => decrease(e)}>-</button>
-            <button onClick={(e) => increase(e)}>+</button>
+             <button
+             id={id} 
+             onClick={(e) => decrease(e)}>-</button>
+            <button
+            id={id}
+            onClick={(e) => increase(e)}>+</button>
         </p>
         <p>
             <button

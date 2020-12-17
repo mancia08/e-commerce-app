@@ -5,7 +5,7 @@ import ButtonX from "../../button/ButtonX";
 import { ShopContext } from "../../../../context/ShopContext";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
-import Logo from "../../logo/Logo"
+import Logo from "../../logo/Logo";
 
 const StyledMobileMenu = styled.div`
   height: 100vh;
@@ -19,7 +19,6 @@ const StyledMobileMenu = styled.div`
     display: flex;
   }
 `;
-
 
 const MobileLogoContainer = styled.div`
   width: 100vw;
@@ -37,7 +36,7 @@ const MobileMenu = (props) => (
     {(value) => (
       <StyledMobileMenu>
         <MobileLogoContainer>
-         <Logo type="mobile"/>
+          <Logo type="mobile" />
           <ButtonX
             text="X"
             color="light"

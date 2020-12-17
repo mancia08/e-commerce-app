@@ -7,9 +7,9 @@ import { theme } from "./../../../../data/theme";
 
 const StyledMobileLogo = styled(NavLink)`
   display: inline-block;
-margin-top: ${theme.spacer};
-margin-left: calc( 2 * ${theme.spacer});
-  margin-right:auto;
+  margin-top: ${theme.spacer};
+  margin-left: calc(2 * ${theme.spacer});
+  margin-right: auto;
   @media (min-width: ${theme.viewport.tablet}) {
     display: none;
   }
