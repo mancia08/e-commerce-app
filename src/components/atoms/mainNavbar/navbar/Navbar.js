@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { ShopContext } from "../../../context/ShopContext";
+import { ShopContext } from "../../../../context/ShopContext";
 import {
   StyledNav,
   HoverLink,
   StyledLink,
   LogoLink,
   LogoImg,
-} from "../../../styles/styles";
+} from "../../../../styles/styles";
 import logo from "./../../../styles/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
 import styled from "styled-components";
-import { theme } from "./../../../data/theme";
+import { theme } from "../../../../data/theme";
 class Navbar extends Component {
   constructor(props) {
     super(props);

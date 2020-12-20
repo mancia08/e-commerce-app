@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../data/theme";
+import { theme } from"../../../../data/theme";
 
 const StyledBurger = styled.button`
   @media (max-width: ${theme.viewport.tablet}) {

@@ -1,11 +1,11 @@
 import React from "react";
-import Hr from "../../hr/Hr";
-import NavBar from "../../navbar/Navbar";
-import ButtonX from "../../button/ButtonX";
+import Hr from "../../../subatoms/hr/Hr";
+import NavBar from "../navbar/Navbar";
+import ButtonX from "../../../subatoms/button/ButtonX";
 import { ShopContext } from "../../../../context/ShopContext";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
-import Logo from "../../logo/Logo";
+import Logo from "../../../subatoms/logo/Logo";
 
 const StyledMobileMenu = styled.div`
   height: 100vh;
