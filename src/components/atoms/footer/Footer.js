@@ -48,33 +48,21 @@ const Footer = () => (
           />
         </a>
         <a href="https://github.com/JacopoLuri" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Luri Jacopo"
-          />
+          <Text color="dark" size="S" align="center" text="Luri Jacopo" />
         </a>
         <a href="https://github.com/mancia08" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Mancini"
-          />
+          <Text color="dark" size="S" align="center" text="Mancini" />
         </a>
         <a href="https://github.com/carlosaore" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Orellana Carlos"
-          />
+          <Text color="dark" size="S" align="center" text="Orellana Carlos" />
         </a>
       </StyledFooterColumn>
       <StyledFooterColumn>
-      <Text color="dark" size="M" align="center" text="GitHub" />
-        <a href="https://github.com/gabriellji" target="_blank">
+        <Text color="dark" size="M" align="center" text="Linkedin" />
+        <a
+          href="https://www.linkedin.com/in/evgeniya-gabrikova/"
+          target="_blank"
+        >
           <Text
             color="dark"
             size="S"
@@ -82,61 +70,17 @@ const Footer = () => (
             text="Habrykava Yauheniya"
           />
         </a>
-        <a href="https://github.com/JacopoLuri" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Luri Jacopo"
-          />
-        </a>
-        <a href="https://github.com/mancia08" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Mancini"
-          />
-        </a>
-        <a href="https://github.com/carlosaore" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Orellana Carlos"
-          />
-        </a><Text color="dark" size="M" align="center" text="Linkedin" />
-        <a href="https://www.linkedin.com/in/evgeniya-gabrikova/" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Habrykava Yauheniya"
-          />
-        </a>
-        <a href="https://www.linkedin.com/in/jacopo-luri-1111081a2/" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Luri Jacopo"
-          />
+        <a
+          href="https://www.linkedin.com/in/jacopo-luri-1111081a2/"
+          target="_blank"
+        >
+          <Text color="dark" size="S" align="center" text="Luri Jacopo" />
         </a>
         <a href="https://www.linkedin.com/in/mancia08/" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Mancini"
-          />
+          <Text color="dark" size="S" align="center" text="Mancini" />
         </a>
         <a href="https://www.linkedin.com/in/carlosaore/" target="_blank">
-          <Text
-            color="dark"
-            size="S"
-            align="center"
-            text="Orellana Carlos"
-          />
+          <Text color="dark" size="S" align="center" text="Orellana Carlos" />
         </a>
       </StyledFooterColumn>
       <StyledFooterColumn>
