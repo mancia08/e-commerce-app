@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
-import Text from "../text/Text";
-import Hr from "../hr/Hr";
+import Text from "../../subatoms/text/Text";
+import Hr from "../../subatoms/hr/Hr";
 
 const StyledFooter = styled.div`
   background-color: ${theme.colors.light};

@@ -1,4 +1,4 @@
-import Text from "./../../../atoms/text/Text";
+import Text from "./../../../subatoms/text/Text";
 import Button from "../../../subatoms/button/Button";
 
 import './SingleCard.css'

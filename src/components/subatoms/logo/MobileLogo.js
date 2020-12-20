@@ -1,6 +1,6 @@
 import React from "react";
 import { LogoImg } from "../../../styles/styles";
-import logo from "../../../../styles/images/logonorris.png";
+import logo from "../../../styles/images/logonorris.png";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";

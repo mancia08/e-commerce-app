@@ -7,10 +7,8 @@ import {
   LogoLink,
   LogoImg,
 } from "../../../../styles/styles";
-import logo from "./../../../styles/images/logonorris.png";
+import logo from "./../../../../styles/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
-import styled from "styled-components";
-import { theme } from "../../../../data/theme";
 class Navbar extends Component {
   constructor(props) {
     super(props);

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "./../../../data/theme";
 import { ShopContext } from "../../../context/ShopContext";
-import ButtonX from "../../atoms/button/ButtonX";
+import ButtonX from "../../subatoms/button/ButtonX";
 import { LogoImg } from "./../../../styles/styles";
 import logo from "./../../../styles/images/logonorris.png";
 
@@ -15,8 +15,8 @@ const LogoutPopUp = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  top: ${(p) => p.type==="home" && `-${theme.spacer}`};
-  left: ${(p) => p.type==="home" &&`calc(-100vw + 3 * ${theme.spacer})`};
+  top: ${(p) => p.type === "home" && `-${theme.spacer}`};
+  left: ${(p) => p.type === "home" && `calc(-100vw + 3 * ${theme.spacer})`};
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -25,10 +25,10 @@ const LogoutPopUp = styled.div`
     height: ${theme.sizes.modals.login.height};
     position: sticky;
     right: 0px;
-    position: ${(p) => p.type !=="home" && "absolute"};
-    left: ${(p) => p.type !=="home" && "auto"};
-    right: ${(p) => p.type !=="home" && "0"};
-    top: ${(p) => p.type !=="home" && `calc(12 * ${theme.spacer})`}
+    position: ${(p) => p.type !== "home" && "absolute"};
+    left: ${(p) => p.type !== "home" && "auto"};
+    right: ${(p) => p.type !== "home" && "0"};
+    top: ${(p) => p.type !== "home" && `calc(12 * ${theme.spacer})`};
   }
 `;
 const LogoutLogoContainer = styled.div`
