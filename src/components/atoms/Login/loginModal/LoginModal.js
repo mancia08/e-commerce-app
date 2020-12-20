@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "./../../../data/theme";
+import { theme } from "../../../../data/theme";
 import { Link } from "react-router-dom";
-import { ShopContext } from "./../../../context/ShopContext";
-import { textData } from "./../../../data/textData";
-import { LogoImg } from "./../../../styles/styles";
-import Text from "./../../subatoms/text/Text";
-import logo from "./../../../styles/images/logonorris.png";
-import ButtonX from "../../subatoms/button/ButtonX";
-import LoginInput from "../../subatoms/input/LoginInput";
-import Login from "../../pages/home/login";
-import Logout from "../../pages/home/logout";
+import { ShopContext } from "../../../../context/ShopContext";
+import { textData } from "../../../../data/textData";
+import { LogoImg } from "../../../../styles/styles";
+import Text from "../../../subatoms/text/Text";
+import logo from "./../../../../styles/images/logonorris.png";
+import ButtonX from "../../../subatoms/button/ButtonX";
+import LoginInput from "../../../subatoms/input/LoginInput";
+import Login from "../googleLogin";
+import Logout from "../googleLogout";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};

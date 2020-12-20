@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "./../../../data/theme";
-import { ShopContext } from "../../../context/ShopContext";
-import ButtonX from "../../subatoms/button/ButtonX";
-import { LogoImg } from "./../../../styles/styles";
-import logo from "./../../../styles/images/logonorris.png";
+import { theme } from "../../../../data/theme";
+import { ShopContext } from "../../../../context/ShopContext";
+import ButtonX from "../../../subatoms/button/ButtonX";
+import { LogoImg } from "../../../../styles/styles";
+import logo from "./../../../../styles/images/logonorris.png";
 
 const LogoutPopUp = styled.div`
   background-color: ${theme.colors.primary};

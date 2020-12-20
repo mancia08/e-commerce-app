@@ -4,8 +4,8 @@ import { ShopContext } from "../../../../context/ShopContext";
 import TextLogin from "../../../subatoms/text/TextLogin";
 import Cart from "../../../pages/shop/cart";
 
-import LoginModal from "../../loginModal/LoginModal";
-import LogoutModal from "../../logoutModal/LogoutModal";
+import LoginModal from "../../Login/loginModal/LoginModal";
+import LogoutModal from "../../Login/logoutModal/LogoutModal";
 import userlogged from "./../../../../styles/images/iconlogin.png";
 import userunknown from "./../../../../styles/images/iconlogout.png";
 
