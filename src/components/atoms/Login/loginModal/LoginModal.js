@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "./../../../data/theme";
+import { theme } from "../../../../data/theme";
 import { Link } from "react-router-dom";
-import { ShopContext } from "./../../../context/ShopContext";
-import { textData } from "./../../../data/textData";
-import { LogoImg } from "./../../../styles/styles";
-import Text from "./../text/Text";
-import logo from "./../../../styles/images/logonorris.png";
-import ButtonX from "../../atoms/button/ButtonX";
-import LoginInput from "../../atoms/input/LoginInput";
-import Login from "../../pages/home/login";
-import Logout from "../../pages/home/logout";
+import { ShopContext } from "../../../../context/ShopContext";
+import { textData } from "../../../../data/textData";
+import { LogoImg } from "../../../../styles/styles";
+import Text from "../../../subatoms/text/Text";
+import logo from "./../../../../styles/images/logonorris.png";
+import ButtonX from "../../../subatoms/button/ButtonX";
+import LoginInput from "../../../subatoms/input/LoginInput";
+import Login from "../googleLogin";
+import Logout from "../googleLogout";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -21,8 +21,8 @@ const LoginPopUp = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  top: ${(p) => p.type==="home" && `-${theme.spacer}`};
-  left: ${(p) => p.type==="home" &&`calc(-100vw + 3 * ${theme.spacer})`};
+  top: ${(p) => p.type === "home" && `-${theme.spacer}`};
+  left: ${(p) => p.type === "home" && `calc(-100vw + 3 * ${theme.spacer})`};
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -31,10 +31,10 @@ const LoginPopUp = styled.div`
     height: ${theme.sizes.modals.login.height};
     position: sticky;
     right: 0px;
-    position: ${(p) => p.type !=="home" && "absolute"};
-    left: ${(p) => p.type !=="home" && "auto"};
-    right: ${(p) => p.type !=="home" && "0"};
-    top: ${(p) => p.type !=="home" && `calc(12 * ${theme.spacer})`}
+    position: ${(p) => p.type !== "home" && "absolute"};
+    left: ${(p) => p.type !== "home" && "auto"};
+    right: ${(p) => p.type !== "home" && "0"};
+    top: ${(p) => p.type !== "home" && `calc(12 * ${theme.spacer})`};
   }
 `;
 const LoginLogoContainer = styled.div`
@@ -160,8 +160,8 @@ const LoginModal = (props) => (
                 text={textData.login.text2}
               />
             </LoginHLink> */}
-            <Login/>
-            <Logout/>
+            <Login />
+            <Logout />
             <LoginHLink href="www.facebook.it" target="_blank">
               <Text
                 type="login"

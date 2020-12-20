@@ -1,10 +1,10 @@
 import React from "react";
-import MobileLogo from "../mobile/mobileLogo/MobileLogo";
-import SuperNav from "../SuperNav/SuperNav";
-import Burger from "../mobile/burger/Burger";
-import MobileMenu from "../../atoms/mobile/mobileMenu/MobileMenu";
-import Hr from "../../atoms/hr/Hr";
-import Navbar from "../../atoms/navbar/Navbar";
+import MobileLogo from "../../subatoms/logo/MobileLogo";
+import SuperNav from "./SuperNav/SuperNav";
+import Burger from "./burger/Burger";
+import MobileMenu from "./mobileMenu/MobileMenu";
+import Hr from "../../subatoms/hr/Hr";
+import Navbar from "./navbar/Navbar";
 import { ShopContext } from "../../../context/ShopContext";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
@@ -31,7 +31,7 @@ const SuperNavToggleContainer = styled.div`
     z-index: 10;
     background-color: ${theme.colors.light};
     padding: 0 ${theme.spacer};
-    display:block
+    display: block;
   }
 `;
 const NavContainer = styled.div`
@@ -41,7 +41,7 @@ const NavContainer = styled.div`
     z-index: 10;
     position: sticky;
     top: calc(4 * ${theme.spacer});
-    display:block
+    display: block;
   }
 `;
 
@@ -61,10 +61,10 @@ const MainNavbar = () => {
             </MobileMainNavContainer>
 
             <SuperNavToggleContainer>
-              <SuperNav/>
+              <SuperNav />
               <Hr />
             </SuperNavToggleContainer>
-            
+
             <NavContainer>
               <Navbar />
             </NavContainer>

@@ -4,9 +4,9 @@ import Modal from "react-modal";
 import styled from "styled-components";
 
 import CartItem from "../cart-item";
-import Text from "../../../atoms/text/Text";
-import TextCart from "../../../atoms/text/TextCart";
-import Button from "../../../atoms/button/Button";
+import Text from "../../../subatoms/text/Text";
+import TextCart from "../../../subatoms/text/TextCart";
+import Button from "../../../subatoms/button/Button";
 import StripeCheckoutButton from "../stripe-button";
 
 import { theme } from "../../../../data/theme";

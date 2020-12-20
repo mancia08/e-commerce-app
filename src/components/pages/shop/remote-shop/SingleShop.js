@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import SingleShopCard from "./SingleShopCard";
 import { MyContext } from "./../../../../context/APIContext";
-import Button from '../../../atoms/button/Button';
+import Button from '../../../subatoms/button/Button';
 import Modal from "react-modal";
 
 import { v4 as uuidv4 } from 'uuid';

@@ -3,7 +3,7 @@ import { theme } from "../../../data/theme";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../../context/ShopContext";
 
-import Button from "../../atoms/button/Button";
+import Button from "../../subatoms/button/Button";
 
 const StyledHomeButtons = styled.div`
     width: 100%;
