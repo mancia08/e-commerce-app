@@ -1,16 +1,16 @@
 import React from "react";
-import { ShopContext } from "../../../context/ShopContext";
+import { ShopContext } from "../../../../context/ShopContext";
 
-import TextLogin from "../text/TextLogin";
-import Cart from "../../pages/shop/cart";
+import TextLogin from "../../../subatoms/text/TextLogin";
+import Cart from "../../../pages/shop/cart";
 
-import LoginModal from "../loginModal/LoginModal";
-import LogoutModal from "../logoutModal/LogoutModal";
-import userlogged from "./../../../styles/images/iconlogin.png";
-import userunknown from "./../../../styles/images/iconlogout.png";
+import LoginModal from "../../Login/loginModal/LoginModal";
+import LogoutModal from "../../Login/logoutModal/LogoutModal";
+import userlogged from "./../../../../styles/images/iconlogin.png";
+import userunknown from "./../../../../styles/images/iconlogout.png";
 
 import styled from "styled-components";
-import { theme } from "./../../../data/theme";
+import { theme } from "../../../../data/theme";
 
 const StyledSuperNav = styled.nav`
   display: flex;
@@ -59,7 +59,7 @@ const SuperNav = ({ type, color, textColor }) => {
               )}
             </>
           ) : (
-          <>
+            <>
               {!value.state.isLoggedIn ? (
                 <LoginModal type={type} />
               ) : (

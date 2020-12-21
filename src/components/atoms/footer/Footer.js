@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
-import Text from "../text/Text";
-import Hr from "../hr/Hr";
+import Text from "../../subatoms/text/Text";
+import Hr from "../../subatoms/hr/Hr";
+import Logo from "../../subatoms/logo/Logo";
 
 const StyledFooter = styled.div`
   background-color: ${theme.colors.light};
@@ -34,28 +35,60 @@ const StyledFooterColumn = styled.div`
 const Footer = () => (
   <StyledFooter>
     <Hr type="footer" />
-    METTICI IL LOGO
+    <Logo />
     <FooterTextContainer>
       <StyledFooterColumn>
-        <Text color="dark" size="M" align="center" text="Title" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
+        <Text color="dark" size="M" align="center" text="GitHub" />
+        <a href="https://github.com/gabriellji" target="_blank">
+          <Text
+            color="dark"
+            size="S"
+            align="center"
+            text="Habrykava Yauheniya"
+          />
+        </a>
+        <a href="https://github.com/JacopoLuri" target="_blank">
+          <Text color="dark" size="S" align="center" text="Luri Jacopo" />
+        </a>
+        <a href="https://github.com/mancia08" target="_blank">
+          <Text color="dark" size="S" align="center" text="Mancini" />
+        </a>
+        <a href="https://github.com/carlosaore" target="_blank">
+          <Text color="dark" size="S" align="center" text="Orellana Carlos" />
+        </a>
+      </StyledFooterColumn>
+      <StyledFooterColumn>
+        <Text color="dark" size="M" align="center" text="Linkedin" />
+        <a
+          href="https://www.linkedin.com/in/evgeniya-gabrikova/"
+          target="_blank"
+        >
+          <Text
+            color="dark"
+            size="S"
+            align="center"
+            text="Habrykava Yauheniya"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jacopo-luri-1111081a2/"
+          target="_blank"
+        >
+          <Text color="dark" size="S" align="center" text="Luri Jacopo" />
+        </a>
+        <a href="https://www.linkedin.com/in/mancia08/" target="_blank">
+          <Text color="dark" size="S" align="center" text="Mancini" />
+        </a>
+        <a href="https://www.linkedin.com/in/carlosaore/" target="_blank">
+          <Text color="dark" size="S" align="center" text="Orellana Carlos" />
+        </a>
       </StyledFooterColumn>
       <StyledFooterColumn>
         <Text color="dark" size="M" align="center" text="Title" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-      </StyledFooterColumn>
-      <StyledFooterColumn>
-        <Text color="dark" size="M" align="center" text="Title" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
-        <Text color="dard" size="S" align="center" text="ciao" />
+        <Text color="dark" size="S" align="center" text="ciao" />
+        <Text color="dark" size="S" align="center" text="ciao" />
+        <Text color="dark" size="S" align="center" text="ciao" />
+        <Text color="dark" size="S" align="center" text="ciao" />
       </StyledFooterColumn>
     </FooterTextContainer>
   </StyledFooter>
