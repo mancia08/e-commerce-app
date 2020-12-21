@@ -1,14 +1,10 @@
-import React, { useState , useContext} from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import "./App.css"
-import MyAPIProvider from "./context/APIContext"
-import Navbar from './components/navbar';
-import Logo from './components/logo';
 import Home from "./components/pages/home";
 import Shop from "./components/pages/shop";
 import Map from "./components/pages/map";
 import Contact from "./components/pages/contact";
-import { ShopContext } from "./context/ShopContext";
 
 const App = () => {
   const [shop, setShop] = useState({
