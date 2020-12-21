@@ -11,7 +11,7 @@ import ButtonX from "../../../subatoms/button/ButtonX";
 import LoginInput from "../../../subatoms/input/LoginInput";
 import Login from "../googleLogin";
 import Logout from "../googleLogout";
-import LoginFB from "../../../pages/home/login-fb/LoginFB";
+import LoginFB from "../login-fb/LoginFB";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -79,9 +79,6 @@ const LoginSpacer = styled.br`
   height: ${theme.spacer};
 `;
 const LoginLink = styled(Link)`
-  text-decoration: none;
-`;
-const LoginHLink = styled.a`
   text-decoration: none;
 `;
 
@@ -153,25 +150,9 @@ const LoginModal = (props) => (
                 text={textData.login.text1}
               />
             </LoginLink>
-            {/* <LoginHLink href="www.google.it" target="_blank">
-              <Text
-                type="login"
-                color="light"
-                size="M"
-                text={textData.login.text2}
-              />
-            </LoginHLink> */}
-            <Login/>
-            <Logout/>
-            <LoginFB/>
-            <LoginHLink href="www.facebook.it" target="_blank">
-              <Text
-                type="login"
-                color="light"
-                size="M"
-                text={textData.login.text3}
-              />
-            </LoginHLink>
+            <Login />
+            <Logout />
+            <LoginFB />
           </LoginLinkContainer>
         </LoginTextContainer>
       </LoginPopUp>
