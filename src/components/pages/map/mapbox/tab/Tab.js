@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../../data/theme";
 
-import Text from "../../../../atoms/text/Text";
+import Text from "../../../../subatoms/text/Text";
 
 const StyledListing = styled.div`
     display: flex;

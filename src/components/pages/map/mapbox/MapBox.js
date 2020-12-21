@@ -7,7 +7,7 @@ import { stores } from './helper/fakeData';
 
 import Popup from './popup/Popup';
 import Tab from './tab/Tab';
-import Text from "../../../atoms/text/Text"
+import Text from "../../../subatoms/text/Text"
 
 import '../Map.css';
 

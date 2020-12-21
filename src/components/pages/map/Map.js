@@ -1,8 +1,8 @@
 import React from "react";
-import MapBox from "./mapbox";
+import MapBox from "./mapbox/MapBox";
 import Text from "./../../subatoms/text/Text";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
-import MapImage from "./MapImage";
+import MapImage from "../../atoms/images/MapImage";
 import Footer from "./../../atoms/footer/Footer";
 import { ShopContext } from "./../../../context/ShopContext";
 
@@ -19,7 +19,7 @@ const Map = (props) => (
         />
         {!value.state.mobileMenu && <MapBox {...props} />}
         <Footer />
-      </div>
+      </>
     )}
   </ShopContext.Consumer>
 );
