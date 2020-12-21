@@ -11,7 +11,7 @@ import ButtonX from "../../atoms/button/ButtonX";
 import LoginInput from "../../atoms/input/LoginInput";
 import Login from "../../pages/home/login";
 import Logout from "../../pages/home/logout";
-import LoginFB from "../../pages/home/login-fb/Login";
+import LoginFB from "../../pages/home/login-fb/LoginFB";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};

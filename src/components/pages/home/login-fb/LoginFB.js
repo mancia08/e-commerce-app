@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { accountService } from '../../../../_services/account.service';
 
+import './LoginFB.css';
+
 const LoginFB = () => {
 
     const [account, setAccount] = useState(null);
