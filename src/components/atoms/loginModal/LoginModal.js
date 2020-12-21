@@ -11,6 +11,7 @@ import ButtonX from "../../atoms/button/ButtonX";
 import LoginInput from "../../atoms/input/LoginInput";
 import Login from "../../pages/home/login";
 import Logout from "../../pages/home/logout";
+import LoginFB from "../../pages/home/login-fb/Login";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -162,6 +163,7 @@ const LoginModal = (props) => (
             </LoginHLink> */}
             <Login/>
             <Logout/>
+            <LoginFB/>
             <LoginHLink href="www.facebook.it" target="_blank">
               <Text
                 type="login"

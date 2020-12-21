@@ -6,6 +6,8 @@ import { refreshTokenSetup } from '../../../../utils/refreshToken';
 
 import './Login.css'
 
+const FBToken = process.env.REACT_APP_FACEBOOK_APP_ID;
+
 const clientId =
   '589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com';
 
@@ -31,8 +33,6 @@ const Login = () => {
     clientId,
     isSignedIn: true,
     accessType: 'offline',
-    // responseType: 'code',
-    // prompt: 'consent',
   });
 
   return (
