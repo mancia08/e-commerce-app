@@ -1,0 +1,65 @@
+/* 
+========================
+Font URL
+========================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet');
+
+/* 
+========================
+Main css inside App.css
+Styled Components css inside styles.js
+========================
+*/
+
+/* 
+========================
+Setting variables
+========================
+*/
+
+* {
+    /* Colors */
+    --primary: #33A0FF;
+    --secondary: #33A0FF40;
+    --light: #FFFFFF;
+    --dark: #000000;
+    --grey: #F0F0F0;
+    --red: #ff0000;
+    /* Fonts */
+    --font-common: Inder;
+    --font-fallback: sans-serif;
+    /* Font-sizes */
+    --font-size-9: 9px;
+    --font-size-18: 18px;
+    --font-size-24: 24px;
+    --font-size-30: 30px;
+    --font-size-48: 48px;
+    /* Spacers */
+    --spacer-4: 4px;
+    --spacer-8: 8px;
+    --spacer-double: calc(var(--spacer-8) + var(--spacer-8));
+    --spacer-triple: calc(var(--spacer-8) + var(--spacer-8) + var(--spacer-8));
+    --spacer-quad: calc(var(--spacer-double) + var(--spacer-double));
+    /* Heights */
+    --height-nav: calc(var(--spacer-triple) + var(--spacer-triple));
+    --heightS-btn: var(--spacer-triple);
+    --heightM-btn: calc(var(--spacer-triple) + var(--spacer-triple));
+    --heightL-btn: calc(var(--spacer-triple) + var(--spacer-triple) + var(--spacer-triple));
+    --heightXL-btn: calc(var(--spacer-quad) + var(--spacer-quad) + var(--spacer-quad));
+    /* Media queries */
+    /* @media cannot read global css variables, all breakpoints are hardcoded in styles.js */
+    /* --mobile: 768px */
+
+
+
+
+
+    /*keep this after deleting everything. or put that inside app.css*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: var(--font-common), var(--font-fallback);
+};
