@@ -13,6 +13,7 @@ const Logout = () => {
     console.log('Logged out Success');
     alert('Logged out Successfully ✌');
     context.setGoogleUser('');
+    context.setSignByGoogle(false);
   };
 
   const onFailure = () => {
@@ -28,7 +29,6 @@ const Logout = () => {
   return (
     <button onClick={signOut} className="button">
       <img src="https://raw.githubusercontent.com/Sivanesh-S/react-google-authentication/9835990bfe7f45a1a14e5854cd57ab715d776b0e/public/icons/google.svg" alt="google login" className="icon"></img>
-
       <span className="buttonText">Sign out</span>
     </button>
   );

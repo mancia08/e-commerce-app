@@ -23,6 +23,7 @@ const Login = () => {
     refreshTokenSetup(res);
     const name = res.profileObj.name;
     context.setGoogleUser(name);
+    context.setSignByGoogle(true);
   };
 
   const onFailure = (res) => {

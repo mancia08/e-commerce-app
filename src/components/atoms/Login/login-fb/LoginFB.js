@@ -1,15 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { accountService } from '../../../../_services/account.service';
+import { LoginContext } from '../../../../context/LoginProvider';
 
 import './LoginFB.css';
 
 const LoginFB = () => {
+
+    const context = useContext(LoginContext);
 
     const [account, setAccount] = useState(null);
 
     useEffect(() => {
         accountService.account.subscribe(x => setAccount(x));
     }, []);
+
+    if(account) {
+        context.setFBUser(account.name);
+        context.setSignByFB(true);
+    } else {
+        context.setFBUser('');
+        context.setSignByFB(false);
+    }
 
     return (
         <>
