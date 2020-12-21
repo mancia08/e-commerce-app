@@ -11,6 +11,7 @@ import ButtonX from "../../../subatoms/button/ButtonX";
 import LoginInput from "../../../subatoms/input/LoginInput";
 import Login from "../googleLogin";
 import Logout from "../googleLogout";
+import LoginFB from "../../../pages/home/login-fb/LoginFB";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -160,8 +161,9 @@ const LoginModal = (props) => (
                 text={textData.login.text2}
               />
             </LoginHLink> */}
-            <Login />
-            <Logout />
+            <Login/>
+            <Logout/>
+            <LoginFB/>
             <LoginHLink href="www.facebook.it" target="_blank">
               <Text
                 type="login"
