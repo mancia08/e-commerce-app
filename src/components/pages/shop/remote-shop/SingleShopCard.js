@@ -3,12 +3,18 @@ import Button from "../../../subatoms/button/Button";
 import {textData} from '../../../../data/textData'
 import { theme } from "../../../../data/theme";
 import styled from "styled-components";
-// import './SingleCard.css'
 
+const StyledSingleShopCard = styled.div`
+  width: 350px;
+  padding: ${theme.spacer};
+  img {
+    width: 100%;
+  }
+`;
 
 const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick, index}) => {   //{ imageS, name, price, onClick, path}
   return (
-    <div className="single-card_wrap">
+    <StyledSingleShopCard>
       <img src={imageS} alt={name} />
       <Text color="dark" size="M" text={name} />
       <Text color="dark" size="S" text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, obcaecati,
@@ -33,7 +39,7 @@ const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick, inde
       text={textData.shop.single.add}
       />
       <Text color="primary" size="S" text={price} />
-    </div>
+    </StyledSingleShopCard>
   );
 }
 

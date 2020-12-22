@@ -43,21 +43,23 @@ const SingleShop = ({ category, shop }) => {
 
   return (
     <>
-      {!context.loading &&
-        context.state.items[category - 1].shops[shop].map((shop, index) => (
-          <StyledSingleShopGrid>
-            <SingleShopCard
-              id={shop.id}
-              path={`/shop/category${category}/${shop}/${index}`}
-              key={index}
-              imageS={shop.imageL}
-              name={shop.name}
-              price={`${shop.price} £`}
-              onClick={toggleModal}
-              onAddItemClick={onAddToCartClick}
-            />
-          </StyledSingleShopGrid>
-        ))}
+      <StyledSingleShopGrid>
+        {!context.loading &&
+          context.state.items[category - 1].shops[shop].map((shop, index) => (
+            <>
+              <SingleShopCard
+                id={shop.id}
+                path={`/shop/category${category}/${shop}/${index}`}
+                key={index}
+                imageS={shop.imageL}
+                name={shop.name}
+                price={`${shop.price} £`}
+                onClick={toggleModal}
+                onAddItemClick={onAddToCartClick}
+              />
+            </>
+          ))}
+      </StyledSingleShopGrid>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
