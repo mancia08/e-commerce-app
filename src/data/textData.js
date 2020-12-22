@@ -28,6 +28,11 @@ export const textData = {
     title2: "BUY LOCAL",
     title3: "FROM THE SAFETY OF YOUR HOME",
   },
+  map: {
+    title: "Buy local from our partner shops!",
+    mapBox: "Partner shops",
+    here: "WE ARE HERE!!",
+  },
   contact: {
     title: "Feel free to contact us",
     button: "Contact our customer service",
