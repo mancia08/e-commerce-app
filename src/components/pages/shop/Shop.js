@@ -3,15 +3,14 @@ import { MyContext } from "./../../../context/APIContext";
 import { ShopContext } from "./../../../context/ShopContext";
 import { Switch, Route, Link } from "react-router-dom";
 
-import ShopBanner from "./shop-banner";
+import ShopBanner from "./shop-banner/ShopBanner";
 import SingleShop from "./remote-shop/SingleShop";
-import ShopIconWrap from "./shop-icon-wrap";
+import ShopIconWrap from "./shop-icon-wrap/ShopIconWrap";
 import Spinner from "../../subatoms/spinner";
 import SingleShopCard from "./remote-shop/SingleShopCard";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import Footer from "./../../atoms/footer/Footer";
 
-import "./Shop.css";
 import jewerly from "./../../../styles/images/jewelry.png";
 import jacket from "./../../../styles/images/jacket.png";
 import laptop from "./../../../styles/images/laptop.png";
@@ -33,19 +32,19 @@ const Shop = (props) => {
                     <div className="shop_container">
                       <ShopBanner
                         title="LOCAL JEWELRY SHOPS"
-                        text="Lorem lorem lorem lorem lorem lorem"
+                        text="Best local jewelry at your service"
                         image={jewerly}
                       />
                       <ShopIconWrap category="category1" id="0" />
                       <ShopBanner
                         title="LOCAL CLOTHES SHOPS"
-                        text="Lorem lorem lorem lorem lorem lorem"
+                        text="Vintage and comfy, stylish and amazing"
                         image={jacket}
                       />
                       <ShopIconWrap category="category2" id="1" />
                       <ShopBanner
                         title="LOCAL ELECTRONIC SHOPS"
-                        text="Lorem lorem lorem lorem lorem lorem"
+                        text="New devices for you home, office and gaming"
                         image={laptop}
                       />
                       <ShopIconWrap category="category3" id="2" />

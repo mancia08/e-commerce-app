@@ -1,7 +1,8 @@
 import Text from "./../../../subatoms/text/Text";
 import Button from "../../../subatoms/button/Button";
-
-import './SingleCard.css'
+import { theme } from "../../../../data/theme";
+import styled from "styled-components";
+// import './SingleCard.css'
 
 
 const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick, index}) => {   //{ imageS, name, price, onClick, path}
