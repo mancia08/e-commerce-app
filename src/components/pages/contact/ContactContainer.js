@@ -5,7 +5,7 @@ import { textData } from "../../../data/textData";
 
 import Text from "../../subatoms/text/Text";
 import ContactForm from "./ContactForm";
-import ContactImage from "./ContactImage";
+import ContactImage from "../../atoms/images/ContactImage";
 import ContactTitleButton from "./ContactTitleButton";
 import Submitted from "./Submitted";
 
