@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
@@ -55,30 +55,31 @@ const LogoutTextContainer = styled.div`
   }
 `;
 
-const LogoutModal = (props) => (
-  <ShopContext.Consumer>
-    {(value) => (
-      <LogoutPopUp type={props.type}>
-        <LogoutLogoContainer>
-          <LogoImg src={logo} alt="Norris Inc. logo" />
-          <ButtonX
-            action={value.loginIconToggle}
-            size="XL"
-            text="X"
-            color="light"
-          />
-        </LogoutLogoContainer>
+const LogoutModal = (props) => {
+  const context = useContext(ShopContext);
+  return (
+    <LogoutPopUp type={props.type}>
+      <LogoutLogoContainer>
+        <LogoImg src={logo} alt="Norris Inc. logo" />
+        <ButtonX
+          action={context.loginIconToggle}
+          size="XL"
+          text="X"
+          color="light"
+        />
+      </LogoutLogoContainer>
 
-        <LogoutTextContainer>
-          <ButtonX
-            action={value.logout}
-            size="XL"
-            text={textData.logout.button}
-            color="light"
-          />
-        </LogoutTextContainer>
-      </LogoutPopUp>
-    )}
-  </ShopContext.Consumer>
-);
+      <LogoutTextContainer>
+        <ButtonX
+          action={context.logout}
+          size="XL"
+          text={textData.logout.button}
+          color="light"
+        />
+      </LogoutTextContainer>
+    </LogoutPopUp>
+  )
+
+};
+
 export default LogoutModal;

@@ -1,7 +1,8 @@
+import React, { useContext } from 'react';
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
 import { Link } from "react-router-dom";
-import {textData} from "../../../data/textData"
+import { textData } from "../../../data/textData"
 import { ShopContext } from "../../../context/ShopContext";
 
 import Button from "../../subatoms/button/Button";
@@ -26,22 +27,23 @@ const HomeLink = styled(Link)`
     }
 `;
 
-const HomeButtons = () => (
-    <ShopContext.Consumer>
-        {(value) => (
-            <StyledHomeButtons>
-                <HomeLink to="./shop">
-                    <Button size="L" text={textData.navbar.first} color="primary" action={value.closeLogin} width="parent" height="parent" />
-                </HomeLink>
-                <HomeLink to="./map">
-                    <Button size="L" text={textData.navbar.second}  color="primary" action={value.closeLogin} width="parent" height="parent" />
-                </HomeLink>
-                <HomeLink to="./contact">
-                    <Button size="L" text={textData.navbar.third}  color="primary" action={value.closeLogin} width="parent" height="parent" />
-                </HomeLink>
-            </StyledHomeButtons>
-        )}
-    </ShopContext.Consumer>
-)
+const HomeButtons = () => {
+
+const context = useContext(ShopContext);
+
+    return (
+        <StyledHomeButtons>
+            <HomeLink to="./shop">
+                <Button size="L" text={textData.navbar.first} color="primary" action={context.closeLogin} width="parent" height="parent" />
+            </HomeLink>
+            <HomeLink to="./map">
+                <Button size="L" text={textData.navbar.second} color="primary" action={context.closeLogin} width="parent" height="parent" />
+            </HomeLink>
+            <HomeLink to="./contact">
+                <Button size="L" text={textData.navbar.third} color="primary" action={context.closeLogin} width="parent" height="parent" />
+            </HomeLink>
+        </StyledHomeButtons>
+    )
+}
 
 export default HomeButtons;

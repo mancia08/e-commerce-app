@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
 
 import TextLogin from "../../../subatoms/text/TextLogin";
@@ -34,26 +34,27 @@ const SuperNavImg = styled.img`
 `;
 
 const SuperNav = ({ type, color, textColor }) => {
+
+const context = useContext(ShopContext);
+
   return (
-    <ShopContext.Consumer>
-      {(value) => (
         <StyledSuperNav type={type} color={color}>
-          {!value.state.loginIconClicked ? (
+          {!context.state.loginIconClicked ? (
             <>
               <SuperNavImg
                 type={type}
-                src={value.state.isLoggedIn ? userlogged : userunknown}
+                src={context.state.isLoggedIn ? userlogged : userunknown}
                 alt="icon"
-                onClick={value.loginIconToggle}
+                onClick={context.loginIconToggle}
               />
               {type !== "mobile" && (
                 <TextLogin
-                  action={value.loginIconToggle}
+                  action={context.loginIconToggle}
                   size="S"
                   color={textColor}
                   text={
-                    value.state.isLoggedIn
-                      ? `${textData.superNavbar.logged} ${value.state.user}`
+                    context.state.isLoggedIn
+                      ? `${textData.superNavbar.logged} ${context.state.user}`
                       : textData.superNavbar.notLogged
                   }
                 />
@@ -61,7 +62,7 @@ const SuperNav = ({ type, color, textColor }) => {
             </>
           ) : (
             <>
-              {!value.state.isLoggedIn ? (
+              {!context.state.isLoggedIn ? (
                 <LoginModal type={type} />
               ) : (
                 <LogoutModal type={type} />
@@ -70,8 +71,6 @@ const SuperNav = ({ type, color, textColor }) => {
           )}
           {type !== "home" && <Cart type={type} />}
         </StyledSuperNav>
-      )}
-    </ShopContext.Consumer>
   );
 };
 

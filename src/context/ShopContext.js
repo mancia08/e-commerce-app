@@ -1,49 +1,56 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
 import { loginData } from "./../data/loginData";
+
 export const ShopContext = React.createContext();
 
-class ShopProvider extends Component {
-  state = {
-    loginIconClicked: false,
-    mobileMenu: false,
-    cartShown: false,
-    isLoggedIn: false,
-    username: "",
-    user: "",
-    password: "",
-    loginFailed: false,
-    paymentOpen: false,
-  };
+const initialState = {
+  loginIconClicked: false,
+  mobileMenu: false,
+  cartShown: false,
+  isLoggedIn: false,
+  username: "",
+  user: "",
+  password: "",
+  loginFailed: false,
+  paymentOpen: false,
+}
 
+const ShopProvider = ({ children }) => {
+
+  let [state, setState] = useState(initialState)
   /* TOGGLE PAYMENT */
-  togglePayment = () =>
-  this.setState({
-    paymentOpen: !this.state.paymentOpen,
+  const togglePayment = () =>
+  setState({
+    ...state,
+    paymentOpen: !state.paymentOpen,
     mobileMenu: false,
       loginIconClicked: false,
       cartShown: false,
   })
   /*MOBILE MENU TOGGLE*/
-  toggleMobileMenu = () =>
-    this.setState({
+  const toggleMobileMenu = () =>
+    setState({
+      ...state,
     paymentOpen: false,
-      mobileMenu: !this.state.mobileMenu,
+      mobileMenu: !state.mobileMenu,
       loginIconClicked: false,
       cartShown: false,
     });
 
   /*ACCOUNT ICON TOGGLE*/
-  loginIconToggle = () =>
-    this.setState({
+  const loginIconToggle = () =>
+    setState({
+      ...state,
       paymentOpen: false,
-      loginIconClicked: !this.state.loginIconClicked,
+      loginIconClicked: !state.loginIconClicked,
       mobileMenu: false,
       cartShown: false,
     });
 
   /*close everything*/
-  closeLogin = () =>
-    this.setState({
+  const closeLogin = () =>
+    setState({
+      ...state,
       paymentOpen: false,
       loginIconClicked: false,
       mobileMenu: false,
@@ -51,31 +58,34 @@ class ShopProvider extends Component {
     });
 
   /*CART TOGGLE*/
-  cartToggle = () =>
-    this.setState({
+  const cartToggle = () =>
+    setState({
+      ...state,
       paymentOpen: false,
-      cartShown: !this.state.cartShown,
+      cartShown: !state.cartShown,
       mobileMenu: false,
       loginIconClicked: false,
     });
 
   /*LOGIN AND LOGOUT LOGIC*/
-  username = (event) =>
-    this.setState({
+  const username = (event) =>
+    setState({
+      ...state,
       username: event.target.value,
       loginFailed: false,
     });
-  password = (event) =>
-    this.setState({ password: event.target.value, loginFailed: false });
-  login = () => {
+  const password = (event) =>
+    setState({ ...state, password: event.target.value, loginFailed: false });
+  const login = () => {
     const account = loginData.filter(
-      (account) => account.user === this.state.username
+      (account) => account.user === state.username
     );
     console.log(account)
     account.length === 0
-      ? this.setState({ loginFailed: true, username: "", password: "" })
-      : account[0].password === this.state.password
-      ? this.setState({
+      ? setState({ ...state, loginFailed: true, username: "", password: "" })
+      : account[0].password === state.password
+      ? setState({
+        ...state,
           isLoggedIn: true,
           loginIconClicked: false,
           loginFailer: false,
@@ -83,12 +93,13 @@ class ShopProvider extends Component {
           username: "",
           password: "",
         })
-      : this.setState({ loginFailed: true });
+      : setState({ ...state, loginFailed: true });
   };
-  logout = () =>
-    this.setState({
-      isLoggedIn: !this.state.isLoggedIn,
-      loginIconClicked: !this.state.loginIconClicked,
+  const logout = () =>
+    setState({
+      ...state,
+      isLoggedIn: !state.isLoggedIn,
+      loginIconClicked: !state.loginIconClicked,
     });
 
   /*ADD STUFF TO CART LOGIC HERE*/
@@ -97,26 +108,25 @@ class ShopProvider extends Component {
   /*SHOP PRICE LOGIC HERE*/
   /*itemsPrice inside state and hardcoded*/
 
-  render() {
     return (
       <ShopContext.Provider
         value={{
-          state: this.state,
-          toggleMobileMenu: this.toggleMobileMenu,
-          loginIconToggle: this.loginIconToggle,
-          login: this.login,
-          logout: this.logout,
-          username: this.username,
-          password: this.password,
-          closeLogin: this.closeLogin,
-          cartToggle: this.cartToggle,
-          togglePayment: this.togglePayment
+          state,
+          setState,
+          toggleMobileMenu,
+          loginIconToggle,
+          login,
+          logout,
+          username,
+          password,
+          closeLogin,
+          cartToggle,
+          togglePayment
         }}
       >
-        {this.props.children}
+        {children}
       </ShopContext.Provider>
     );
-  }
 }
 
 export default ShopProvider;
