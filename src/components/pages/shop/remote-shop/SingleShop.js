@@ -6,11 +6,9 @@ import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
 import { textData } from "../../../../data/textData";
 
-import Button from "../../../subatoms/button/Button";
-
-import StripeCheckoutButton from "../stripe-button";
-
 import SingleShopCard from "./SingleShopCard";
+import Button from "../../../subatoms/button/Button";
+import StripeCheckoutButton from "../stripe-button";
 
 Modal.setAppElement("#root");
 
