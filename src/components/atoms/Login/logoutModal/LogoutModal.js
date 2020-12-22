@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
@@ -7,10 +7,9 @@ import ButtonX from "../../../subatoms/button/ButtonX";
 import { LogoImg } from "../../../../styles/styles";
 import logo from "./../../../../styles/images/logonorris.png";
 import { textData } from "../../../../data/textData";
-import Login from "../googleLogin";
+import Logout from "../googleLogout";
 
 import { accountService } from '../../../../_services/account.service';
-import Logout from "../googleLogout";
 
 const LogoutPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -63,6 +62,18 @@ const LogoutTextContainer = styled.div`
 const LogoutModal = (props) => {
   const context = useContext(ShopContext);
   const loginContext = useContext(LoginContext);
+
+  const logout = () => {
+    accountService.logout();
+    context.setState({
+      ...context.state,
+          isLoggedIn: !context.state.isLoggedIn,
+          user: '',
+          loginIconClicked: !context.state.loginIconClicked,
+    });
+    loginContext.setSignByFB(false);
+  }
+
   return (
     <LogoutPopUp type={props.type}>
       <LogoutLogoContainer>
@@ -81,7 +92,7 @@ const LogoutModal = (props) => {
         }
         {
           loginContext.signByFB &&
-          <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>{textData.logout.button}</button>
+          <button className="btn btn-link nav-item nav-link" onClick={logout}>{textData.logout.button}</button>
         }
 
         {

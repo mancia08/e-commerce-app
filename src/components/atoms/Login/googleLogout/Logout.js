@@ -27,8 +27,6 @@ const Logout = () => {
       isLoggedIn: !shopContext.state.isLoggedIn,
       loginIconClicked: !shopContext.state.loginIconClicked,
     });
-
-    console.log(shopContext.state.loginIconClicked)
   };
 
   const onFailure = () => {

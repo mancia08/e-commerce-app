@@ -19,8 +19,6 @@ const Login = () => {
 
   const shopContext = useContext(ShopContext);
 
-
-
   const onSuccess = (res) => {
     console.log("Login Success: currentUser:", res.profileObj);
     //alert(`Logged in successfully welcome ${res.profileObj.name} 😍.`);
@@ -62,7 +60,6 @@ const Login = () => {
 
         <span className="buttonText">{textData.login.text2}</span>
       </button>
-      <p>{context.googleUser && context.googleUser}</p>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { accountService } from '../../../../_services/account.service';
 import { LoginContext } from '../../../../context/LoginProvider';
+import { ShopContext } from '../../../../context/ShopContext';
 import {textData} from '../../../../data/textData'
 
 import './LoginFB.css';
@@ -9,6 +10,8 @@ const LoginFB = () => {
 
     const context = useContext(LoginContext);
 
+    const shopContext = useContext(ShopContext);
+
     const [account, setAccount] = useState(null);
 
     useEffect(() => {
@@ -16,12 +19,14 @@ const LoginFB = () => {
     }, []);
 
     if(account) {
-        context.setFBUser(account.name);
         context.setSignByFB(true);
-    } else {
-        context.setFBUser('');
-        context.setSignByFB(false);
-    }
+        shopContext.setState({
+            ...shopContext.state,
+                isLoggedIn: !shopContext.state.isLoggedIn,
+                user: account.name,
+                loginIconClicked: !shopContext.state.loginIconClicked,
+          })
+        }
 
     return (
         <>
