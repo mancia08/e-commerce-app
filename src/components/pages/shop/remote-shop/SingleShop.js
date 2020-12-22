@@ -6,11 +6,9 @@ import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
 import { textData } from "../../../../data/textData";
 
-import Button from "../../../subatoms/button/Button";
-
-import StripeCheckoutButton from "../stripe-button";
-
 import SingleShopCard from "./SingleShopCard";
+import Button from "../../../subatoms/button/Button";
+import StripeCheckoutButton from "../stripe-button";
 
 Modal.setAppElement("#root");
 
@@ -43,21 +41,23 @@ const SingleShop = ({ category, shop }) => {
 
   return (
     <>
-      {!context.loading &&
-        context.state.items[category - 1].shops[shop].map((shop, index) => (
-          <StyledSingleShopGrid>
-            <SingleShopCard
-              id={shop.id}
-              path={`/shop/category${category}/${shop}/${index}`}
-              key={index}
-              imageS={shop.imageL}
-              name={shop.name}
-              price={`${shop.price} £`}
-              onClick={toggleModal}
-              onAddItemClick={onAddToCartClick}
-            />
-          </StyledSingleShopGrid>
-        ))}
+      <StyledSingleShopGrid>
+        {!context.loading &&
+          context.state.items[category - 1].shops[shop].map((shop, index) => (
+            <>
+              <SingleShopCard
+                id={shop.id}
+                path={`/shop/category${category}/${shop}/${index}`}
+                key={index}
+                imageS={shop.imageL}
+                name={shop.name}
+                price={`${shop.price} £`}
+                onClick={toggleModal}
+                onAddItemClick={onAddToCartClick}
+              />
+            </>
+          ))}
+      </StyledSingleShopGrid>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}

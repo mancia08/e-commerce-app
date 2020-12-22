@@ -5,6 +5,7 @@ import Text from "../../../../subatoms/text/Text";
 
 const StyledListing = styled.div`
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   margin: 0 ${theme.spacer};
   overflow: auto;
@@ -22,7 +23,7 @@ const StyledAddress = styled.div`
 
 const Tab = ({ id, name, address, onClick, city, phone }) => {
   return (
-    <StyledListing id={`listing-${id}`}>
+    <StyledListing id={`listing-${id}`} onClick={(e) => onClick(e)}>
       <Text
         id={`listing-${id}`}
         onClick={(e) => onClick(e)}
@@ -30,10 +31,10 @@ const Tab = ({ id, name, address, onClick, city, phone }) => {
         size="M"
         color="primary"
       />
-      <Text text={address} size="S" color="dark" />
-      <StyledAddress>
-        <Text text={city} size="XS" color="dark" />
-        <Text text={phone} size="XS" color="dark" />
+      <Text text={address} size="S" color="dark" id={`listing-${id}`}/>
+      <StyledAddress id={`listing-${id}`}>
+        <Text text={city} size="XS" color="dark" id={`listing-${id}`}/>
+        <Text text={phone} size="XS" color="dark" id={`listing-${id}`}/>
       </StyledAddress>
     </StyledListing>
   );
