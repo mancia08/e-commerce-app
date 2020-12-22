@@ -4,8 +4,7 @@ import HomeButtons from "./HomeButtons.js";
 const Home = () => (
 
       <>
-        <HomeImg>
-        </HomeImg>
+        <HomeImg />
         <SuperNav type="home" textColor="light" />
         <HomeButtons />
         </>
