@@ -1,9 +1,4 @@
 export const textData = {
-  homepage: {
-    title1: "NORRIS Inc.",
-    title2: "BUY LOCAL",
-    title3: "FROM THE SAFETY OF YOUR HOME",
-  },
   login: {
     title: "Login",
     user: "Username",
@@ -13,13 +8,79 @@ export const textData = {
     text1: "Forgot your password?",
     text2: "Login with Google",
     text3: "Login with Facebook",
-    fail: "Login failed. Please try again"
+    fail: "Login failed. Please try again",
   },
-  buttons: {
-    homepage: {
-      first: "SHOP",
-      second: "MAP",
-      third: "CONTACT",
+  logout: {
+    button: "Sign out",
+  },
+  navbar: {
+    home: "HOME",
+    first: "SHOP",
+    second: "MAP",
+    third: "CONTACT",
+  },
+  superNavbar: {
+    logged: "Hello",
+    notLogged: "Login / Sign Up",
+  },
+  homepage: {
+    title1: "NORRIS Inc.",
+    title2: "BUY LOCAL",
+    title3: "FROM THE SAFETY OF YOUR HOME",
+  },
+  shop: {
+    cart: {
+      exit: "Continue shopping",
+      items: "Total Items: ",
+      price: "Total Price: £",
+      empty: "You haven't added any items yet",
+      add: "Add more items",
+      quantity: "Quantity: ",
+      remove: "Remove from cart",
+    },
+    single: {
+      continue: "Continue Shopping",
+      add: "Add to cart",
+      details: "Details",
+    },
+    checkout: {
+      label: "CHECKOUT",
+      name: "NORRIS INC.",
+      currency: "GBP",
+      pay: "Pay",
+      text: "Your total is £",
+    },
+    banner: [
+      { title: "LOCAL JEWELRY SHOPS", text: "loremjewelry" },
+      { title: "LOCAL CLOTHES SHOPS", text: "loremcloth" },
+      { title: "LOCAL ELECTRONIC SHOPS", text: "loremelectrionic" },
+    ],
+  },
+  map: {
+    title: "Buy local from our partner shops!",
+    mapBox: "Partner shops",
+    here: "WE ARE HERE!!",
+  },
+  contact: {
+    title: "Feel free to contact us",
+    button: "Contact our customer service",
+    client: "Did you have any issue with your order?",
+    seller: "Partner local store",
+    form: {
+      first: "Name",
+      second: "ID",
+      third: "Email",
+      forth: "Telephone number",
+      fifth: "Message",
+      sixth: "Shop ID",
+      seventh: "Order ID",
+      placeholder: "Type your message here...",
+      button: "Submit",
+    },
+    submitted: {
+      title: "Thank you for contacting our customer service",
+      text1: "Your message has been submitted",
+      text2: "You can safely close the page or go back to shopping",
     },
   },
 };

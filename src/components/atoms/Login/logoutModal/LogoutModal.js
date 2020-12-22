@@ -5,6 +5,7 @@ import { ShopContext } from "../../../../context/ShopContext";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import { LogoImg } from "../../../../styles/styles";
 import logo from "./../../../../styles/images/logonorris.png";
+import { textData } from "../../../../data/textData";
 
 const LogoutPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -72,7 +73,7 @@ const LogoutModal = (props) => (
           <ButtonX
             action={value.logout}
             size="XL"
-            text="Logout"
+            text={textData.logout.button}
             color="light"
           />
         </LogoutTextContainer>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { accountService } from '../../../../_services/account.service';
 import { LoginContext } from '../../../../context/LoginProvider';
+import {textData} from '../../../../data/textData'
 
 import './LoginFB.css';
 
@@ -26,10 +27,10 @@ const LoginFB = () => {
         <>
             <button className="btn btn-facebook" onClick={accountService.login}>
                 <i className="fa fa-facebook mr-1"></i>
-                        Login with Facebook
+                        {textData.login.text3}
         </button>
             <p>{account && account.name}</p>
-            <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>Logout</button>
+            <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>{textData.logout.button}</button>
         </>
     );
 }

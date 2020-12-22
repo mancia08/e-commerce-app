@@ -11,6 +11,7 @@ import StripeCheckoutButton from "../stripe-button";
 
 import { theme } from "../../../../data/theme";
 import cart from "../../../../styles/images/cart.png";
+import { textData } from "../../../../data/textData";
 
 const StyledCart = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ const Cart = ({ textColor, type }) => {
     let copyOfItems = [...context.cart];
     copyOfItems.push(element);
     context.setCart(copyOfItems);
-  }
+  };
 
   const onRemoveClick = (e) => {
     let element = findItem(context.cart, Number(e.target.id));
@@ -118,7 +119,7 @@ const Cart = ({ textColor, type }) => {
         closeTimeoutMS={500}
       >
         {!context.cart.length ? (
-          <h4>You havent added any items YET</h4>
+          <h4>{textData.shop.cart.empty}</h4>
         ) : (
           renderAddedItems(context.cart)
         )}
@@ -126,11 +127,13 @@ const Cart = ({ textColor, type }) => {
           size="S"
           color="primary"
           action={toggleModal}
-          text="Continue shopping"
+          text={textData.shop.cart.exit}
         />
         <Button size="S" color="primary" text="clear" action={clearAllItems} />
-        <p>Total Items</p>
-        <p>Total Payment £ {getTotalPrice()}</p>
+        <p>{textData.shop.cart.items} {context.cart.length}</p>
+        <p>
+          {textData.shop.cart.price} {getTotalPrice()}
+        </p>
         <p>
           <StripeCheckoutButton price={getTotalPrice()} />
         </p>

@@ -9,7 +9,7 @@ const MyAPIProvider = (props) => {
 
   const [state, setState] = useState({});
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [cart, setCart] = useState('');
 

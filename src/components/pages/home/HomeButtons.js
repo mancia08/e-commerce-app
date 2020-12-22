@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
 import { Link } from "react-router-dom";
+import {textData} from "../../../data/textData"
 import { ShopContext } from "../../../context/ShopContext";
 
 import Button from "../../subatoms/button/Button";
@@ -30,13 +31,13 @@ const HomeButtons = () => (
         {(value) => (
             <StyledHomeButtons>
                 <HomeLink to="./shop">
-                    <Button size="L" text="SHOP" color="primary" action={value.closeLogin} width="parent" height="parent" />
+                    <Button size="L" text={textData.navbar.first} color="primary" action={value.closeLogin} width="parent" height="parent" />
                 </HomeLink>
                 <HomeLink to="./map">
-                    <Button size="L" text="MAP" color="primary" action={value.closeLogin} width="parent" height="parent" />
+                    <Button size="L" text={textData.navbar.second}  color="primary" action={value.closeLogin} width="parent" height="parent" />
                 </HomeLink>
                 <HomeLink to="./contact">
-                    <Button size="L" text="CONTACT" color="primary" action={value.closeLogin} width="parent" height="parent" />
+                    <Button size="L" text={textData.navbar.third}  color="primary" action={value.closeLogin} width="parent" height="parent" />
                 </HomeLink>
             </StyledHomeButtons>
         )}
