@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { MyContext } from '../../../../context/APIContext';
-
+import {textData} from '../../../../data/textData'
 const StripeCheckoutButton = ({ price }) => {
 
     const context = useContext(MyContext);
@@ -17,15 +17,15 @@ const StripeCheckoutButton = ({ price }) => {
 
     return (
         <StripeCheckout
-        label='CHECKOUT'
-        name='NORRIS INC.'
+        label={textData.shop.checkout.label}
+        name={textData.shop.checkout.name}
         billingAddress
         shippingAddress
-        currency="USD"
+        currency={textData.shop.checkout.currency}
         image='https://i.imgur.com/VCZz0Xe.png'
-        description={`Your total is £${price}`}
+        description={`${textData.shop.checkout.text}${price}`}
         amount={priceForStripe}
-        panelLabel='Pay Now'
+        panelLabel={textData.shop.checkout.pay}
         token={onToken}
         stripeKey={publishableKey}
     />

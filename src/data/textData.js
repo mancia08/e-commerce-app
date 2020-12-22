@@ -28,6 +28,34 @@ export const textData = {
     title2: "BUY LOCAL",
     title3: "FROM THE SAFETY OF YOUR HOME",
   },
+  shop: {
+    cart: {
+      exit: "Continue shopping",
+      items: "Total Items: ",
+      price: "Total Price: £",
+      empty: "You haven't added any items yet",
+      add: "Add more items",
+      quantity: "Quantity: ",
+      remove: "Remove from cart",
+    },
+    single: {
+      continue: "Continue Shopping",
+      add: "Add to cart",
+      details: "Details",
+    },
+    checkout: {
+      label: "CHECKOUT",
+      name: "NORRIS INC.",
+      currency: "GBP",
+      pay: "Pay",
+      text: "Your total is £",
+    },
+    banner: [
+      { title: "LOCAL JEWELRY SHOPS", text: "loremjewelry" },
+      { title: "LOCAL CLOTHES SHOPS", text: "loremcloth" },
+      { title: "LOCAL ELECTRONIC SHOPS", text: "loremelectrionic" },
+    ],
+  },
   map: {
     title: "Buy local from our partner shops!",
     mapBox: "Partner shops",

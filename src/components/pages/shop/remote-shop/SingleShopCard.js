@@ -1,5 +1,6 @@
 import Text from "./../../../subatoms/text/Text";
 import Button from "../../../subatoms/button/Button";
+import {textData} from '../../../../data/textData'
 
 import './SingleCard.css'
 
@@ -21,14 +22,14 @@ const SingleShopCard = ({ imageS, name, price, onClick, id, onAddItemClick, inde
       action={(e) => onClick(e)}
       size="S"
       color="primary"
-      text="Details"
+      text={textData.shop.single.details}
       />
       <Button
       id={id}
       action={(e) => onAddItemClick(e)}
       size="S"
       color="primary"
-      text="Add to cart"
+      text={textData.shop.single.add}
       />
       <Text color="primary" size="S" text={price} />
     </div>
