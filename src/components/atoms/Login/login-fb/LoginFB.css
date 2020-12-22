@@ -1,0 +1,12 @@
+.btn-facebook {
+    background: #3B5998;
+    color: #fff;
+    height: 100px;
+    width: 200px;
+
+}
+
+.btn-facebook:hover {
+    color: #fff;
+    opacity: 0.8;
+}
