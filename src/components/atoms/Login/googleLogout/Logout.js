@@ -1,5 +1,6 @@
 import React, { useContext }  from 'react';
 import { LoginContext } from '../../../../context/LoginProvider';
+import { ShopContext } from '../../../../context/ShopContext';
 import { useGoogleLogout } from 'react-google-login';
 import { theme } from '../../../../data/theme';
 import { textData } from '../../../../data/textData';
@@ -11,11 +12,23 @@ const Logout = () => {
 
   const context = useContext(LoginContext);
 
+  const shopContext = useContext(ShopContext);
+
   const onLogoutSuccess = (res) => {
     console.log('Logged out Success');
-    alert('Logged out Successfully ✌');
+    // alert('Logged out Successfully ✌');
     context.setGoogleUser('');
     context.setSignByGoogle(false);
+
+ 
+
+    shopContext.setState({
+      ...shopContext.state,
+      isLoggedIn: !shopContext.state.isLoggedIn,
+      loginIconClicked: !shopContext.state.loginIconClicked,
+    });
+
+    console.log(shopContext.state.loginIconClicked)
   };
 
   const onFailure = () => {

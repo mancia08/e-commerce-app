@@ -29,8 +29,8 @@ const LoginFB = () => {
                 <i className="fa fa-facebook mr-1"></i>
                         {textData.login.text3}
         </button>
-            <p>{account && account.name}</p>
-            <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>{textData.logout.button}</button>
+            {/* <p>{account && account.name}</p>
+            <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>{textData.logout.button}</button> */}
         </>
     );
 }

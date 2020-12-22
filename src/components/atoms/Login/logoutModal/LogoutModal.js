@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
+import { LoginContext } from "../../../../context/LoginProvider";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import { LogoImg } from "../../../../styles/styles";
 import logo from "./../../../../styles/images/logonorris.png";
 import { textData } from "../../../../data/textData";
+import Login from "../googleLogin";
+
+import { accountService } from '../../../../_services/account.service';
+import Logout from "../googleLogout";
 
 const LogoutPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -57,6 +62,7 @@ const LogoutTextContainer = styled.div`
 
 const LogoutModal = (props) => {
   const context = useContext(ShopContext);
+  const loginContext = useContext(LoginContext);
   return (
     <LogoutPopUp type={props.type}>
       <LogoutLogoContainer>
@@ -70,12 +76,23 @@ const LogoutModal = (props) => {
       </LogoutLogoContainer>
 
       <LogoutTextContainer>
-        <ButtonX
-          action={context.logout}
-          size="XL"
-          text={textData.logout.button}
-          color="light"
-        />
+        {
+          loginContext.signByGoogle && <Logout />
+        }
+        {
+          loginContext.signByFB &&
+          <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>{textData.logout.button}</button>
+        }
+
+        {
+          (!loginContext.signByGoogle && !loginContext.signByFB) &&
+          <ButtonX
+            action={context.logout}
+            size="XL"
+            text={textData.logout.button}
+            color="light"
+          />
+        }
       </LogoutTextContainer>
     </LogoutPopUp>
   )

@@ -153,7 +153,6 @@ const LoginModal = (props) => {
               />
             </LoginLink>
             <Login />
-            <Logout />
             <LoginFB />
           </LoginLinkContainer>
         </LoginTextContainer>
