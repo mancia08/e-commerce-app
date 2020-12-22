@@ -51,9 +51,9 @@ export const textData = {
       text: "Your total is £",
     },
     banner: [
-      { title: "LOCAL JEWELRY SHOPS", text: "loremjewelry" },
-      { title: "LOCAL CLOTHES SHOPS", text: "loremcloth" },
-      { title: "LOCAL ELECTRONIC SHOPS", text: "loremelectrionic" },
+      { title: "LOCAL JEWELRY SHOPS", text: "Best local jewelry at your service" },
+      { title: "LOCAL CLOTHES SHOPS", text: "Vintage and comfy, stylish and amazing" },
+      { title: "LOCAL ELECTRONIC SHOPS", text: "New devices for you home, office and gaming" },
     ],
   },
   map: {
