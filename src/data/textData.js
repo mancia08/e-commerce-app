@@ -1,3 +1,21 @@
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
+import styled from "styled-components";
+
+const GithubIcon = styled(FaGithub)`
+  width: 50px;
+  height: 50px;
+`;
+const LinkedinIcon = styled(FaLinkedin)`
+  width: 50px;
+  height: 50px;
+`;
+const InfoIcon = styled(FaInfoCircle)`
+  width: 50px;
+  height: 50px;
+`;
+
 export const textData = {
   login: {
     title: "Login",
@@ -51,9 +69,18 @@ export const textData = {
       text: "Your total is £",
     },
     banner: [
-      { title: "LOCAL JEWELRY SHOPS", text: "Best local jewelry at your service" },
-      { title: "LOCAL CLOTHES SHOPS", text: "Vintage and comfy, stylish and amazing" },
-      { title: "LOCAL ELECTRONIC SHOPS", text: "New devices for you home, office and gaming" },
+      {
+        title: "LOCAL JEWELRY SHOPS",
+        text: "Best local jewelry at your service",
+      },
+      {
+        title: "LOCAL CLOTHES SHOPS",
+        text: "Vintage and comfy, stylish and amazing",
+      },
+      {
+        title: "LOCAL ELECTRONIC SHOPS",
+        text: "New devices for you home, office and gaming",
+      },
     ],
   },
   map: {
@@ -83,4 +110,48 @@ export const textData = {
       text2: "You can safely close the page or go back to shopping",
     },
   },
+  footer: [
+    {
+      icon: <GithubIcon />,
+      title: "Github",
+      links: [
+        { name: "Habrykava Yauheniya", link: "https://github.com/gabriellji" },
+        { name: "Luri Jacopo", link: "https://github.com/JacopoLuri" },
+        { name: "Mancini", link: "https://github.com/mancia08" },
+        { name: "Orellana Carlos", link: "https://github.com/carlosaore" },
+      ],
+    },
+    {
+      icon: <LinkedinIcon />,
+      title: "Linkedin",
+      links: [
+        {
+          name: "Habrykava Yauheniya",
+          link: "https://www.linkedin.com/in/evgeniya-gabrikova/",
+        },
+        {
+          name: "Luri Jacopo",
+          link: "https://www.linkedin.com/in/jacopo-luri-1111081a2/",
+        },
+        { name: "Mancini", link: "https://www.linkedin.com/in/mancia08/" },
+        {
+          name: "Orellana Carlos",
+          link: "https://www.linkedin.com/in/carlosaore/",
+        },
+      ],
+    },
+    {
+      icon: <InfoIcon />,
+      title: "Some other information",
+      links: [
+        {
+          name: "GitHub Repo",
+          link: "https://github.com/Gabriellji/e-commerce-app",
+        },
+        { name: "Our School", link: "https://www.wildcodeschool.com/" },
+        { name: "ciaoo", link: "" },
+        { name: "ciao", link: "" },
+      ],
+    },
+  ],
 };

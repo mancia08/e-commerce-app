@@ -1,14 +1,24 @@
 import React, { useContext, useState } from "react";
-import SingleShopCard from "./SingleShopCard";
-import { MyContext } from "./../../../../context/APIContext";
-import Button from "../../../subatoms/button/Button";
+import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
+import { theme } from "../../../../data/theme";
+import styled from "styled-components";
+import { MyContext } from "./../../../../context/APIContext";
 import { textData } from "../../../../data/textData";
 
-import { v4 as uuidv4 } from "uuid";
+import Button from "../../../subatoms/button/Button";
+
 import StripeCheckoutButton from "../stripe-button";
 
+import SingleShopCard from "./SingleShopCard";
+
 Modal.setAppElement("#root");
+
+const StyledSingleShopGrid = styled.div`
+  display: grid;
+  gap: ${theme.spacer};
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+`;
 
 const SingleShop = ({ category, shop }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,22 +44,20 @@ const SingleShop = ({ category, shop }) => {
   return (
     <>
       {!context.loading &&
-        context.state.items[category - 1].shops[shop].map((shop, index) => {
-          return (
-            <>
-              <SingleShopCard
-                id={shop.id}
-                path={`/shop/category${category}/${shop}/${index}`}
-                key={index}
-                imageS={shop.imageL}
-                name={shop.name}
-                price={`${shop.price} £`}
-                onClick={toggleModal}
-                onAddItemClick={onAddToCartClick}
-              />
-            </>
-          );
-        })}
+        context.state.items[category - 1].shops[shop].map((shop, index) => (
+          <StyledSingleShopGrid>
+            <SingleShopCard
+              id={shop.id}
+              path={`/shop/category${category}/${shop}/${index}`}
+              key={index}
+              imageS={shop.imageL}
+              name={shop.name}
+              price={`${shop.price} £`}
+              onClick={toggleModal}
+              onAddItemClick={onAddToCartClick}
+            />
+          </StyledSingleShopGrid>
+        ))}
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}

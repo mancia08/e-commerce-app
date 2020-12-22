@@ -4,15 +4,14 @@ import { ShopContext } from "./../../../context/ShopContext";
 import { Switch, Route, Link } from "react-router-dom";
 import {textData} from '../../../data/textData'
 
-import ShopBanner from "./shop-banner";
+import ShopBanner from "./shop-banner/ShopBanner";
 import SingleShop from "./remote-shop/SingleShop";
-import ShopIconWrap from "./shop-icon-wrap";
+import ShopIconWrap from "./shop-icon-wrap/ShopIconWrap";
 import Spinner from "../../subatoms/spinner";
 import SingleShopCard from "./remote-shop/SingleShopCard";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import Footer from "./../../atoms/footer/Footer";
 
-import "./Shop.css";
 import jewerly from "./../../../styles/images/jewelry.png";
 import jacket from "./../../../styles/images/jacket.png";
 import laptop from "./../../../styles/images/laptop.png";

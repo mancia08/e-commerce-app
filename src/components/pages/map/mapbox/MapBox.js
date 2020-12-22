@@ -25,7 +25,6 @@ const StyledMapBox = styled.div`
 const StyledMapContainer = styled.div`
   width: 100%;
   height: 800px;
-  border-radius: 10px;
   @media (min-width: ${theme.viewport.tablet}) {
     width: 40%;
   }

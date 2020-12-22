@@ -1,9 +1,21 @@
 import React, { useContext } from 'react';
-import ShopIcon from "../shop-icon";
 import { MyContext } from "../../../../context/APIContext";
-import icon from "../shop-icon/Icon.png";
-import { shopData } from '../../../../data/shopData';
-import "./ShopIconWrap.css";
+import { shopData } from "../../../../data/shopData";
+import { theme } from "../../../../data/theme";
+import styled from "styled-components";
+
+import ShopIcon from "../shop-icon/ShopIcon";
+import icon from "../../../atoms/images/Icon.png";
+
+const StyledIconCardRenderer = styled.div`
+  margin: ${theme.spacer};
+  display: flex;
+  flex-direction: column;
+  gap: ${theme.spacer};
+  @media (min-width: ${theme.viewport.tablet}) {
+    flex-direction: row;
+  }
+`;
 
 const ShopIconWrap = ({ category }) => {
   const context = useContext(MyContext);
@@ -15,7 +27,7 @@ const ShopIconWrap = ({ category }) => {
     el.shops.map(elem => elem.address)
   ))
   return  (
-      <div className="shop-icon_wrap">
+      <StyledIconCardRenderer>
         {context.state.items[0].shops.map((el, index) => (
           <ShopIcon
             path={`/shop/${category}/${index}`}
@@ -25,7 +37,7 @@ const ShopIconWrap = ({ category }) => {
             text={shopAdress[category.slice(-1) - 1][index]}
           />
         ))}
-      </div>
+      </StyledIconCardRenderer>
     )
 };
 export default ShopIconWrap;
