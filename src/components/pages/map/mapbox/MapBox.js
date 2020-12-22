@@ -9,24 +9,22 @@ import Popup from './popup/Popup';
 import Tab from './tab/Tab';
 import Text from "../../../subatoms/text/Text"
 
-import '../Map.css';
-
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 const StyledMapBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: ${theme.spacer};
-    @media (min-width: ${theme.viewport.tablet}) {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${theme.spacer};
+  @media (min-width: ${theme.viewport.tablet}) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 `;
 
 const StyledMapContainer = styled.div`
     width: 100%;
-    height: 600px;
+    height: 800px;
     border-radius: 10px;
     @media (min-width: ${theme.viewport.tablet}) {
         width: 40%;
@@ -38,7 +36,7 @@ const StyledMapContainer = styled.div`
 
 const StyledSidebar = styled.div`
     width: 100%;
-    height: 600px;
+    height: 800px;
     @media (min-width: ${theme.viewport.tablet}) {
         width: 40%;
     }
@@ -159,7 +157,7 @@ const MapBox = props => {
             <StyledMapContainer ref={mapContainerRef} />
             <StyledSidebar>
                 <Text color="light" size="L" align="center" text="Partner shops" type="map" />
-                <div id='listings' className='listings'>
+                <div id='listings'>
                     {stores.features.map((store, i) => {
                         const { key, address, city, phone, name } = store.properties;
                         return <Tab
@@ -174,7 +172,6 @@ const MapBox = props => {
                     })}
                 </div>
             </StyledSidebar>
-            
         </StyledMapBox>
     )
 }

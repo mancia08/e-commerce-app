@@ -1,6 +1,7 @@
 import React from "react";
 import MapBox from "./mapbox/MapBox";
 import Text from "./../../subatoms/text/Text";
+import Hr from "./../../subatoms/hr/Hr"
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import MapImage from "../../atoms/images/MapImage";
 import Footer from "./../../atoms/footer/Footer";
@@ -12,11 +13,14 @@ const Map = (props) => (
       <>
         <MainNavbar />
         <MapImage />
+        <Hr />
         <Text
-          color="dark"
+          color="primary"
           size="M"
-          text="Buy local from our partern sellers!"
+          align="center"
+          text="Buy local from our partern shops!"
         />
+        <Hr />
         {!value.state.mobileMenu && <MapBox {...props} />}
         <Footer />
       </>
