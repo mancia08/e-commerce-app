@@ -93,11 +93,31 @@ const Footer = () => (
           </a>
         </StyledFooterColumn>
         <StyledFooterColumn>
-          <Text color="dark" size="M" align="center" text="Title" />
-          <Text color="dark" size="S" align="center" text="ciao" />
-          <Text color="dark" size="S" align="center" text="ciao" />
-          <Text color="dark" size="S" align="center" text="ciao" />
-          <Text color="dark" size="S" align="center" text="ciao" />
+          <FaLinkedin/>
+          <Text color="dark" size="M" align="center" text="QUALCOSA" />
+          <a
+            href="https://www.linkedin.com/in/evgeniya-gabrikova/"
+            target="_blank"
+          >
+            <Text
+              color="dark"
+              size="S"
+              align="center"
+              text="CIAO"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jacopo-luri-1111081a2/"
+            target="_blank"
+          >
+            <Text color="dark" size="S" align="center" text="CIAO" />
+          </a>
+          <a href="https://www.linkedin.com/in/mancia08/" target="_blank">
+            <Text color="dark" size="S" align="center" text="CIAO" />
+          </a>
+          <a href="https://www.linkedin.com/in/carlosaore/" target="_blank">
+            <Text color="dark" size="S" align="center" text="CIAO" />
+          </a>
         </StyledFooterColumn>
       </FooterTextContainer>
     </StyledFooter>
