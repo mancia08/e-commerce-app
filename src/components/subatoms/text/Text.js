@@ -7,6 +7,7 @@ const Text = (props) => (
     size={props.size}
     align={props.align}
     type={props.type}
+    id={props.id}
   >
     {props.text}
   </StyledText>
