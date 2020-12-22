@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MyContext } from "./../../../context/APIContext";
 import { ShopContext } from "./../../../context/ShopContext";
 import { Switch, Route, Link } from "react-router-dom";
+import {textData} from '../../../data/textData'
 
 import ShopBanner from "./shop-banner/ShopBanner";
 import SingleShop from "./remote-shop/SingleShop";
@@ -31,20 +32,20 @@ const Shop = (props) => {
                   <Route exact path="/shop">
                     <div className="shop_container">
                       <ShopBanner
-                        title="LOCAL JEWELRY SHOPS"
-                        text="Best local jewelry at your service"
+                        title={textData.shop.banner[0].title}
+                        text={textData.shop.banner[0].text}
                         image={jewerly}
                       />
                       <ShopIconWrap category="category1" id="0" />
                       <ShopBanner
-                        title="LOCAL CLOTHES SHOPS"
-                        text="Vintage and comfy, stylish and amazing"
+                        title={textData.shop.banner[1].title}
+                        text={textData.shop.banner[1].text}
                         image={jacket}
                       />
                       <ShopIconWrap category="category2" id="1" />
                       <ShopBanner
-                        title="LOCAL ELECTRONIC SHOPS"
-                        text="New devices for you home, office and gaming"
+                        title={textData.shop.banner[2].title}
+                        text={textData.shop.banner[2].text}
                         image={laptop}
                       />
                       <ShopIconWrap category="category3" id="2" />

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import mapboxgl from "mapbox-gl";
 import { stores } from "./helper/fakeData";
-
+import { textData } from "../../../../data/textData";
 import Popup from "./popup/Popup";
 import Tab from "./tab/Tab";
 import Text from "../../../subatoms/text/Text";
@@ -65,7 +65,7 @@ const MapBox = (props) => {
       .setLngLat([-0.118092, 51.509865])
       .setPopup(
         new mapboxgl.Popup({ closeOnClick: false }).setHTML(
-          "<p style='color: #33A0FF; text-align: center;'>WE ARE HERE!!</p>"
+          `<p style="color: #33A0FF; text-align: center;">${textData.map.here}</p>`
         )
       )
       .addTo(map);
@@ -165,7 +165,7 @@ const MapBox = (props) => {
           color="light"
           size="L"
           align="center"
-          text="Partner shops"
+          text={textData.map.mapBox}
           type="map"
         />
         <div id="listings">

@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import { theme } from "../../../../data/theme";
 import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
+import { textData } from "../../../../data/textData";
 
 import Button from "../../../subatoms/button/Button";
 
@@ -76,7 +77,7 @@ const SingleShop = ({ category, shop }) => {
           key={uuidv4()}
           id={item && item.id}
           size="S"
-          text="Add to cart"
+          text={textData.shop.single.add}
           color="primary"
           action={onAddToCartClick}
         />
@@ -84,7 +85,7 @@ const SingleShop = ({ category, shop }) => {
         <Button
           key={uuidv4()}
           size="S"
-          text="Continue shopping"
+          text={textData.shop.single.continue}
           color="primary"
           action={toggleModal}
         />

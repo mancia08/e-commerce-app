@@ -6,6 +6,7 @@ import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import MapImage from "../../atoms/images/MapImage";
 import Footer from "./../../atoms/footer/Footer";
 import { ShopContext } from "./../../../context/ShopContext";
+import {textData} from '../../../data/textData'
 
 const Map = (props) => (
   <ShopContext.Consumer>
@@ -18,7 +19,7 @@ const Map = (props) => (
           color="primary"
           size="M"
           align="center"
-          text="Buy local from our partern shops!"
+          text={textData.map.title}
         />
         <Hr />
         {!value.state.mobileMenu && <MapBox {...props} />}
