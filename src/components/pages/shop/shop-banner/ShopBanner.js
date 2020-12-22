@@ -1,5 +1,7 @@
 import './ShopBanner.css';
-import Text from "./../../../subatoms/text/Text"
+import Text from "./../../../subatoms/text/Text";
+
+import ShopBannerImage from "../../../atoms/images/ShopBannerImage";
 
 const ShopBanner = ({ title, text, image }) => (
     <div className="shop-banner_wrap">
@@ -9,7 +11,7 @@ const ShopBanner = ({ title, text, image }) => (
         <Text color="light" size="S" text={text}/>
         </div>
         <div className="image_wrap">
-            <img src={image} alt={title}></img>
+            <ShopBannerImage image={image} alt={title} />
         </div>
     </div>
 );
