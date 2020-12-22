@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
+import { textData } from "../../../../data/textData";
 import {
   StyledNav,
   HoverLink,
@@ -27,14 +28,14 @@ class Navbar extends Component {
                 <LogoImg src={logo} alt="logo" />
               </LogoLink>
               <StyledLink to="/home" onClick={value.closeLogin}>
-                HOME
+                {textData.navbar.home}
               </StyledLink>
               <HoverLink
                 hovered={this.state.isHover}
                 to="/shop"
                 onClick={value.closeLogin}
               >
-                SHOP
+                {textData.navbar.first}
               </HoverLink>
 
               <HoverMenu
@@ -44,10 +45,10 @@ class Navbar extends Component {
               />
 
               <StyledLink to="/map" onClick={value.closeLogin}>
-                MAP
+              {textData.navbar.second}
               </StyledLink>
               <StyledLink to="/contact" onClick={value.closeLogin}>
-                CONTACT
+              {textData.navbar.third}
               </StyledLink>
             </StyledNav>
           </>

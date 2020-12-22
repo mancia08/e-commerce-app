@@ -11,6 +11,7 @@ import userunknown from "./../../../../styles/images/iconlogout.png";
 
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
+import {textData} from '../../../../data/textData'
 
 const StyledSuperNav = styled.nav`
   display: flex;
@@ -52,8 +53,8 @@ const SuperNav = ({ type, color, textColor }) => {
                   color={textColor}
                   text={
                     value.state.isLoggedIn
-                      ? `Hello ${value.state.user}`
-                      : "Login / Sign Up"
+                      ? `${textData.superNavbar.logged} ${value.state.user}`
+                      : textData.superNavbar.notLogged
                   }
                 />
               )}

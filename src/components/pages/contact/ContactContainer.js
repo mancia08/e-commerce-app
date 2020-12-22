@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { theme } from "../../../data/theme";
 import styled from "styled-components";
+import { textData } from "../../../data/textData";
 
 import Text from "../../subatoms/text/Text";
 import ContactForm from "./ContactForm";
@@ -13,12 +14,14 @@ const StyledContactContainer = styled.div`
   justify-content: space-evenly;
   gap: calc(2 * ${theme.spacer});
   margin: 0 calc(2 * ${theme.spacer});
+  min-height:70vh;
   section {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: calc(2 * ${theme.spacer});
+    justify-content:center
   }
   @media (max-width: ${theme.viewport.tablet}) {
     flex-direction: column;
@@ -63,16 +66,16 @@ class ContactContainer extends Component {
         ) : (
           <>
             <section>
-              <Text color="primary" size="L" text="Feel free to contact us" />
+              <Text color="primary" size="L" text={textData.contact.title} />
 
               <ContactTitleButton
-                text="Contact our customer service"
-                heading="Did you have any issue with your order?"
+                text={textData.contact.button}
+                heading={textData.contact.client}
                 action={this.handleBuyerClicked}
               />
               <ContactTitleButton
-                text="Contact our customer service"
-                heading="Partner local store"
+                text={textData.contact.button}
+                heading={textData.contact.seller}
                 action={this.handleSellerClicked}
               />
             </section>
@@ -83,8 +86,8 @@ class ContactContainer extends Component {
                 <>
                   {this.state.buyerClicked && !this.state.didSubmit ? (
                     <ContactForm
-                      name="Name"
-                      id="ID"
+                      name={textData.contact.form.first}
+                      id={textData.contact.form.second}
                       action={this.handleSubmit}
                     />
                   ) : (
@@ -92,8 +95,8 @@ class ContactContainer extends Component {
                   )}
                   {this.state.sellerClicked && !this.state.didSubmit ? (
                     <ContactForm
-                      name="Shop ID"
-                      id="order ID"
+                      name={textData.contact.form.sixth}
+                      id={textData.contact.form.seventh}
                       action={this.handleSubmit}
                     />
                   ) : (

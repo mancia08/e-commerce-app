@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
+import { textData } from "../../../data/textData";
 
 import Button from "../../subatoms/button/Button";
 import Text from "../../subatoms/text/Text";
@@ -9,6 +10,9 @@ import TextArea from "../../subatoms/input/TextArea";
 const StyledContactForm = styled.div`
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   form {
     min-height: 300px;
     width: 100%;
@@ -50,7 +54,11 @@ const ContactForm = (props) => (
           <ContactInput type="text" name="name" />
         </label>
         <label>
-          <Text color="dark" size="S" text="Email:" />
+          <Text
+            color="dark"
+            size="S"
+            text={`${textData.contact.form.third}:`}
+          />
           <ContactInput type="text" name="email" />
         </label>
       </section>
@@ -60,19 +68,27 @@ const ContactForm = (props) => (
           <ContactInput type="text" name="orderID" />
         </label>
         <label>
-          <Text color="dark" size="S" text="Telephone number:" />
+          <Text
+            color="dark"
+            size="S"
+            text={`${textData.contact.form.forth}:`}
+          />
           <ContactInput type="text" name="telephoneNumber" />
         </label>
       </section>
       <section>
         <label>
-          <Text color="dark" size="S" text="Message:" />
-          <TextArea placeholder="Type your message here..." />
+          <Text
+            color="dark"
+            size="S"
+            text={`${textData.contact.form.fifth}:`}
+          />
+          <TextArea placeholder={textData.contact.form.placeholder} />
         </label>
         <Button
           action={props.action}
           size="S"
-          text="Submit"
+          text={textData.contact.form.button}
           color="primary"
           width="parent"
         />
