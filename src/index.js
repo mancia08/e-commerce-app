@@ -10,7 +10,6 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import MyAPIProvider from "./context/APIContext";
 import ShopProvider from "./context/ShopContext";
-import LoginProvider from "./context/LoginProvider";
 import { createGlobalStyle } from "styled-components";
 
 
@@ -31,12 +30,10 @@ const startApp = () => {
     <React.StrictMode>
       <BrowserRouter>
         <ShopProvider>
-          <LoginProvider>
-            <MyAPIProvider>
-              <GlobalStyle />
-              <App />
-            </MyAPIProvider>
-          </LoginProvider>
+          <MyAPIProvider>
+          <GlobalStyle />
+            <App />
+          </MyAPIProvider>
         </ShopProvider>
       </BrowserRouter>
     </React.StrictMode>,

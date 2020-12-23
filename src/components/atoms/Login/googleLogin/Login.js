@@ -1,11 +1,7 @@
 import React, { useContext } from "react";
 import { useGoogleLogin } from "react-google-login";
 import { textData } from "../../../../data/textData";
-
-import { LoginContext } from "../../../../context/LoginProvider";
-
 import { ShopContext } from '../../../../context/ShopContext';
-
 // refresh token
 import { refreshTokenSetup } from "../../../../utils/refreshToken";
 
@@ -15,22 +11,20 @@ const clientId =
   "589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com";
 
 const Login = () => {
-  const context = useContext(LoginContext);
-
-  const shopContext = useContext(ShopContext);
+  const context = useContext(ShopContext);
 
   const onSuccess = (res) => {
     console.log("Login Success: currentUser:", res.profileObj);
     //alert(`Logged in successfully welcome ${res.profileObj.name} 😍.`);
     refreshTokenSetup(res);
     const name = res.profileObj.name;
-    context.setGoogleUser(name);
-    context.setSignByGoogle(true);
-    shopContext.setState({
-      ...shopContext.state,
-          isLoggedIn: true,
-          user: name,
-          loginIconClicked: !shopContext.state.loginIconClicked,
+    context.setState({
+      ...context.state,
+      googleUser: name,
+      signByGoogle: true,
+      isLoggedIn: true,
+      user: name,
+      loginIconClicked: !context.state.loginIconClicked,
     })
   };
 
