@@ -14,14 +14,14 @@ const StyledContactContainer = styled.div`
   justify-content: space-evenly;
   gap: calc(2 * ${theme.spacer});
   margin: 0 calc(2 * ${theme.spacer});
-  min-height:70vh;
+  min-height: 70vh;
   section {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: calc(2 * ${theme.spacer});
-    justify-content:center
+    justify-content: center;
   }
   @media (max-width: ${theme.viewport.tablet}) {
     flex-direction: column;
@@ -82,26 +82,24 @@ class ContactContainer extends Component {
             <section>
               {this.state.sellerClicked ||
               this.state.buyerClicked ||
-              this.state.didSubmit ? (
+              this.state.didSubmit ?
                 <>
-                  {this.state.buyerClicked && !this.state.didSubmit && (
+                  {this.state.buyerClicked && !this.state.didSubmit && 
                     <ContactForm
                       name={textData.contact.form.first}
                       id={textData.contact.form.second}
                       action={this.handleSubmit}
                     />
-                  )}
-                  {this.state.sellerClicked && !this.state.didSubmit ? (
+                  }
+                  {this.state.sellerClicked && !this.state.didSubmit && 
                     <ContactForm
                       name={textData.contact.form.sixth}
                       id={textData.contact.form.seventh}
                       action={this.handleSubmit}
                     />
-                  ) : (
-                    ""
-                  )}
+                  }
                 </>
-              ) : (
+              : (
                 <ContactImage />
               )}
             </section>
