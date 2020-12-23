@@ -24,9 +24,9 @@ const StyledBurger = styled.button`
   }
 `;
 
-const Burger = (props) => {
+const Burger = ({action}) => {
   return (
-    <StyledBurger onClick={props.action}>
+    <StyledBurger onClick={action}>
       <div />
       <div />
       <div />
