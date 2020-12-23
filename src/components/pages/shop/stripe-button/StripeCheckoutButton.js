@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { MyContext } from '../../../../context/APIContext';
 import {textData} from '../../../../data/textData'
+
+import Button from "../../../subatoms/button/Button";
+
 const StripeCheckoutButton = ({ price }) => {
 
     const context = useContext(MyContext);
@@ -16,20 +19,27 @@ const StripeCheckoutButton = ({ price }) => {
     };
 
     return (
-        <StripeCheckout
+      <StripeCheckout
         label={textData.shop.checkout.label}
         name={textData.shop.checkout.name}
         billingAddress
         shippingAddress
         currency={textData.shop.checkout.currency}
-        image='https://i.imgur.com/VCZz0Xe.png'
+        image="https://i.imgur.com/VCZz0Xe.png"
         description={`${textData.shop.checkout.text}${price}`}
         amount={priceForStripe}
         panelLabel={textData.shop.checkout.pay}
         token={onToken}
         stripeKey={publishableKey}
-    />
-    )
+      >
+        <Button
+          size="M"
+          text={textData.shop.checkout.label}
+          color="primary"
+          width="parent"
+        />
+      </StripeCheckout>
+    );
 }
 
 export default StripeCheckoutButton;
