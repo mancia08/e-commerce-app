@@ -81,12 +81,12 @@ const LoginLink = styled(Link)`
   text-decoration: none;
 `;
 
-const LoginModal = (props) => {
+const LoginModal = ({type}) => {
 
   const context = useContext(ShopContext);
 
   return (
-    <LoginPopUp type={props.type}>
+    <LoginPopUp {...type} type={type}>
         <LoginLogoContainer>
           <LogoImg src={logo} alt="Norris Inc. logo" />
           <ButtonX

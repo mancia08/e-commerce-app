@@ -51,7 +51,6 @@ const StyledModal = styled(Modal)`
     }
   }
 `;
-
 const SingleShop = ({ category, shop }) => {
   const [isOpen, setIsOpen] = useState(false);
 
