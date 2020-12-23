@@ -8,7 +8,9 @@ import { textData } from "../../../../data/textData";
 
 import SingleShopCard from "./SingleShopCard";
 import Button from "../../../subatoms/button/Button";
-import StripeCheckoutButton from "../stripe-button";
+import Text from "./../../../subatoms/text/Text";
+import Hr from "../../../subatoms/hr/Hr";
+import StripeCheckoutButton from "../stripe-button/StripeCheckoutButton";
 
 Modal.setAppElement("#root");
 
@@ -16,6 +18,38 @@ const StyledSingleShopGrid = styled.div`
   display: grid;
   gap: ${theme.spacer};
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+`;
+
+const StyledModal = styled(Modal)`
+  width: 80%;
+  height: 80%;
+  border: ${theme.spacer} solid ${theme.colors.primary};
+  background: ${theme.colors.light};
+  overflow: auto;
+  border-radius: ${theme.spacer};
+  padding: ${theme.spacer};
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  z-index: 11;
+  img {
+    width: 100%;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacer};
+  }
+  @media (min-width: ${theme.viewport.tablet}) {
+    img {
+      max-width: ${theme.viewport.mobile};
+    }
+    div:nth-child(2) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 `;
 
 const SingleShop = ({ category, shop }) => {
@@ -58,42 +92,63 @@ const SingleShop = ({ category, shop }) => {
             </>
           ))}
       </StyledSingleShopGrid>
-      <Modal
+      <StyledModal
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="Item"
-        className="mymodal"
         overlayClassName="myoverlay"
         closeTimeoutMS={500}
       >
-        <div>{item && item.name}</div>
-        <img
-          className="modal_img"
-          src={item && item.imageL}
-          alt={item && item.name}
-        />
-        <div>Price {item && item.price} £</div>
-        <Button
-          key={uuidv4()}
-          id={item && item.id}
-          size="S"
-          text={textData.shop.single.add}
+        <Text
           color="primary"
-          action={onAddToCartClick}
+          size="M"
+          text={item && item.name}
+          align="center"
         />
-
-        <Button
-          key={uuidv4()}
-          size="S"
-          text={textData.shop.single.continue}
-          color="primary"
-          action={toggleModal}
-        />
-        <p>Pay Total of £ {item && item.price}</p>
-        <p>
+        <div>
+          <img
+            className="modal_img"
+            src={item && item.imageL}
+            alt={item && item.name}
+          />
+          <Text
+            color="dark"
+            size="S"
+            text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, obcaecati, porro hic magni aliquid error natus velit, nostrum maxime eligendi incidunt illo expedita? Recusandae obcaecati illum eum sequi, ullam veniam vel possimus totam omnis non vitae iste soluta nulla nesciunt autem aliquid maiores ad laborum at sed, laudantium rem cum."
+          />
+        </div>
+        <Hr />
+        <div>
+          <Text
+            color="primary"
+            size="M"
+            text={`Price ${item && item.price} £`}
+            align="center"
+          />
+          <Button
+            key={uuidv4()}
+            id={item && item.id}
+            size="S"
+            text={textData.shop.single.add}
+            color="primary"
+            action={onAddToCartClick}
+            width="parent"
+          />
+          <Button
+            key={uuidv4()}
+            size="S"
+            text={textData.shop.single.continue}
+            color="primary"
+            action={toggleModal}
+            width="parent"
+          />
+        </div>
+        <Hr />
+        <div>
+          <Text color="primary" size="M" text="BUY NOW:" align="center" />
           <StripeCheckoutButton price={item && item.price} />
-        </p>
-      </Modal>
+        </div>
+      </StyledModal>
     </>
   );
 };
