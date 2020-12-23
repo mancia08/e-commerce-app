@@ -2,11 +2,6 @@ import { Children } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-
-export const LogoutPopUp = styled.div`
-  background-color: var(--primary);
-`;
-
 // Navs & related components
 export const LogoLink = styled(NavLink)`
   margin-right: auto;
