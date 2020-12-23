@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
-import { LoginContext } from "../../../../context/LoginProvider";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import { LogoImg } from "../../../../styles/styles";
 import logo from "./../../../../styles/images/logonorris.png";
@@ -61,17 +60,16 @@ const LogoutTextContainer = styled.div`
 
 const LogoutModal = (props) => {
   const context = useContext(ShopContext);
-  const loginContext = useContext(LoginContext);
 
   const logout = () => {
     accountService.logout();
     context.setState({
       ...context.state,
-          isLoggedIn: !context.state.isLoggedIn,
-          user: '',
-          loginIconClicked: !context.state.loginIconClicked,
+      isLoggedIn: !context.state.isLoggedIn,
+      user: '',
+      loginIconClicked: !context.state.loginIconClicked,
+      signByFB: false
     });
-    loginContext.setSignByFB(false);
   }
 
   return (
@@ -88,15 +86,18 @@ const LogoutModal = (props) => {
 
       <LogoutTextContainer>
         {
-          loginContext.signByGoogle && <Logout />
+          context.state.signByGoogle && <Logout />
         }
         {
-          loginContext.signByFB &&
-          <button className="btn btn-link nav-item nav-link" onClick={logout}>{textData.logout.button}</button>
+          context.state.signByFB &&
+          <button onClick={logout} className="button">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png" alt="facebook login" className="icon"></img>
+            <span className="buttonText">{textData.logout.button}</span>
+          </button>
         }
 
         {
-          (!loginContext.signByGoogle && !loginContext.signByFB) &&
+          (!context.state.signByGoogle && !context.state.signByFB) &&
           <ButtonX
             action={context.logout}
             size="XL"

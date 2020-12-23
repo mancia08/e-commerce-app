@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { accountService } from '../../../../_services/account.service';
-import { LoginContext } from '../../../../context/LoginProvider';
 import { ShopContext } from '../../../../context/ShopContext';
-import {textData} from '../../../../data/textData'
+import { textData } from '../../../../data/textData'
 
 import './LoginFB.css';
 
 const LoginFB = () => {
 
-    const context = useContext(LoginContext);
-
-    const shopContext = useContext(ShopContext);
+    const context = useContext(ShopContext);
 
     const [account, setAccount] = useState(null);
 
@@ -18,24 +15,22 @@ const LoginFB = () => {
         accountService.account.subscribe(x => setAccount(x));
     }, []);
 
-    if(account) {
-        context.setSignByFB(true);
-        shopContext.setState({
-            ...shopContext.state,
-                isLoggedIn: !shopContext.state.isLoggedIn,
-                user: account.name,
-                loginIconClicked: !shopContext.state.loginIconClicked,
-          })
-        }
+    if (account) {
+        context.setState({
+            ...context.state,
+            signByFB: true,
+            isLoggedIn: !context.state.isLoggedIn,
+            user: account.name,
+            loginIconClicked: !context.state.loginIconClicked
+        });
+    }
 
     return (
         <>
-            <button className="btn btn-facebook" onClick={accountService.login}>
-                <i className="fa fa-facebook mr-1"></i>
-                        {textData.login.text3}
-        </button>
-            {/* <p>{account && account.name}</p>
-            <button className="btn btn-link nav-item nav-link" onClick={accountService.logout}>{textData.logout.button}</button> */}
+            <button onClick={accountService.login} className="button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png" alt="facebook login" className="icon"></img>
+                <span className="buttonText">{textData.login.text3}</span>
+            </button>
         </>
     );
 }

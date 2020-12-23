@@ -11,7 +11,6 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import MyAPIProvider from "./context/APIContext";
 import ShopProvider from "./context/ShopContext";
-import LoginProvider from "./context/LoginProvider";
 
 
 fakeBackend();
@@ -23,11 +22,9 @@ const startApp = () => {
     <React.StrictMode>
       <BrowserRouter>
         <ShopProvider>
-        <LoginProvider>
           <MyAPIProvider>
             <App />
           </MyAPIProvider>
-          </LoginProvider>
         </ShopProvider>
       </BrowserRouter>
     </React.StrictMode>,
