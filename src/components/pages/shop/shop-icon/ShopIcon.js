@@ -30,8 +30,8 @@ const StyledShopCard = styled.div`
   }
 `;
 
-const ShopIcon = ({ path, icon, title, text }) => (
-  <StyledShopLink to={path}>
+const ShopIcon = ({ path, icon, title, text, action }) => (
+  <StyledShopLink to={path} onClick={action}>
     <StyledShopCard>
       <StyledShopLogo src={icon} alt={title} />
       <div>
