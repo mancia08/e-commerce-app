@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { loginData } from "./../data/loginData";
 
 export const ShopContext = React.createContext();
@@ -13,25 +13,24 @@ const initialState = {
   password: "",
   loginFailed: false,
   paymentOpen: false,
-}
+};
 
 const ShopProvider = ({ children }) => {
-
-  let [state, setState] = useState(initialState)
+  let [state, setState] = useState(initialState);
   /* TOGGLE PAYMENT */
   const togglePayment = () =>
-  setState({
-    ...state,
-    paymentOpen: !state.paymentOpen,
-    mobileMenu: false,
+    setState({
+      ...state,
+      paymentOpen: !state.paymentOpen,
+      mobileMenu: false,
       loginIconClicked: false,
       cartShown: false,
-  })
+    });
   /*MOBILE MENU TOGGLE*/
   const toggleMobileMenu = () =>
     setState({
       ...state,
-    paymentOpen: false,
+      paymentOpen: false,
       mobileMenu: !state.mobileMenu,
       loginIconClicked: false,
       cartShown: false,
@@ -48,7 +47,8 @@ const ShopProvider = ({ children }) => {
     });
 
   /*close everything*/
-  const closeLogin = () =>
+  const closeLogin = () => {
+    window.scrollTo(0, 0);
     setState({
       ...state,
       paymentOpen: false,
@@ -56,6 +56,7 @@ const ShopProvider = ({ children }) => {
       mobileMenu: false,
       cartShown: false,
     });
+  };
 
   /*CART TOGGLE*/
   const cartToggle = () =>
@@ -80,12 +81,12 @@ const ShopProvider = ({ children }) => {
     const account = loginData.filter(
       (account) => account.user === state.username
     );
-    console.log(account)
+    console.log(account);
     account.length === 0
       ? setState({ ...state, loginFailed: true, username: "", password: "" })
       : account[0].password === state.password
       ? setState({
-        ...state,
+          ...state,
           isLoggedIn: true,
           loginIconClicked: false,
           loginFailer: false,
@@ -108,25 +109,25 @@ const ShopProvider = ({ children }) => {
   /*SHOP PRICE LOGIC HERE*/
   /*itemsPrice inside state and hardcoded*/
 
-    return (
-      <ShopContext.Provider
-        value={{
-          state,
-          setState,
-          toggleMobileMenu,
-          loginIconToggle,
-          login,
-          logout,
-          username,
-          password,
-          closeLogin,
-          cartToggle,
-          togglePayment
-        }}
-      >
-        {children}
-      </ShopContext.Provider>
-    );
-}
+  return (
+    <ShopContext.Provider
+      value={{
+        state,
+        setState,
+        toggleMobileMenu,
+        loginIconToggle,
+        login,
+        logout,
+        username,
+        password,
+        closeLogin,
+        cartToggle,
+        togglePayment,
+      }}
+    >
+      {children}
+    </ShopContext.Provider>
+  );
+};
 
 export default ShopProvider;

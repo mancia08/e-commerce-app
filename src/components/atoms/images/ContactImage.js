@@ -5,7 +5,7 @@ import contactimg from '../../../styles/images/contactimg.jpg';
 
 const StyledContactImage = styled.img`
     width: 100%;
-    height: 100%;
+    height: auto;
     @media (max-width: ${theme.viewport.tablet}) {
         height: 80%;
         width: 80%;
