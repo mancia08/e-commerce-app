@@ -10,7 +10,6 @@ import logo from "./../../../../styles/images/logonorris.png";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import LoginInput from "../../../subatoms/input/LoginInput";
 import Login from "../googleLogin";
-import Logout from "../googleLogout";
 import LoginFB from "../login-fb/LoginFB";
 
 const LoginPopUp = styled.div`
@@ -82,12 +81,12 @@ const LoginLink = styled(Link)`
   text-decoration: none;
 `;
 
-const LoginModal = (props) => {
+const LoginModal = ({type}) => {
 
   const context = useContext(ShopContext);
 
   return (
-    <LoginPopUp type={props.type}>
+    <LoginPopUp {...type} type={type}>
         <LoginLogoContainer>
           <LogoImg src={logo} alt="Norris Inc. logo" />
           <ButtonX
