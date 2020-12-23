@@ -1,16 +1,6 @@
-.single-card_wrap {
-  background-color: aqua;
-  width: 300px;
-}
-
-.single-card_wrap img {
-  width: 300px;
-}
-
 .mymodal {
   width: 70%;
   height: 90%;
-
   border: 1px solid #ccc;
   background: #fff;
   overflow: auto;
@@ -43,8 +33,4 @@
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
-}
-
-.modal_img {
-  width: 500px;
 }
