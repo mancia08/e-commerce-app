@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useContext, useState } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
 import {
@@ -10,52 +10,47 @@ import {
 } from "../../../../styles/styles";
 import logo from "./../../../../styles/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isHover: false };
-  }
-  hovering = () => this.setState({ isHover: true });
-  notHovering = () => this.setState({ isHover: false });
+const Navbar = () => {
 
-  render() {
+  const context = useContext(ShopContext);
+
+  const [hover, setHover] = useState(false);
+
+  const hovering = () => setHover(true);
+  const notHovering = () => setHover(false);
+
     return (
-      <ShopContext.Consumer>
-        {(value) => (
           <>
-            <StyledNav onLoad={value.navbarToggle}>
-              <LogoLink to="/home" onClick={value.closeLogin}>
+            <StyledNav onLoad={context.navbarToggle}>
+              <LogoLink to="/home" onClick={context.closeLogin}>
                 <LogoImg src={logo} alt="logo" />
               </LogoLink>
-              <StyledLink to="/home" onClick={value.closeLogin}>
+              <StyledLink to="/home" onClick={context.closeLogin}>
                 {textData.navbar.home}
               </StyledLink>
               <HoverLink
-                hovered={this.state.isHover}
+                hovered={hover}
                 to="/shop"
-                onClick={value.closeLogin}
+                onClick={context.closeLogin}
               >
                 {textData.navbar.first}
               </HoverLink>
 
               <HoverMenu
-                over={this.hovering}
-                out={this.notHovering}
-                action={value.closeLogin}
+                over={hovering}
+                out={notHovering}
+                action={hover.closeLogin}
               />
 
-              <StyledLink to="/map" onClick={value.closeLogin}>
+              <StyledLink to="/map" onClick={hover.closeLogin}>
               {textData.navbar.second}
               </StyledLink>
-              <StyledLink to="/contact" onClick={value.closeLogin}>
+              <StyledLink to="/contact" onClick={hover.closeLogin}>
               {textData.navbar.third}
               </StyledLink>
             </StyledNav>
           </>
-        )}
-      </ShopContext.Consumer>
     );
-  }
 }
 
 export default Navbar;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import MobileLogo from "../../subatoms/logo/MobileLogo";
 import SuperNav from "./SuperNav/SuperNav";
 import Burger from "./burger/Burger";
@@ -46,17 +46,20 @@ const NavContainer = styled.div`
 `;
 
 const MainNavbar = () => {
+
+  const context = useContext(ShopContext);
+
   return (
-    <ShopContext.Consumer>
-      {(value) =>
-        !value.state.paymentOpen && (
+    <>
+      {
+        !context.state.paymentOpen && (
           <>
             <MobileMainNavContainer>
-              <MobileLogo path="/home" action={value.closeLogin} />
+              <MobileLogo path="/home" action={context.closeLogin} />
               <SuperNav type="mobile" />
-              <Burger action={value.toggleMobileMenu} />
-              {value.state.mobileMenu && (
-                <MobileMenu path="/home" action={value.closeLogin} />
+              <Burger action={context.toggleMobileMenu} />
+              {context.state.mobileMenu && (
+                <MobileMenu path="/home" action={context.closeLogin} />
               )}
             </MobileMainNavContainer>
 
@@ -69,10 +72,11 @@ const MainNavbar = () => {
               <Navbar />
             </NavContainer>
           </>
+
         )
       }
-    </ShopContext.Consumer>
-  );
+    </>
+  )
 };
 
 export default MainNavbar;
