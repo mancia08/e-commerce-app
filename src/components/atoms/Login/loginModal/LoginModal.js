@@ -10,7 +10,6 @@ import logo from "./../../../../styles/images/logonorris.png";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import LoginInput from "../../../subatoms/input/LoginInput";
 import Login from "../googleLogin";
-import Logout from "../googleLogout";
 import LoginFB from "../login-fb/LoginFB";
 
 const LoginPopUp = styled.div`

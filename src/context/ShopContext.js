@@ -13,6 +13,9 @@ const initialState = {
   password: "",
   loginFailed: false,
   paymentOpen: false,
+  googleUser: '',
+  signByGoogle: false,
+  signByFB: false,
 };
 
 const ShopProvider = ({ children }) => {
@@ -85,7 +88,7 @@ const ShopProvider = ({ children }) => {
     account.length === 0
       ? setState({ ...state, loginFailed: true, username: "", password: "" })
       : account[0].password === state.password
-      ? setState({
+        ? setState({
           ...state,
           isLoggedIn: true,
           loginIconClicked: false,
@@ -94,7 +97,7 @@ const ShopProvider = ({ children }) => {
           username: "",
           password: "",
         })
-      : setState({ ...state, loginFailed: true });
+        : setState({ ...state, loginFailed: true });
   };
   const logout = () =>
     setState({
@@ -122,7 +125,7 @@ const ShopProvider = ({ children }) => {
         password,
         closeLogin,
         cartToggle,
-        togglePayment,
+        togglePayment
       }}
     >
       {children}
