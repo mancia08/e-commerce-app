@@ -4,6 +4,8 @@ import { textData } from "../../../../data/textData";
 
 import { LoginContext } from "../../../../context/LoginProvider";
 
+import { ShopContext } from '../../../../context/ShopContext';
+
 // refresh token
 import { refreshTokenSetup } from "../../../../utils/refreshToken";
 
@@ -15,18 +17,26 @@ const clientId =
 const Login = () => {
   const context = useContext(LoginContext);
 
+  const shopContext = useContext(ShopContext);
+
   const onSuccess = (res) => {
     console.log("Login Success: currentUser:", res.profileObj);
-    alert(`Logged in successfully welcome ${res.profileObj.name} 😍.`);
+    //alert(`Logged in successfully welcome ${res.profileObj.name} 😍.`);
     refreshTokenSetup(res);
     const name = res.profileObj.name;
     context.setGoogleUser(name);
     context.setSignByGoogle(true);
+    shopContext.setState({
+      ...shopContext.state,
+          isLoggedIn: true,
+          user: name,
+          loginIconClicked: !shopContext.state.loginIconClicked,
+    })
   };
 
   const onFailure = (res) => {
     console.log("Login failed: res:", res);
-    alert(`Failed to login. 😢`);
+    //alert(`Failed to login. 😢`);
   };
 
   const { signIn } = useGoogleLogin({
@@ -50,7 +60,6 @@ const Login = () => {
 
         <span className="buttonText">{textData.login.text2}</span>
       </button>
-      <p>{context.googleUser && context.googleUser}</p>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Hr from "../../../subatoms/hr/Hr";
 import NavBar from "../navbar/Navbar";
 import ButtonX from "../../../subatoms/button/ButtonX";
@@ -31,24 +31,25 @@ const MobileLogoContainer = styled.div`
   }
 `;
 
-const MobileMenu = (props) => (
-  <ShopContext.Consumer>
-    {(value) => (
-      <StyledMobileMenu>
+const MobileMenu = () => {
+
+  const context = useContext(ShopContext);
+
+  return (
+    <StyledMobileMenu>
         <MobileLogoContainer>
           <Logo type="mobile" />
           <ButtonX
             text="X"
             color="light"
             size="L"
-            action={value.toggleMobileMenu}
+            action={context.toggleMobileMenu}
           />
         </MobileLogoContainer>
         <Hr color="light" />
         <NavBar />
       </StyledMobileMenu>
-    )}
-  </ShopContext.Consumer>
-);
+  )
+};
 
 export default MobileMenu;

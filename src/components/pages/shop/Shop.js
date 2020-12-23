@@ -17,17 +17,19 @@ import jacket from "./../../../styles/images/jacket.png";
 import laptop from "./../../../styles/images/laptop.png";
 
 const Shop = (props) => {
+
   const context = useContext(MyContext);
+
+  const shopContext = useContext(ShopContext);
+
   return (
-    <ShopContext.Consumer>
-      {(value) => (
         <>
           <MainNavbar />
           {context.loading ? (
             <Spinner />
           ) : (
             <>
-              {!value.state.mobileMenu && (
+              {!shopContext.state.mobileMenu && (
                 <Switch>
                   <Route exact path="/shop">
                     <div className="shop_container">
@@ -105,8 +107,6 @@ const Shop = (props) => {
           )}
           <Footer />
         </>
-      )}
-    </ShopContext.Consumer>
   );
 };
 
