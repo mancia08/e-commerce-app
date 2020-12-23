@@ -37,7 +37,6 @@ const SuperNavToggleContainer = styled.div`
 const NavContainer = styled.div`
   display: none;
   @media (min-width: ${theme.viewport.tablet}) {
-    padding: 0 ${theme.spacer};
     z-index: 10;
     position: sticky;
     top: calc(4 * ${theme.spacer});

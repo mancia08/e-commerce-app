@@ -42,10 +42,10 @@ const Navbar = () => {
                 action={hover.closeLogin}
               />
 
-              <StyledLink to="/map" onClick={hover.closeLogin}>
+              <StyledLink to="/map" onClick={context.closeLogin}>
               {textData.navbar.second}
               </StyledLink>
-              <StyledLink to="/contact" onClick={hover.closeLogin}>
+              <StyledLink to="/contact" onClick={context.closeLogin}>
               {textData.navbar.third}
               </StyledLink>
             </StyledNav>

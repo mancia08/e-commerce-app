@@ -119,6 +119,7 @@ export const LogoLink = styled(NavLink)`
 export const LogoImg = styled.img`
   width: auto;
   height: var(--height-nav);
+  @media (min-width: 768px) {padding: 0 8px}
 `;
 
 export const StyledNav = styled.div`
