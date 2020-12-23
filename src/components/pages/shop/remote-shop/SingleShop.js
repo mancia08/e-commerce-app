@@ -81,7 +81,6 @@ const SingleShop = ({ category, shop }) => {
           color="primary"
           action={onAddToCartClick}
         />
-
         <Button
           key={uuidv4()}
           size="S"
@@ -90,9 +89,9 @@ const SingleShop = ({ category, shop }) => {
           action={toggleModal}
         />
         <p>Pay Total of £ {item && item.price}</p>
-        <p>
+        
           <StripeCheckoutButton price={item && item.price} />
-        </p>
+        
       </Modal>
     </>
   );
