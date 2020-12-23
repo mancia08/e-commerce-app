@@ -84,14 +84,12 @@ class ContactContainer extends Component {
               this.state.buyerClicked ||
               this.state.didSubmit ? (
                 <>
-                  {this.state.buyerClicked && !this.state.didSubmit ? (
+                  {this.state.buyerClicked && !this.state.didSubmit && (
                     <ContactForm
                       name={textData.contact.form.first}
                       id={textData.contact.form.second}
                       action={this.handleSubmit}
                     />
-                  ) : (
-                    ""
                   )}
                   {this.state.sellerClicked && !this.state.didSubmit ? (
                     <ContactForm
