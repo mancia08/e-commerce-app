@@ -13,21 +13,21 @@ const StyledText = styled.p`
   font-size: ${(p) =>
     p.type === "login"
       ? p.size === "S"
-        ? "12px"
+        ? theme.fonts.sizes.XS
         : p.size === "M"
-        ? "18px"
+        ? theme.fonts.sizes.S
         : p.size === "L"
-        ? "24px"
-        : "30px"
+        ? theme.fonts.sizes.M
+        : theme.fonts.sizes.L
       : p.size === "XS"
-      ? "12px"
+      ? theme.fonts.sizes.XS
       : p.size === "S"
-      ? "18px"
+      ? theme.fonts.sizes.S
       : p.size === "M"
-      ? "24px"
+      ? theme.fonts.sizes.M
       : p.size === "L"
-      ? "30px"
-      : "48px"};
+      ? theme.fonts.sizes.L
+      : theme.fonts.sizes.XL};
   text-align: ${(p) =>
     p.align === "center"
       ? "center"
@@ -40,15 +40,15 @@ const StyledText = styled.p`
   && theme.spacer};
 `;
 
-const Text = (props) => (
-  <StyledText {...props}
-    color={props.color}
-    size={props.size}
-    align={props.align}
-    type={props.type}
-    id={props.id}
+const Text = ({type, color, size, align, id, text}) => (
+  <StyledText {...[type,color,size, align, id]}
+    color={color}
+    size={size}
+    align={align}
+    type={type}
+    id={id}
   >
-    {props.text}
+    {text}
   </StyledText>
 );
 
