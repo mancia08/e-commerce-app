@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import MapBox from "./mapbox/MapBox";
 import Text from "./../../subatoms/text/Text";
 import Hr from "./../../subatoms/hr/Hr";
@@ -8,9 +8,11 @@ import Footer from "./../../atoms/footer/Footer";
 import { ShopContext } from "./../../../context/ShopContext";
 import {textData} from '../../../data/textData'
 
-const Map = (props) => (
-  <ShopContext.Consumer>
-    {(value) => (
+const Map = (props) => {
+
+  const context = useContext(ShopContext);
+
+  return (
       <>
         <MainNavbar />
         <MapImage />
@@ -22,11 +24,10 @@ const Map = (props) => (
           text={textData.map.title}
         />
         <Hr />
-        {!value.state.mobileMenu && <MapBox {...props} />}
+        {!context.state.mobileMenu && <MapBox {...props} />}
         <Footer />
       </>
-    )}
-  </ShopContext.Consumer>
-);
+    )
+};
 
 export default Map;

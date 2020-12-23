@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
+import { LoginContext } from "../../../../context/LoginProvider";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import { LogoImg } from "../../../../styles/styles";
 import logo from "./../../../../styles/images/logonorris.png";
 import { textData } from "../../../../data/textData";
+import Logout from "../googleLogout";
+
+import { accountService } from '../../../../_services/account.service';
 
 const LogoutPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -55,30 +59,55 @@ const LogoutTextContainer = styled.div`
   }
 `;
 
-const LogoutModal = (props) => (
-  <ShopContext.Consumer>
-    {(value) => (
-      <LogoutPopUp type={props.type}>
-        <LogoutLogoContainer>
-          <LogoImg src={logo} alt="Norris Inc. logo" />
-          <ButtonX
-            action={value.loginIconToggle}
-            size="XL"
-            text="X"
-            color="light"
-          />
-        </LogoutLogoContainer>
+const LogoutModal = (props) => {
+  const context = useContext(ShopContext);
+  const loginContext = useContext(LoginContext);
 
-        <LogoutTextContainer>
+  const logout = () => {
+    accountService.logout();
+    context.setState({
+      ...context.state,
+          isLoggedIn: !context.state.isLoggedIn,
+          user: '',
+          loginIconClicked: !context.state.loginIconClicked,
+    });
+    loginContext.setSignByFB(false);
+  }
+
+  return (
+    <LogoutPopUp type={props.type}>
+      <LogoutLogoContainer>
+        <LogoImg src={logo} alt="Norris Inc. logo" />
+        <ButtonX
+          action={context.loginIconToggle}
+          size="XL"
+          text="X"
+          color="light"
+        />
+      </LogoutLogoContainer>
+
+      <LogoutTextContainer>
+        {
+          loginContext.signByGoogle && <Logout />
+        }
+        {
+          loginContext.signByFB &&
+          <button className="btn btn-link nav-item nav-link" onClick={logout}>{textData.logout.button}</button>
+        }
+
+        {
+          (!loginContext.signByGoogle && !loginContext.signByFB) &&
           <ButtonX
-            action={value.logout}
+            action={context.logout}
             size="XL"
             text={textData.logout.button}
             color="light"
           />
-        </LogoutTextContainer>
-      </LogoutPopUp>
-    )}
-  </ShopContext.Consumer>
-);
+        }
+      </LogoutTextContainer>
+    </LogoutPopUp>
+  )
+
+};
+
 export default LogoutModal;

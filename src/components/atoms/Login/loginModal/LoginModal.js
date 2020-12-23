@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { Link } from "react-router-dom";
@@ -82,14 +82,16 @@ const LoginLink = styled(Link)`
   text-decoration: none;
 `;
 
-const LoginModal = (props) => (
-  <ShopContext.Consumer>
-    {(value) => (
-      <LoginPopUp type={props.type}>
+const LoginModal = (props) => {
+
+  const context = useContext(ShopContext);
+
+  return (
+    <LoginPopUp type={props.type}>
         <LoginLogoContainer>
           <LogoImg src={logo} alt="Norris Inc. logo" />
           <ButtonX
-            action={value.loginIconToggle}
+            action={context.loginIconToggle}
             size="XL"
             text="X"
             color="light"
@@ -103,7 +105,7 @@ const LoginModal = (props) => (
             text={textData.login.title}
           />
           <LoginSpacer />
-          {value.state.loginFailed && (
+          {context.state.loginFailed && (
             <Text color="light" size="M" text={textData.login.fail} />
           )}
           <LoginForm>
@@ -113,7 +115,7 @@ const LoginModal = (props) => (
               size="S"
               text={textData.login.user}
             />
-            <LoginInput action={value.username} value={value.state.username} />
+            <LoginInput action={context.username} value={context.state.username} />
             <Text
               type="login"
               color="light"
@@ -122,12 +124,12 @@ const LoginModal = (props) => (
             />
             <LoginInput
               type="password"
-              action={value.password}
-              value={value.state.password}
+              action={context.password}
+              value={context.state.password}
             />
             <LoginSpacer />
             <ButtonX
-              action={value.login}
+              action={context.login}
               size="M"
               text={textData.login.submit}
               color="light"
@@ -151,13 +153,11 @@ const LoginModal = (props) => (
               />
             </LoginLink>
             <Login />
-            <Logout />
             <LoginFB />
           </LoginLinkContainer>
         </LoginTextContainer>
       </LoginPopUp>
-    )}
-  </ShopContext.Consumer>
-);
+  )
+};
 
 export default LoginModal;
