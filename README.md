@@ -5,7 +5,7 @@
 ![React-Router](https://aleen42.github.io/badges/src/router.svg)
 ![NodeJs](https://github.com/aleen42/badges/raw/master/src/node.svg)
 
-> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may now be already full flegded developpers (check on their linked in profiles)
+> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may now be already full flegded developpers (check on their [Linked In](##who-are-we) profiles).
 
 ## Install
 ```bash
@@ -77,7 +77,7 @@ A third unmet need is that a lot of these small shops around the city proud them
 - 60 years old (old timer, old school).
 - Born in pre-internet era (boomer).
 - Does not know how to use technology very well so he / she has the habit of asking family members for help and calling customer service for assistance.
-- Knows from eBay, Amazon, Etsy and other E-commerce websites from newspaper articles and younger family members and friends but does not uses them or cares about them particularly. He / she finds them too difficult to use, too crowded (information overload) and not user friendly specially because those sites don't have a number where you can call to get personalized assistance.
+- Knows about eBay, Amazon, Etsy and other E-commerce websites from newspaper articles and younger family members and friends but does not uses them or cares about them particularly. He / she finds them too difficult to use, too crowded (information overload) and not user friendly specially because those sites don't have a number where you can call to get personalized assistance.
 - Uses social media, particularly Facebook.
 - Retiree so lots of disposable income (not particularly looking for good deals but for quality products and specific products that he / she likes for whatever reason).
 - Has a credit card but also likes to pay cash and with checks.
