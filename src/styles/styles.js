@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 // Texts
-export const StyledText = styled.p`
+/* export const StyledText = styled.p`
   color: ${(p) =>
     p.color === "primary"
       ? "var(--primary)"
@@ -40,7 +40,7 @@ export const StyledText = styled.p`
   padding: ${(p) =>
     p.type === "map"
   && "var(--spacer-8)"};
-`;
+`; */
 
 
 // Buttons
