@@ -8,6 +8,6 @@ export const StyledHr = styled.hr`
   margin: ${theme.spacer};
 `;
 
-const Hr = (props) => <StyledHr color={props.color} type={props.type} />;
+const Hr = ({color, type}) => <StyledHr {...[color, type]} color={color} type={type} />;
 
 export default Hr;

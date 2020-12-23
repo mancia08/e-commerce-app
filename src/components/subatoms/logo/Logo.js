@@ -7,11 +7,11 @@ export const LogoImg = styled.img`
   width: ${(p) => (p.type === "footer" ? "100px" : "auto")};
   margin-top: ${theme.spacer};
   margin: ${(p) => p.type === "footer" && "0 auto"};
-  height: ${(p) => (p.type === "footer" ? "100px" : theme.sizes.navbar)}
+  height: ${(p) => (p.type === "footer" ? "100px" : theme.sizes.navbar)};
 `;
 
-const Logo = (props) => (
-  <LogoImg type={props.type} src={logo} alt="Norris Inc. logo" />
+const Logo = ({type}) => (
+  <LogoImg {...type} type={type} src={logo} alt="Norris Inc. logo" />
 );
 
 export default Logo;
