@@ -39,7 +39,7 @@ const Navbar = () => {
               <HoverMenu
                 over={hovering}
                 out={notHovering}
-                action={hover.closeLogin}
+                action={context.closeLogin}
               />
 
               <StyledLink to="/map" onClick={context.closeLogin}>
