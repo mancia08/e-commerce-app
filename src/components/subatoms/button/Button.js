@@ -60,17 +60,17 @@ export const StyledBtn = styled.button`
   }
 `;
 
-const Button = (props) => (
+const Button = ({id, action, size, color, width, height, text}) => (
   <StyledBtn
-    {...props}
-    id={props.id}
-    onClick={props.ction}
-    size={props.size}
-    color={props.color}
-    width={props.width}
-    height={props.height}
+    {...[size, color, width, height]}
+    id={id}
+    onClick={action}
+    size={size}
+    color={color}
+    width={width}
+    height={height}
   >
-    {props.text}
+    {text}
   </StyledBtn>
 );
 
