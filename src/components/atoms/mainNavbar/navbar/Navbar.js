@@ -21,7 +21,7 @@ export const LogoLink = styled(NavLink)`
 
 export const LogoImg = styled.img`
   width: auto;
-  height: var(--height-nav);
+  height: ${theme.sizes.navbar};
   @media (min-width: ${theme.viewport.tablet}) {padding: 0 8px}
 `;
 
