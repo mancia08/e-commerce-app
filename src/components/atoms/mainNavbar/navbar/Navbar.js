@@ -51,7 +51,7 @@ const StyledLink = styled(NavLink)`
   font-size: ${theme.fonts.M};
   width: 10%;
   text-align: center;
-  /* line-height: $theme.sizes.navbar}; */
+  line-height: ${theme.sizes.navbar};
   text-decoration: none;
   &.active {
     color: ${theme.colors.primary};
