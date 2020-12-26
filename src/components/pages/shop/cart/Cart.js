@@ -3,7 +3,7 @@ import { MyContext } from "../../../../context/APIContext";
 import Modal from "react-modal";
 import styled from "styled-components";
 
-import CartItem from "../cart-item";
+import CartItem from "../cart-item/CartItem";
 import Text from "../../../subatoms/text/Text";
 import TextCart from "../../../subatoms/text/TextCart";
 import Button from "../../../subatoms/button/Button";

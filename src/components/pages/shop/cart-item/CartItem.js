@@ -1,6 +1,11 @@
 import React from "react";
-import "./CartItem.css";
-import {textData} from "../../../../data/textData";
+import { textData } from "../../../../data/textData";
+import { theme } from "../../../../data/theme";
+import styled from "styled-components";
+
+import Button from "../../../subatoms/button/Button";
+import Text from "../../../subatoms/text/Text";
+import Hr from "../../../subatoms/hr/Hr";
 
 const CartItem = ({
   id,
@@ -14,21 +19,21 @@ const CartItem = ({
   index,
 }) => (
   <div id={id}>
-    <div className="cart_item">
-      <span>{name}</span>
-      <img src={image} alt={name} />
-      <span className="cart-price">{price} £</span>
+    <Text size="M" color="primary" text={name} align="center" />
+    <img src={image} alt={name} />
+    <span className="cart-price">{price} £</span>
+    <div>
+      <Text size="S" color="dark" text={textData.shop.cart.quantity} />
+      <Text size="S" color="primary" text={quantity} />
     </div>
     <p>
-      {textData.shop.cart.quantity} {quantity}
-    </p>
-    <p>
       {textData.shop.cart.add}
-      <button id={id} onClick={(e) => decrease(e)}>
-        -
-      </button>
       <button id={id} onClick={(e) => increase(e)}>
         +
+      </button>
+      {textData.shop.cart.minus}
+      <button id={id} onClick={(e) => decrease(e)}>
+        -
       </button>
     </p>
     <p>
@@ -36,6 +41,7 @@ const CartItem = ({
         {textData.shop.cart.remove}
       </button>
     </p>
+    <Hr />
   </div>
 );
 
