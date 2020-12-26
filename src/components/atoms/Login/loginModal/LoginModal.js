@@ -4,7 +4,7 @@ import { theme } from "../../../../data/theme";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
-import { LogoImg } from "../../../../styles/styles";
+import { LogoImg } from '../../mainNavbar/navbar/Navbar';
 import Text from "../../../subatoms/text/Text";
 import logo from "./../../../../styles/images/logonorris.png";
 import ButtonX from "../../../subatoms/button/ButtonX";
