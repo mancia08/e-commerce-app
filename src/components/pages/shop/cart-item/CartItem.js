@@ -7,6 +7,23 @@ import Button from "../../../subatoms/button/Button";
 import Text from "../../../subatoms/text/Text";
 import Hr from "../../../subatoms/hr/Hr";
 
+const StyledCartItem = styled.div`
+  width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${theme.spacer};
+  img {
+    width: 80%;
+  }
+  div {
+    display: flex;
+    gap: ${theme.spacer};
+  }
+`;
+
 const CartItem = ({
   id,
   name,
@@ -18,31 +35,43 @@ const CartItem = ({
   remove,
   index,
 }) => (
-  <div id={id}>
-    <Text size="M" color="primary" text={name} align="center" />
+  <StyledCartItem id={id} key={index}>
+    <Text size="M" color="primary" text={name} />
     <img src={image} alt={name} />
-    <span className="cart-price">{price} £</span>
     <div>
       <Text size="S" color="dark" text={textData.shop.cart.quantity} />
       <Text size="S" color="primary" text={quantity} />
     </div>
-    <p>
-      {textData.shop.cart.add}
-      <button id={id} onClick={(e) => increase(e)}>
-        +
-      </button>
-      {textData.shop.cart.minus}
-      <button id={id} onClick={(e) => decrease(e)}>
-        -
-      </button>
-    </p>
-    <p>
-      <button id={id} onClick={(e) => remove(e)}>
-        {textData.shop.cart.remove}
-      </button>
-    </p>
-    <Hr />
-  </div>
+    <div>
+      <Text size="S" color="dark" text={textData.shop.cart.add} />
+      <Button
+        size="S"
+        id={id}
+        color="primary"
+        action={(e) => increase(e)}
+        text="+"
+      />
+    </div>
+    <div>
+      <Text size="S" color="dark" text={textData.shop.cart.minus} />
+      <Button
+        size="S"
+        id={id}
+        color="primary"
+        action={(e) => decrease(e)}
+        text="-"
+      />
+    </div>
+    <Text size="M" color="primary" text={`${price} £`} />
+    <Button
+      size="M"
+      id={id}
+      color="primary"
+      action={(e) => remove(e)}
+      text={textData.shop.cart.remove}
+    />
+    <Hr width="parent" />
+  </StyledCartItem>
 );
 
 export default CartItem;

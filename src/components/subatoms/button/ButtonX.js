@@ -55,6 +55,7 @@ export const StyledBtnX = styled.button`
   :hover {
     color: ${theme.colors.dark};
     background-color: ${theme.colors.light};
+    cursor: pointer;
   }
 `;
 

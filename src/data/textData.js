@@ -49,13 +49,14 @@ export const textData = {
   shop: {
     cart: {
       exit: "Continue shopping",
+      clear: "Delete all items",
       items: "Total Items: ",
-      price: "Total Price: £",
+      price: "Total Price:",
       empty: "You haven't added any items yet",
-      add: "Add another one",
-      minus: "Remove one",
+      add: "Add another one:",
+      minus: "Remove one:",
       quantity: "Quantity: ",
-      remove: "Remove from cart",
+      remove: "Delete from cart",
     },
     single: {
       continue: "Continue Shopping",

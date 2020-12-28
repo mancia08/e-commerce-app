@@ -1,12 +1,18 @@
+.mymodal, .myoverlay {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
 .mymodal {
   width: 70%;
   height: 90%;
-  border: 1px solid #ccc;
-  background: #fff;
+  border: 4px solid #33A0FF;
+  background: #FFFFFF;
   overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .myoverlay {
@@ -18,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #000000BF;
 }
 
 .ReactModal__Overlay {
