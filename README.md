@@ -12,8 +12,6 @@
 npm install
 ```
 ## Table of Contents
-- [Install](#install)
-- [Table of Contents](#table-of-contents)
 - [:seedling: Some history](#seedling-some-history)
 - [:lock: Constraints](#lock-constraints)
 - [:rugby_football: Scrum Team](#rugby_football-scrum-team)
@@ -37,9 +35,10 @@ The project went very well, we were able to work together with little to no conf
 All in all, it was a very fun project, we learned a lot from it, and we will all treasure the moments spent together working as a team. We hope that you will like it and if you have any questions, comments or you want to reach us, you can do so thru our Linked In profiles:
 
 ### Who are we
-[Carlos](https://www.linkedin.com/in/carlosaore/),
-[Evgeniya](https://www.linkedin.com/in/evgeniya-gabrikova/),
-...
+[Carlos Orellana](https://www.linkedin.com/in/carlosaore/),
+[Habrykava Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/),
+[Luri Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/)
+[Mancini](https://www.linkedin.com/in/mancia08/)
 
 ## :lock: Constraints
 - Try to use Scrum as best as possible to manage the project.
