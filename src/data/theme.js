@@ -27,7 +27,7 @@ export const theme = {
     },
     modals: {
       mobile: { height: "100vh", width: "100vw" },
-      login: { height: "500px", width: "450px" },
+      login: { height: "600px", width: "450px" },
       cart: { height: "500px", width: "350px" },
       navbar: { height: "300px", width: "75vw" },
     },
