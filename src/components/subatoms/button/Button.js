@@ -44,7 +44,7 @@ export const StyledBtn = styled.button`
         : p.size === "L"
         ? `calc(3 * ${theme.spacer})`
         : `calc(4 * ${theme.spacer})`};
-  background-color: var(--secondary);
+  background-color: ${theme.colors.secondary};
   border-radius: ${(p) =>
     p.size === "S"
       ? theme.spacer
@@ -60,17 +60,17 @@ export const StyledBtn = styled.button`
   }
 `;
 
-const Button = (props) => (
+const Button = ({id, action, size, color, width, height, text}) => (
   <StyledBtn
-    {...props}
-    id={props.id}
-    onClick={props.action}
-    size={props.size}
-    color={props.color}
-    width={props.width}
-    height={props.height}
+    {...[size, color, width, height]}
+    id={id}
+    onClick={action}
+    size={size}
+    color={color}
+    width={width}
+    height={height}
   >
-    {props.text}
+    {text}
   </StyledBtn>
 );
 

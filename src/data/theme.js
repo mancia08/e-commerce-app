@@ -18,7 +18,7 @@ export const theme = {
   spacer: "8px",
   spacernumber: 8,
   sizes: {
-    navbar: 6 * spacer,
+    navbar: `${6 * spacer}px`,
     buttons: {
       S: `${3 * spacer}px`,
       M: `${6 * spacer}px`,

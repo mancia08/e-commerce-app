@@ -149,9 +149,9 @@ export const textData = {
           name: "GitHub Repo",
           link: "https://github.com/Gabriellji/e-commerce-app",
         },
-        { name: "Our School", link: "https://www.wildcodeschool.com/" },
-        { name: "ciaoo", link: "" },
-        { name: "ciao", link: "" },
+        { name: "React Documentation", link: "https://reactjs.org/docs/getting-started.html" },
+        { name: "Styled Components Documentation", link: "https://styled-components.com/docs" },
+        { name: "React Router Documentation", link: "https://reactrouter.com/web/guides/quick-start" }
       ],
     },
   ],
