@@ -3,10 +3,11 @@ import { MyContext } from "../../../../context/APIContext";
 import Modal from "react-modal";
 import styled from "styled-components";
 
-import CartItem from "../cart-item";
+import CartItem from "../cart-item/CartItem";
 import Text from "../../../subatoms/text/Text";
 import TextCart from "../../../subatoms/text/TextCart";
 import Button from "../../../subatoms/button/Button";
+import Hr from "../../../subatoms/hr/Hr";
 import StripeCheckoutButton from "../stripe-button";
 
 import { theme } from "../../../../data/theme";
@@ -25,6 +26,25 @@ const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
+`;
+
+const StyledCartGridSection = styled.div`
+  display: grid;
+  gap: ${theme.spacer};
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-items: center;
+`;
+
+const StyledCartLastSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${theme.spacer};
+  margin-bottom: ${theme.spacer};
+  div {
+    display: flex;
+    gap: ${theme.spacer};
+  }
 `;
 
 const Cart = ({ textColor, type }) => {
@@ -63,12 +83,12 @@ const Cart = ({ textColor, type }) => {
   const renderAddedItems = (arr) => {
     return arr
       .filter((value, index, self) => self.indexOf(value) === index)
-      .map(({ id, name, price, imageS }, i) => {
+      .map(({ id, name, price, imageL }, i) => {
         return (
           <CartItem
             key={i}
             name={name.split(" ").slice(0, 3).join(" ")}
-            image={imageS}
+            image={imageL}
             price={`Price ${price}`}
             increase={onIncrease}
             decrease={onRemoveClick}
@@ -95,7 +115,7 @@ const Cart = ({ textColor, type }) => {
   };
 
   return (
-    <div>
+    <>
       <StyledCart onClick={toggleModal}>
         {type !== "mobile" && (
           <Text color={textColor} size="S" text={`${getTotalPrice()}£`} />
@@ -109,7 +129,6 @@ const Cart = ({ textColor, type }) => {
           />
         )}
       </StyledCart>
-
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
@@ -119,26 +138,40 @@ const Cart = ({ textColor, type }) => {
         closeTimeoutMS={500}
       >
         {!context.cart.length ? (
-          <h4>{textData.shop.cart.empty}</h4>
+          <Text size="L" color="primary" text={textData.shop.cart.empty} align="center" />
         ) : (
-          renderAddedItems(context.cart)
+          <StyledCartGridSection>
+            {renderAddedItems(context.cart)}
+          </StyledCartGridSection>
         )}
-        <Button
-          size="S"
-          color="primary"
-          action={toggleModal}
-          text={textData.shop.cart.exit}
-        />
-        <Button size="S" color="primary" text="clear" action={clearAllItems} />
-        <p>{textData.shop.cart.items} {context.cart.length}</p>
-        <p>
-          {textData.shop.cart.price} {getTotalPrice()}
-        </p>
-        <p>
-          <StripeCheckoutButton price={getTotalPrice()} />
-        </p>
+        <Hr />
+        <StyledCartLastSection>
+          <Button
+            size="M"
+            color="primary"
+            action={toggleModal}
+            text={textData.shop.cart.exit}
+            width="parent"
+          />
+          <Button
+            size="M"
+            color="primary"
+            text={textData.shop.cart.clear}
+            action={clearAllItems}
+            width="parent"
+          />
+          <div>
+            <Text size="M" color="dark" text={textData.shop.cart.items} />
+            <Text size="M" color="primary" text={context.cart.length} />
+          </div>
+          <div>
+            <Text size="M" color="dark" text={textData.shop.cart.price} />
+            <Text size="M" color="primary" text={`${getTotalPrice()} £`} />
+          </div>
+        </StyledCartLastSection>
+        <StripeCheckoutButton price={getTotalPrice()} />
       </Modal>
-    </div>
+    </>
   );
 };
 

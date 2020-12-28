@@ -57,6 +57,7 @@ export const StyledBtn = styled.button`
   :hover {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.light};
+    cursor: pointer;
   }
 `;
 
