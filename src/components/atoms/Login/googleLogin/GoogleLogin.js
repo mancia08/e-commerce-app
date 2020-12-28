@@ -1,16 +1,34 @@
 import React, { useContext } from "react";
 import { useGoogleLogin } from "react-google-login";
 import { textData } from "../../../../data/textData";
-import { ShopContext } from '../../../../context/ShopContext';
+import { ShopContext } from "../../../../context/ShopContext";
 // refresh token
 import { refreshTokenSetup } from "../../../../utils/refreshToken";
 
-import "./Login.css";
+import styled from "styled-components";
+import { theme } from "../../../../data/theme";
+
+import ButtonX from "../../../subatoms/button/ButtonX";
 
 const clientId =
   "589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com";
 
-const Login = () => {
+const StyledGoogleLogin = styled.div`
+  display: flex;
+  gap: ${theme.spacer};
+  justify-content: center;
+  :hover {
+    cursor: pointer;
+  }
+  img {
+    width: ${theme.sizes.buttons.M};
+    height: ${theme.sizes.buttons.M};
+    background-color: ${theme.colors.light};
+    border-radius: 50%;
+  }
+`;
+
+const GoogleLogin = () => {
   const context = useContext(ShopContext);
 
   const onSuccess = (res) => {
@@ -25,7 +43,7 @@ const Login = () => {
       isLoggedIn: true,
       user: name,
       loginIconClicked: !context.state.loginIconClicked,
-    })
+    });
   };
 
   const onFailure = (res) => {
@@ -41,21 +59,23 @@ const Login = () => {
     accessType: "offline",
   });
 
-  console.log();
+  // console.log();
 
   return (
-    <>
-      <button onClick={signIn} className="button">
-        <img
-          src="https://raw.githubusercontent.com/Sivanesh-S/react-google-authentication/9835990bfe7f45a1a14e5854cd57ab715d776b0e/public/icons/google.svg"
-          alt="google login"
-          className="icon"
-        ></img>
-
-        <span className="buttonText">{textData.login.text2}</span>
-      </button>
-    </>
+    <StyledGoogleLogin>
+      <img
+        src="https://raw.githubusercontent.com/Sivanesh-S/react-google-authentication/9835990bfe7f45a1a14e5854cd57ab715d776b0e/public/icons/google.svg"
+        alt="google login"
+        onClick={signIn}
+      />
+      <ButtonX
+        action={signIn}
+        size="M"
+        color="light"
+        text={textData.login.text2}
+      />
+    </StyledGoogleLogin>
   );
 };
 
-export default Login;
+export default GoogleLogin;

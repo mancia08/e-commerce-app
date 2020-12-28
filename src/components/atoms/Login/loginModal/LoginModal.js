@@ -4,13 +4,13 @@ import { theme } from "../../../../data/theme";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
-import { LogoImg } from '../../mainNavbar/navbar/Navbar';
+import { LogoImg } from "../../mainNavbar/navbar/Navbar";
 import Text from "../../../subatoms/text/Text";
 import logo from "./../../../../styles/images/logonorris.png";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import LoginInput from "../../../subatoms/input/LoginInput";
-import Login from "../googleLogin";
-import LoginFB from "../login-fb/LoginFB";
+import GoogleLogin from "../googleLogin/GoogleLogin";
+import FacebookLogin from "../login-fb/FacebookLogin";
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -20,7 +20,6 @@ const LoginPopUp = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
   top: ${(p) => p.type === "home" && `-${theme.spacer}`};
   left: ${(p) => p.type === "home" && `calc(-100vw + 3 * ${theme.spacer})`};
   display: flex;
@@ -34,7 +33,10 @@ const LoginPopUp = styled.div`
     position: ${(p) => p.type !== "home" && "absolute"};
     left: ${(p) => p.type !== "home" && "auto"};
     right: ${(p) => p.type !== "home" && "0"};
-    top: ${(p) => p.type !== "home" && `calc(12 * ${theme.spacer})`};
+    top: ${(p) => p.type !== "home" && `calc(14 * ${theme.spacer})`};
+    box-sizing: border-box;
+    border: 4px solid ${theme.colors.dark};
+    border-radius: ${theme.spacer};
   }
 `;
 const LoginLogoContainer = styled.div`
@@ -42,9 +44,10 @@ const LoginLogoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: calc(3 * ${theme.spacer});
+  padding: 0 ${theme.spacer};
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
+    height: ${theme.spacer};
   }
 `;
 const LoginTextContainer = styled.div`
@@ -81,82 +84,86 @@ const LoginLink = styled(Link)`
   text-decoration: none;
 `;
 
-const LoginModal = ({type}) => {
-
+const LoginModal = ({ type }) => {
   const context = useContext(ShopContext);
 
   return (
     <LoginPopUp {...type} type={type}>
-        <LoginLogoContainer>
-          <LogoImg src={logo} alt="Norris Inc. logo" />
-          <ButtonX
-            action={context.loginIconToggle}
-            size="XL"
-            text="X"
-            color="light"
-          />
-        </LoginLogoContainer>
-        <LoginTextContainer>
+      <LoginLogoContainer>
+        <LogoImg src={logo} alt="Norris Inc. logo" />
+        <ButtonX
+          action={context.loginIconToggle}
+          size="XL"
+          text="X"
+          color="light"
+        />
+      </LoginLogoContainer>
+      <LoginTextContainer>
+        <Text
+          type="login"
+          color="light"
+          size="XL"
+          text={textData.login.title}
+        />
+        <LoginSpacer />
+        {context.state.loginFailed && (
+          <Text color="light" size="M" text={textData.login.fail} />
+        )}
+        <LoginForm>
           <Text
             type="login"
             color="light"
-            size="XL"
-            text={textData.login.title}
+            size="S"
+            text={textData.login.user}
+          />
+          <LoginInput
+            action={context.username}
+            value={context.state.username}
+          />
+          <Text
+            type="login"
+            color="light"
+            size="S"
+            text={textData.login.password}
+          />
+          <LoginInput
+            type="password"
+            action={context.password}
+            value={context.state.password}
           />
           <LoginSpacer />
-          {context.state.loginFailed && (
-            <Text color="light" size="M" text={textData.login.fail} />
-          )}
-          <LoginForm>
+          <ButtonX
+            action={context.login}
+            size="M"
+            text={textData.login.submit}
+            color="light"
+          />
+        </LoginForm>
+        <LoginLinkContainer>
+          <LoginLink to="/contact">
             <Text
               type="login"
               color="light"
-              size="S"
-              text={textData.login.user}
-            />
-            <LoginInput action={context.username} value={context.state.username} />
-            <Text
-              type="login"
-              color="light"
-              size="S"
-              text={textData.login.password}
-            />
-            <LoginInput
-              type="password"
-              action={context.password}
-              value={context.state.password}
-            />
-            <LoginSpacer />
-            <ButtonX
-              action={context.login}
               size="M"
-              text={textData.login.submit}
-              color="light"
+              text={textData.login.register}
             />
-          </LoginForm>
-          <LoginLinkContainer>
-            <LoginLink to="/contact">
-              <Text
-                type="login"
-                color="light"
-                size="M"
-                text={textData.login.register}
-              />
-            </LoginLink>
-            <LoginLink to="/contact">
-              <Text
-                type="login"
-                color="light"
-                size="M"
-                text={textData.login.text1}
-              />
-            </LoginLink>
-            <Login />
-            <LoginFB />
-          </LoginLinkContainer>
-        </LoginTextContainer>
-      </LoginPopUp>
-  )
+          </LoginLink>
+          <LoginLink to="/contact">
+            <Text
+              type="login"
+              color="light"
+              size="M"
+              text={textData.login.text1}
+            />
+          </LoginLink>
+          <LoginSpacer />
+          <GoogleLogin />
+          <LoginSpacer />
+          <FacebookLogin />
+        </LoginLinkContainer>
+      </LoginTextContainer>
+    </LoginPopUp>
+  );
 };
 
 export default LoginModal;

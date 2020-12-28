@@ -48,7 +48,7 @@ const StyledLink = styled(NavLink)`
   color: ${theme.colors.dark};
   box-sizing: border-box;
   /* font-family: var(--font-common), var(--font-fallback); */
-  font-size: ${theme.fonts.M};
+  font-size: ${theme.fonts.HoverMenu};
   width: 10%;
   text-align: center;
   line-height: ${theme.sizes.navbar};
