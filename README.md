@@ -5,12 +5,13 @@
 ![React-Router](https://aleen42.github.io/badges/src/router.svg)
 ![NodeJs](https://github.com/aleen42/badges/raw/master/src/node.svg)
 
-> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may now be already full flegded developpers (check on their [Linked In](##who-are-we) profiles).
+> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may already be full flegded developpers (check on their [Linked In](##who-are-we?) profiles).
 
 ## View the deployed web application
-```bash
-url.com
-```
+
+[https://norris-e-commerce-app.netlify.app/](https://norris-e-commerce-app.netlify.app/)
+
+
 ## Table of Contents
 - [:seedling: Some history](#seedling-some-history)
 - [:lock: Constraints](#lock-constraints)
@@ -96,27 +97,38 @@ A third unmet need is that a lot of these small shops around the city proud them
 - Still wants to shop on usual places but doesn't know how.
 
 ### Persona #2: Seller
-Small local store, been there since forever.
-Mom and pop store.
-“Brick and mortar”.
-Does not sell food or other perishable items.
-Sells technology, clothes, toys, small electronics, small household appliances, etc. 
-Because of pandemic I can't sell in person so to keep the business I need to sell online but I don't know how.
-Provides a lot of after-sale service and customer service.
-Has an established clientele.
-Doesn't have warehouses or shipping service so there is trepidation about selling online.
+- Small local store, been there since forever.
+- Mom and pop store.
+- “Brick and mortar”.
+- Does not sell food or other perishable items.
+- Sells technology, clothes, toys, small electronics, small household appliances, etc. 
+- Because of pandemic I can't sell in person so to keep the business I need to sell online but I don't know how.
+- Provides a lot of after-sale service and customer service.
+- Has an established clientele.
+- Doesn't have warehouses or shipping service so there is trepidation about selling online.
 
 ## :brain: Explorations + Decisions
+### Brainstorming
 Since we were given very broad guidelines, we had to spend some time deciding what we want to do and how. During our initial brainstorm meeting we kept circling back to an E-commerce application that would be used to sell something: flights? trips? clothes? pet food, supplies, and services? This was done in a conference call using a google jamboard for quickly jotting down ideas.
+
 On a second meeting we decided to try and figure out what would be out motivation, or justification for the project, which meant that we had to also figure out who we are in this scenario. This is where things started to get interesting and the idea kind of revealed itself to us (not unlike in a Scrum managed project, mind you). Then, we did a Joint Application Development (JAD) session to clearly define the need for the project (benefits, opportunities, problems, risks, etc.) and the scope (constraints, assumptions, success factors, etc.). We used the same tools as last time.
 
 Finally, just to “iron out the details”, we met again and made some critical decisions about the personas that the project would be targeting, laid out epics and user stories and we prioritized them using the MoSCow methodology. For this we switched to google slides and mira. All of this sound like a lot of work but it actually took place in the span of two days and it allowed us to work with very clear objectives and purposes.
 
-When it was time to begin to work, we realized that we were not completely comfortable with Scrum so after talking about it we decided run what we called a “mock sprint”. Basically, we decided to run a sprint with very small set of user stories that could be done in a couple of days. We started working without expecting very much of the result but trying to pay attention to the impediments and other kind of issue. This ended up being a very smart decision because it allowed us to see some fundamental issues with our project idea and correct our workflow and behavior to better match the agile [principles](https://agilemanifesto.org/principles.html).
+### Scrum
+When it was time to begin to work, we realized that we were not completely comfortable with Scrum so after talking about it we decided run what we called a “mock sprint” with one team member acting as a "Scrum Master" and another one as a "Product Owner".
 
-With the lessons learned from the “mock sprint” (laid out in a retrospective meeting), we quickly did a sprint planning session, poker planning, etc. and we started to work with complete confidence in our idea. This actually worked so well that the only real impediment we had from that point forward was scrum itself. The cost of adhering to the ceremonies, user story format, etc. started to be bigger than the benefits we were getting. In the context of the bootcamp, this project is supposed to be a learning tool before getting to more serious projects. That’s why the allotted time is very short.
+This "mock sprint" basically was a Sprint with a very small set of user stories that could be done in a couple of days. We started working without expecting very much of the result but trying to pay attention to the impediments and other kind of issue. This ended up being a very smart decision because it allowed us to see some fundamental issues with our project idea and correct our workflow and behavior to better match the agile [principles](https://agilemanifesto.org/principles.html).
 
-At the end of that second sprint we decided to experiment with a leaner and faster project management approach. In truth, we were hesitant to switch right in the middle of the project but 
+With the lessons learned from the “mock sprint” (laid out in a retrospective meeting), we quickly did a sprint planning session, poker planning, etc. and we started to work with complete confidence in our idea. This actually worked so well that the only real impediment we had from that point forward was scrum itself. The cost of adhering to the ceremonies, user story format, etc. started to be bigger than the benefits we were getting. In the context of the bootcamp, this project is supposed to be a learning tool before getting to more serious projects. That’s why the allotted time was very short.
+
+### The big change
+At the end of that second sprint we decided to experiment with a leaner and faster project management approach. In truth, we were hesitant to do such a drastic change in the middle of the project, but we also believed that, as students, we are supposed to try and experiment so we can learn from different sources. Also, it could be argued that we were organically following agile principle, welcoming change, simplicity, result oriented, etc. Again, this decision proved to be good because we started to work a lot faster.
+
+### Tools
+We used Jira as our main tool to assist in the project management and Confluence to store and access all the documentation being produced (master project document, meeting notes, design guidelines, etc.), Slack together with Google Meet as our platform for communication.
+
+In the final stages of the project we asked our fellow students for feedback so we could fix any small bugs or UI issues that were still present. Having met the critical success factors, the web application was done. We still wanted to add more features, as per all the epics that we created, but we didn’t have anymore time and we also had already surpassed the expectation for the exercise. All in all, we really enjoyed working in this project and as a team, we learned a lot and we are excited about our future as developers.
 
 
 ## :link: Other information
