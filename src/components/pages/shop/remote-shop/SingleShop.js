@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
-import { theme } from "../../../../data/theme";
 import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
+import { theme } from "../../../../data/theme";
 import { textData } from "../../../../data/textData";
-
 import SingleShopCard from "./SingleShopCard";
 import Button from "../../../subatoms/button/Button";
 import Text from "./../../../subatoms/text/Text";

@@ -15,18 +15,19 @@ const StyledContactContainer = styled.div`
   gap: calc(2 * ${theme.spacer});
   margin: 0 calc(2 * ${theme.spacer});
   min-height: 70vh;
+  flex-direction: column;
   section {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: calc(2 * ${theme.spacer});
     justify-content: center;
   }
-  @media (max-width: ${theme.viewport.tablet}) {
-    flex-direction: column;
+  @media (min-width: ${theme.viewport.tablet}) {
+    flex-direction: row;
     section {
-      width: 100%;
+      width: 50%;
     }
   }
 `;
