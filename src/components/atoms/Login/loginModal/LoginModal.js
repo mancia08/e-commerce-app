@@ -38,6 +38,9 @@ const LoginPopUp = styled.div`
     border: 4px solid ${theme.colors.dark};
     border-radius: ${theme.spacer};
   }
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
+    height:500px;
+  }
 `;
 const LoginLogoContainer = styled.div`
   width: 100vw;
@@ -48,6 +51,10 @@ const LoginLogoContainer = styled.div`
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
     height: ${theme.spacer};
+  }
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
+    position:relative;
+    top:24px
   }
 `;
 const LoginTextContainer = styled.div`
@@ -140,7 +147,7 @@ const LoginModal = ({ type }) => {
           />
         </LoginForm>
         <LoginLinkContainer>
-          <LoginLink to="/contact">
+          <LoginLink to="/contact" onClick={context.closeLogin}>
             <Text
               type="login"
               color="light"
@@ -148,7 +155,7 @@ const LoginModal = ({ type }) => {
               text={textData.login.register}
             />
           </LoginLink>
-          <LoginLink to="/contact">
+          <LoginLink to="/contact" onClick={context.closeLogin}>
             <Text
               type="login"
               color="light"
