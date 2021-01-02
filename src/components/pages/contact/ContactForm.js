@@ -18,7 +18,8 @@ const StyledContactForm = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
   section {
     display: flex;
@@ -29,18 +30,18 @@ const StyledContactForm = styled.div`
   }
   label {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     padding: ${theme.spacer};
   }
-  @media (max-width: ${theme.viewport.tablet}) {
+  @media (min-width: ${theme.viewport.tablet}) {
     form {
-      flex-direction: column;
-      flex-wrap: nowrap;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
     label {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+      display:block
     }
   }
 `;
