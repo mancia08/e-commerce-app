@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
-import { useGoogleLogout } from "react-google-login";
 import { textData } from "../../../../data/textData";
-
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
-
 import ButtonX from "../../../subatoms/button/ButtonX";
 import { accountService } from "../../../../_services/account.service";
 
