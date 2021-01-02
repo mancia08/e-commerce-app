@@ -1,4 +1,4 @@
-import React, { Component, useContext, useState } from "react";
+import React, { useState, useContext} from "react";
 import { theme } from "../../../data/theme";
 import styled from "styled-components";
 import { textData } from "../../../data/textData";
@@ -30,7 +30,9 @@ const StyledContactContainer = styled.div`
     }
   }
 `;
+
 const ContactContainer = () => {
+  const context = useContext(ShopContext);
   const [buyerClicked, setBuyerClicked] = useState(false);
   const [sellerClicked, setSellerClicked] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
@@ -38,16 +40,19 @@ const ContactContainer = () => {
   const handleBuyerClicked = () => {
     setBuyerClicked(!buyerClicked);
     setSellerClicked(false);
+    context.closeLogin()
   };
 
   const handleSellerClicked = () => {
     setBuyerClicked(false);
     setSellerClicked(!sellerClicked);
+    context.closeLogin()
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     window.scrollTo(0, 0);
+    context.closeLogin();
     let responses = [];
     const RegExp = [
       {
@@ -115,11 +120,13 @@ const ContactContainer = () => {
               text={textData.contact.button}
               heading={textData.contact.client}
               action={handleBuyerClicked}
+              secondaryAction= {context.closeLogin}
             />
             <ContactTitleButton
               text={textData.contact.button}
               heading={textData.contact.seller}
               action={handleSellerClicked}
+              secondaryAction = {context.closeLogin}
             />
           </section>
           <section>

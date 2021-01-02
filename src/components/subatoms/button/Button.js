@@ -61,7 +61,15 @@ export const StyledBtn = styled.button`
   }
 `;
 
-const Button = ({id, action, size, color, width, height, text}) => (
+const Button = ({
+  id,
+  action,
+  size,
+  color,
+  width,
+  height,
+  text,
+}) => (
   <StyledBtn
     {...[size, color, width, height]}
     id={id}
