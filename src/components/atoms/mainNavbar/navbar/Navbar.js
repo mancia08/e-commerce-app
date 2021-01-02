@@ -39,28 +39,25 @@ const StyledNav = styled.div`
 `;
 
 const StyledLink = styled(NavLink)`
-  color: ${theme.colors.dark};
+  color: ${theme.colors.light};
   box-sizing: border-box;
-  font-size: ${theme.fonts.HoverMenu};
-  width: 10%;
+  font-size: ${theme.fonts.sizes.XL};
+  width: 100vw;
   text-align: center;
-  line-height: ${theme.sizes.navbar};
+  line-height: calc( 9 * ${theme.spacer} );
   text-decoration: none;
-  &.active {
-    color: ${theme.colors.primary};
-  }
-  :hover {
+  @media (min-width: ${theme.viewport.tablet}) {
+    color: ${theme.colors.dark};
+    font-size: ${theme.fonts.sizes.M};
+    line-height: ${theme.sizes.navbar};
+    width: 10%;
+    &.active {
+      color: ${theme.colors.primary};
+    }
+    :hover {
     color: ${theme.colors.light};
     background-color: ${theme.colors.primary};
   }
-  @media (max-width: ${theme.viewport.tablet}) {
-    color: ${theme.colors.light};
-    font-size: ${theme.fonts.sizes.XL};
-    line-height: calc( 9 * ${theme.spacer} );
-    width: 100vw;
-    &.active {
-      color: ${theme.colors.light};
-    }
   }
 `;
 
