@@ -140,7 +140,7 @@ const LoginModal = ({ type }) => {
           />
         </LoginForm>
         <LoginLinkContainer>
-          <LoginLink to="/contact">
+          <LoginLink to="/contact" onClick={context.closeLogin}>
             <Text
               type="login"
               color="light"
@@ -148,7 +148,7 @@ const LoginModal = ({ type }) => {
               text={textData.login.register}
             />
           </LoginLink>
-          <LoginLink to="/contact">
+          <LoginLink to="/contact" onClick={context.closeLogin}>
             <Text
               type="login"
               color="light"
