@@ -8,7 +8,6 @@ const StyledTextArea = styled.textarea`
     border-radius: calc(0.5 * ${theme.spacer});
     resize: none;
     width: 100%; 
-    max-width: 100%;
 `;
 
 const TextArea = props => (
