@@ -36,6 +36,9 @@ const LogoutPopUp = styled.div`
     border: 4px solid ${theme.colors.dark};
     border-radius: ${theme.spacer};
   }
+  @media screen and (max-height: 700px) {
+    height:500px;
+  }
 `;
 const LogoutLogoContainer = styled.div`
   width: 100vw;
@@ -46,6 +49,10 @@ const LogoutLogoContainer = styled.div`
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
     height: ${theme.spacer};
+  }
+  @media screen and (max-height: 700px) {
+    position:relative;
+    top:24px
   }
 `;
 const LogoutTextContainer = styled.div`
