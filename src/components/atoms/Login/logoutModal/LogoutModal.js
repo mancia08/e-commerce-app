@@ -36,7 +36,7 @@ const LogoutPopUp = styled.div`
     border: 4px solid ${theme.colors.dark};
     border-radius: ${theme.spacer};
   }
-  @media screen and (max-height: 700px) {
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
     height:500px;
   }
 `;
@@ -50,7 +50,7 @@ const LogoutLogoContainer = styled.div`
     width: ${theme.sizes.modals.login.width};
     height: ${theme.spacer};
   }
-  @media screen and (max-height: 700px) {
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
     position:relative;
     top:24px
   }
@@ -60,7 +60,7 @@ const LogoutTextContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - ${theme.sizes.buttons.XL});
+  height: calc(100vh -  ${theme.sizes.buttons.XL});
   justify-content: center;
   @media (min-width: ${theme.viewport.tablet}) {
     height: calc(${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M});
