@@ -5,7 +5,7 @@
 ![React-Router](https://aleen42.github.io/badges/src/router.svg)
 ![NodeJs](https://github.com/aleen42/badges/raw/master/src/node.svg)
 
-> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may already be full flegded developpers (check on their [Linked In](##who-are-we?) profiles).
+> A simple E-commerce web aplication created with React during a web developer bootcamp by 4 awesome students that may already be full flegded developpers (check on their [Linked In](#who-are-we) profiles).
 
 ## View the deployed web application
 
