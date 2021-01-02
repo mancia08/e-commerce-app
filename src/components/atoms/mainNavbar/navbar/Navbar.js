@@ -3,13 +3,6 @@ import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
 import { NavLink } from "react-router-dom";
 import {SubMenu} from './HoverMenu'
-/* import {
-  StyledNav,
-  HoverLink,
-  StyledLink,
-  LogoLink,
-  LogoImg,
-} from "../../../../styles/styles"; */
 import logo from "./../../../../styles/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
 import styled from 'styled-components'
@@ -33,8 +26,9 @@ const StyledNav = styled.div`
   @media (max-width: ${theme.viewport.tablet}) {
     background-color: ${theme.colors.primary};
     display: flex;
+    height: calc(100vh - 3 * ${theme.sizes.navbar});
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     gap: calc(4 * ${theme.spacer});
     margin-top: calc(4 * ${theme.spacer});
@@ -47,7 +41,6 @@ const StyledNav = styled.div`
 const StyledLink = styled(NavLink)`
   color: ${theme.colors.dark};
   box-sizing: border-box;
-  /* font-family: var(--font-common), var(--font-fallback); */
   font-size: ${theme.fonts.HoverMenu};
   width: 10%;
   text-align: center;
@@ -62,6 +55,8 @@ const StyledLink = styled(NavLink)`
   }
   @media (max-width: ${theme.viewport.tablet}) {
     color: ${theme.colors.light};
+    font-size: ${theme.fonts.sizes.XL};
+    line-height: calc( 9 * ${theme.spacer} );
     width: 100vw;
     &.active {
       color: ${theme.colors.light};
