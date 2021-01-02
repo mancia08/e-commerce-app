@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useContext, useState } from "react";
 import { theme } from "../../../data/theme";
 import styled from "styled-components";
 import { textData } from "../../../data/textData";
-
+import { ShopContext } from "../../../context/ShopContext";
 import Text from "../../subatoms/text/Text";
 import ContactForm from "./ContactForm";
 import ContactImage from "../../atoms/images/ContactImage";
@@ -30,30 +30,24 @@ const StyledContactContainer = styled.div`
     }
   }
 `;
+const ContactContainer = () => {
+  const [buyerClicked, setBuyerClicked] = useState(false);
+  const [sellerClicked, setSellerClicked] = useState(false);
+  const [didSubmit, setDidSubmit] = useState(false);
 
-class ContactContainer extends Component {
-  state = {
-    buyerClicked: false,
-    sellerClicked: false,
-    didSubmit: false,
+  const handleBuyerClicked = () => {
+    setBuyerClicked(!buyerClicked);
+    setSellerClicked(false);
   };
 
-  handleBuyerClicked = () => {
-    this.setState({
-      buyerClicked: !this.state.buyerClicked,
-      sellerClicked: false,
-    });
+  const handleSellerClicked = () => {
+    setBuyerClicked(false);
+    setSellerClicked(!sellerClicked);
   };
 
-  handleSellerClicked = () => {
-    this.setState({
-      buyerClicked: false,
-      sellerClicked: !this.state.sellerClicked,
-    });
-  };
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     let responses = [];
     const RegExp = [
       {
@@ -90,7 +84,7 @@ class ContactContainer extends Component {
     let inputs = Array.prototype.slice.call(document.querySelectorAll("input"));
     for (let i = 0; i <= inputs.length; i++) {
       i === 0
-        ? this.state.buyerClicked
+        ? buyerClicked
           ? RegExp[i].client.check(inputs[i].value)
             ? responses.push(true)
             : alert(RegExp[i].client.error)
@@ -104,68 +98,56 @@ class ContactContainer extends Component {
         : RegExp[i].check(inputs[i].value)
         ? responses.push(true)
         : alert(RegExp[i].error);
-      responses.length === 5 && this.setState({ didSubmit: true });
+      responses.length === 5 && setDidSubmit(true);
     }
-    /*   responses.length === 4 && this.setState({ inputCheck: true }); */
-    /* message should be 15letters long at least */
-    /*     document.querySelectorAll("textArea")[0].value.length > 15
-      ? this.state.inputCheck &&
-        this.setState({
-          didSubmit: true,
-        })
-      : alert("please type a longer message"); */
   };
 
-  render() {
-    return (
-      <StyledContactContainer>
-        {this.state.didSubmit ? (
-          <Submitted />
-        ) : (
-          <>
-            <section>
-              <Text color="primary" size="L" text={textData.contact.title} />
+  return (
+    <StyledContactContainer>
+      {didSubmit ? (
+        <Submitted />
+      ) : (
+        <>
+          <section>
+            <Text color="primary" size="L" text={textData.contact.title} />
 
-              <ContactTitleButton
-                text={textData.contact.button}
-                heading={textData.contact.client}
-                action={this.handleBuyerClicked}
-              />
-              <ContactTitleButton
-                text={textData.contact.button}
-                heading={textData.contact.seller}
-                action={this.handleSellerClicked}
-              />
-            </section>
-            <section>
-              {this.state.sellerClicked ||
-              this.state.buyerClicked ||
-              this.state.didSubmit ? (
-                <>
-                  {this.state.buyerClicked && !this.state.didSubmit && (
-                    <ContactForm
-                      name={textData.contact.form.first}
-                      id={textData.contact.form.second}
-                      action={this.handleSubmit}
-                    />
-                  )}
-                  {this.state.sellerClicked && !this.state.didSubmit && (
-                    <ContactForm
-                      name={textData.contact.form.sixth}
-                      id={textData.contact.form.seventh}
-                      action={this.handleSubmit}
-                    />
-                  )}
-                </>
-              ) : (
-                <ContactImage />
-              )}
-            </section>
-          </>
-        )}
-      </StyledContactContainer>
-    );
-  }
-}
+            <ContactTitleButton
+              text={textData.contact.button}
+              heading={textData.contact.client}
+              action={handleBuyerClicked}
+            />
+            <ContactTitleButton
+              text={textData.contact.button}
+              heading={textData.contact.seller}
+              action={handleSellerClicked}
+            />
+          </section>
+          <section>
+            {sellerClicked || buyerClicked || didSubmit ? (
+              <>
+                {buyerClicked && !didSubmit && (
+                  <ContactForm
+                    name={textData.contact.form.first}
+                    id={textData.contact.form.second}
+                    action={handleSubmit}
+                  />
+                )}
+                {sellerClicked && !didSubmit && (
+                  <ContactForm
+                    name={textData.contact.form.sixth}
+                    id={textData.contact.form.seventh}
+                    action={handleSubmit}
+                  />
+                )}
+              </>
+            ) : (
+              <ContactImage />
+            )}
+          </section>
+        </>
+      )}
+    </StyledContactContainer>
+  );
+};
 
 export default ContactContainer;
