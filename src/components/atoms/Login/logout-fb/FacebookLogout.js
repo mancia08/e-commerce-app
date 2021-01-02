@@ -7,11 +7,9 @@ import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 
 import ButtonX from "../../../subatoms/button/ButtonX";
+import { accountService } from "../../../../_services/account.service";
 
-const clientId =
-  "589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com";
-
-const StyledGoogleLogout = styled.div`
+const StyledFacebookLogout = styled.div`
   display: flex;
   gap: ${theme.spacer};
   justify-content: center;
@@ -26,48 +24,35 @@ const StyledGoogleLogout = styled.div`
   }
 `;
 
-const GoogleLogout = () => {
+const FacebookLogout = () => {
   const context = useContext(ShopContext);
 
-  //const shopContext = useContext(ShopContext);
-
-  const onLogoutSuccess = (res) => {
-    console.log("Logged out Success");
-    // alert('Logged out Successfully ✌');
+  const logout = () => {
+    accountService.logout();
     context.setState({
       ...context.state,
-      googleUser: "",
-      signByGoogle: false,
       isLoggedIn: !context.state.isLoggedIn,
+      user: "",
       loginIconClicked: !context.state.loginIconClicked,
+      signByFB: false,
     });
   };
 
-  const onFailure = () => {
-    console.log("Handle failure cases");
-  };
-
-  const { signOut } = useGoogleLogout({
-    clientId,
-    onLogoutSuccess,
-    onFailure,
-  });
-
   return (
-    <StyledGoogleLogout>
+    <StyledFacebookLogout>
       <img
-        src="https://raw.githubusercontent.com/Sivanesh-S/react-google-authentication/9835990bfe7f45a1a14e5854cd57ab715d776b0e/public/icons/google.svg"
-        alt="google login"
-        onClick={signOut}
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
+        alt="facebook login"
+        className="icon"
       />
       <ButtonX
-        action={signOut}
+        action={logout}
         size="M"
         color="light"
         text={textData.logout.button}
       />
-    </StyledGoogleLogout>
+    </StyledFacebookLogout>
   );
 };
 
-export default GoogleLogout;
+export default FacebookLogout;

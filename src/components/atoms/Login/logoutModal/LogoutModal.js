@@ -7,8 +7,7 @@ import { LogoImg } from "../../mainNavbar/navbar/Navbar";
 import logo from "./../../../../styles/images/logonorris.png";
 import { textData } from "../../../../data/textData";
 import GoogleLogout from "../googleLogout/GoogleLogout";
-
-import { accountService } from "../../../../_services/account.service";
+import FacebookLogout from "../logout-fb/FacebookLogout";
 
 const LogoutPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -64,17 +63,6 @@ const LogoutTextContainer = styled.div`
 const LogoutModal = (props) => {
   const context = useContext(ShopContext);
 
-  const logout = () => {
-    accountService.logout();
-    context.setState({
-      ...context.state,
-      isLoggedIn: !context.state.isLoggedIn,
-      user: "",
-      loginIconClicked: !context.state.loginIconClicked,
-      signByFB: false,
-    });
-  };
-
   return (
     <LogoutPopUp type={props.type}>
       <LogoutLogoContainer>
@@ -88,16 +76,7 @@ const LogoutModal = (props) => {
       </LogoutLogoContainer>
       <LogoutTextContainer>
         {context.state.signByGoogle && <GoogleLogout />}
-        {context.state.signByFB && (
-          <button onClick={logout} className="button">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
-              alt="facebook login"
-              className="icon"
-            ></img>
-            <span className="buttonText">{textData.logout.button}</span>
-          </button>
-        )}
+        {context.state.signByFB && <FacebookLogout/>}
         {!context.state.signByGoogle && !context.state.signByFB && (
           <ButtonX
             action={context.logout}
