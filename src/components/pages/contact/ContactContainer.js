@@ -36,6 +36,7 @@ class ContactContainer extends Component {
     buyerClicked: false,
     sellerClicked: false,
     didSubmit: false,
+    inputCheck: false,
   };
 
   handleBuyerClicked = () => {
@@ -51,11 +52,66 @@ class ContactContainer extends Component {
       sellerClicked: !this.state.sellerClicked,
     });
   };
-
-  handleSubmit = () => {
-    this.setState({
-      didSubmit: true,
-    });
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let responses = [];
+    const RegExp = [
+      {
+        client: {
+          check: (value) =>
+            /^[a-z *]{1,30}$/gm.test(value) /* NAME from 3 to 20 letters accepts space */,
+          error: "Type your name!",
+        },
+        seller: {
+          check: (value) =>
+            /^[a-z]{5}\d{5}$/gm.test(value) /* shop id 5letters+5numbers */,
+          error: "Type your shop ID! (5letters and 5 numbers)",
+        },
+      },
+      {
+        check: (value) =>
+          /[\w . -]{3,30}@[\w]{3,20}.[\w]{2,5}/gm.test(
+            value
+          ) /* email address */,
+        error: "Type a correct email",
+      },
+      {
+        check: (value) => /^\d{16}$$/gm.test(value) /* ID 16 numbers */,
+        error: "Type a correct ID (16numbers)",
+      },
+      {
+        check: (value) =>
+          /^\d{8,15}$$/gm.test(value) /*phone number from 8 to 15 numbers */,
+        error: "Type a correct Phone Number!",
+      },
+    ];
+    let inputs = Array.prototype.slice.call(document.querySelectorAll("input"));
+    for (let i = 0; i < inputs.length; i++) {
+      i === 0
+        ? /* buyer or seller? */
+          this.state.buyerClicked
+          ? /* buyer. chack for name */
+            RegExp[i].client.check(inputs[i].value)
+            ? responses.push(true)
+            : alert(RegExp[i].client.error)
+          : /* seller. check for id */
+          RegExp[i].seller.check(inputs[i].value)
+          ? responses.push(true)
+          : alert(RegExp[i].seller.error)
+        : /* other info */
+        RegExp[i].check(inputs[i].value)
+        ? responses.push(true)
+        : alert(RegExp[i].error);
+    }
+    console.log(responses);
+    responses.length === 4 && this.setState({ inputCheck: true });
+    /* message should be 15letters long at least */
+    document.querySelectorAll("textArea")[0].value.length > 15
+      ? this.state.inputCheck &&
+        this.setState({
+          didSubmit: true,
+        })
+      : alert("please type a longer message");
   };
 
   render() {
@@ -82,24 +138,24 @@ class ContactContainer extends Component {
             <section>
               {this.state.sellerClicked ||
               this.state.buyerClicked ||
-              this.state.didSubmit ?
+              this.state.didSubmit ? (
                 <>
-                  {this.state.buyerClicked && !this.state.didSubmit && 
+                  {this.state.buyerClicked && !this.state.didSubmit && (
                     <ContactForm
                       name={textData.contact.form.first}
                       id={textData.contact.form.second}
                       action={this.handleSubmit}
                     />
-                  }
-                  {this.state.sellerClicked && !this.state.didSubmit && 
+                  )}
+                  {this.state.sellerClicked && !this.state.didSubmit && (
                     <ContactForm
                       name={textData.contact.form.sixth}
                       id={textData.contact.form.seventh}
                       action={this.handleSubmit}
                     />
-                  }
+                  )}
                 </>
-              : (
+              ) : (
                 <ContactImage />
               )}
             </section>
