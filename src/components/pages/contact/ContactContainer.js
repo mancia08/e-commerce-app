@@ -36,7 +36,6 @@ class ContactContainer extends Component {
     buyerClicked: false,
     sellerClicked: false,
     didSubmit: false,
-    inputCheck: false,
   };
 
   handleBuyerClicked = () => {
@@ -54,12 +53,15 @@ class ContactContainer extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
+    window.scrollTo(0, 0)
     let responses = [];
     const RegExp = [
       {
         client: {
           check: (value) =>
-            /^[a-z *]{1,30}$/gm.test(value) /* NAME from 3 to 20 letters accepts space */,
+            /^[a-z *]{1,30}$/gim.test(
+              value
+            ) /* NAME from 3 to 20 letters accepts space */,
           error: "Type your name!",
         },
         seller: {
@@ -86,32 +88,32 @@ class ContactContainer extends Component {
       },
     ];
     let inputs = Array.prototype.slice.call(document.querySelectorAll("input"));
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i <= inputs.length; i++) {
       i === 0
-        ? /* buyer or seller? */
-          this.state.buyerClicked
-          ? /* buyer. chack for name */
-            RegExp[i].client.check(inputs[i].value)
+        ? this.state.buyerClicked
+          ? RegExp[i].client.check(inputs[i].value)
             ? responses.push(true)
             : alert(RegExp[i].client.error)
-          : /* seller. check for id */
-          RegExp[i].seller.check(inputs[i].value)
+          : RegExp[i].seller.check(inputs[i].value)
           ? responses.push(true)
           : alert(RegExp[i].seller.error)
-        : /* other info */
-        RegExp[i].check(inputs[i].value)
+        : i === 4
+        ? document.querySelectorAll("textArea")[0].value.length > 15
+          ? responses.push(true)
+          : alert("Type a longer message")
+        : RegExp[i].check(inputs[i].value)
         ? responses.push(true)
         : alert(RegExp[i].error);
+      responses.length === 5 && this.setState({ didSubmit: true });
     }
-    console.log(responses);
-    responses.length === 4 && this.setState({ inputCheck: true });
+    /*   responses.length === 4 && this.setState({ inputCheck: true }); */
     /* message should be 15letters long at least */
-    document.querySelectorAll("textArea")[0].value.length > 15
+    /*     document.querySelectorAll("textArea")[0].value.length > 15
       ? this.state.inputCheck &&
         this.setState({
           didSubmit: true,
         })
-      : alert("please type a longer message");
+      : alert("please type a longer message"); */
   };
 
   render() {
