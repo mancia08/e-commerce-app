@@ -87,7 +87,7 @@ const ContactForm = (props) => (
         </label>
         <Button
           action={props.action}
-          size="S"
+          size="M"
           text={textData.contact.form.button}
           color="primary"
           width="parent"
