@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../data/theme";
 
 export const StyledBtnX = styled.button`
+  z-index: ${(p) => p.index && p.index};
   height: ${(p) =>
     p.size === "S"
       ? theme.sizes.buttons.S
@@ -38,19 +39,19 @@ export const StyledBtnX = styled.button`
       p.size === "S"
         ? `${theme.spacernumber}px`
         : p.size === "M"
-        ? `${2*theme.spacernumber}px`
+        ? `${2 * theme.spacernumber}px`
         : p.size === "L"
-        ? `${3*theme.spacernumber}px`
-        : `${4*theme.spacernumber}px`};
+        ? `${3 * theme.spacernumber}px`
+        : `${4 * theme.spacernumber}px`};
   background-color: ${theme.colors.primary};
   border-radius: ${(p) =>
     p.size === "S"
-        ? `${theme.spacernumber}px`
-        : p.size === "M"
-        ? `${2*theme.spacernumber}px`
-        : p.size === "L"
-        ? `${3*theme.spacernumber}px`
-        : `${4*theme.spacernumber}px`};
+      ? `${theme.spacernumber}px`
+      : p.size === "M"
+      ? `${2 * theme.spacernumber}px`
+      : p.size === "L"
+      ? `${3 * theme.spacernumber}px`
+      : `${4 * theme.spacernumber}px`};
   border: none;
   :hover {
     color: ${theme.colors.dark};
@@ -59,9 +60,15 @@ export const StyledBtnX = styled.button`
   }
 `;
 
-const ButtonX = (props) => (
-  <StyledBtnX onClick={props.action} size={props.size} color={props.color}>
-    {props.text}
+const ButtonX = ({ action, size, color, index, text }) => (
+  <StyledBtnX
+    {...[size, color, index]}
+    onClick={action}
+    size={size}
+    color={color}
+    index={index}
+  >
+    {text}
   </StyledBtnX>
 );
 
