@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../data/theme";
 
 export const StyledBtnX = styled.button`
+z-index : ${(p) => p.index && p.index};
   height: ${(p) =>
     p.size === "S"
       ? theme.sizes.buttons.S
@@ -60,7 +61,7 @@ export const StyledBtnX = styled.button`
 `;
 
 const ButtonX = (props) => (
-  <StyledBtnX onClick={props.action} size={props.size} color={props.color}>
+  <StyledBtnX onClick={props.action} size={props.size} color={props.color} index={props.index}>
     {props.text}
   </StyledBtnX>
 );

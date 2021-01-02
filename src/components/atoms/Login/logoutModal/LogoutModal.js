@@ -17,12 +17,8 @@ const LogoutPopUp = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
   top: ${(p) => p.type === "home" && `-${theme.spacer}`};
   left: ${(p) => p.type === "home" && `calc(-100vw + 3 * ${theme.spacer})`};
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
     height: ${theme.sizes.modals.login.height};
@@ -49,10 +45,8 @@ const LogoutLogoContainer = styled.div`
   @media (min-width: ${theme.viewport.tablet}) {
     width: ${theme.sizes.modals.login.width};
     height: ${theme.spacer};
-  }
-  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
     position:relative;
-    top:24px
+    top:48px
   }
 `;
 const LogoutTextContainer = styled.div`
@@ -60,10 +54,27 @@ const LogoutTextContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh -  ${theme.sizes.buttons.XL});
-  justify-content: center;
+  width: ${theme.sizes.modals.mobile.width};
+  height: ${theme.sizes.modals.mobile.height};
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: ${(p) => p.type === "home" && `-${theme.spacer}`};
+  left: ${(p) => p.type === "home" && `calc(-100vw + 3 * ${theme.spacer})`};
   @media (min-width: ${theme.viewport.tablet}) {
-    height: calc(${theme.sizes.modals.login.width} - ${theme.sizes.buttons.M});
+    width: ${theme.sizes.modals.login.width};
+    height: ${theme.sizes.modals.login.height};
+    position: sticky;
+    right: 0px;
+    position: ${(p) => p.type !== "home" && "absolute"};
+    left: ${(p) => p.type !== "home" && "auto"};
+    right: ${(p) => p.type !== "home" && "0"};
+    top: ${(p) => p.type !== "home" && `0`};
+    box-sizing: border-box;
+  }
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
+    height:500px
   }
 `;
 
@@ -79,6 +90,7 @@ const LogoutModal = (props) => {
           size="XL"
           text="X"
           color="light"
+          index="3"
         />
       </LogoutLogoContainer>
       <LogoutTextContainer>
