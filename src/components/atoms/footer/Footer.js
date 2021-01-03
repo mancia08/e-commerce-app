@@ -49,6 +49,10 @@ const FooterLink = styled.a`
     color: inherit;
     text-decoration: none;
   }
+  :link, :visited, :link:active, :visited:active{
+    color: inherit;
+    text-decoration: none;
+  }
   :hover {
     cursor: pointer;
   }

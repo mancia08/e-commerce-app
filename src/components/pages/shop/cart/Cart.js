@@ -31,8 +31,11 @@ const SuperNavImg = styled.img`
 const StyledCartGridSection = styled.div`
   display: grid;
   gap: ${theme.spacer};
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(75%, 1fr));
   justify-items: center;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+  }
 `;
 
 const StyledCartLastSection = styled.div`

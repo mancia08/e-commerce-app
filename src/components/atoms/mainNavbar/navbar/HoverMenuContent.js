@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { shopData } from "../../../../data/shopData";
 import Text from "./../../../subatoms/text/Text";
 import styled from "styled-components";
+import {theme} from '../../../../data/theme'
 
 const StyledHoverWrapper = styled.div`
   display: none;
@@ -26,7 +27,11 @@ const StyledHoverItems = styled.div`
 
 const HoverLink = styled(Link)`
   a {
-    color: inherit;
+    color: ${theme.colors.dark};
+    text-decoration: none;
+  }
+  :link, :visited, :link:active, :visited:active{
+    color: ${theme.colors.dark};
     text-decoration: none;
   }
   :hover {
