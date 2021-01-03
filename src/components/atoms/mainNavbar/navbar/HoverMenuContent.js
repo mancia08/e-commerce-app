@@ -5,24 +5,35 @@ import Text from "./../../../subatoms/text/Text";
 import styled from "styled-components";
 
 const StyledHoverWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 const StyledHoverItems = styled.div`
-  display: flex;
-  height: 80%;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 `;
 
 const HoverMenuContent = (props) => (
   <>
     {shopData.map((category, categoryIndex) => (
       <StyledHoverWrapper key={categoryIndex}>
-        <Text color="light" size="M" text={category.category} />
+        <Text
+          color="light"
+          size="M"
+          text={category.category}
+          type={props.type}
+        />
         <StyledHoverItems key={categoryIndex}>
           {category.shops.map((shop, shopIndex) => (
             <Link
@@ -30,7 +41,13 @@ const HoverMenuContent = (props) => (
               to={`/shop/category${categoryIndex + 1}/${shopIndex}`}
               onClick={props.action}
             >
-              <Text color="dark" size="S" key={shopIndex} text={shop.name} />
+              <Text
+                color="dark"
+                size="S"
+                key={shopIndex}
+                text={shop.name}
+                type={props.type}
+              />
             </Link>
           ))}
         </StyledHoverItems>

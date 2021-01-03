@@ -12,7 +12,7 @@ const StyledFooter = styled.div`
   flex-direction: column;
   text-align: center;
   @media (min-width: ${theme.viewport.tablet}) {
-    height: 35vw;
+    min-height: 35vw;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -36,6 +36,11 @@ const StyledFooterColumn = styled.div`
   width: 40vw;
   :nth-child(2) {
     align-self: flex-end;
+  }
+  @media (min-width: ${theme.viewport.tablet}) {
+    :nth-child(2) {
+      align-self: auto;
+    }
   }
 `;
 const Footer = () => (

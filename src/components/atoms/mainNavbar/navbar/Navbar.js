@@ -20,20 +20,28 @@ export const LogoImg = styled.img`
 
 const StyledNav = styled.div`
   display: flex;
-  justify-content: flex-end;
-  background-color: ${theme.colors.light};
-  z-index:10;
-  @media (max-width: ${theme.viewport.tablet}) {
-    background-color: ${theme.colors.primary};
-    display: flex;
-    height: calc(100vh - 3 * ${theme.sizes.navbar});
-    flex-direction: column;
+  flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     gap: calc(4 * ${theme.spacer});
-    margin-top: calc(4 * ${theme.spacer});
-    ${LogoLink} {
+  height: calc(100vh - 3 * ${theme.sizes.navbar});
+  background-color: ${theme.colors.primary};
+  z-index:10;
+  margin-top: calc(4 * ${theme.spacer});
+  ${LogoLink} {
       display: none;
+    }
+  @media (min-width: ${theme.viewport.tablet}) {
+    background-color: ${theme.colors.light};
+    height: ${theme.sizes.navbar};
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: none;
+    margin-top: 0;
+    ${LogoLink} {
+      display: block;
     }
   }
 `;
