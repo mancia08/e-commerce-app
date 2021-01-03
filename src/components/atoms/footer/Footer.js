@@ -43,6 +43,17 @@ const StyledFooterColumn = styled.div`
     }
   }
 `;
+
+const FooterLink = styled.a`
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 const Footer = () => (
   <>
     <Hr type="footer" />
@@ -60,7 +71,7 @@ const Footer = () => (
               text={column.title}
             />
             {column.links.map((line, index) => (
-              <a key={index} href={line.link} target="_blank">
+              <FooterLink key={index} href={line.link} target="_blank">
                 <Text
                   key={index}
                   color="dark"
@@ -68,7 +79,7 @@ const Footer = () => (
                   align="center"
                   text={line.name}
                 />
-              </a>
+              </FooterLink>
             ))}
           </StyledFooterColumn>
         ))}
