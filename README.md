@@ -27,10 +27,8 @@
 
 ## :seedling: Some history
 ### Who are we?
-We are [Carlos](https://www.linkedin.com/in/carlosaore/),
-[Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/),
-[Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/) and
-[Mancini](https://www.linkedin.com/in/mancia08/), 4 students of [Wild Code School](https://www.wildcodeschool.com/). At the moment these lines are being written, we are attending a ["Web developer"](https://www.wildcodeschool.com/en-GB/trainings/web-developer-full-time) bootcamp that is 5 months long and is teaching us all the technical know-how and knowledge to develop interactive websites using HTML, CSS, JavaScript, so we can take a React and Node JS development project to completion.
+We are [Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/), [Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/),
+[Mancini](https://www.linkedin.com/in/mancia08/) and [Carlos](https://www.linkedin.com/in/carlosaore/), 4 students of [Wild Code School](https://www.wildcodeschool.com/). At the moment these lines are being written, we are attending a ["Web developer"](https://www.wildcodeschool.com/en-GB/trainings/web-developer-full-time) bootcamp that is 5 months long and is teaching us all the technical know-how and knowledge to develop interactive websites using HTML, CSS, JavaScript, so we can take a React and Node JS development project to completion.
 
 ### Why did we create this?
 After learning the fundamentals of React, we were asked to team up and develop a simple web application with a few constraints. Basically, we had to use React for the user interface, use data that would be fetched from an API of our choosing and we had close to 48 hours of allotted time in our agendas distributed in two months of calendar time. Other than that, we were given free rein to do whatever kind of app that we wanted in whatever style we wanted.
@@ -41,11 +39,10 @@ Despite coming from different backgrounds and from all over the world, we became
 The project went very well, we were able to work together with little to no conflict and we actually succeeded in creating the web app that we wanted. We also learned a lot, both in term of coding know-how and about working in a web development project. We started using Scrum for the project management and we even completed two short sprints but then we decided that it wasn't a good fit for us, as a team of students and for such a time frame. So, even if we all liked very much to work with Scrum, we decided to switch to Kanban for the final leg of the project. We don't expect to always be switching the project management approach but, in this case, we felt that it was justified and it's also quite normal for students to want to experiment new things.
 
 All in all, it was a very fun project, we learned a lot from it, and we will all treasure the moments spent together working as a team. We hope that you will like it and if you have any questions, comments or you want to reach us, you can do so thru our Linked In profiles:
-- [Carlos Orellana](https://www.linkedin.com/in/carlosaore/)
 - [Habrykava Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/)
 - [Luri Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/)
 - [Mancini](https://www.linkedin.com/in/mancia08/)
-
+- [Carlos Orellana](https://www.linkedin.com/in/carlosaore/)
 
 
 ## :lock: Constraints
