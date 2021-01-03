@@ -20,47 +20,52 @@ export const LogoImg = styled.img`
 
 const StyledNav = styled.div`
   display: flex;
-  justify-content: flex-end;
-  background-color: ${theme.colors.light};
-  z-index:10;
-  @media (max-width: ${theme.viewport.tablet}) {
-    background-color: ${theme.colors.primary};
-    display: flex;
-    height: calc(100vh - 3 * ${theme.sizes.navbar});
-    flex-direction: column;
+  flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     gap: calc(4 * ${theme.spacer});
-    margin-top: calc(4 * ${theme.spacer});
-    ${LogoLink} {
+  height: calc(100vh - 3 * ${theme.sizes.navbar});
+  background-color: ${theme.colors.primary};
+  z-index:10;
+  margin-top: calc(4 * ${theme.spacer});
+  ${LogoLink} {
       display: none;
+    }
+  @media (min-width: ${theme.viewport.tablet}) {
+    background-color: ${theme.colors.light};
+    height: ${theme.sizes.navbar};
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: none;
+    margin-top: 0;
+    ${LogoLink} {
+      display: block;
     }
   }
 `;
 
 const StyledLink = styled(NavLink)`
-  color: ${theme.colors.dark};
+  color: ${theme.colors.light};
   box-sizing: border-box;
-  font-size: ${theme.fonts.HoverMenu};
-  width: 10%;
+  font-size: ${theme.fonts.sizes.XL};
+  width: 100vw;
   text-align: center;
-  line-height: ${theme.sizes.navbar};
+  line-height: calc( 9 * ${theme.spacer} );
   text-decoration: none;
-  &.active {
-    color: ${theme.colors.primary};
-  }
-  :hover {
+  @media (min-width: ${theme.viewport.tablet}) {
+    color: ${theme.colors.dark};
+    font-size: ${theme.fonts.sizes.M};
+    line-height: ${theme.sizes.navbar};
+    width: 10%;
+    &.active {
+      color: ${theme.colors.primary};
+    }
+    :hover {
     color: ${theme.colors.light};
     background-color: ${theme.colors.primary};
   }
-  @media (max-width: ${theme.viewport.tablet}) {
-    color: ${theme.colors.light};
-    font-size: ${theme.fonts.sizes.XL};
-    line-height: calc( 9 * ${theme.spacer} );
-    width: 100vw;
-    &.active {
-      color: ${theme.colors.light};
-    }
   }
 `;
 

@@ -24,8 +24,8 @@ export const SubMenu = styled.div`
 `;
 
 const HoverMenu = ({over, out, action}) => (
-  <SubMenu {...[over,out]}onMouseOver={over} onMouseOut={out}>
-    <HoverMenuContent {...action} action={action} />
+  <SubMenu className="fuck-you" {...[over,out]}onMouseOver={over} onMouseOut={out}>
+    <HoverMenuContent {...[action]} action={action} type="mobileHover"/>
   </SubMenu>
 );
 
