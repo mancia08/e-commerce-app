@@ -62,7 +62,7 @@ const Cart = ({ textColor, type }) => {
 
   const findItem = (arr, id) => arr.find((el) => el.id === id);
 
-  const findQuontity = (arr, id) => arr.filter((el) => el.id === id);
+  const findQuantity = (arr, id) => arr.filter((el) => el.id === id);
 
   const onIncrease = (e) => {
     let element = findItem(context.cart, Number(e.target.id));
@@ -80,6 +80,13 @@ const Cart = ({ textColor, type }) => {
     context.setCart(copyOfItems);
   };
 
+  const deleteItem = (e) => {
+    let element = findItem(context.cart, Number(e.target.id));
+    let copyOfItems=[]
+    context.cart.map(item => item.name!==element.name && copyOfItems.push(item))
+    context.setCart(copyOfItems);
+  };
+
   const renderAddedItems = (arr) => {
     return arr
       .filter((value, index, self) => self.indexOf(value) === index)
@@ -92,8 +99,8 @@ const Cart = ({ textColor, type }) => {
             price={`Price ${price}`}
             increase={onIncrease}
             decrease={onRemoveClick}
-            remove={onRemoveClick}
-            quantity={findQuontity(context.cart, id).length}
+            remove={deleteItem}
+            quantity={findQuantity(context.cart, id).length}
             id={id}
           />
         );
