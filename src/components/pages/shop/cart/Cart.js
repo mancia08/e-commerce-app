@@ -33,8 +33,9 @@ const StyledCartGridSection = styled.div`
   gap: ${theme.spacer};
   grid-template-columns: repeat(auto-fit, minmax(75%, 1fr));
   justify-items: center;
+  margin: ${theme.spacer} auto calc(5 * ${theme.spacer});
   @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 `;
 
@@ -43,7 +44,7 @@ const StyledCartLastSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${theme.spacer};
-  margin-bottom: ${theme.spacer};
+  margin: ${theme.spacer} auto;
   div {
     display: flex;
     gap: ${theme.spacer};
@@ -85,8 +86,10 @@ const Cart = ({ textColor, type }) => {
 
   const deleteItem = (e) => {
     let element = findItem(context.cart, Number(e.target.id));
-    let copyOfItems=[]
-    context.cart.map(item => item.name!==element.name && copyOfItems.push(item))
+    let copyOfItems = [];
+    context.cart.map(
+      (item) => item.name !== element.name && copyOfItems.push(item)
+    );
     context.setCart(copyOfItems);
   };
 
@@ -148,7 +151,12 @@ const Cart = ({ textColor, type }) => {
         closeTimeoutMS={500}
       >
         {!context.cart.length ? (
-          <Text size="L" color="primary" text={textData.shop.cart.empty} align="center" />
+          <Text
+            size="L"
+            color="primary"
+            text={textData.shop.cart.empty}
+            align="center"
+          />
         ) : (
           <StyledCartGridSection>
             {renderAddedItems(context.cart)}
