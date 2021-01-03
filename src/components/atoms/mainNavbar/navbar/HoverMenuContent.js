@@ -24,6 +24,16 @@ const StyledHoverItems = styled.div`
   }
 `;
 
+const HoverLink = styled(Link)`
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 const HoverMenuContent = (props) => (
   <>
     {shopData.map((category, categoryIndex) => (
@@ -36,7 +46,7 @@ const HoverMenuContent = (props) => (
         />
         <StyledHoverItems key={categoryIndex}>
           {category.shops.map((shop, shopIndex) => (
-            <Link
+            <HoverLink
               key={shopIndex}
               to={`/shop/category${categoryIndex + 1}/${shopIndex}`}
               onClick={props.action}
@@ -48,7 +58,7 @@ const HoverMenuContent = (props) => (
                 text={shop.name}
                 type={props.type}
               />
-            </Link>
+            </HoverLink>
           ))}
         </StyledHoverItems>
       </StyledHoverWrapper>
