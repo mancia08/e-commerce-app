@@ -54,6 +54,8 @@ export const StyledBtn = styled.button`
       ? `calc(3 * ${theme.spacer})`
       : `calc(4 * ${theme.spacer})`};
   border: 1px solid ${theme.colors.primary};
+  /* animation */
+  transition: 0.25s;
   :hover {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.light};
