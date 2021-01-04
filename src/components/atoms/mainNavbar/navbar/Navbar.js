@@ -42,6 +42,7 @@ const StyledNav = styled.div`
     align-items: center;
     gap: none;
     margin-top: 0;
+    padding-right: calc(5 * ${theme.spacer});
     ${LogoLink} {
       display: block;
     }
