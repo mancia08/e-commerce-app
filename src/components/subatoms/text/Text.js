@@ -30,14 +30,19 @@ const StyledText = styled.p`
       ? theme.fonts.sizes.L
       : theme.fonts.sizes.XL};
   text-align: ${(p) => (p.align === "center" ? "center" : "left")};
-  background-color: ${(p) => p.type === "map" && theme.colors.primary};
+  background-color: ${(p) => 
+  p.type === "map" 
+    ? theme.colors.primary
+    : p.type === "closing"
+    ? theme.colors.secondary
+    : "transparent"};
   padding: ${(p) => p.type === "map" && theme.spacer};
   @media (min-width: ${theme.viewport.tablet}) {
     display: block;
   }
 `;
 
-const Text = ({ type, color, size, align, id, text }) => (
+const Text = ({ type, color, size, align, id, text}) => (
   <StyledText
     {...[type, color, size, align, id]}
     color={color}

@@ -45,6 +45,8 @@ export const textData = {
     title1: "NORRIS Inc.",
     title2: "BUY LOCAL",
     title3: "FROM THE SAFETY OF YOUR HOME",
+    // footer header
+    title4: "BUY LOCAL, FROM THE SAFETY OF YOUR HOME",
   },
   shop: {
     cart: {
@@ -117,10 +119,10 @@ export const textData = {
       icon: <GithubIcon />,
       title: "Github",
       links: [
-        { name: "Habrykava Yauheniya", link: "https://github.com/gabriellji" },
-        { name: "Luri Jacopo", link: "https://github.com/JacopoLuri" },
+        { name: "Yauheniya Habrykava", link: "https://github.com/gabriellji" },
+        { name: "Jacopo Luri", link: "https://github.com/JacopoLuri" },
         { name: "Mancini", link: "https://github.com/mancia08" },
-        { name: "Orellana Carlos", link: "https://github.com/carlosaore" },
+        { name: "Carlos Orellana", link: "https://github.com/carlosaore" },
       ],
     },
     {
@@ -128,32 +130,43 @@ export const textData = {
       title: "Linkedin",
       links: [
         {
-          name: "Habrykava Yauheniya",
+          name: "Yauheniya Habrykava",
           link: "https://www.linkedin.com/in/evgeniya-gabrikova/",
         },
         {
-          name: "Luri Jacopo",
+          name: "Jacopo Luri",
           link: "https://www.linkedin.com/in/jacopo-luri-1111081a2/",
         },
         { name: "Mancini", link: "https://www.linkedin.com/in/mancia08/" },
         {
-          name: "Orellana Carlos",
+          name: "Carlos Orellana",
           link: "https://www.linkedin.com/in/carlosaore/",
         },
       ],
     },
     {
       icon: <InfoIcon />,
-      title: "Some other information",
+      title: "Norris Inc. Project",
       links: [
         {
           name: "GitHub Repo",
           link: "https://github.com/Gabriellji/e-commerce-app",
         },
-        { name: "React Documentation", link: "https://reactjs.org/docs/getting-started.html" },
-        { name: "Styled Components Documentation", link: "https://styled-components.com/docs" },
-        { name: "React Router Documentation", link: "https://reactrouter.com/web/guides/quick-start" }
+        {
+          name: "React Documentation",
+          link: "https://reactjs.org/docs/getting-started.html",
+        },
+        {
+          name: "Styled Components Documentation",
+          link: "https://styled-components.com/docs",
+        },
+        {
+          name: "React Router Documentation",
+          link: "https://reactrouter.com/web/guides/quick-start",
+        },
       ],
     },
   ],
+  closing : "made with LOVE for Wild Code School"
 };
+
