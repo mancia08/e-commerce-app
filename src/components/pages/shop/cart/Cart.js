@@ -98,7 +98,7 @@ const Cart = ({ textColor, type }) => {
             key={i}
             name={name.split(" ").slice(0, 3).join(" ")}
             image={imageL}
-            price={`Price ${price}`}
+            price={`Price ${price.toFixed(2)}`}
             increase={onIncrease}
             decrease={onRemoveClick}
             remove={deleteItem}
