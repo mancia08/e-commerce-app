@@ -56,14 +56,8 @@ const Cart = ({ textColor, type }) => {
   const context = useContext(MyContext);
   const shopContext = useContext(ShopContext);
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
-
   if (context.payment) {
-    toggleModal();
+    shopContext.cartToggle();
   }
 
   const findItem = (arr, id) => arr.find((el) => el.id === id);
@@ -131,7 +125,7 @@ const Cart = ({ textColor, type }) => {
 
   return (
     <>
-      <StyledCart onClick={toggleModal}>
+      <StyledCart onClick={shopContext.cartToggle}>
         {type !== "mobile" && (
           <Text color={textColor} size="S" text={`${getTotalPrice()}£`} />
         )}
@@ -145,8 +139,8 @@ const Cart = ({ textColor, type }) => {
         )}
       </StyledCart>
       <Modal
-        isOpen={isOpen}
-        onRequestClose={toggleModal}
+        isOpen={shopContext.state.cartShown}
+        onRequestClose={shopContext.cartToggle}
         contentLabel="shopping-cart"
         className="mymodal"
         overlayClassName="myoverlay"
@@ -169,7 +163,7 @@ const Cart = ({ textColor, type }) => {
           <Button
             size="M"
             color="primary"
-            action={toggleModal}
+            action={shopContext.cartToggle}
             text={textData.shop.cart.exit}
             width="parent"
           />
