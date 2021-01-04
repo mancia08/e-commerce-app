@@ -3,6 +3,10 @@
 > These are ressources and general guidelines that we decided to follow during the development of our web application.
 
 ## Guidelines
+...
+
+## Architecture
+<img width=100% src="./src/styles/images/app.png?raw=true">
 
 ## APIs
 The following APIs are used in the web application:
@@ -17,4 +21,6 @@ The following APIs are used in the web application:
 | [Facebook Login](https://developers.facebook.com/docs/facebook-login/ "https://developers.facebook.com/docs/facebook-login/") | ”_A secure, fast, and convenient way for users to log into your app, and for your app to ask for permissions to access data_” |
 | [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in#add_a_google_sign-in_button) | This API provides a fast and secure way for users to sign in and log in to the webpage, and for it to identify the user. |
 | eBay API |  |
+
+<img width=100% src="./src/styles/images/Untitled%202.png?raw=true">
 
