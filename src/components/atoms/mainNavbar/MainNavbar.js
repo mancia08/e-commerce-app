@@ -45,37 +45,33 @@ const NavContainer = styled.div`
 `;
 
 const MainNavbar = () => {
-
   const context = useContext(ShopContext);
 
   return (
     <>
-      {
-        !context.state.paymentOpen && (
-          <>
-            <MobileMainNavContainer>
-              <MobileLogo path="/home" action={context.closeLogin} />
-              <SuperNav type="mobile" />
-              <Burger action={context.toggleMobileMenu} />
-              {context.state.mobileMenu && (
-                <MobileMenu path="/home" action={context.closeLogin} />
-              )}
-            </MobileMainNavContainer>
+      {!context.state.paymentOpen && (
+        <>
+          <MobileMainNavContainer>
+            <MobileLogo path="/home" action={context.closeLogin} />
+            <SuperNav type="mobile" />
+            <Burger action={context.toggleMobileMenu} />
+            {context.state.mobileMenu && (
+              <MobileMenu path="/home" action={context.closeLogin} />
+            )}
+          </MobileMainNavContainer>
 
-            <SuperNavToggleContainer>
-              <SuperNav />
-              <Hr />
-            </SuperNavToggleContainer>
+          <SuperNavToggleContainer>
+            <SuperNav />
+            <Hr />
+          </SuperNavToggleContainer>
 
-            <NavContainer>
-              <Navbar />
-            </NavContainer>
-          </>
-
-        )
-      }
+          <NavContainer>
+            <Navbar />
+          </NavContainer>
+        </>
+      )}
     </>
-  )
+  );
 };
 
 export default MainNavbar;

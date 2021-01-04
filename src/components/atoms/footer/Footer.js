@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { theme } from "../../../data/theme";
 import Text from "../../subatoms/text/Text";
 import Hr from "../../subatoms/hr/Hr";
-import Logo from "../../subatoms/logo/Logo";
 import { textData } from "../../../data/textData";
+import FooterHeader from "./FooterHeader";
 
 const StyledFooter = styled.div`
   background-color: ${theme.colors.light};
@@ -12,7 +12,6 @@ const StyledFooter = styled.div`
   flex-direction: column;
   text-align: center;
   @media (min-width: ${theme.viewport.tablet}) {
-    min-height: 35vw;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -24,11 +23,9 @@ const FooterTextContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: ${theme.sizes.buttons.M};
-  padding-top: calc(${theme.sizes.buttons.M} / 2);
+  background-color: ${theme.colors.secondary};
   @media (min-width: ${theme.viewport.tablet}) {
     flex-direction: row;
-    padding-top: calc(${theme.sizes.buttons.M} / 4);
-    margin-bottom: calc(${theme.sizes.buttons.M} / 2);
   }
 `;
 
@@ -61,8 +58,9 @@ const FooterLink = styled.a`
 const Footer = () => (
   <>
     <Hr type="footer" />
+    <FooterHeader />
+    <Hr type="footer" />
     <StyledFooter>
-      <Logo type="footer" />
       <FooterTextContainer>
         {textData.footer.map((column, index) => (
           <StyledFooterColumn key={index}>
@@ -88,6 +86,7 @@ const Footer = () => (
           </StyledFooterColumn>
         ))}
       </FooterTextContainer>
+      <Text color="dark" size="XS" align="center" text={textData.closing} type="closing" />
     </StyledFooter>
   </>
 );

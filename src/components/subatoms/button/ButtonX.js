@@ -53,6 +53,8 @@ export const StyledBtnX = styled.button`
       ? `${3 * theme.spacernumber}px`
       : `${4 * theme.spacernumber}px`};
   border: none;
+  /* animation */
+  transition: 0.25s;
   :hover {
     color: ${theme.colors.dark};
     background-color: ${theme.colors.light};
