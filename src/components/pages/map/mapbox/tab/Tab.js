@@ -17,6 +17,7 @@ const StyledListing = styled.div`
 const StyledAddress = styled.div`
   display: flex;
   justify-content: flex-start;
+  gap:${theme.spacer};
   border-bottom: 1px solid ${theme.colors.primary};
   padding-bottom: ${theme.spacer};
 `;
