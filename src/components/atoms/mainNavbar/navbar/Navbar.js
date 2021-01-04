@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 import {SubMenu} from './HoverMenu'
 import logo from "./../../../../styles/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
-import styled from 'styled-components'
-import {theme} from '../../../../data/theme'
+import styled from "styled-components";
+import { theme } from "../../../../data/theme";
 
 export const LogoLink = styled(NavLink)`
   margin-right: auto;
@@ -15,7 +15,9 @@ export const LogoLink = styled(NavLink)`
 export const LogoImg = styled.img`
   width: auto;
   height: ${theme.sizes.navbar};
-  @media (min-width: ${theme.viewport.tablet}) {padding: 0 8px}
+  @media (min-width: ${theme.viewport.tablet}) {
+    padding: 0 8px;
+  }
 `;
 
 const StyledNav = styled.div`
@@ -85,11 +87,7 @@ const HoverLink = styled(StyledLink)`
   }
 `;
 
-
-
-
 const Navbar = () => {
-
   const context = useContext(ShopContext);
 
   const [hover, setHover] = useState(false);
@@ -97,38 +95,34 @@ const Navbar = () => {
   const hovering = () => setHover(true);
   const notHovering = () => setHover(false);
 
-    return (
-          <>
-            <StyledNav onLoad={context.navbarToggle}>
-              <LogoLink to="/home" onClick={context.closeLogin}>
-                <LogoImg src={logo} alt="logo" />
-              </LogoLink>
-              <StyledLink to="/home" onClick={context.closeLogin}>
-                {textData.navbar.home}
-              </StyledLink>
-              <HoverLink
-                hovered={hover}
-                to="/shop"
-                onClick={context.closeLogin}
-              >
-                {textData.navbar.first}
-              </HoverLink>
+  return (
+    <>
+      <StyledNav onLoad={context.navbarToggle}>
+        <LogoLink to="/home" onClick={context.closeLogin}>
+          <LogoImg src={logo} alt="logo" />
+        </LogoLink>
+        <StyledLink to="/home" onClick={context.closeLogin}>
+          {textData.navbar.home}
+        </StyledLink>
+        <HoverLink hovered={hover} to="/shop" onClick={context.closeLogin}>
+          {textData.navbar.first}
+        </HoverLink>
 
-              <HoverMenu
-                over={hovering}
-                out={notHovering}
-                action={context.closeLogin}
-              />
+        <HoverMenu
+          over={hovering}
+          out={notHovering}
+          action={context.closeLogin}
+        />
 
-              <StyledLink to="/map" onClick={context.closeLogin}>
-              {textData.navbar.second}
-              </StyledLink>
-              <StyledLink to="/contact" onClick={context.closeLogin}>
-              {textData.navbar.third}
-              </StyledLink>
-            </StyledNav>
-          </>
-    );
-}
+        <StyledLink to="/map" onClick={context.closeLogin}>
+          {textData.navbar.second}
+        </StyledLink>
+        <StyledLink to="/contact" onClick={context.closeLogin}>
+          {textData.navbar.third}
+        </StyledLink>
+      </StyledNav>
+    </>
+  );
+};
 
 export default Navbar;

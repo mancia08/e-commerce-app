@@ -4,10 +4,11 @@ import logo from "../../../styles/images/logonorris.png";
 import { theme } from "../../../data/theme";
 
 export const LogoImg = styled.img`
-  width: ${(p) => (p.type === "footer" ? "100px" : "auto")};
+  /* width: ${(p) => (p.type === "footer" ? "100px" : "auto")}; */
+  width: auto;
   margin-top: ${theme.spacer};
-  margin: ${(p) => p.type === "footer" && "0 auto"};
-  height: ${(p) => (p.type === "footer" ? "100px" : theme.sizes.navbar)};
+  margin: ${(p) => p.type === "footer" && "0 0"};
+  height: ${(p) => (p.type === "footer" ? "60px" : theme.sizes.navbar)};
 `;
 
 const Logo = ({type}) => (
