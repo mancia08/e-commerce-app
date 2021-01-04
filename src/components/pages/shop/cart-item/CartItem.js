@@ -16,13 +16,18 @@ const StyledCartItem = styled.div`
   justify-content: space-between;
   gap: ${theme.spacer};
   img {
-    width: 80%;
+    width: 60%;
   }
   div {
     display: flex;
     gap: ${theme.spacer};
   }
-`;
+  @media (min-width: ${theme.viewport.tablet}) {
+    img {
+    width: 80%;
+  }
+  }
+`; 
 
 const CartItem = ({
   id,

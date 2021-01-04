@@ -33,9 +33,9 @@ export default MyAPIProvider;
    /* componentDidMount() {
     const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [
-      { id: 181033, data: [] }, //set the category. GARDENING
-      { id: 15032, data: [] }, //set the category. PHONES
-      { id: 63861, data: [] }, //set the category. CLOTHES
+      { id: 10968, data: [] }, //JEWELRY
+      { id: 175759, data: [] }, //CLOTHES
+      { id: 32852, data: [] }, //ELECTRONICS
     ];
     let finalState = []
     const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //USE CHROME CORS EXTENSION

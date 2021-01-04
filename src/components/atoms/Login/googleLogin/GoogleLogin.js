@@ -32,7 +32,6 @@ const GoogleLogin = () => {
   const context = useContext(ShopContext);
 
   const onSuccess = (res) => {
-    console.log("Login Success: currentUser:", res.profileObj);
     //alert(`Logged in successfully welcome ${res.profileObj.name} 😍.`);
     refreshTokenSetup(res);
     const name = res.profileObj.name;
@@ -46,9 +45,8 @@ const GoogleLogin = () => {
     });
   };
 
-  const onFailure = (res) => {
-    console.log("Login failed: res:", res);
-    //alert(`Failed to login. 😢`);
+  const onFailure = () => {
+    alert(`Failed to login. 😢`)
   };
 
   const { signIn } = useGoogleLogin({
@@ -58,8 +56,6 @@ const GoogleLogin = () => {
     isSignedIn: true,
     accessType: "offline",
   });
-
-  // console.log();
 
   return (
     <StyledGoogleLogin>

@@ -6,7 +6,7 @@ const ContactTitleButton = (props) => (
     <Text color="dark" size="M" text={props.heading} align="center" />
     <Button
       action={props.action}
-      size="S"
+      size="M"
       text={props.text}
       color="primary"
       width="parent"

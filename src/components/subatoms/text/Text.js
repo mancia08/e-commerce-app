@@ -1,9 +1,10 @@
 import React from "react";
 /* import { StyledText } from "../../../styles/styles"; */
-import styled from 'styled-components'
-import {theme} from '../../../data/theme'
+import styled from "styled-components";
+import { theme } from "../../../data/theme";
 
 const StyledText = styled.p`
+  display: ${(p) => p.type === "mobileHover" && "none"};
   color: ${(p) =>
     p.color === "primary"
       ? theme.colors.primary
@@ -28,20 +29,17 @@ const StyledText = styled.p`
       : p.size === "L"
       ? theme.fonts.sizes.L
       : theme.fonts.sizes.XL};
-  text-align: ${(p) =>
-    p.align === "center"
-      ? "center"
-      : "left"};
-  background-color: ${(p) =>
-    p.type === "map"
-      && theme.colors.primary};
-  padding: ${(p) =>
-    p.type === "map"
-  && theme.spacer};
+  text-align: ${(p) => (p.align === "center" ? "center" : "left")};
+  background-color: ${(p) => p.type === "map" && theme.colors.primary};
+  padding: ${(p) => p.type === "map" && theme.spacer};
+  @media (min-width: ${theme.viewport.tablet}) {
+    display: block;
+  }
 `;
 
-const Text = ({type, color, size, align, id, text}) => (
-  <StyledText {...[type,color,size, align, id]}
+const Text = ({ type, color, size, align, id, text }) => (
+  <StyledText
+    {...[type, color, size, align, id]}
     color={color}
     size={size}
     align={align}

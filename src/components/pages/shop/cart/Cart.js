@@ -31,8 +31,12 @@ const SuperNavImg = styled.img`
 const StyledCartGridSection = styled.div`
   display: grid;
   gap: ${theme.spacer};
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(75%, 1fr));
   justify-items: center;
+  margin: ${theme.spacer} auto calc(5 * ${theme.spacer});
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 `;
 
 const StyledCartLastSection = styled.div`
@@ -40,7 +44,7 @@ const StyledCartLastSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${theme.spacer};
-  margin-bottom: ${theme.spacer};
+  margin: ${theme.spacer} auto;
   div {
     display: flex;
     gap: ${theme.spacer};
@@ -62,7 +66,7 @@ const Cart = ({ textColor, type }) => {
 
   const findItem = (arr, id) => arr.find((el) => el.id === id);
 
-  const findQuontity = (arr, id) => arr.filter((el) => el.id === id);
+  const findQuantity = (arr, id) => arr.filter((el) => el.id === id);
 
   const onIncrease = (e) => {
     let element = findItem(context.cart, Number(e.target.id));
@@ -80,6 +84,15 @@ const Cart = ({ textColor, type }) => {
     context.setCart(copyOfItems);
   };
 
+  const deleteItem = (e) => {
+    let element = findItem(context.cart, Number(e.target.id));
+    let copyOfItems = [];
+    context.cart.map(
+      (item) => item.name !== element.name && copyOfItems.push(item)
+    );
+    context.setCart(copyOfItems);
+  };
+
   const renderAddedItems = (arr) => {
     return arr
       .filter((value, index, self) => self.indexOf(value) === index)
@@ -92,8 +105,8 @@ const Cart = ({ textColor, type }) => {
             price={`Price ${price}`}
             increase={onIncrease}
             decrease={onRemoveClick}
-            remove={onRemoveClick}
-            quantity={findQuontity(context.cart, id).length}
+            remove={deleteItem}
+            quantity={findQuantity(context.cart, id).length}
             id={id}
           />
         );
@@ -138,7 +151,12 @@ const Cart = ({ textColor, type }) => {
         closeTimeoutMS={500}
       >
         {!context.cart.length ? (
-          <Text size="L" color="primary" text={textData.shop.cart.empty} align="center" />
+          <Text
+            size="L"
+            color="primary"
+            text={textData.shop.cart.empty}
+            align="center"
+          />
         ) : (
           <StyledCartGridSection>
             {renderAddedItems(context.cart)}

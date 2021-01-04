@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { theme } from"../../../../data/theme";
 
 const StyledBurger = styled.button`
-  @media (max-width: ${theme.viewport.tablet}) {
     height: calc(4 * ${theme.spacer});
     width: calc(4 * ${theme.spacer});
     display: flex;
@@ -20,7 +19,6 @@ const StyledBurger = styled.button`
       height: calc(0.5 * ${theme.spacer});
       background-color: ${theme.colors.dark};
       border-radius: calc(1.5 * ${theme.spacer});
-    }
   }
 `;
 

@@ -16,6 +16,7 @@ const StyledMapBox = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${theme.spacer};
+  margin: auto calc(3 * ${theme.spacer}) calc(3 * ${theme.spacer});
   @media (min-width: ${theme.viewport.tablet}) {
     flex-direction: row;
     justify-content: space-evenly;
@@ -23,10 +24,12 @@ const StyledMapBox = styled.div`
 `;
 
 const StyledMapContainer = styled.div`
-  width: 100%;
-  height: 800px;
+  width: 80vw;
+  height: 80vw;
+  margin-bottom: calc(3* ${theme.spacer});
   @media (min-width: ${theme.viewport.tablet}) {
     width: 40%;
+    height: 800px
   }
   .mapboxgl-popup-close-button {
     display: none;

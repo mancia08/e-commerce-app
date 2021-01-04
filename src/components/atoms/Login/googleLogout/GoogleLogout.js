@@ -1,7 +1,7 @@
-import React, { useContext }  from 'react';
-import { ShopContext } from '../../../../context/ShopContext';
-import { useGoogleLogout } from 'react-google-login';
-import { textData } from '../../../../data/textData';
+import React, { useContext } from "react";
+import { ShopContext } from "../../../../context/ShopContext";
+import { useGoogleLogout } from "react-google-login";
+import { textData } from "../../../../data/textData";
 
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
@@ -9,7 +9,7 @@ import { theme } from "../../../../data/theme";
 import ButtonX from "../../../subatoms/button/ButtonX";
 
 const clientId =
-  '589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com';
+  "589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com";
 
 const StyledGoogleLogout = styled.div`
   display: flex;
@@ -27,17 +27,16 @@ const StyledGoogleLogout = styled.div`
 `;
 
 const GoogleLogout = () => {
-
   const context = useContext(ShopContext);
 
   //const shopContext = useContext(ShopContext);
 
   const onLogoutSuccess = (res) => {
-    console.log('Logged out Success');
+    console.log("Logged out Success");
     // alert('Logged out Successfully ✌');
     context.setState({
       ...context.state,
-      googleUser: '',
+      googleUser: "",
       signByGoogle: false,
       isLoggedIn: !context.state.isLoggedIn,
       loginIconClicked: !context.state.loginIconClicked,
@@ -45,7 +44,7 @@ const GoogleLogout = () => {
   };
 
   const onFailure = () => {
-    console.log('Handle failure cases');
+    console.log("Handle failure cases");
   };
 
   const { signOut } = useGoogleLogout({
@@ -69,6 +68,6 @@ const GoogleLogout = () => {
       />
     </StyledGoogleLogout>
   );
-}
+};
 
 export default GoogleLogout;

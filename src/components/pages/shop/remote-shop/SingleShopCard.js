@@ -32,19 +32,16 @@ const SingleShopCard = ({
   onAddItemClick,
   index,
 }) => {
-  //{ imageS, name, price, onClick, path}
   return (
     <StyledSingleShopCard>
       <img src={imageS} alt={name} />
-      <Text color="primary" size="S" text={name} />
+      <Text color="primary" size="M" text={name} />
       <Text
         color="dark"
-        size="XS"
+        size="S"
         text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, obcaecati,
         porro hic magni aliquid error natus velit, nostrum maxime eligendi
-        incidunt illo expedita? Recusandae obcaecati illum eum sequi, ullam
-        veniam vel possimus totam omnis non vitae iste soluta nulla nesciunt
-        autem aliquid maiores ad laborum at sed, laudantium rem cum."
+        incidunt illo expedita? Recusandae obcaecati illum eum sequi."
       />
       {/* Add method here */}
       {/* <Button action={() => onAddClick()} size="S" text="Add to cart" color="primary" /> */}
