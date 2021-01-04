@@ -5,8 +5,7 @@
 ## Guidelines
 
 ## APIs
-The following APIs are used:
-
+The following APIs are used in the web application:
 
 | API | ? |
 |--|--|
@@ -15,6 +14,7 @@ The following APIs are used:
 | [Node.js UUID Library](https://www.npmjs.com/package/uuid "https://www.npmjs.com/package/uuid") | This library is used to create short non-sequential url-friendly unique ids |
 | [Stripe API](https://stripe.com/docs "https://stripe.com/docs") | This API provides a payments infrastructure for the internet. We used it on the payment page. |
 | [React Stripe Checkout Component](https://www.npmjs.com/package/react-stripe-checkout "https://www.npmjs.com/package/react-stripe-checkout") | ”_Stripe's Checkout makes it almost too easy to take people's money. This should make it even easier if you're building a react application._” |
-| [Facebook Login](https://developers.facebook.com/docs/facebook-login/ "https://developers.facebook.com/docs/facebook-login/") | ”A secure, fast, and convenient way for users to log into your app, and for your app to ask for permissions to access data” |
-| Google login |  |
+| [Facebook Login](https://developers.facebook.com/docs/facebook-login/ "https://developers.facebook.com/docs/facebook-login/") | ”_A secure, fast, and convenient way for users to log into your app, and for your app to ask for permissions to access data_” |
+| [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in#add_a_google_sign-in_button) | This API provides a fast and secure way for users to sign in and log in to the webpage, and for it to identify the user. |
 | eBay API |  |
+

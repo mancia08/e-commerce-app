@@ -123,7 +123,7 @@ With the lessons learned from the “mock sprint” (laid out in a retrospective
 At the end of that second sprint we decided to experiment with a leaner and faster project management approach. In truth, we were hesitant to do such a drastic change in the middle of the project, but we also believed that, as students, we are supposed to try and experiment so we can learn from different sources. Also, it could be argued that we were organically following agile principle, welcoming change, simplicity, result oriented, etc. Again, this decision proved to be good because we started to work a lot faster.
 
 ### Tools
-We used Jira as our main tool to assist in the project management and Confluence to store and access all the documentation being produced (master project document, meeting notes, design guidelines, etc.), Slack together with Google Meet as our platform for communication.
+We used Jira as our main tool to assist in the project management and Confluence to store and access all the documentation being produced (master project document, meeting notes, design guidelines, etc.) and Slack together with Google Meet as our platform for communication.
 
 In the final stages of the project we asked our fellow students for feedback so we could fix any small bugs or UI issues that were still present. Having met the critical success factors, the web application was done. We still wanted to add more features, as per all the epics that we created, but we didn’t have anymore time and we also had already surpassed the expectation for the exercise. All in all, we really enjoyed working in this project and as a team, we learned a lot and we are excited about our future as developers.
 
@@ -131,6 +131,7 @@ In the final stages of the project we asked our fellow students for feedback so 
 ## :link: Other information
 - [Coding guidelines and ressources](CGUIDELINES.md)
 - [Design guidelines](DGUIDELINES.md)
+- [Epics](EPICS.md)
 
 ## :cop: License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
