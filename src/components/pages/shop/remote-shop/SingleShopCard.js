@@ -43,8 +43,6 @@ const SingleShopCard = ({
         porro hic magni aliquid error natus velit, nostrum maxime eligendi
         incidunt illo expedita? Recusandae obcaecati illum eum sequi."
       />
-      {/* Add method here */}
-      {/* <Button action={() => onAddClick()} size="S" text="Add to cart" color="primary" /> */}
       <Button
         id={id}
         action={(e) => onClick(e)}

@@ -99,7 +99,7 @@ export const textData = {
     seller: "Partner local store",
     form: {
       first: "Name",
-      second: "ID",
+      second: "Order ID",
       third: "Email",
       forth: "Telephone number",
       fifth: "Message",

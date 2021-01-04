@@ -83,7 +83,7 @@ const SingleShop = ({ category, shop }) => {
                 key={index}
                 imageS={shop.imageL}
                 name={shop.name}
-                price={`${shop.price} £`}
+                price={`${shop.price.toFixed(2)} £`}
                 onClick={toggleModal}
                 onAddItemClick={onAddToCartClick}
               />
