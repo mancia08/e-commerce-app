@@ -7,7 +7,7 @@ import { stores } from "./helper/fakeData";
 import { textData } from "../../../../data/textData";
 import Popup from "./popup/Popup";
 import Tab from "./tab/Tab";
-import Text from "../../../subatoms/text/Text";
+import Text from "../../../atoms/text/Text";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 

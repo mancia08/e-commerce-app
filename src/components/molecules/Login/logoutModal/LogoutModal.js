@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
-import ButtonX from "../../../subatoms/button/ButtonX";
+import ButtonX from "../../../atoms/button/ButtonX";
 import { LogoImg } from "../../mainNavbar/navbar/Navbar";
 import logo from "./../../../../data/images/logonorris.png";
 import { textData } from "../../../../data/textData";

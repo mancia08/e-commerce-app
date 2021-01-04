@@ -1,13 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { MyContext } from "../../../../context/APIContext";
+import { ShopContext } from "../../../../context/ShopContext";
 import Modal from "react-modal";
 import styled from "styled-components";
 
 import CartItem from "../cart-item/CartItem";
-import Text from "../../../subatoms/text/Text";
-import TextCart from "../../../subatoms/text/TextCart";
-import Button from "../../../subatoms/button/Button";
-import Hr from "../../../subatoms/hr/Hr";
+import Text from "../../../atoms/text/Text";
+import TextCart from "../../../atoms/text/TextCart";
+import Button from "../../../atoms/button/Button";
+import Hr from "../../../atoms/hr/Hr";
 import StripeCheckoutButton from "../stripe-button";
 
 import { theme } from "../../../../data/theme";
@@ -53,6 +54,7 @@ const StyledCartLastSection = styled.div`
 
 const Cart = ({ textColor, type }) => {
   const context = useContext(MyContext);
+  const shopContext = useContext(ShopContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -187,7 +189,16 @@ const Cart = ({ textColor, type }) => {
             <Text size="M" color="primary" text={`${getTotalPrice()} £`} />
           </div>
         </StyledCartLastSection>
-        <StripeCheckoutButton price={getTotalPrice()} />
+        {shopContext.state.isLoggedIn ? (
+          <StripeCheckoutButton price={getTotalPrice()} />
+        ) : (
+          <Text
+            align="center"
+            size="L"
+            color="primary"
+            text={textData.shop.checkout.notLogged}
+          />
+        )}
       </Modal>
     </>
   );

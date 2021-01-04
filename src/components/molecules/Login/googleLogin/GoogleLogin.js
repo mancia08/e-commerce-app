@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
-import { ShopContext } from "../../../../context/ShopContext";
-import { useGoogleLogout } from "react-google-login";
+import { useGoogleLogin } from "react-google-login";
 import { textData } from "../../../../data/textData";
+import { ShopContext } from "../../../../context/ShopContext";
+// refresh token
+import { refreshTokenSetup } from "../../../../utils/refreshToken";
 
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
 
-import ButtonX from "../../../subatoms/button/ButtonX";
+import ButtonX from "../../../atoms/button/ButtonX";
 
 const clientId =
   "589936013492-o5h98211ljn5r09rn4ih54203k4973fm.apps.googleusercontent.com";
 
-const StyledGoogleLogout = styled.div`
+const StyledGoogleLogin = styled.div`
   display: flex;
   gap: ${theme.spacer};
   justify-content: center;
@@ -26,48 +28,50 @@ const StyledGoogleLogout = styled.div`
   }
 `;
 
-const GoogleLogout = () => {
+const GoogleLogin = () => {
   const context = useContext(ShopContext);
 
-  //const shopContext = useContext(ShopContext);
-
-  const onLogoutSuccess = (res) => {
-    console.log("Logged out Success");
-    // alert('Logged out Successfully ✌');
+  const onSuccess = (res) => {
+    //alert(`Logged in successfully welcome ${res.profileObj.name} 😍.`);
+    refreshTokenSetup(res);
+    const name = res.profileObj.name;
     context.setState({
       ...context.state,
-      googleUser: "",
-      signByGoogle: false,
-      isLoggedIn: !context.state.isLoggedIn,
+      googleUser: name,
+      signByGoogle: true,
+      isLoggedIn: true,
+      user: name,
       loginIconClicked: !context.state.loginIconClicked,
     });
   };
 
   const onFailure = () => {
-    console.log("Handle failure cases");
+    alert(`Failed to login. 😢`)
   };
 
-  const { signOut } = useGoogleLogout({
-    clientId,
-    onLogoutSuccess,
+  const { signIn } = useGoogleLogin({
+    onSuccess,
     onFailure,
+    clientId,
+    isSignedIn: true,
+    accessType: "offline",
   });
 
   return (
-    <StyledGoogleLogout>
+    <StyledGoogleLogin>
       <img
         src="https://raw.githubusercontent.com/Sivanesh-S/react-google-authentication/9835990bfe7f45a1a14e5854cd57ab715d776b0e/public/icons/google.svg"
         alt="google login"
-        onClick={signOut}
+        onClick={signIn}
       />
       <ButtonX
-        action={signOut}
+        action={signIn}
         size="M"
         color="light"
-        text={textData.logout.button}
+        text={textData.login.text2}
       />
-    </StyledGoogleLogout>
+    </StyledGoogleLogin>
   );
 };
 
-export default GoogleLogout;
+export default GoogleLogin;

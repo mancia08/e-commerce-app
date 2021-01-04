@@ -6,9 +6,9 @@ import { MyContext } from "./../../../../context/APIContext";
 import { theme } from "../../../../data/theme";
 import { textData } from "../../../../data/textData";
 import SingleShopCard from "./SingleShopCard";
-import Button from "../../../subatoms/button/Button";
-import Text from "./../../../subatoms/text/Text";
-import Hr from "../../../subatoms/hr/Hr";
+import Button from "../../../atoms/button/Button";
+import Text from "./../../../atoms/text/Text";
+import Hr from "../../../atoms/hr/Hr";
 import StripeCheckoutButton from "../stripe-button/StripeCheckoutButton";
 
 Modal.setAppElement("#root");

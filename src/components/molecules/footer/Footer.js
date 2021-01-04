@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
-import Text from "../../subatoms/text/Text";
-import Hr from "../../subatoms/hr/Hr";
+import Text from "../../atoms/text/Text";
+import Hr from "../../atoms/hr/Hr";
 import { textData } from "../../../data/textData";
 import FooterHeader from "./FooterHeader";
 

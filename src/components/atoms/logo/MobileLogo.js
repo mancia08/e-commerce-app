@@ -1,5 +1,5 @@
 import React from "react";
-import { LogoImg } from "../../atoms/mainNavbar/navbar/Navbar";
+import { LogoImg } from "../../molecules/mainNavbar/navbar/Navbar";
 import logo from "../../../data/images/logonorris.png";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";

@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import { accountService } from "../../../../_services/account.service";
+import React, { useContext } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
-
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";
+import ButtonX from "../../../atoms/button/ButtonX";
+import { accountService } from "../../../../_services/account.service";
 
-import ButtonX from "../../../subatoms/button/ButtonX";
-
-const StyledFacebookLogin = styled.div`
+const StyledFacebookLogout = styled.div`
   display: flex;
   gap: ${theme.spacer};
   justify-content: center;
@@ -18,44 +16,40 @@ const StyledFacebookLogin = styled.div`
   img {
     width: ${theme.sizes.buttons.M};
     height: ${theme.sizes.buttons.M};
-    border-radius: 10%;
+    background-color: ${theme.colors.light};
+    border-radius: 50%;
   }
 `;
 
-const FacebookLogin = () => {
+const FacebookLogout = () => {
   const context = useContext(ShopContext);
 
-  const [account, setAccount] = useState(null);
-
-  useEffect(() => {
-    accountService.account.subscribe((x) => setAccount(x));
-  }, []);
-
-  if (account) {
+  const logout = () => {
+    accountService.logout();
     context.setState({
       ...context.state,
-      signByFB: true,
       isLoggedIn: !context.state.isLoggedIn,
-      user: account.name,
+      user: "",
       loginIconClicked: !context.state.loginIconClicked,
+      signByFB: false,
     });
-  }
+  };
 
   return (
-    <StyledFacebookLogin>
+    <StyledFacebookLogout>
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
         alt="facebook login"
-        onClick={accountService.login}
+        className="icon"
       />
       <ButtonX
-        action={accountService.login}
+        action={logout}
         size="M"
         color="light"
-        text={textData.login.text3}
+        text={textData.logout.button}
       />
-    </StyledFacebookLogin>
+    </StyledFacebookLogout>
   );
 };
 
-export default FacebookLogin;
+export default FacebookLogout;

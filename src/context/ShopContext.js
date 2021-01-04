@@ -84,7 +84,6 @@ const ShopProvider = ({ children }) => {
     const account = loginData.filter(
       (account) => account.user === state.username
     );
-    console.log(account);
     account.length === 0
       ? setState({ ...state, loginFailed: true, username: "", password: "" })
       : account[0].password === state.password

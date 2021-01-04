@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
-import Text from "../../subatoms/text/Text";
-import Logo from "../../subatoms/logo/Logo";
+import Text from "../../atoms/text/Text";
+import Logo from "../../atoms/logo/Logo";
 import { textData } from "../../../data/textData";
 
 const StyledFooterHeader = styled.div`

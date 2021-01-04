@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
 
-import TextLogin from "../../../subatoms/text/TextLogin";
+import TextLogin from "../../../atoms/text/TextLogin";
 import Cart from "../../../pages/shop/cart";
 
 import LoginModal from "../../Login/loginModal/LoginModal";

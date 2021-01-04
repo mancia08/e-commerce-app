@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import MobileLogo from "../../subatoms/logo/MobileLogo";
+import MobileLogo from "../../atoms/logo/MobileLogo";
 import SuperNav from "./SuperNav/SuperNav";
 import Burger from "./burger/Burger";
 import MobileMenu from "./mobileMenu/MobileMenu";
-import Hr from "../../subatoms/hr/Hr";
+import Hr from "../../atoms/hr/Hr";
 import Navbar from "./navbar/Navbar";
 import { ShopContext } from "../../../context/ShopContext";
 import styled from "styled-components";

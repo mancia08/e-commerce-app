@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { shopData } from "../../../../data/shopData";
-import Text from "./../../../subatoms/text/Text";
+import Text from "./../../../atoms/text/Text";
 import styled from "styled-components";
 import {theme} from '../../../../data/theme'
 

@@ -3,7 +3,7 @@ import { theme } from "../../../data/theme";
 import { textData } from "../../../data/textData";
 
 import homeimg from "../../../data/images/homeimg.jpg";
-import Text from "../../subatoms/text/Text";
+import Text from "../../atoms/text/Text";
 
 const StyledHomeImg = styled.div`
   width: 100%;
