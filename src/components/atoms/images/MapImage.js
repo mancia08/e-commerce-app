@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
-import mapimg from "../../../styles/images/mapimg.jpg";
+import mapimg from "../../../data/images/mapimg.jpg";
 
 const StyledMapImage = styled.img`
   width: 100%;

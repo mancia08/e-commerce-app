@@ -6,8 +6,8 @@ import Cart from "../../../pages/shop/cart";
 
 import LoginModal from "../../Login/loginModal/LoginModal";
 import LogoutModal from "../../Login/logoutModal/LogoutModal";
-import userlogged from "./../../../../styles/images/iconlogin.png";
-import userunknown from "./../../../../styles/images/iconlogout.png";
+import userlogged from "./../../../../data/images/iconlogin.png";
+import userunknown from "./../../../../data/images/iconlogout.png";
 
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";

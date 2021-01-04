@@ -12,9 +12,9 @@ import SingleShopCard from "./remote-shop/SingleShopCard";
 import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
 import Footer from "./../../atoms/footer/Footer";
 
-import jewerly from "./../../../styles/images/jewelry.png";
-import jacket from "./../../../styles/images/jacket.png";
-import laptop from "./../../../styles/images/laptop.png";
+import jewerly from "./../../../data/images/jewelry.png";
+import jacket from "./../../../data/images/jacket.png";
+import laptop from "./../../../data/images/laptop.png";
 import styled from "styled-components";
 
 const ShopContainer = styled.div`

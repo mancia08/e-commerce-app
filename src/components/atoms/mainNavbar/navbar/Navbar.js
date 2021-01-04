@@ -3,7 +3,7 @@ import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
 import { NavLink } from "react-router-dom";
 import {SubMenu} from './HoverMenu'
-import logo from "./../../../../styles/images/logonorris.png";
+import logo from "./../../../../data/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
 import styled from "styled-components";
 import { theme } from "../../../../data/theme";

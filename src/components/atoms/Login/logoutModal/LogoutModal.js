@@ -4,7 +4,7 @@ import { theme } from "../../../../data/theme";
 import { ShopContext } from "../../../../context/ShopContext";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import { LogoImg } from "../../mainNavbar/navbar/Navbar";
-import logo from "./../../../../styles/images/logonorris.png";
+import logo from "./../../../../data/images/logonorris.png";
 import { textData } from "../../../../data/textData";
 import GoogleLogout from "../googleLogout/GoogleLogout";
 import FacebookLogout from "../logout-fb/FacebookLogout";

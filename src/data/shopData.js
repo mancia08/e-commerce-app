@@ -1,12 +1,12 @@
-import shop1 from "../styles/images/shop1.jpg";
-import shop2 from "../styles/images/shop2.jpg";
-import shop3 from "../styles/images/shop3.jpg";
-import shop4 from "../styles/images/shop4.jpg";
-import shop5 from "../styles/images/shop5.jpg";
-import shop6 from "../styles/images/shop6.jpg";
-import shop7 from "../styles/images/shop7.jpg";
-import shop8 from "../styles/images/shop8.jpg";
-import shop9 from "../styles/images/shop9.jpg";
+import shop1 from "../data/images/shop1.jpg";
+import shop2 from "../data/images/shop2.jpg";
+import shop3 from "../data/images/shop3.jpg";
+import shop4 from "../data/images/shop4.jpg";
+import shop5 from "../data/images/shop5.jpg";
+import shop6 from "../data/images/shop6.jpg";
+import shop7 from "../data/images/shop7.jpg";
+import shop8 from "../data/images/shop8.jpg";
+import shop9 from "../data/images/shop9.jpg";
 
 export const shopData = [
   {

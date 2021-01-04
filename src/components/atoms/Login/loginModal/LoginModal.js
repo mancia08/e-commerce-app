@@ -6,7 +6,7 @@ import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
 import { LogoImg } from "../../mainNavbar/navbar/Navbar";
 import Text from "../../../subatoms/text/Text";
-import logo from "./../../../../styles/images/logonorris.png";
+import logo from "./../../../../data/images/logonorris.png";
 import ButtonX from "../../../subatoms/button/ButtonX";
 import LoginInput from "../../../subatoms/input/LoginInput";
 import GoogleLogin from "../googleLogin/GoogleLogin";

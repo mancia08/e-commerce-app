@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../../../styles/images/logonorris.png";
+import logo from "../../../data/images/logonorris.png";
 import { theme } from "../../../data/theme";
 
 export const LogoImg = styled.img`

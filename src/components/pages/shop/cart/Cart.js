@@ -11,7 +11,7 @@ import Hr from "../../../subatoms/hr/Hr";
 import StripeCheckoutButton from "../stripe-button";
 
 import { theme } from "../../../../data/theme";
-import cart from "../../../../styles/images/cart.png";
+import cart from "../../../../data/images/cart.png";
 import { textData } from "../../../../data/textData";
 
 const StyledCart = styled.div`

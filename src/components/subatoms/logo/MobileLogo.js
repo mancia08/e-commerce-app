@@ -1,6 +1,6 @@
 import React from "react";
 import { LogoImg } from "../../atoms/mainNavbar/navbar/Navbar";
-import logo from "../../../styles/images/logonorris.png";
+import logo from "../../../data/images/logonorris.png";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../data/theme";
 import { textData } from "../../../data/textData";
 
-import homeimg from "../../../styles/images/homeimg.jpg";
+import homeimg from "../../../data/images/homeimg.jpg";
 import Text from "../../subatoms/text/Text";
 
 const StyledHomeImg = styled.div`
