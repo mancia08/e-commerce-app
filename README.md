@@ -129,7 +129,7 @@ In the final stages of the project we asked our fellow students for feedback so 
 
 
 ## :link: Other information
-- [Coding guidelines and ressources](CGUIDELINES.md)
+- [Coding guidelines and resources](CGUIDELINES.md)
 - [Design guidelines](DGUIDELINES.md)
 - [Epics](EPICS.md)
 

@@ -1,6 +1,6 @@
-# Coding guidelines and ressources
+# Coding guidelines and resources
 
-> These are ressources and general guidelines that we decided to follow during the development of our web application.
+> These are resources and general guidelines that we decided to follow during the development of our web application.
 
 ## Guidelines
 ...
