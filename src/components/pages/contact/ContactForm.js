@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { theme } from "../../../data/theme";
 import { textData } from "../../../data/textData";
 
-import Button from "../../subatoms/button/Button";
-import Text from "../../subatoms/text/Text";
-import ContactInput from "../../subatoms/input/ContactInput";
-import TextArea from "../../subatoms/input/TextArea";
+import Button from "../../atoms/button/Button";
+import Text from "../../atoms/text/Text";
+import ContactInput from "../../atoms/input/ContactInput";
+import TextArea from "../../atoms/input/TextArea";
 
 const StyledContactForm = styled.div`
   height: 100%;

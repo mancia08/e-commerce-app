@@ -1,5 +1,5 @@
-import SuperNav from "../../atoms/mainNavbar/SuperNav/SuperNav";
-import HomeImg from "../../subatoms/images/HomeImg";
+import SuperNav from "../../molecules/mainNavbar/SuperNav/SuperNav";
+import HomeImg from "../../atoms/images/HomeImg";
 import HomeButtons from "./HomeButtons.js";
 const Home = () => (
 

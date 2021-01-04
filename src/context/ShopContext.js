@@ -6,7 +6,6 @@ export const ShopContext = React.createContext();
 const initialState = {
   loginIconClicked: false,
   mobileMenu: false,
-  cartShown: false,
   isLoggedIn: false,
   username: "",
   user: "",
@@ -16,6 +15,7 @@ const initialState = {
   googleUser: '',
   signByGoogle: false,
   signByFB: false,
+  cartShown : false
 };
 
 const ShopProvider = ({ children }) => {
@@ -27,7 +27,6 @@ const ShopProvider = ({ children }) => {
       paymentOpen: !state.paymentOpen,
       mobileMenu: false,
       loginIconClicked: false,
-      cartShown: false,
     });
   /*MOBILE MENU TOGGLE*/
   const toggleMobileMenu = () =>
@@ -36,7 +35,6 @@ const ShopProvider = ({ children }) => {
       paymentOpen: false,
       mobileMenu: !state.mobileMenu,
       loginIconClicked: false,
-      cartShown: false,
     });
 
   /*ACCOUNT ICON TOGGLE*/
@@ -46,7 +44,6 @@ const ShopProvider = ({ children }) => {
       paymentOpen: false,
       loginIconClicked: !state.loginIconClicked,
       mobileMenu: false,
-      cartShown: false,
     });
 
   /*close everything*/
@@ -57,7 +54,6 @@ const ShopProvider = ({ children }) => {
       paymentOpen: false,
       loginIconClicked: false,
       mobileMenu: false,
-      cartShown: false,
     });
   };
 
@@ -84,7 +80,6 @@ const ShopProvider = ({ children }) => {
     const account = loginData.filter(
       (account) => account.user === state.username
     );
-    console.log(account);
     account.length === 0
       ? setState({ ...state, loginFailed: true, username: "", password: "" })
       : account[0].password === state.password

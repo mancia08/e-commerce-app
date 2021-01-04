@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { textData } from "../../../data/textData"
 import { ShopContext } from "../../../context/ShopContext";
 
-import Button from "../../subatoms/button/Button";
+import Button from "../../atoms/button/Button";
 
 const StyledHomeButtons = styled.div`
     width: 100%;

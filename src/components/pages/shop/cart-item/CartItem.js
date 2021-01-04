@@ -3,9 +3,9 @@ import { textData } from "../../../../data/textData";
 import { theme } from "../../../../data/theme";
 import styled from "styled-components";
 
-import Button from "../../../subatoms/button/Button";
-import Text from "../../../subatoms/text/Text";
-import Hr from "../../../subatoms/hr/Hr";
+import Button from "../../../atoms/button/Button";
+import Text from "../../../atoms/text/Text";
+import Hr from "../../../atoms/hr/Hr";
 
 const StyledCartItem = styled.div`
   width: 350px;

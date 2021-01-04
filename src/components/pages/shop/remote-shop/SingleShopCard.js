@@ -1,5 +1,5 @@
-import Text from "./../../../subatoms/text/Text";
-import Button from "../../../subatoms/button/Button";
+import Text from "./../../../atoms/text/Text";
+import Button from "../../../atoms/button/Button";
 import { textData } from "../../../../data/textData";
 import { theme } from "../../../../data/theme";
 import styled from "styled-components";
@@ -43,8 +43,6 @@ const SingleShopCard = ({
         porro hic magni aliquid error natus velit, nostrum maxime eligendi
         incidunt illo expedita? Recusandae obcaecati illum eum sequi."
       />
-      {/* Add method here */}
-      {/* <Button action={() => onAddClick()} size="S" text="Add to cart" color="primary" /> */}
       <Button
         id={id}
         action={(e) => onClick(e)}

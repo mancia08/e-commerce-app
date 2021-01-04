@@ -1,8 +1,8 @@
 import { theme } from "../../../../data/theme";
 import styled from "styled-components";
 
-import Text from "./../../../subatoms/text/Text";
-import ShopBannerImage from "../../../atoms/images/ShopBannerImage";
+import Text from "./../../../atoms/text/Text";
+import ShopBannerImage from "../../../molecules/images/ShopBannerImage";
 
 const StyledShopBanner = styled.div`
   background-color: ${theme.colors.primary};
