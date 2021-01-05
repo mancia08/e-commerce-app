@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
 import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
+import { ShopContext } from "../../../../context/ShopContext";
 import { theme } from "../../../../data/theme";
 import { textData } from "../../../../data/textData";
 import SingleShopCard from "./SingleShopCard";
@@ -56,10 +57,15 @@ const SingleShop = ({ category, shop }) => {
   const [item, setItem] = useState("");
 
   const context = useContext(MyContext);
+  const shopContext = useContext(ShopContext);
 
   const toggleModal = (e) => {
     const item = context.state.items[category - 1].shops[shop][e.target.id];
     setItem(item);
+    setIsOpen(!isOpen);
+  };
+
+  const closeModal = () => {
     setIsOpen(!isOpen);
   };
 
@@ -144,7 +150,19 @@ const SingleShop = ({ category, shop }) => {
         <Hr />
         <div>
           <Text color="primary" size="M" text="BUY NOW:" align="center" />
-          <StripeCheckoutButton price={item && item.price} />
+          {shopContext.state.isLoggedIn ? (
+            <StripeCheckoutButton price={item && item.price} />
+          ) : (
+            <Button
+              align="center"
+              size="L"
+              color="primary"
+              text={textData.shop.checkout.notLogged}
+              action={() => {
+                closeModal(); shopContext.loginIconToggle();
+              }}
+            />
+          )}
         </div>
       </StyledModal>
     </>
