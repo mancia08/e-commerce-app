@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
 import Text from "../../atoms/text/Text";
@@ -57,7 +57,7 @@ const FooterLink = styled.a`
   }
 `;
 
-const Footer = () => (
+const Footer = () =>
   <>
     <Hr type="footer" />
     <FooterHeader />
@@ -92,7 +92,6 @@ const Footer = () => (
       <ErrorService/>
       <ErrorHandler/>
     </StyledFooter>
-  </>
-);
+  </>;
 
 export default Footer;
