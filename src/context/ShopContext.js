@@ -44,6 +44,7 @@ const ShopProvider = ({ children }) => {
       paymentOpen: false,
       loginIconClicked: !state.loginIconClicked,
       mobileMenu: false,
+      cartShown: false
     });
 
   /*close everything*/
