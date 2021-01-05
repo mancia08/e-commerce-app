@@ -18,6 +18,7 @@ const StyledHomeButtons = styled.div`
         flex-direction: row;
         justify-content: center;
         gap: ${theme.spacer};
+        height: 20vh;
     }
 `;
 
