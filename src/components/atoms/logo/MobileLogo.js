@@ -16,7 +16,7 @@ const StyledMobileLogo = styled(NavLink)`
   /* animation */
   transition: ${theme.transition};
   :hover {
-    transform: scale(1.2);
+    transform: ${theme.scale};
   }
 `;
 

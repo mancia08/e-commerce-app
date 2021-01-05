@@ -13,7 +13,7 @@ export const LogoLink = styled(NavLink)`
   /* animation */
   transition: ${theme.transition};
   :hover {
-    transform: scale(1.2);
+    transform: ${theme.scale};
   }
 `;
 
@@ -60,7 +60,7 @@ const StyledLink = styled(NavLink)`
   font-size: ${theme.fonts.sizes.XL};
   width: 100vw;
   text-align: center;
-  line-height: calc( 9 * ${theme.spacer} );
+  line-height: calc(9 * ${theme.spacer});
   text-decoration: none;
   @media (min-width: ${theme.viewport.tablet}) {
     color: ${theme.colors.dark};
@@ -71,9 +71,14 @@ const StyledLink = styled(NavLink)`
       color: ${theme.colors.primary};
     }
     :hover {
-    color: ${theme.colors.light};
-    background-color: ${theme.colors.primary};
-  }
+      color: ${theme.colors.light};
+      background-color: ${theme.colors.primary};
+    }
+    /* animation */
+    transition: ${theme.transition};
+    :hover {
+      transform: ${theme.scale};
+    }
   }
 `;
 
