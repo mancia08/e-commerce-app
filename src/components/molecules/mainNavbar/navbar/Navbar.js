@@ -72,7 +72,6 @@ const StyledLink = styled(NavLink)`
     /* animation */
     transition: ${theme.transition};
     :hover {
-      /* transform: ${theme.scale}; */
       color: ${theme.colors.light};
       background-color: ${theme.colors.primary};
     }
