@@ -22,6 +22,12 @@ const StyledTextCart = styled.p`
   text-align: center;
   width: 24px;
   height: 24px;
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: scale(1.2);
+    color: ${theme.colors.light};
+  }
 `;
 
 const TextCart = (props) => <StyledTextCart color={props.color} size={props.size} onClick={props.action}>{props.text}</StyledTextCart>

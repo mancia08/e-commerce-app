@@ -21,12 +21,15 @@ const StyledShopCard = styled.div`
   gap: ${theme.spacer};
   align-items: center;
   padding: ${theme.spacer};
+  /* animation */
+  transition: ${theme.transition};
   @media (min-width: ${theme.viewport.tablet}) {
-      height: 100px;
-      justify-content: space-evenly;
+    height: 100px;
+    justify-content: space-evenly;
   }
   :hover {
-      background-color: ${theme.colors.secondary};
+    background-color: ${theme.colors.secondary};
+    box-shadow: 0px 0px ${theme.spacer} 0px ${theme.colors.shadow};
   }
 `;
 
