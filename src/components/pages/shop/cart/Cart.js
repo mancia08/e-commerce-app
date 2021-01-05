@@ -172,15 +172,13 @@ const Cart = ({ textColor, type }) => {
             text={textData.shop.cart.exit}
             width="parent"
           />
-          {context.cart.length > 0 && (
-            <Button
-              size="M"
-              color="primary"
-              text={textData.shop.cart.clear}
-              action={clearAllItems}
-              width="parent"
-            />
-          )}
+          {context.cart.length>0 && <Button
+            size="M"
+            color="primary"
+            text={textData.shop.cart.clear}
+            action={clearAllItems}
+            width="parent"
+          />}
           <div>
             <Text size="M" color="dark" text={textData.shop.cart.items} />
             <Text size="M" color="primary" text={context.cart.length} />
@@ -198,9 +196,8 @@ const Cart = ({ textColor, type }) => {
             size="M"
             color="primary"
             text={textData.shop.checkout.notLogged}
-            action={() => {
-              shopContext.loginIconToggle();
-            }}
+            /* action={()=>console.log("lol")} */
+            action={()=>{shopContext.loginIconToggle()}}
           />
         )}
       </Modal>
