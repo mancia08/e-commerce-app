@@ -1,6 +1,6 @@
-import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
+import MainNavbar from "../../molecules/mainNavbar/MainNavbar";
 import ContactContainer from "./ContactContainer";
-import Footer from "./../../atoms/footer/Footer";
+import Footer from "./../../molecules/footer/Footer";
 
 const Contact = () => {
   return (

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { theme } from "../../../../../data/theme";
 
-import Text from "../../../../subatoms/text/Text";
-import Button from "../../../../subatoms/button/Button";
+import Text from "../../../../atoms/text/Text";
+import Button from "../../../../atoms/button/Button";
 
 const StyledPopup = styled.div`
   display: flex;

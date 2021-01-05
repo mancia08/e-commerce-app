@@ -3,9 +3,9 @@ import { theme } from "../../../data/theme";
 import styled from "styled-components";
 import { textData } from "../../../data/textData";
 import { ShopContext } from "../../../context/ShopContext";
-import Text from "../../subatoms/text/Text";
+import Text from "../../atoms/text/Text";
 import ContactForm from "./ContactForm";
-import ContactImage from "../../atoms/images/ContactImage";
+import ContactImage from "../../molecules/images/ContactImage";
 import ContactTitleButton from "./ContactTitleButton";
 import Submitted from "./Submitted";
 

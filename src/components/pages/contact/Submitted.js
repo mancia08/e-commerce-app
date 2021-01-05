@@ -1,7 +1,7 @@
 import { theme } from "../../../data/theme";
 import styled from "styled-components";
 import { textData } from "../../../data/textData";
-import Text from "../../subatoms/text/Text";
+import Text from "../../atoms/text/Text";
 
 const StyledSubmitted = styled.div`
   display: flex;

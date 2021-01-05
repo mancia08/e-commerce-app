@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { theme } from "../../../../data/theme";
 import styled from "styled-components";
 
-import Text from "./../../../subatoms/text/Text";
+import Text from "./../../../atoms/text/Text";
 
 const StyledShopLink = styled(Link)`
   text-decoration: none;

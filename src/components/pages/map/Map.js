@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import MapBox from "./mapbox/MapBox";
-import Text from "./../../subatoms/text/Text";
-import Hr from "./../../subatoms/hr/Hr";
-import MainNavbar from "../../atoms/mainNavbar/MainNavbar";
-import MapImage from "../../atoms/images/MapImage";
-import Footer from "./../../atoms/footer/Footer";
+import Text from "./../../atoms/text/Text";
+import Hr from "./../../atoms/hr/Hr";
+import MainNavbar from "../../molecules/mainNavbar/MainNavbar";
+import MapImage from "../../molecules/images/MapImage";
+import Footer from "./../../molecules/footer/Footer";
 import { ShopContext } from "./../../../context/ShopContext";
 import {textData} from '../../../data/textData'
 

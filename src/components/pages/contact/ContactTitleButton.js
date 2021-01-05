@@ -1,5 +1,5 @@
-import Button from "../../subatoms/button/Button";
-import Text from "../../subatoms/text/Text";
+import Button from "../../atoms/button/Button";
+import Text from "../../atoms/text/Text";
 
 const ContactTitleButton = (props) => (
   <>
