@@ -17,6 +17,9 @@ const StyledHomeImg = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  @media (min-width: ${theme.viewport.tablet}) {
+    height: 80vh;
+  } 
   div {
     background-color: ${theme.colors.dark};
     opacity: ${theme.opacity.eigthy};

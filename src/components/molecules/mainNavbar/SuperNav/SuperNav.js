@@ -31,6 +31,11 @@ const SuperNavImg = styled.img`
   width: auto;
   height: ${theme.sizes.buttons.S};
   cursor: pointer;
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: scale(1.2);
+  }
 `;
 
 const SuperNav = ({ type, color, textColor }) => {

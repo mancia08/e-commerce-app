@@ -16,10 +16,16 @@ const StyledSingleShopCard = styled.div`
   gap: ${theme.spacer};
   padding: ${theme.spacer};
   margin: auto;
+  margin-top: ${theme.spacer};
+  /* animation */
+  transition: ${theme.transition};
   img {
     width: 100%;
     height: 400px;
     border-radius: ${theme.spacer};
+  }
+  :hover {
+    box-shadow: 0px 0px ${theme.spacer} 0px ${theme.colors.shadow};
   }
 `;
 
