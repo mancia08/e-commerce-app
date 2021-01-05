@@ -35,13 +35,13 @@ const context = useContext(ShopContext);
     return (
         <StyledHomeButtons>
             <HomeLink to="./shop">
-                <Button size="L" text={textData.navbar.first} color="primary" action={context.closeLogin} width="parent" height="parent" />
+                <Button size="XL" text={textData.navbar.first} color="primary" action={context.closeLogin} width="parent" height="parent" />
             </HomeLink>
             <HomeLink to="./map">
-                <Button size="L" text={textData.navbar.second} color="primary" action={context.closeLogin} width="parent" height="parent" />
+                <Button size="XL" text={textData.navbar.second} color="primary" action={context.closeLogin} width="parent" height="parent" />
             </HomeLink>
             <HomeLink to="./contact">
-                <Button size="L" text={textData.navbar.third} color="primary" action={context.closeLogin} width="parent" height="parent" />
+                <Button size="XL" text={textData.navbar.third} color="primary" action={context.closeLogin} width="parent" height="parent" />
             </HomeLink>
         </StyledHomeButtons>
     )
