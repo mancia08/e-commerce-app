@@ -4,8 +4,6 @@ import { theme } from "../../../data/theme";
 import Text from "../../atoms/text/Text";
 import Hr from "../../atoms/hr/Hr";
 import { textData } from "../../../data/textData";
-import ErrorService from '../../../_helpers/error.handler.js'
-import ErrorHandler from '../../../_helpers/error.popup'
 import FooterHeader from "./FooterHeader";
 
 const StyledFooter = styled.div`
@@ -89,8 +87,7 @@ const Footer = () => (
           </StyledFooterColumn>
         ))}
       </FooterTextContainer>
-      <ErrorService/>
-      <ErrorHandler/>
+      <Text color="dark" size="XS" align="center" text={textData.closing} type="closing" />
     </StyledFooter>
   </>
 );
