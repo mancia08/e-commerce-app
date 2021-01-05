@@ -82,6 +82,7 @@ const Footer = () => (
                   size="S"
                   align="center"
                   text={line.name}
+                  type="link"
                 />
               </FooterLink>
             ))}

@@ -34,7 +34,7 @@ const SuperNavImg = styled.img`
   /* animation */
   transition: ${theme.transition};
   :hover {
-    transform: scale(1.2);
+    transform: ${theme.scale};
   }
 `;
 

@@ -35,6 +35,16 @@ export const StyledText = styled.p`
       : p.type === "closing"
       ? theme.colors.secondary
       : "transparent"};
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: ${(p) =>
+    p.type === "link" && theme.scale
+    };
+    color: ${(p) =>
+    p.type === "link" && theme.colors.primary
+    }; 
+  }
   padding: ${(p) => p.type === "map" && theme.spacer};
   @media (min-width: ${theme.viewport.tablet}) {
     display: block;
