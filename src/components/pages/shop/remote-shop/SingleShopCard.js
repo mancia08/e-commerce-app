@@ -17,6 +17,7 @@ const StyledSingleShopCard = styled.div`
   padding: ${theme.spacer};
   margin: auto;
   margin-top: ${theme.spacer};
+  border-radius: ${theme.spacer};
   /* animation */
   transition: ${theme.transition};
   img {

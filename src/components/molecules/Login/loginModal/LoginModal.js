@@ -38,8 +38,9 @@ const LoginPopUp = styled.div`
     border: 4px solid ${theme.colors.dark};
     border-radius: ${theme.spacer};
   }
-  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
-    height:500px;
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport
+      .tablet}) {
+    height: 500px;
   }
 `;
 const LoginLogoContainer = styled.div`

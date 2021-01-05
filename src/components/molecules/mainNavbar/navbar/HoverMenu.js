@@ -12,8 +12,8 @@ export const SubMenu = styled.div`
   position: absolute;
   right: calc(2 * ${theme.sizes.buttons.S});
   top: calc(2 * ${theme.sizes.buttons.S});
+  border-radius: ${theme.spacer};
   :hover {
-    display: block;
     display: flex;
     justify-content: space-around;
     padding: calc(6 * ${theme.spacer});
@@ -24,7 +24,7 @@ export const SubMenu = styled.div`
 `;
 
 const HoverMenu = ({over, out, action}) => (
-  <SubMenu className="fuck-you" {...[over,out]}onMouseOver={over} onMouseOut={out}>
+  <SubMenu {...[over,out]}onMouseOver={over} onMouseOut={out}>
     <HoverMenuContent {...[action]} action={action} type="mobileHover"/>
   </SubMenu>
 );

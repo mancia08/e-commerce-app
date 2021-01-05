@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
 import { NavLink } from "react-router-dom";
-import {SubMenu} from './HoverMenu'
+import { SubMenu } from "./HoverMenu";
 import logo from "./../../../../data/images/logonorris.png";
 import HoverMenu from "./HoverMenu";
 import styled from "styled-components";
@@ -13,7 +13,7 @@ export const LogoLink = styled(NavLink)`
   /* animation */
   transition: ${theme.transition};
   :hover {
-    transform: scale(1.2);
+    transform: ${theme.scale};
   }
 `;
 
@@ -28,17 +28,16 @@ export const LogoImg = styled.img`
 const StyledNav = styled.div`
   display: flex;
   flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    gap: calc(4 * ${theme.spacer});
+  justify-content: center;
+  align-items: center;
+  gap: calc(4 * ${theme.spacer});
   height: calc(100vh - 3 * ${theme.sizes.navbar});
   background-color: ${theme.colors.primary};
-  z-index:10;
+  z-index: 10;
   margin-top: calc(4 * ${theme.spacer});
   ${LogoLink} {
-      display: none;
-    }
+    display: none;
+  }
   @media (min-width: ${theme.viewport.tablet}) {
     background-color: ${theme.colors.light};
     height: ${theme.sizes.navbar};
@@ -60,7 +59,7 @@ const StyledLink = styled(NavLink)`
   font-size: ${theme.fonts.sizes.XL};
   width: 100vw;
   text-align: center;
-  line-height: calc( 9 * ${theme.spacer} );
+  line-height: calc(9 * ${theme.spacer});
   text-decoration: none;
   @media (min-width: ${theme.viewport.tablet}) {
     color: ${theme.colors.dark};
@@ -70,10 +69,12 @@ const StyledLink = styled(NavLink)`
     &.active {
       color: ${theme.colors.primary};
     }
+    /* animation */
+    transition: ${theme.transition};
     :hover {
-    color: ${theme.colors.light};
-    background-color: ${theme.colors.primary};
-  }
+      color: ${theme.colors.light};
+      background-color: ${theme.colors.primary};
+    }
   }
 `;
 
@@ -113,13 +114,11 @@ const Navbar = () => {
         <HoverLink hovered={hover} to="/shop" onClick={context.closeLogin}>
           {textData.navbar.first}
         </HoverLink>
-
         <HoverMenu
           over={hovering}
           out={notHovering}
           action={context.closeLogin}
         />
-
         <StyledLink to="/map" onClick={context.closeLogin}>
           {textData.navbar.second}
         </StyledLink>

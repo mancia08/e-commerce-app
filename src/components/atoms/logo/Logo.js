@@ -9,6 +9,11 @@ export const LogoImg = styled.img`
   margin-top: ${theme.spacer};
   margin: ${(p) => p.type === "footer" && "0 0"};
   height: ${(p) => (p.type === "footer" ? "60px" : theme.sizes.navbar)};
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: ${theme.scale};
+  }
 `;
 
 const Logo = ({type}) => (
