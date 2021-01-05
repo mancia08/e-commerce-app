@@ -15,6 +15,9 @@ const StyledCartItem = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: ${theme.spacer};
+  background-color: ${theme.colors.grey};
+  padding-bottom: ${theme.spacer};
+  border-radius: ${theme.spacer};
   img {
     width: 60%;
   }
@@ -24,10 +27,15 @@ const StyledCartItem = styled.div`
   }
   @media (min-width: ${theme.viewport.tablet}) {
     img {
-    width: 80%;
+      width: 80%;
+    }
   }
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    box-shadow: 0px 0px ${theme.spacer} 0px ${theme.colors.shadow};
   }
-`; 
+`;
 
 const CartItem = ({
   id,
@@ -75,7 +83,7 @@ const CartItem = ({
       action={(e) => remove(e)}
       text={textData.shop.cart.remove}
     />
-    <Hr width="parent" />
+    {/* <Hr width="parent" /> */}
   </StyledCartItem>
 );
 

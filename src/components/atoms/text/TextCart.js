@@ -25,7 +25,7 @@ const StyledTextCart = styled.p`
   /* animation */
   transition: ${theme.transition};
   :hover {
-    transform: scale(1.2);
+    transform: ${theme.scale};
     color: ${theme.colors.light};
   }
 `;

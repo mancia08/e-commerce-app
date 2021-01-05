@@ -30,7 +30,7 @@ const SuperNavImg = styled.img`
   /* animation */
   transition: ${theme.transition};
   :hover {
-    transform: scale(1.2);
+    transform: ${theme.scale};
   }
 `;
 
@@ -192,8 +192,8 @@ const Cart = ({ textColor, type }) => {
           <StripeCheckoutButton price={getTotalPrice()} />
         ) : (
           <Button
-            align="center"
-            size="L"
+            width="parent"
+            size="M"
             color="primary"
             text={textData.shop.checkout.notLogged}
             /* action={()=>console.log("lol")} */

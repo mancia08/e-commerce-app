@@ -30,12 +30,18 @@ const HoverLink = styled(Link)`
     color: ${theme.colors.dark};
     text-decoration: none;
   }
-  :link, :visited, :link:active, :visited:active{
+  :link,
+  :visited,
+  :link:active,
+  :visited:active {
     color: ${theme.colors.dark};
     text-decoration: none;
   }
+  /* animation */
+  transition: ${theme.transition};
   :hover {
     cursor: pointer;
+    transform: ${theme.scale};
   }
 `;
 
