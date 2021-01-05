@@ -9,6 +9,8 @@ const StyledListing = styled.div`
   flex-direction: column;
   margin: 0 ${theme.spacer};
   overflow: auto;
+  /* animation */
+  transition: ${theme.transition};
   :hover {
     background-color: ${theme.colors.secondary};
   }
