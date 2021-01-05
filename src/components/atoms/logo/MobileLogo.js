@@ -13,6 +13,11 @@ const StyledMobileLogo = styled(NavLink)`
   @media (min-width: ${theme.viewport.tablet}) {
     display: none;
   }
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: scale(1.2);
+  }
 `;
 
 const MobileLogo = (props) => {

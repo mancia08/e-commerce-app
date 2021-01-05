@@ -54,11 +54,12 @@ export const StyledBtnX = styled.button`
       : `${4 * theme.spacernumber}px`};
   border: none;
   /* animation */
-  transition: 0.25s;
+  transition: ${theme.transition};
   :hover {
     color: ${theme.colors.dark};
     background-color: ${theme.colors.light};
     cursor: pointer;
+    box-shadow: inset 0px 0px ${theme.spacer} 0px ${theme.colors.shadow};
   }
 `;
 

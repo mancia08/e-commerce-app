@@ -55,11 +55,12 @@ export const StyledBtn = styled.button`
       : `calc(4 * ${theme.spacer})`};
   border: 1px solid ${theme.colors.primary};
   /* animation */
-  transition: 0.25s;
+  transition: ${theme.transition};
   :hover {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.light};
     cursor: pointer;
+    box-shadow: inset 0px 0px ${theme.spacer} 0px ${theme.colors.shadow};
   }
 `;
 

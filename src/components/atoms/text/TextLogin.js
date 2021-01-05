@@ -20,6 +20,12 @@ export const StyledTextLogin = styled.p`
   :hover {
     cursor: pointer;
   }
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: scale(1.2);
+    color: ${theme.colors.primary};
+  }
 `;
 
 const TextLogin = (props) => <StyledTextLogin color={props.color} size={props.size} onClick={props.action}>{props.text}</StyledTextLogin>

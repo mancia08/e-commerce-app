@@ -8,12 +8,13 @@ export const theme = {
     dark2: "#0000007A",
     grey: "#F0F0F0",
     red: "#FF0000",
+    shadow: "rgba(0, 0, 0, 0.5)",
   },
   fonts: {
     url: "https://fonts.googleapis.com/css2?family=Inder&display=swap",
     name: "Inder",
     fallback: "sans-serif",
-    sizes: { XS:"12px", S: "18px", M: "24px", L: "30px", XL: "48px" },
+    sizes: { XS: "12px", S: "18px", M: "24px", L: "30px", XL: "48px" },
   },
   spacer: "8px",
   spacernumber: 8,
@@ -33,5 +34,6 @@ export const theme = {
     },
   },
   viewport: { mobile: "450px", tablet: "768px" },
-  opacity: { sixty: "0.6", eigthy: "0.8"}
+  opacity: { sixty: "0.6", eigthy: "0.8" },
+  transition: "0.25s",
 };

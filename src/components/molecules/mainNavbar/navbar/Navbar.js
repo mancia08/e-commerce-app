@@ -10,6 +10,11 @@ import { theme } from "../../../../data/theme";
 
 export const LogoLink = styled(NavLink)`
   margin-right: auto;
+  /* animation */
+  transition: ${theme.transition};
+  :hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const LogoImg = styled.img`
