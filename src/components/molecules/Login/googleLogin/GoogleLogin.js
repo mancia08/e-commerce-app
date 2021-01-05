@@ -46,7 +46,7 @@ const GoogleLogin = () => {
   };
 
   const onFailure = () => {
-    alert(`Failed to login. 😢`)
+    /* alert(`Failed to login. 😢`) */
   };
 
   const { signIn } = useGoogleLogin({
