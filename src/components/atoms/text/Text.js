@@ -1,9 +1,8 @@
 import React from "react";
-/* import { StyledText } from "../../../styles/styles"; */
 import styled from "styled-components";
 import { theme } from "../../../data/theme";
 
-const StyledText = styled.p`
+export const StyledText = styled.p`
   display: ${(p) => p.type === "mobileHover" && "none"};
   color: ${(p) =>
     p.color === "primary"
@@ -52,7 +51,7 @@ const StyledText = styled.p`
   }
 `;
 
-const Text = ({ type, color, size, align, id, text}) => (
+const Text = ({ type, color, size, align, id, text }) => (
   <StyledText
     {...[type, color, size, align, id]}
     color={color}
