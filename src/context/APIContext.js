@@ -5,7 +5,7 @@ import { items } from '../data/items';
 
 export const MyContext = React.createContext();
 
-const MyAPIProvider = (props) => {
+const MyAPIProvider = ({children}) => {
 
   const [state, setState] = useState({});
 
@@ -23,7 +23,7 @@ const MyAPIProvider = (props) => {
  
     return (
       <MyContext.Provider value={{ state, setState, loading, setLoading, cart, setCart, payment, setPayment }}>
-        {props.children}
+        {children}
       </MyContext.Provider>
     );
 }
