@@ -20,6 +20,16 @@ const StyledHomeButtons = styled.div`
         gap: ${theme.spacer};
         height: 20vh;
     }
+    @media (max-width: ${theme.viewport.mobile}) {
+    button {
+        line-height: 85px;
+    }
+  }
+  @media (max-width: 340px) {
+    button {
+        line-height: 72px;
+    }
+  }
 `;
 
 const HomeLink = styled(Link)`

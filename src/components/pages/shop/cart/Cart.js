@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import { MyContext } from "../../../../context/APIContext";
+import React, { useContext } from "react";
 import { ShopContext } from "../../../../context/ShopContext";
 import Modal from "react-modal";
 import styled from "styled-components";
@@ -55,13 +54,18 @@ const StyledCartLastSection = styled.div`
     display: flex;
     gap: ${theme.spacer};
   }
+  @media (max-width: ${theme.viewport.mobile}) {
+    button {
+      font-size: ${theme.fonts.sizes.S};
+    }
+  }
 `;
 
 const Cart = ({ textColor, type }) => {
-  const context = useContext(MyContext);
+
   const shopContext = useContext(ShopContext);
 
-  if (context.payment) {
+  if (shopContext.payment) {
     shopContext.cartToggle();
   }
 
@@ -70,28 +74,28 @@ const Cart = ({ textColor, type }) => {
   const findQuantity = (arr, id) => arr.filter((el) => el.id === id);
 
   const onIncrease = (e) => {
-    let element = findItem(context.cart, Number(e.target.id));
-    let copyOfItems = [...context.cart];
+    let element = findItem(shopContext.cart, Number(e.target.id));
+    let copyOfItems = [...shopContext.cart];
     copyOfItems.push(element);
-    context.setCart(copyOfItems);
+    shopContext.setCart(copyOfItems);
   };
 
   const onRemoveClick = (e) => {
-    let element = findItem(context.cart, Number(e.target.id));
-    const index = context.cart.indexOf(element);
+    let element = findItem(shopContext.cart, Number(e.target.id));
+    const index = shopContext.cart.indexOf(element);
 
-    let copyOfItems = [...context.cart];
+    let copyOfItems = [...shopContext.cart];
     copyOfItems.splice(index, 1);
-    context.setCart(copyOfItems);
+    shopContext.setCart(copyOfItems);
   };
 
   const deleteItem = (e) => {
-    let element = findItem(context.cart, Number(e.target.id));
+    let element = findItem(shopContext.cart, Number(e.target.id));
     let copyOfItems = [];
-    context.cart.map(
+    shopContext.cart.map(
       (item) => item.name !== element.name && copyOfItems.push(item)
     );
-    context.setCart(copyOfItems);
+    shopContext.setCart(copyOfItems);
   };
 
   const renderAddedItems = (arr) => {
@@ -107,7 +111,7 @@ const Cart = ({ textColor, type }) => {
             increase={onIncrease}
             decrease={onRemoveClick}
             remove={deleteItem}
-            quantity={findQuantity(context.cart, id).length}
+            quantity={findQuantity(shopContext.cart, id).length}
             id={id}
           />
         );
@@ -115,15 +119,15 @@ const Cart = ({ textColor, type }) => {
   };
 
   const clearAllItems = () => {
-    context.setCart("");
+    shopContext.setCart("");
   };
 
   const getTotalPrice = () => {
-    if (!context.cart) {
+    if (!shopContext.cart) {
       return 0;
     }
     let arr = [];
-    context.cart.map((el) => arr.push(el.price));
+    shopContext.cart.map((el) => arr.push(el.price));
     const result = arr.reduce((acc, val) => acc + val, 0);
     return result.toFixed(2);
   };
@@ -135,11 +139,11 @@ const Cart = ({ textColor, type }) => {
           <Text color={textColor} size="S" text={`${getTotalPrice()}£`} />
         )}
         <SuperNavImg src={cart} alt="cart" />
-        {context.cart.length > 0 && (
+        {shopContext.cart.length > 0 && (
           <TextCart
             size="S"
             color={textColor}
-            text={context.cart && context.cart.length}
+            text={shopContext.cart && shopContext.cart.length}
           />
         )}
       </StyledCart>
@@ -151,7 +155,7 @@ const Cart = ({ textColor, type }) => {
         overlayClassName="myoverlay"
         closeTimeoutMS={500}
       >
-        {!context.cart.length ? (
+        {!shopContext.cart.length ? (
           <Text
             size="L"
             color="primary"
@@ -160,7 +164,7 @@ const Cart = ({ textColor, type }) => {
           />
         ) : (
           <StyledCartGridSection>
-            {renderAddedItems(context.cart)}
+            {renderAddedItems(shopContext.cart)}
           </StyledCartGridSection>
         )}
         <Hr />
@@ -172,7 +176,7 @@ const Cart = ({ textColor, type }) => {
             text={textData.shop.cart.exit}
             width="parent"
           />
-          {context.cart.length>0 && <Button
+          {shopContext.cart.length>0 && <Button
             size="M"
             color="primary"
             text={textData.shop.cart.clear}
@@ -181,7 +185,7 @@ const Cart = ({ textColor, type }) => {
           />}
           <div>
             <Text size="M" color="dark" text={textData.shop.cart.items} />
-            <Text size="M" color="primary" text={context.cart.length} />
+            <Text size="M" color="primary" text={shopContext.cart.length} />
           </div>
           <div>
             <Text size="M" color="dark" text={textData.shop.cart.price} />
@@ -191,14 +195,15 @@ const Cart = ({ textColor, type }) => {
         {shopContext.state.isLoggedIn ? (
           <StripeCheckoutButton price={getTotalPrice()} />
         ) : (
+          <StyledCartLastSection>
           <Button
             width="parent"
             size="M"
             color="primary"
             text={textData.shop.checkout.notLogged}
-            /* action={()=>console.log("lol")} */
             action={()=>{shopContext.loginIconToggle()}}
           />
+         </StyledCartLastSection>
         )}
       </Modal>
     </>

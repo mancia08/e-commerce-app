@@ -2,7 +2,8 @@ import { theme } from "../../../data/theme";
 import styled from "styled-components";
 
 const StyledTextArea = styled.textarea`
-margin: ${theme.spacer};
+margin: ${theme.spacer} 0 0 0;
+padding: ${theme.spacer};
 margin-bottom: calc(2 * ${theme.spacer});
 @media (min-width: ${theme.viewport.tablet}) {
     max-width: 100%;
