@@ -20,6 +20,10 @@ const initialState = {
 
 const ShopProvider = ({ children }) => {
   let [state, setState] = useState(initialState);
+
+  const [cart, setCart] = useState('');
+
+  const [payment, setPayment] = useState(false);
   /* TOGGLE PAYMENT */
   const togglePayment = () =>
     setState({
@@ -111,6 +115,10 @@ const ShopProvider = ({ children }) => {
   return (
     <ShopContext.Provider
       value={{
+        cart, 
+        setCart,
+        payment,
+        setPayment,
         state,
         setState,
         toggleMobileMenu,

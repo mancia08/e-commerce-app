@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import { MyContext } from "../../../../context/APIContext";
 import { ShopContext } from "../../../../context/ShopContext";
 import { textData } from "../../../../data/textData";
 
 import Button from "../../../atoms/button/Button";
 
 const StripeCheckoutButton = ({ price }) => {
-  const context = useContext(MyContext);
   const shopContext = useContext(ShopContext);
 
   const priceForStripe = price * 100;
@@ -15,7 +13,7 @@ const StripeCheckoutButton = ({ price }) => {
     "pk_test_51HyOJsGQ9zu5MlObNnBhMMgC5EQpWd8sCE0mZGmeoOL4J9teVtSFrLWYuRJOCA2C75iYqQJaOuv4Fjp2ymiXGpWZ00oZn7L6BB";
 
   const onToken = (token) => {
-    context.setCart("");
+    shopContext.setCart("");
     shopContext.cartToggle()
   };
 
