@@ -42,8 +42,11 @@
 - [:link: Other information](#link-other-information)
     - [Epics (Scrum)](#japanese_goblin-epics-(scrum))
     - [Design guidelines and ressources](#nail_care-design-guidelines-and-ressources)
-    - [Git and GitHub guidelines](#:dizzy:-git-and-github-guidelines)
+    - [Git and GitHub guidelines](#dizzy-git-and-github-guidelines)
 - [:cop:License](#cop-license)
+
+</br>
+</br>
 
 # :microscope: About the code
 The following are the major frameworks and technologies that we used to build our project:
@@ -51,6 +54,8 @@ The following are the major frameworks and technologies that we used to build ou
 - React Router
 - Styled Components
 - ...
+
+[:top:](#table-of-contents)
 
 ## :wrench: Hooks
 By exploiting the power of React Hooks, we were able to use functional components in most cases. For instance, in the rendering UI or for handling state and logic. This approach has many advantages : 
@@ -62,7 +67,7 @@ By exploiting the power of React Hooks, we were able to use functional component
 
 In our project we mainly used the `useState`, `useEffect`, `useRef` and `useContext` hooks.
 
-[Back to TOC](#table-of-contents)
+[:top:](#table-of-contents)
 
 ## :pushpin: Context
 In our project, we decided to use React Context because it allows us to share information with any component by storing it in a central place.
@@ -73,6 +78,7 @@ To create a new Context, we used the React `createContext()`  function.
 
 To access the context value, we used `useContext()` React hook.
 
+[:top:](#table-of-contents)
 
 ## :telephone_receiver: APIs
 We used the following APIs in our web application:
@@ -89,6 +95,8 @@ We used the following APIs in our web application:
 | [Finding API (eBay)](https://developer.ebay.com/DevZone/finding/Concepts/FindingAPIGuide.html) | Used to to retrieve a list of items from a given category to display in the shops. |
 | [Shopping API (eBay)](https://developer.ebay.com/devzone/shopping/docs/Concepts/ShoppingAPIGuide.html) | Used to retrieve a single item to display in the shops. |
 |
+
+</br>
 
 ### About Stripe API
 It would have been easier to make a fake payment form with HTML, or even copy and paste one of those cool animated payment forms you can find in *CodePen* but we wanted to learn how to do it for real as if it was an actual job and not just a Bootcamp exercise.
@@ -114,6 +122,8 @@ What follows is a sample response of the *Shopping API* :
 
     json:here
 
+[:top:](#table-of-contents)
+
 ## :page_with_curl: `theme.js` and `textData.js`
 To make our project scalable and maintainable, we opted to keep everything related to the style and text inside two files.
 
@@ -124,6 +134,8 @@ All texts and related information is stored inside a file called `textData.js`. 
 We decided to take this approach to be able to maintain and update the project in a simpler, easier, and faster way. For most changes that we may need to do in the future, we only need access and edit these two files instead of looking through the huge react architecture to find the correct positioning of the one line of code that needs to be changed.
 
 It took a bit of time to structure these files, but we believe it was worth it and it was a great learning opportunity.
+
+[:top:](#table-of-contents)
 
 # :floppy_disk: Installation
 1. Clone the repo
@@ -154,6 +166,8 @@ It took a bit of time to structure these files, but we believe it was worth it a
     Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.\
     You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+[:top:](#table-of-contents)
+
 # :thought_balloon: About the project
 ## :seedling: Some history
 ### Who are we?
@@ -174,6 +188,8 @@ All in all, it was a very fun project, we learned a lot from it, and we will all
 - [Luri Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/)
 - [Mancini](https://www.linkedin.com/in/mancia08/)
 - [Carlos Orellana](https://www.linkedin.com/in/carlosaore/)
+
+[:top:](#table-of-contents)
 
 ## :lock: Constraints
 - Use Scrum as best as possible to manage the project.
@@ -198,6 +214,8 @@ But then there is a second unmet need. Turns out that most of these local stores
 
 A third unmet need is that a lot of these small shops around the city pride themselves in offering top-notch customer service and a lot of after-sale service. They do it because they have cultivated a very long relationship with their clients. There are a lot of cases where a clientele has been shopping for the same products in the same shop for years and years. So, if we want to host these shops under our E-commerce platform, we must also provide a way for the customer service and after-sale service to happen. We have been told that meeting this “need” is paramount to the success of the project.
 
+[:top:](#table-of-contents)
+
 ## :money_with_wings: Objectives
 - Learn to work in a team.
 - Learn about Scrum methodology or at least the Agile approach.
@@ -205,6 +223,8 @@ A third unmet need is that a lot of these small shops around the city pride them
 - Make a simple but beautiful E-commerce web application.
 - Have fun.
 - Get hired in a job or internship after the Bootcamp.
+
+[:top:](#table-of-contents)
 
 ## :walking: User personas
 ### Persona #1: Buyer
@@ -255,6 +275,8 @@ At the end of that second sprint, we decided to experiment with a leaner and fas
 ### Tools
 We used Jira as our main tool to assist in the project management and Confluence to store and access all the documentation being produced (master project document, meeting notes, design guidelines, etc.) and Slack together with Google Meet as our platform for communication.
 
+[:top:](#table-of-contents)
+
 # :link: Other information
 ## :japanese_goblin: Epics (Scrum)
 > These are the *epics* that we defined for our project. Because of time constraints and the actual scope of the exercise, we weren't able to do all of them but we believe it's interesting to see the full extent of our idea.
@@ -267,6 +289,8 @@ We used Jira as our main tool to assist in the project management and Confluence
 - As a buyer, I want to be able to log in to the webpage so I can have a more personalized experience.
 - As a seller, I want to be able to log in to the webpage so I can update and maintain my store and access useful information.
 - As a seller, I want to implement marketing strategies in my shop so I can sell more products and earn more money.
+
+[:top:](#table-of-contents)
 
 ## :nail_care: Design guidelines and ressources
 > These are ressources and general guidelines that we decided to follow during the development of our web application.
@@ -290,6 +314,8 @@ Examples:
 - “No purchase has been made yet”
 - “Click here to proceed to the payment page”
 
+[:top:](#table-of-contents)
+
 ## :dizzy: Git and GitHub guidelines
 For our project we opted to follow those guidelines:
 Small commits, to be able to find any problem easier and faster if we happen to encounter one.
@@ -298,6 +324,9 @@ Small commits, to be able to find any problem easier and faster if we happen to 
 - Pull requests done often with small but complete features rather than far apart with very big changes to the code.
 - All pull requests are to be reviewed and approved by at least one person before being merged into the main branch.
 
+[:top:](#table-of-contents)
 
 # :cop: License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
+
+[:top:](#table-of-contents)
