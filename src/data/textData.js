@@ -71,7 +71,7 @@ export const textData = {
       currency: "GBP",
       pay: "Pay",
       text: "Your total is £",
-      notLogged: "Login First"
+      notLogged: "Login to Checkout"
     },
     banner: [
       {
