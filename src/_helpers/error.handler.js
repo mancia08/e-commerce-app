@@ -19,17 +19,38 @@ const StyledErrorHandler = styled.p`
 
   :hover {
     ~ ${StyledErrorService} {
-      /* needs to style StyledErrorService */
       display: block;
       width: 25vw;
       height: 25vw;
       position: fixed;
       top: 50%;
       left: 50%;
+      /* write from here */
+      -webkit-animation: spin 1s forwards;
+      animation: spin 1s forwards;
+      /* to here */
     }
     ~ ${StyledErrorPopUp} {
       display: block;
     }
+    /* write from here */
+    @-webkit-keyframes spin {
+      from {
+        -webkit-transform: scale(0.1, 0.1) skew(0deg) rotate(0deg);
+      }
+      to {
+        -webkit-transform: scale(1, 1) skew(0deg) rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      from {
+        transform: scale(0.1, 0.1) skew(0deg) rotate(0deg);
+      }
+      to {
+        transform: scale(1, 1) skew(0deg) rotate(360deg);
+      }
+    }
+    /* to here */
   }
 `;
 const ErrorHandler = () => {
