@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledContactInput = styled.input`
   height: ${theme.sizes.buttons.S};
   width: 50%;
+  padding: 0 ${theme.spacer} 0 ${theme.spacer};
   margin-top: ${theme.spacer};
   border: 1px solid ${theme.colors.dark};
   border-radius: calc(0.5 * ${theme.spacer});
