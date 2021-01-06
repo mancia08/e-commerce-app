@@ -122,6 +122,11 @@ What follows is a sample response of the *Shopping API* :
 
     json:here
 
+<details><summary>Click to see a sample response of the <i>Shoppin API</i></summary>
+  <img width=100% src="./src/styles/images/app.png?raw=true">
+</details>
+
+
 [:top:](#table-of-contents)
 
 ## :page_with_curl: `theme.js` and `textData.js`
