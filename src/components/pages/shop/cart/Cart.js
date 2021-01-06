@@ -54,6 +54,11 @@ const StyledCartLastSection = styled.div`
     display: flex;
     gap: ${theme.spacer};
   }
+  @media (max-width: ${theme.viewport.mobile}) {
+    button {
+      font-size: ${theme.fonts.sizes.S};
+    }
+  }
 `;
 
 const Cart = ({ textColor, type }) => {
@@ -190,14 +195,15 @@ const Cart = ({ textColor, type }) => {
         {shopContext.state.isLoggedIn ? (
           <StripeCheckoutButton price={getTotalPrice()} />
         ) : (
+          <StyledCartLastSection>
           <Button
             width="parent"
             size="M"
             color="primary"
             text={textData.shop.checkout.notLogged}
-            /* action={()=>console.log("lol")} */
             action={()=>{shopContext.loginIconToggle()}}
           />
+         </StyledCartLastSection>
         )}
       </Modal>
     </>

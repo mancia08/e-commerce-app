@@ -66,7 +66,7 @@ export const textData = {
       details: "Details",
     },
     checkout: {
-      label: "ONE CLICK BUY",
+      label: "CHECKOUT",
       name: "NORRIS INC.",
       currency: "GBP",
       pay: "Pay",

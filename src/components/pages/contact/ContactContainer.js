@@ -34,7 +34,6 @@ const StyledContactContainer = styled.div`
     button {
       font-size: ${theme.fonts.sizes.S};
     }
-
   }
 `;
 
