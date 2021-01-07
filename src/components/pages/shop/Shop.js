@@ -74,6 +74,7 @@ const Shop = (props) => {
                       return (
                         <Route exact path={link}>
                           <SingleShop {...props}
+                          key={`${categoryIndex}${shopsIndex}`}
                             category={categoryIndex + 1}
                             shop={shopsIndex}
                           />

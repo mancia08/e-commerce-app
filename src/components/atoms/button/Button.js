@@ -72,6 +72,7 @@ const Button = ({
   width,
   height,
   text,
+  className
 }) => (
   <StyledBtn
     {...[size, color, width, height]}

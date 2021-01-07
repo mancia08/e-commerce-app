@@ -33,6 +33,7 @@ const MyAPIProvider = ({ children }) => {
       { id: 0, shops: [] },
       { id: 0, shops: [] },
     ];
+    let categoryArray = []
     const apiCall = (category) => {
       setLoading(true);
       const categoryUrl = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByCategory&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${APIkey}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&categoryId=${
@@ -81,7 +82,7 @@ const MyAPIProvider = ({ children }) => {
                 finalState[1],
                 finalState[2],
               ];
-              setItems(finalState);
+              /* setItems(finalState) */;
               if(finalState[1].id !== 0 && finalState[2].id !== 0){setLoading(false)}
               break;
             case 175759:
@@ -90,7 +91,7 @@ const MyAPIProvider = ({ children }) => {
                 { id: category.id, shops: [firstShop, secondShop, thirdShop] },
                 finalState[2],
               ];
-              setItems(finalState);
+              /* setItems(finalState) */;
               if(finalState[0].id !== 0 && finalState[2].id !== 0){setLoading(false)}
               break;
             case 32852:
@@ -99,13 +100,27 @@ const MyAPIProvider = ({ children }) => {
                 finalState[1],
                 { id: category.id, shops: [firstShop, secondShop, thirdShop] },
               ];
-              setItems(finalState);
+              /* setItems(finalState) */;
               if(finalState[0].id !== 0 && finalState[1].id !== 0){setLoading(false)}
               break;
             default:
               break;
           }
-          console.log(finalState)
+          for(let loopCategory=0; loopCategory<finalState.length; loopCategory++){
+            categoryArray.push({id: finalState[loopCategory].id, shops: []})
+            for(let loopShop=0; loopShop<finalState[loopCategory].shops.length; loopShop++){
+              categoryArray[loopCategory].shops.push([])
+              for(let loopItem=0; loopItem<finalState[loopCategory].shops[loopShop].length; loopItem++){
+                let item = finalState[loopCategory].shops[loopShop][loopItem];
+                item={id:loopItem, name:item.name, price:item.price, imageL:item.imageL}
+                categoryArray[loopCategory].shops[loopShop].push(item)
+                setItems(categoryArray)
+                console.log(categoryArray)
+              }
+
+            }
+          }
+          console.log(categoryArray)
         });
     };
     category.map((e) => apiCall(e));

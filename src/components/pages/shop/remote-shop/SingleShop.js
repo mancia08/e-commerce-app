@@ -31,7 +31,7 @@ const StyledModal = styled(Modal)`
   position: fixed;
   left: 10%;
   top: 10%;
-  z-index: 11;
+  z-index: 7;
   img {
     width: 100%;
   }
@@ -59,11 +59,11 @@ const SingleShop = ({ category, shop }) => {
   const context = useContext(MyContext);
 
   const shopContext = useContext(ShopContext);
-
   const toggleModal = (e) => {
     const item = context.itemsEbay[category - 1].shops[shop][e.target.id];
     setItem(item);
     setIsOpen(!isOpen);
+    console.log(e)
   };
 
   const onAddToCartClick = (e) => {
