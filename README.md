@@ -323,7 +323,7 @@ We used Jira as our main tool to assist in the project management and Confluence
 ## [:top:](#table-of-contents)
 
 ## :nail_care: Atomic design, Styled Components, and UX notes
-Norris Inc. customers are mainly [old people](#persona-1:-buyer), as per what we decided in our brainstorming sessions and JAD sessions.
+Norris Inc. customers are mainly [old people](#persona-1:-buyer), as per what we decided in our [brainstorming sessions and JAD sessions](#brainstorming).
 
 This forced us to adhere to the following guidelines for the front-end part of the web application:
 - Clean, minimal, and lightweight design.
@@ -339,11 +339,13 @@ Even better, because of this approach, everything is designed and coded for scal
 
 ### Step 1: Setting the main variables and styles
 
-Main elements defined with the atomic design approach in the wireframing stage (software used: Figma):
-![](.\src\data\images\logonorris.png)
+*Main elements defined with the atomic design approach in the wireframing stage (software used: Figma):*
 
-`theme.js` file (with *Styled Components* for CSS handling for React Components) with all variables defined:
-![](.\src\data\images\logonorris.png)
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image7.png?raw=true)
+
+`theme.js` *file (with *Styled Components* for CSS handling for React Components) with all variables defined:*
+
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image2.png?raw=true)
 
 **Pros of step 1:**
 - Code is clean, scalable, and easy to understand.
@@ -367,20 +369,20 @@ Atoms are the bread-and-butter of our projects. Every component is made from scr
 
 We started with SaSS for CSS styling but, after a couple of days, we switched to Styled Components.
 
-***Why Styled Components?***
-
-Styled Components allow us to pass props to every single “atom” and style them with normal javascript which also means that adding logic to it becomes trivial. As such, the only limits are our imaginations.
-
+> ***Why Styled Components?***\
+Styled Components allow us to pass props to every single “atom” and style them with normal javascript which also means that adding logic to it becomes trivial. As such, the only limits are our imaginations.\
+\
 As students, not yet professionals, we were amazed by this library and its possibilities. Also, the Styled Components approach fits nicely with our main goal.
 
-***An "atom" from our project:
+*An "atom" from our project:*
 
-![](.\src\data\images\logonorris.png)
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image3.png?raw=true)
 
 This button can receive props for style (like: size, type, width), but also for actions and the `onClick` trigger.
 
-Atoms called with passing and passed props:
-![](.\src\data\images\logonorris.png)
+*Atoms called with passing and passed props:*
+
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image1.png?raw=true)
 
 **Pros of step 2:**
 
@@ -402,11 +404,13 @@ This is the moment where the atomic design approach and Styled Components shine:
 
 In both the wireframing and coding stages, this step was the easiest.
 
-A molecule at the wireframe stage:
-![](.\src\data\images\logonorris.png)
+*A molecule at the wireframe stage:*
 
-The same molecule, coded and displayed by a browser:
-![](.\src\data\images\logonorris.png)
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image8.png?raw=true)
+
+*The same molecule, coded and displayed by a browser:*
+
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image6.png?raw=true)
 
 **Pros of step 3:**
 - Very fast workflow for creating a molecule.
@@ -426,11 +430,13 @@ The same molecule, coded and displayed by a browser:
 :sweat_smile: Last step for our project. The pages are made by molecules and atoms:
 
 
-Home page, composed of 3 molecules:
-![](.\src\data\images\logonorris.png)
+*Home page, composed of 3 molecules:*
 
-Map page, composed of molecules and atoms:
-![](.\src\data\images\logonorris.png)
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image5.png?raw=true)
+
+*Map page, composed of molecules and atoms:*
+
+![](https://github.com/Gabriellji/e-commerce-app/blob/main/src/data/images/readme/image4.png?raw=true)
 
 **Pros of step 4:**
 - Easy to make, maintainable pages.
