@@ -62,12 +62,12 @@ const Shop = (props) => {
                 </Route>
 
                 {
-                  !context.loading && console.log(context.itemsEbay.reverse())
+                  !context.loading && console.log(context.itemsEbay)
                 }
 
                 {!context.loading &&
-                  context.itemsEbay.reverse().map((category, categoryIndex) =>
-                    category.shops.reverse().map((shops, shopsIndex) => {
+                  context.itemsEbay.map((category, categoryIndex) =>
+                    category.shops.map((shops, shopsIndex) => {
                       let link = `/shop/category${
                         categoryIndex + 1
                       }/${shopsIndex}`;

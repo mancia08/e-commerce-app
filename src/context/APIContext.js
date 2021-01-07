@@ -13,6 +13,10 @@ const MyAPIProvider = ({children}) => {
 
   const [itemsEbay, setItems] = useState('');
 
+  const [jewerly, setJ] = useState('');
+  const [clothes, setC] = useState('');
+  const [electr, setE] = useState('');
+
   useEffect(() => {
     setState(items);
     getDataFromEbay();
@@ -57,14 +61,45 @@ const MyAPIProvider = ({children}) => {
           let firstShop = category.data.slice(0, category.data.length / 3);  //splitting that data in 3 (to simulate 3 different shops)
           let secondShop = category.data.slice(category.data.length / 3, 2 * category.data.length / 3);
           let thirdShop = category.data.slice(2 * category.data.length / 3, category.data.length);
-          finalState.push({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
-  
+          //finalState.push({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
+            
+            if (category.id === 10968) {
+              setJ({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
+            }
+            else  if (category.id === 175759) {
+              setC({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
+            }
+            else {
+              setE({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
+            }
+            console.log(finalState, 'INSIDE THEN');
+            // finalState.push(jewerly, clothes, electr);
+           
         });
+        console.log(finalState, 'OUTSIDE THEN  but inside apiCall fn');
+        // const jewerly = finalState.find(e => e.id == 10968);
+        // const clothes = finalState.find(e => e.id == 175759);
+        // const electr = finalState.find(e => e.id == 32852);
+
+        // setJ(jewerly);
+        // setC(clothes);
+        // setE(electr)
+        setItems([jewerly, clothes, electr]);
   
     };
+
+    
+
+    // console.log(jewerly, '-------JEWWW');
+
+    const myArray = [jewerly, clothes, electr];
+    console.log(jewerly, clothes, electr);
+    // console.log(finalState, 'FINNALSTATE');
+
     category.map((e) => apiCall(e));
     setLoading(false)
-    setItems(finalState);
+
+    //setItems(finalState);
   } 
 
  
