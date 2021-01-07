@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
 import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
-import { ShopContext } from './../../../../context/ShopContext';
+import { ShopContext } from "./../../../../context/ShopContext";
 import { theme } from "../../../../data/theme";
 import { textData } from "../../../../data/textData";
 import SingleShopCard from "./SingleShopCard";
@@ -19,7 +19,11 @@ const StyledSingleShopGrid = styled.div`
   gap: ${theme.spacer};
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 `;
-
+const StyledButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const StyledModal = styled(Modal)`
   width: 80%;
   height: 80%;
@@ -63,6 +67,9 @@ const SingleShop = ({ category, shop }) => {
   const toggleModal = (e) => {
     const item = context.state.items[category - 1].shops[shop][e.target.id];
     setItem(item);
+    setIsOpen(!isOpen);
+  };
+  const closeModal = () => {
     setIsOpen(!isOpen);
   };
 
@@ -119,7 +126,7 @@ const SingleShop = ({ category, shop }) => {
           />
         </div>
         <Hr />
-        <div>
+        <StyledButtonContainer>
           <Text
             color="primary"
             size="M"
@@ -129,26 +136,40 @@ const SingleShop = ({ category, shop }) => {
           <Button
             key={uuidv4()}
             id={item && item.id}
-            size="S"
+            size="M"
             text={textData.shop.single.add}
             color="primary"
             action={onAddToCartClick}
-            width="parent"
+            width="auto"
           />
           <Button
             key={uuidv4()}
-            size="S"
+            size="M"
             text={textData.shop.single.continue}
             color="primary"
             action={toggleModal}
-            width="parent"
+            width="auto"
           />
-        </div>
+        </StyledButtonContainer>
         <Hr />
-        <div>
+        <StyledButtonContainer>
           <Text color="primary" size="M" text="BUY NOW:" align="center" />
-          <StripeCheckoutButton price={item && item.price} />
-        </div>
+          {shopContext.state.isLoggedIn ? (
+            <StripeCheckoutButton price={item && item.price} />
+          ) : (
+            <Button
+              align="center"
+              size="M"
+              color="primary"
+              width="auto"
+              text={textData.shop.checkout.notLogged}
+              action={() => {
+                closeModal();
+                shopContext.loginIconToggle();
+              }}
+            />
+          )}
+        </StyledButtonContainer>
       </StyledModal>
     </>
   );
