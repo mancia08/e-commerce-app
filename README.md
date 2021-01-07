@@ -39,7 +39,7 @@
     - [Explorations + Decisions](#brain-explorations--decisions)
 - [:link: Other information](#link-other-information)
     - [Epics (Scrum)](#japanese_goblin-epics-(scrum))
-    - [Design guidelines and ressources](#nail_care-atomic-design,-styled-components,-and-ux-notes)
+    - [Atomic design, Styled Components, and UX notes](#nail_care-atomic-design,-styled-components,-and-ux-notes)
     - [Git and GitHub guidelines](#dizzy-git-and-github-guidelines)
 - [:cop: License](#cop-license)
 
@@ -421,11 +421,39 @@ The same molecule, coded and displayed by a browser:
 - Many molecules have border-radius for soft and clean visualization.
 - Navbars change from mobile and tablet to desktop view.
 
+### Step 4: Pages (finally!)
+
+:sweat_smile: Last step for our project. The pages are made by molecules and atoms:
+
+
+Home page, composed of 3 molecules:
+![](.\src\data\images\logonorris.png)
+
+Map page, composed of molecules and atoms:
+![](.\src\data\images\logonorris.png)
+
+**Pros of step 4:**
+- Easy to make, maintainable pages.
+- Clean code (home page is 13 lines long).
+
+**Cons:**
+- Same as in step 3:  no cons :sunglasses:.
+
+### Conclusion
+The atomic design approach and Styled Components were not easy to use at first, scary-looking even. However, as students, it's our duty to learn and practice a lot of different things, without fear of the unknown.
+
+This approach gave us the possibility to write clean and professional code and was an awesome learning opportunity.
 
 ## [:top:](#table-of-contents)
 
 ## :dizzy: Git and GitHub Guidelines
+**In our project, we decided to follow these guidelines for Git and GitHub.**
 
+- Small and frequent commits, to be able to find any problem facilitate the handling of any problem that may arise.
+- Commits with a significant name about the feature it’s implementing.
+- Branches with a significant name about the feature that is being worked on.
+- Pull requests done often (with working branches of course), to make sure that everyone in the team is working on the same version.
+- Pull requests have to be reviewed and approved by at least one person before being merged into the main branch.
 
 ## [:top:](#table-of-contents)
 
