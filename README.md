@@ -323,7 +323,7 @@ We used Jira as our main tool to assist in the project management and Confluence
 ## [:top:](#table-of-contents)
 
 ## :nail_care: Atomic design, Styled Components, and UX notes
-Norris Inc. customers are mainly [old people](#persona-1:-buyer), as per what we decided in our [brainstorming sessions and JAD sessions](#brainstorming).
+Norris Inc. customers are mainly [old people](#persona-1-buyer), as per what we decided in our [brainstorming sessions and JAD sessions](#brainstorming).
 
 This forced us to adhere to the following guidelines for the front-end part of the web application:
 - Clean, minimal, and lightweight design.
