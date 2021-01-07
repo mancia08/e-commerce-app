@@ -39,7 +39,7 @@
     - [Explorations + Decisions](#brain-explorations--decisions)
 - [:link: Other information](#link-other-information)
     - [Epics (Scrum)](#japanese_goblin-epics-(scrum))
-    - [Design guidelines and ressources](#nail_care-design-guidelines-and-ressources)
+    - [Design guidelines and ressources](#nail_care-atomic-design,-styled-components,-and-ux-notes)
     - [Git and GitHub guidelines](#dizzy-git-and-github-guidelines)
 - [:cop: License](#cop-license)
 
@@ -47,10 +47,9 @@
 
 # :microscope: About the code
 The following are the major frameworks and technologies that we used to build our project:
-- React
+- React (with *Hooks* and *Context*)
 - React Router
 - Styled Components
-- ...
 
 ## [:top:](#table-of-contents)
 
@@ -89,10 +88,8 @@ We used the following APIs in our web application:
 | [React Stripe Checkout Component](https://www.npmjs.com/package/react-stripe-checkout "https://www.npmjs.com/package/react-stripe-checkout") | Stripe is a cloud-based service that enables businesses and individuals to receive payments over the internet and offers both client-side libraries (JavaScript and native mobile) and server-side libraries (Java, Ruby, Node.js, etc.). |
 | [Facebook Login](https://developers.facebook.com/docs/facebook-login/ "https://developers.facebook.com/docs/facebook-login/") | Facebook Login enables people to have private & secure experiences, from basic account creation to social networking, all with the click of a button--it is uniquely positioned to offer a seamless experience across platforms, devices, and operating systems. |
 | [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in#add_a_google_sign-in_button) | Google Sign-In enables users to sign into apps and authorize apps to use Google services. |
-| [Finding API (eBay)](https://developer.ebay.com/DevZone/finding/Concepts/FindingAPIGuide.html) | Used to to retrieve a list of items from a given category to display in the shops. |
-| [Shopping API (eBay)](https://developer.ebay.com/devzone/shopping/docs/Concepts/ShoppingAPIGuide.html) | Used to retrieve a single item to display in the shops. |
-
-</br>
+| [Finding API (eBay)](https://developer.ebay.com/DevZone/finding/Concepts/FindingAPIGuide.html) | Used to retrieve a list of items from a given category to display in the shops. |
+| [Shopping API (eBay)](https://developer.ebay.com/devzone/shopping/docs/Concepts/ShoppingAPIGuide.html) | Used to retrieve information about a single item to display in the shops. |
 
 ### About Stripe API
 It would have been easier to make a fake payment form with HTML, or even copy and paste one of those cool animated payment forms you can find in *CodePen* but we wanted to learn how to do it for real as if it was an actual job and not just a Bootcamp exercise.
@@ -102,9 +99,15 @@ Out of the different solutions at our disposal, we chose the Stripe API because 
 We are using it in *Testing mode* for this web application but it's also possible to make it receive real payments.
 
 ### About the eBay APIs
-As with many other APIs, you need a key to use the ones from eBay. Rather than using a free and public API with images of items, we decided to try and send a request to the eBay Developer’s Program. Three days later we got a positive answer containing our very own access key :smile: . With it, we can make up to 5,000 API calls a day, more than enough for our purposes.
+We first tried to use one of those free and public APIs to get images of products, but we quickly discovered that they were very limited. You could only do very few API calls a day, you would only get a dozen items at most which also weren't particularly attractive.
 
-We also decided to make the API call from inside of a Context because of two reasons:
+After searching around, we stumbled upon the eBay APIs which seemed to what we needed, at least on paper. We decided to give it a go but, just as with many other APIs, we needed our own key.
+
+We then sent a request to the *eBay Developer’s Program* and three days later we got a positive answer containing our very own access key :smile: . With it, we can make up to 5,000 API calls a day, more than enough for our purposes :smile:. 
+
+We tried first the *Finding API* to retrieve a list of items from a given category to display in the shops. However, when it was time to display the images, we found out that the ones provided by this API were very small. So, to get the full resolution images we used *Shopping API*, making calls for each item to be displayed.
+
+We also decided to make the API call from inside of a Context because of the following two reasons:
 - To reduce the number of API calls produced by a single user.
 - To improve the performance (the call will be made as soon as the landing page on the website is loaded).
 
@@ -186,10 +189,8 @@ It took a bit of time to structure these files, but we believe it was worth it a
    npm install
    ```
 4. Enter your API keys in `.env`
-5. Run the app in the development mode with:
-    - `npm start`\
-    Runs the app in the development mode.\
-    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\
+5. Run the app in the development mode with `npm start`
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\
     The page will reload if you make edits.\
     You will also see any lint errors in the console.
 
@@ -321,37 +322,110 @@ We used Jira as our main tool to assist in the project management and Confluence
 
 ## [:top:](#table-of-contents)
 
-## :nail_care: Design guidelines and ressources
-> These are ressources and general guidelines that we decided to follow during the development of our web application.
+## :nail_care: Atomic design, Styled Components, and UX notes
+Norris Inc. customers are mainly [old people](#persona-1:-buyer), as per what we decided in our brainstorming sessions and JAD sessions.
 
-### CSS coding guidelines
-…
+This forced us to adhere to the following guidelines for the front-end part of the web application:
+- Clean, minimal, and lightweight design.
+- Easy-to-use.
+- Clean and straight-forward UX, every action from users will have an immediate and easy-to-understand response.
 
-### UX/UI for the shops (buyer side)
-- Maximum of 10 items per page on a shop’s page so users with phone or PC with small screens can comfortably browse and don’t get confused by an unending list of items.
+Starting from the firsts mock-ups, our team observed a trend: every element (button, block of text, etc.), probably because of its inherent simplicity, was always repeated multiple times. The natural corollary to this finding was that the *atomic design* approach was our best option going forward.
 
-- The shops' pages have to be simple, not cluttered, and devoid of sponsored products, advertisements, or suggestions of any kind.\
-Our target demographic, more often than not, already knows exactly what product or service from what specific shop he/she is looking for. So, the reason to use our E-commerce app is to buy that specific item. It’s not to buy the “cheapest” pair of jeans from any random seller.\
-Therefore, suggestions are intrusive and don’t bring any value to the user.
+Then, a lot of questions were raised: “Which combination of colors do we want to use?”, “What font(s)?”, "How big should the buttons be?", etc. Because we 
+we don't have a UX/UI professional in our team, the easiest way for us to answer is to try and experiment and see what works, what looks "nice". As it happens, the atomic design approach allows you to more flexible and try lets you change a lot of things very quickly, with minimal coding cost and in all stages of production.
 
-- As a corollary to the last bullet point, the buyer user may have issues locating the product inside the app (again, not selecting or deciding which one to buy) so a “search” functionality may be added inside each shop.
+Even better, because of this approach, everything is designed and coded for scalability, maintainability, and changeability.
 
-### UX/UI for the buying process
-Give confirmation on every step of the buying process with a clear explanation text.
-Examples:
-- “Review the items you have selected here”
-- “No purchase has been made yet”
-- “Click here to proceed to the payment page”
+### Step 1: Setting the main variables and styles
+
+Main elements defined with the atomic design approach in the wireframing stage (software used: Figma):
+![](.\src\data\images\logonorris.png)
+
+`theme.js` file (with *Styled Components* for CSS handling for React Components) with all variables defined:
+![](.\src\data\images\logonorris.png)
+
+**Pros of step 1:**
+- Code is clean, scalable, and easy to understand.
+- Creating and styling an element is easy and fast.
+- Code is maintainable, if we receive a request to change something we can perform a change in seconds (ex.: “Change primary color to #447FF2”; “Change font-size to 10px instead of 8px”).
+
+**Con’s:**
+- Following the atomic design approach and setting everything up takes more work compared to standard styling.
+
+**UI’s & UX’s note:**
+- We used only one main color for enhanced UX, all elements will be made with combinations of one color plus white or black, and an opacity value.
+- One single font.
+- Standard typography space with a font size of 8 pixels.
+- In desktop view, user and app interactions will be made with modals instead of moving to another page.
+- 3 viewports with media breaks at 450px and 768px.
+- Animation transitions set to ¼ of seconds for all interactive elements.
+
+### Step 2: "Atoms"
+
+Atoms are the bread-and-butter of our projects. Every component is made from scratch because we opted to not use premade UI (like “MaterialUI”).
+
+We started with SaSS for CSS styling but, after a couple of days, we switched to Styled Components.
+
+***Why Styled Components?***
+
+Styled Components allow us to pass props to every single “atom” and style them with normal javascript which also means that adding logic to it becomes trivial. As such, the only limits are our imaginations.
+
+As students, not yet professionals, we were amazed by this library and its possibilities. Also, the Styled Components approach fits nicely with our main goal.
+
+***An "atom" from our project:
+
+![](.\src\data\images\logonorris.png)
+
+This button can receive props for style (like: size, type, width), but also for actions and the `onClick` trigger.
+
+Atoms called with passing and passed props:
+![](.\src\data\images\logonorris.png)
+
+**Pros of step 2:**
+
+- Code consistency, every atom has the same structure and can be called with the same workflow.
+
+**Cons:**
+
+- Atom components look scary at first view because they are very long blocks of code.
+
+**UI’s & UX’s note:**
+- Components like buttons and links have a hover effect with little animations for better UX.
+Many atoms have border-radius for soft and clean visualization.
+
+### Step 3: Defining “Molecules”
+
+Time for some recipes of atoms! :bento: :yum:
+
+This is the moment where the atomic design approach and Styled Components shine: mounting the molecules was fast and easy with all the work we made in previous steps.
+
+In both the wireframing and coding stages, this step was the easiest.
+
+A molecule at the wireframe stage:
+![](.\src\data\images\logonorris.png)
+
+The same molecule, coded and displayed by a browser:
+![](.\src\data\images\logonorris.png)
+
+**Pros of step 3:**
+- Very fast workflow for creating a molecule.
+- Code consistency thanks to atoms.
+- Easy to maintain, particularly when there are multiple team members.
+
+**Cons:**
+- None, this is where atomic design shines :sunglasses:.
+
+**UI’s & UX’s note:** 
+- Components like cards have a hover effect with little animations for better UX.
+- Many molecules have border-radius for soft and clean visualization.
+- Navbars change from mobile and tablet to desktop view.
+
 
 ## [:top:](#table-of-contents)
 
-## :dizzy: Git and GitHub guidelines
-For our project we opted to follow those guidelines:
-Small commits, to be able to find any problem easier and faster if we happen to encounter one.
-- Commits with a significant name about the feature it’s implementing.
-- Branches with a significant name about the feature it’s addressing.
-- Pull requests done often with small but complete features rather than far apart with very big changes to the code.
-- All pull requests are to be reviewed and approved by at least one person before being merged into the main branch.
+## :dizzy: Git and GitHub Guidelines
+
 
 ## [:top:](#table-of-contents)
 
