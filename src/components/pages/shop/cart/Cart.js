@@ -150,7 +150,7 @@ const Cart = ({ textColor, type }) => {
       <Modal
         isOpen={shopContext.state.cartShown}
         onRequestClose={shopContext.cartToggle}
-        contentLabel="shopping-cart"
+        contentLabel="shopping-carPt"
         className="mymodal"
         overlayClassName="myoverlay"
         closeTimeoutMS={500}

@@ -9,8 +9,10 @@ import Text from "../../../atoms/text/Text";
 import logo from "./../../../../data/images/logonorris.png";
 import ButtonX from "../../../atoms/button/ButtonX";
 import LoginInput from "../../../atoms/input/LoginInput";
+import { CSSTransition } from 'react-transition-group';
 import GoogleLogin from "../googleLogin/GoogleLogin";
 import FacebookLogin from "../login-fb/FacebookLogin";
+import './LoginModal.css'
 
 const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
@@ -53,9 +55,10 @@ const LoginLogoContainer = styled.div`
     width: ${theme.sizes.modals.login.width};
     height: ${theme.spacer};
   }
-  @media screen and (max-height: 700px) and (min-width: ${theme.viewport.tablet}) {
-    position:relative;
-    top:24px
+  @media screen and (max-height: 700px) and (min-width: ${theme.viewport
+      .tablet}) {
+    position: relative;
+    top: 24px;
   }
 `;
 const LoginTextContainer = styled.div`
@@ -96,81 +99,90 @@ const LoginModal = ({ type }) => {
   const context = useContext(ShopContext);
 
   return (
-    <LoginPopUp {...type} type={type}>
-      <LoginLogoContainer>
-        <LogoImg src={logo} alt="Norris Inc. logo" />
-        <ButtonX
-          action={context.loginIconToggle}
-          size="XL"
-          text="X"
-          color="light"
-        />
-      </LoginLogoContainer>
-      <LoginTextContainer>
-        <Text
-          type="login"
-          color="light"
-          size="XL"
-          text={textData.login.title}
-        />
-        <LoginSpacer />
-        {context.state.loginFailed && (
-          <Text color="light" size="M" text={textData.login.fail} />
-        )}
-        <LoginForm>
-          <Text
-            type="login"
-            color="light"
-            size="S"
-            text={textData.login.user}
-          />
-          <LoginInput
-            action={context.username}
-            value={context.state.username}
-          />
-          <Text
-            type="login"
-            color="light"
-            size="S"
-            text={textData.login.password}
-          />
-          <LoginInput
-            type="password"
-            action={context.password}
-            value={context.state.password}
-          />
-          <LoginSpacer />
+    <CSSTransition
+        in={context.state.loginIconClicked}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+        onEnter={() => console.log("hi")}
+        onExited={() => console.log("hi")}
+      >
+      <LoginPopUp {...type} type={type}>
+        <LoginLogoContainer>
+          <LogoImg src={logo} alt="Norris Inc. logo" />
           <ButtonX
-            action={context.login}
-            size="M"
-            text={textData.login.submit}
+            action={context.loginIconToggle}
+            size="XL"
+            text="X"
             color="light"
           />
-        </LoginForm>
-        <LoginLinkContainer>
-          <LoginLink to="/contact" onClick={context.closeLogin}>
+        </LoginLogoContainer>
+        <LoginTextContainer>
+          <Text
+            type="login"
+            color="light"
+            size="XL"
+            text={textData.login.title}
+          />
+          <LoginSpacer />
+          {context.state.loginFailed && (
+            <Text color="light" size="M" text={textData.login.fail} />
+          )}
+          <LoginForm>
             <Text
               type="login"
               color="light"
-              size="M"
-              text={textData.login.register}
+              size="S"
+              text={textData.login.user}
             />
-          </LoginLink>
-          <LoginLink to="/contact" onClick={context.closeLogin}>
+            <LoginInput
+              action={context.username}
+              value={context.state.username}
+            />
             <Text
               type="login"
               color="light"
-              size="M"
-              text={textData.login.text1}
+              size="S"
+              text={textData.login.password}
             />
-          </LoginLink>
-          <LoginSpacer />
-          <GoogleLogin />
-          <LoginSpacer />
-          <FacebookLogin />
-        </LoginLinkContainer>
-      </LoginTextContainer>
-    </LoginPopUp>
+            <LoginInput
+              type="password"
+              action={context.password}
+              value={context.state.password}
+            />
+            <LoginSpacer />
+            <ButtonX
+              action={context.login}
+              size="M"
+              text={textData.login.submit}
+              color="light"
+            />
+          </LoginForm>
+          <LoginLinkContainer>
+            <LoginLink to="/contact" onClick={context.closeLogin}>
+              <Text
+                type="login"
+                color="light"
+                size="M"
+                text={textData.login.register}
+              />
+            </LoginLink>
+            <LoginLink to="/contact" onClick={context.closeLogin}>
+              <Text
+                type="login"
+                color="light"
+                size="M"
+                text={textData.login.text1}
+              />
+            </LoginLink>
+            <LoginSpacer />
+            <GoogleLogin />
+            <LoginSpacer />
+            <FacebookLogin />
+          </LoginLinkContainer>
+        </LoginTextContainer>
+      </LoginPopUp>
+    </CSSTransition>
   );
 };
 
