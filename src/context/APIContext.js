@@ -11,11 +11,11 @@ const MyAPIProvider = ({children}) => {
 
   const [loading, setLoading] = useState(true);
 
-  const [itemsEbay, setItems] = useState('');
+  const [itemsEbay, setItems] = useState([]);
 
-  const [jewerly, setJ] = useState('');
-  const [clothes, setC] = useState('');
-  const [electr, setE] = useState('');
+  const [jewerly, setJ] = useState({id: 0, shops:[]});
+  const [clothes, setC] = useState({id: 0, shops:[]});
+  const [electr, setE] = useState({id: 0, shops:[]});
 
   useEffect(() => {
     setState(items);
@@ -26,16 +26,12 @@ const MyAPIProvider = ({children}) => {
   const getDataFromEbay = () => {
     const itemsPerShop = 1; //keep this number = 1 during production. NOTE we do 3*(3n+1) API calls
     let category = [ 
-      // { id: 10968, data: [] }, //JEWELRY 
-      // { id: 32852, data: [] }, //ELECTRONICS
-      // { id: 175759, data: [] }, //CLOTHES
       { id: 10968, data: [] }, //JEWELRY 
       { id: 175759, data: [] }, //CLOTHES
       { id: 32852, data: [] }, //ELECTRONICS
 
     ];
     let finalState = []
-    const cors = `https://cors-anywhere.herokuapp.com/`; //anti CORS <3  //USE CHROME CORS EXTENSION
     const apiCall = (category) => {
       setLoading(true)
       const categoryUrl = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByCategory&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${APIkey}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&categoryId=${category.id}&paginationInput.entriesPerPage=${itemsPerShop * 3}`;
@@ -61,7 +57,6 @@ const MyAPIProvider = ({children}) => {
           let firstShop = category.data.slice(0, category.data.length / 3);  //splitting that data in 3 (to simulate 3 different shops)
           let secondShop = category.data.slice(category.data.length / 3, 2 * category.data.length / 3);
           let thirdShop = category.data.slice(2 * category.data.length / 3, category.data.length);
-          //finalState.push({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
             
             if (category.id === 10968) {
               setJ({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
@@ -72,35 +67,12 @@ const MyAPIProvider = ({children}) => {
             else {
               setE({ id: category.id, shops: [firstShop, secondShop, thirdShop] })
             }
-            console.log(finalState, 'INSIDE THEN');
-            // finalState.push(jewerly, clothes, electr);
            
         });
-        console.log(finalState, 'OUTSIDE THEN  but inside apiCall fn');
-        // const jewerly = finalState.find(e => e.id == 10968);
-        // const clothes = finalState.find(e => e.id == 175759);
-        // const electr = finalState.find(e => e.id == 32852);
-
-        // setJ(jewerly);
-        // setC(clothes);
-        // setE(electr)
-        setItems([jewerly, clothes, electr]);
-  
     };
-
-    
-
-    // console.log(jewerly, '-------JEWWW');
-
-    const myArray = [jewerly, clothes, electr];
-    console.log(jewerly, clothes, electr);
-    // console.log(finalState, 'FINNALSTATE');
-
-    category.map((e) => apiCall(e));
+/*     category.map((e) => apiCall(e));
     setLoading(false)
-
-    //setItems(finalState);
-  } 
+  }  */
 
  
     return (
