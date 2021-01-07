@@ -46,27 +46,30 @@
 </br>
 
 # :microscope: About the code
-The following are the major frameworks and technologies that we used to build our project:
+The main frameworks and technologies used to build our Project are the following:
+
 - React (with *Hooks* and *Context*)
 - React Router
 - Styled Components
 
 ## [:top:](#table-of-contents)
 
-## :wrench: Hooks
-By exploiting the power of React Hooks, we were able to use functional components in most cases. For instance, in the rendering UI or for handling state and logic. This approach has many advantages : 
+## :wrench: *Hooks*
+By exploiting the power of *React Hooks*, we were able to use functional components in most cases. For instance, when rendering UI or handling state and logic.
+
+Using *Hooks* has many advantages : 
 - Improved code reuse.
 - Better code composition.
 - Better defaults.
 - Sharing non-visual logic with the use of custom hooks.
-- Flexibility in moving up and down the components tree.
+- Flexibility when moving up and down the components tree.
 
-In our project we mainly used the `useState`, `useEffect`, `useRef` and `useContext` hooks.
+In our project we mainly used the following Hooks: `useState`, `useEffect`, `useRef`, and `useContext`.
 
 ## [:top:](#table-of-contents)
 
-## :pushpin: Context
-In our project, we decided to use React Context because it allows us to share information with any component by storing it in a central place.
+## :pushpin: *Context*
+In our project, we decided to use *React Context* because it allows us to share information with any component by storing it in a central location.
 
 With this approach, it’s quite easy to provide data to any component in the React component tree, regardless of how deeply nested they may be.
 
@@ -82,7 +85,7 @@ We used the following APIs in our web application:
 | API | ? |
 |--|--|
 | [Mapbox API](https://docs.mapbox.com/api/overview/ "https://docs.mapbox.com/api/overview/") | We used the Mapbox Maps Service to display a map with the location of the stores that sell on the web app. |
-| [React Modal Library](https://reactcommunity.org/react-modal/ "https://reactcommunity.org/react-modal/") | This a modal dialog component for React.JS that we used in different places in our web app. |
+| [React Modal Library](https://reactcommunity.org/react-modal/ "https://reactcommunity.org/react-modal/") | This is a modal dialog component for React.JS that we used in different places in our web app. |
 | [Node.js UUID Library](https://www.npmjs.com/package/uuid "https://www.npmjs.com/package/uuid") | This library is used to create short non-sequential url-friendly unique ids |
 | [Stripe API](https://stripe.com/docs "https://stripe.com/docs") | This API provides a payments infrastructure for the internet. We used it on the payment page. |
 | [React Stripe Checkout Component](https://www.npmjs.com/package/react-stripe-checkout "https://www.npmjs.com/package/react-stripe-checkout") | Stripe is a cloud-based service that enables businesses and individuals to receive payments over the internet and offers both client-side libraries (JavaScript and native mobile) and server-side libraries (Java, Ruby, Node.js, etc.). |
@@ -111,7 +114,7 @@ We also decided to make the API call from inside of a Context because of the fol
 - To reduce the number of API calls produced by a single user.
 - To improve the performance (the call will be made as soon as the landing page on the website is loaded).
 
-What follows is a sample response we receive when using the Finding API with a specific *Category Id* :
+What follows is a standard received when using the Finding API with a specific *Category Id* :
 
     {"findItemsByCategoryResponse":[{"ack":["Success"],"version":["1.13.0"],"timestamp":["2021-01-05T16:48:02.158Z"],"searchResult":[{"@count":"1","item":[{"itemId":["124475001012"],"title":["Felco F-2 Pruner High Performance Pruning Shears"],"globalId":["EBAY-US"],"primaryCategory":[{"categoryId":["139871"],"categoryName":["Pruning Shears & Snips"]}],"galleryURL":["https:\/\/thumbs1.ebaystatic.com\/m\/mwnwIEW33HzUFiq3iwbG4jA\/140.jpg"],"viewItemURL":["https:\/\/www.ebay.com\/itm\/Felco-F-2-Pruner-High-Performance-Pruning-Shears-\/124475001012"],"paymentMethod":["PayPal"],"autoPay":["false"],"postalCode":["080**"],"location":["Burlington,NJ,USA"],"country":["US"],"shippingInfo":[{"shippingServiceCost":[{"@currencyId":"USD","__value__":"0.0"}],"shippingType":["Free"],"shipToLocations":["Worldwide"],"expeditedShipping":["false"],"oneDayShippingAvailable":["false"],"handlingTime":["3"]}],"sellingStatus":[{"currentPrice":[{"@currencyId":"USD","__value__":"36.99"}],"convertedCurrentPrice":[{"@currencyId":"USD","__value__":"36.99"}],"sellingState":["Active"],"timeLeft":["P1DT18H39M25S"]}],"listingInfo":[{"bestOfferEnabled":["true"],"buyItNowAvailable":["false"],"startTime":["2020-12-08T23:27:30.000Z"],"endTime":["2021-01-07T11:27:27.000Z"],"listingType":["FixedPrice"],"gift":["false"],"watchCount":["14"]}],"returnsAccepted":["true"],"condition":[{"conditionId":["1000"],"conditionDisplayName":["New"]}],"isMultiVariationListing":["false"],"topRatedListing":["false"]}]}],"paginationOutput":[{"pageNumber":["1"],"entriesPerPage":["1"],"totalPages":["123191"],"totalEntries":["123191"]}],"itemSearchURL":["https:\/\/www.ebay.com\/sch\/181033\/i.html?_ddo=1&_ipg=1&_pgn=1"]}]}
 
@@ -208,7 +211,7 @@ After learning the fundamentals of React, we were asked to team up and develop a
 
 Despite coming from different backgrounds and from all over the world, we became friends very quickly, so we decided to form a team and work together on this project. After brainstorming and discussing, we ended up deciding to do a simple E-commerce web application following the current trends caused by the onset of the COVID-19 pandemic. We dreamed up a whole narrative about us being a Scrum Team working for a fictional company called “Norris Inc.”, and how we were asked to create the web app following a line of reasoning explained in the “Unmet needs” sections.
 
-The project went very well, we were able to work together with little to no conflict and we succeeded in creating the web app that we wanted. We also learned a lot, both in terms of coding know-how and about working on a web development project. We started using Scrum for the project management and we even completed two short sprints but then we decided that it wasn't a good fit for us, as a team of students, and for such a time frame. So, even if we all liked very much to work with Scrum, we decided to switch to Kanban for the final leg of the project. We don't expect to always be switching the project management approach but, in this case, we felt that it was justified and it's also quite normal for students to want to experiment with new things.
+The project went very well, we were able to work together with little to no conflict and we succeeded in creating the web app that we wanted. We also learned a lot, both in terms of coding know-how and about working on a web development project. We started using Scrum for the project management and we even completed two short sprints but then we decided that it wasn't a good fit for us, as a team of students, and for such a time frame. So, even if we all liked very much to work with Scrum, we decided to switch to Kanban for the final phase of the project. We don't expect to always be switching the project management approach but, in this case, we felt that it was justified and it's also quite normal for students to want to experiment with new things.
 
 All in all, it was a very fun project, we learned a lot from it, and we will all treasure the moments spent together working as a team. We hope that you will like it and if you have any questions, comments or you want to reach us, you can do so thru our...
 
@@ -238,11 +241,12 @@ As a response, Norris Inc. has its own logistic and shipping system that utilize
 ## :question: Unmet needs
 The COVID-19 pandemic has a lot of people confined in their homes. This has been going on for some time now and will not change in the foreseeable future because people in the city don’t trust Putin’s vaccine and also have taken a liking to stay at home with their cats, Netflix, wine, food, and pajamas. This is exactly what has disrupted our business model. Simply put, our customers no longer need work clothes to wear around the office because they are working from home in their cat hair covered pajamas.
 
-The folks in the marketing department saw that we now have an underutilized logistic and shipping system and also that a lot of small shop owners around the city are trying to sell their products to customers that no longer go to their physical stores because they aren’t leaving their houses as much. These shops owner’s unmet need is our opportunity: Norris Inc. can provide the shipping service and charge for that.
+The folks in the marketing department saw that we now have an underutilized logistic and shipping system and also that a lot of small shop owners around the city are trying to sell their products to customers that no longer go to their physical stores because they are not leaving their houses as much. These shops owner’s unmet need is our opportunity, Norris Inc. can provide the shipping service and charge for that.
 
-But then there is a second unmet need. Turns out that most of these local stores around town have always sold from physical locations and have never needed (or wanted) to sell online until now. The pandemic is forcing everyone to adapt to this new world where nobody leaves the house. So, here again, the folks from marketing saw an opportunity. Since Norris Inc. already knows how to sell online, because that is what we do, we can also help the stores around the city to do it. This means that we have to provide an E-commerce platform for these shops, and we can also charge for this.
+But then there is a second unmet need, turns out that most of these local stores around town have always sold from physical locations and have never needed (or wanted) to sell online until now. The pandemic is forcing everyone to adapt to this new world where nobody leaves the house. So, here again, the marketing Department saw an opportunity. Since Norris Inc. already knows how to sell online, because that is what we do, we can also help the stores around the city to do it. This means that we have to provide an E-commerce platform for these shops and we can also charge for this.
 
 A third unmet need is that a lot of these small shops around the city pride themselves in offering top-notch customer service and a lot of after-sale service. They do it because they have cultivated a very long relationship with their clients. There are a lot of cases where a clientele has been shopping for the same products in the same shop for years and years. So, if we want to host these shops under our E-commerce platform, we must also provide a way for the customer service and after-sale service to happen. We have been told that meeting this “need” is paramount to the success of the project.
+
 
 ## [:top:](#table-of-contents)
 
@@ -275,14 +279,14 @@ A third unmet need is that a lot of these small shops around the city pride them
 
 ### Persona #2: Seller
 - Small local store, been there since forever.
-- Mom and pop store.
+- Family owned store.
 - “Brick and mortar”.
 - Does not sell food or other perishable items.
 - Sells technology, clothes, toys, small electronics, small household appliances, etc. 
-- Because of the pandemic they can't sell in person so to keep the business they want to sell online but I don't know how to do it.
+- Because of the pandemic they can't sell in person, so to keep the business they want to sell online but they don't know how to do it.
 - Provides a lot of after-sale service and customer service.
 - Has an established clientele.
-- Doesn't have warehouses or shipping services so there is trepidation about selling online.
+- Does not have warehouses or shipping services so there is trepidation about selling online.
 
 ## :brain: Explorations + Decisions
 ### Brainstorming
@@ -316,8 +320,8 @@ We used Jira as our main tool to assist in the project management and Confluence
 - As a buyer, I want to be able to get customer service and after-sale service through the website, so I keep shopping in the same places I did before the pandemic.
 - As a seller, I want to access information about the buyers so I can give them after-sale service.
 - As a buyer, I want to be able to write reviews about the shops and their after-sales service so other potential shoppers can know what are the best stores.
-- As a buyer, I want to be able to log in to the webpage so I can have a more personalized experience.
-- As a seller, I want to be able to log in to the webpage so I can update and maintain my store and access useful information.
+- As a buyer, I want to be able to log into the webpage so I can have a more personalized experience.
+- As a seller, I want to be able to log into the webpage so I can update and maintain my store and access useful information.
 - As a seller, I want to implement marketing strategies in my shop so I can sell more products and earn more money.
 
 ## [:top:](#table-of-contents)
@@ -332,8 +336,7 @@ This forced us to adhere to the following guidelines for the front-end part of t
 
 Starting from the firsts mock-ups, our team observed a trend: every element (button, block of text, etc.), probably because of its inherent simplicity, was always repeated multiple times. The natural corollary to this finding was that the *atomic design* approach was our best option going forward.
 
-Then, a lot of questions were raised: “Which combination of colors do we want to use?”, “What font(s)?”, "How big should the buttons be?", etc. Because we 
-we don't have a UX/UI professional in our team, the easiest way for us to answer is to try and experiment and see what works, what looks "nice". As it happens, the atomic design approach allows you to more flexible and try lets you change a lot of things very quickly, with minimal coding cost and in all stages of production.
+Then, a lot of questions were raised: “Which combination of colors do we want to use?”, “What font(s)?”, "How big should the buttons be?", etc. Because we don't have a UX/UI professional in our team, the easiest way for us to answer this is to try, experiment and see what works, what looks appealing. As it happens, the atomic design approach allows you to have more flexibility and lets you change things very quickly, with minimal coding cost and throughout all stages of production.
 
 Even better, because of this approach, everything is designed and coded for scalability, maintainability, and changeability.
 
@@ -365,7 +368,7 @@ Even better, because of this approach, everything is designed and coded for scal
 
 ### Step 2: "Atoms"
 
-Atoms are the bread-and-butter of our projects. Every component is made from scratch because we opted to not use premade UI (like “MaterialUI”).
+Atoms are the bread-and-butter of our projects. Every component is made from scratch because we opted not to use premade UI (like “MaterialUI”).
 
 We started with SaSS for CSS styling but, after a couple of days, we switched to Styled Components.
 
@@ -398,9 +401,9 @@ Many atoms have border-radius for soft and clean visualization.
 
 ### Step 3: Defining “Molecules”
 
-Time for some recipes of atoms! :bento: :yum:
+Time for some atoms recipes! :bento: :yum:
 
-This is the moment where the atomic design approach and Styled Components shine: mounting the molecules was fast and easy with all the work we made in previous steps.
+This is the moment where the atomic design approach and Styled Components shine: mounting the molecules was fast and easy with all the work we made in previous steps. In both the wireframing and coding stages, this step was the easiest.
 
 In both the wireframing and coding stages, this step was the easiest.
 
