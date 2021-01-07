@@ -105,6 +105,7 @@ const MyAPIProvider = ({ children }) => {
             default:
               break;
           }
+          console.log(finalState)
         });
     };
     category.map((e) => apiCall(e));
