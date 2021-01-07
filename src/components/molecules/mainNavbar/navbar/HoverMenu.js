@@ -8,7 +8,7 @@ export const SubMenu = styled.div`
   background-color: ${theme.colors.primary};
   width: 80vw;
   height: calc(${theme.spacer} * 35);
-  z-index: 1;
+  z-index: 4;
   position: absolute;
   right: calc(2 * ${theme.sizes.buttons.S});
   top: calc(2 * ${theme.sizes.buttons.S});

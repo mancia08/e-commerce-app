@@ -4,7 +4,7 @@ import Confetti from "react-confetti";
 
 export const StyledErrorPopUp = styled.div`
   display: none;
-  z-index: 101;
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;

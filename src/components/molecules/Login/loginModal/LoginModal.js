@@ -18,7 +18,7 @@ const LoginPopUp = styled.div`
   background-color: ${theme.colors.primary};
   width: ${theme.sizes.modals.mobile.width};
   height: ${theme.sizes.modals.mobile.height};
-  z-index: 1;
+  z-index: 4;
   position: absolute;
   top: 0;
   left: 0;

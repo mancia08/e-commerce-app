@@ -14,7 +14,7 @@ const StyledMobileMenu = styled.div`
   position: absolute;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 4;
   div {
     display: flex;
   }

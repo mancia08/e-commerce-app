@@ -31,7 +31,7 @@ const StyledModal = styled(Modal)`
   position: fixed;
   left: 10%;
   top: 10%;
-  z-index: 11;
+  z-index: 7;
   img {
     width: 100%;
   }

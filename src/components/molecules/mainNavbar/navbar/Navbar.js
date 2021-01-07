@@ -33,7 +33,7 @@ const StyledNav = styled.div`
   gap: calc(4 * ${theme.spacer});
   height: calc(100vh - 3 * ${theme.sizes.navbar});
   background-color: ${theme.colors.primary};
-  z-index: 10;
+  z-index: 6;
   margin-top: calc(4 * ${theme.spacer});
   ${LogoLink} {
     display: none;

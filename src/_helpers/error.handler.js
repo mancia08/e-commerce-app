@@ -15,7 +15,7 @@ const StyledErrorHandler = styled.p`
   text-align: center;
   background-color: ${theme.colors.secondary};
 
-  z-index: 102;
+  z-index: 3;
 
   :hover {
     ~ ${StyledErrorService} {

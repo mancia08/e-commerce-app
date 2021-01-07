@@ -5,7 +5,7 @@ import ErrorPopUp from "./error.interceptors";
 import { ShopContext } from "../context/ShopContext";
 
 export const StyledErrorService = styled.img`
-  z-index: 100;
+  z-index: 1;
   display: none;
 `;
 
