@@ -65,6 +65,9 @@ const SingleShop = ({ category, shop }) => {
     setItem(item);
     setIsOpen(!isOpen);
   };
+  const closeModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   const onAddToCartClick = (e) => {
     let itemSelected =
@@ -147,7 +150,19 @@ const SingleShop = ({ category, shop }) => {
         <Hr />
         <div>
           <Text color="primary" size="M" text="BUY NOW:" align="center" />
-          <StripeCheckoutButton price={item && item.price} />
+          {shopContext.state.isLoggedIn ? (
+            <StripeCheckoutButton price={item && item.price} />
+          ) : (
+            <Button
+              align="center"
+              size="L"
+              color="primary"
+              text={textData.shop.checkout.notLogged}
+              action={() => {
+                closeModal(); shopContext.loginIconToggle();
+              }}
+            />
+          )}
         </div>
       </StyledModal>
     </>
