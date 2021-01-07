@@ -52,34 +52,36 @@ const StyledModal = styled(Modal)`
   }
 `;
 const SingleShop = ({ category, shop }) => {
+
   const [isOpen, setIsOpen] = useState(false);
 
-  const [item, setItem] = useState("");
+  const [item, setItem] = useState({});
 
   const context = useContext(MyContext);
 
   const shopContext = useContext(ShopContext);
 
   const toggleModal = (e) => {
-    const item = context.itemsEbay[category - 1].shops[shop][e.target.id];
-    setItem(item);
+    const itemm = context.itemsEbay[category - 1].shops[shop];
+    setItem(itemm[0]);
     setIsOpen(!isOpen);
   };
 
   const onAddToCartClick = (e) => {
     let itemSelected =
-      context.itemsEbay[category - 1].shops[shop][e.target.id];
+      context.itemsEbay[category - 1].shops[shop][0];
     let copyOfItems = [...shopContext.cart];
     copyOfItems.push(itemSelected);
     shopContext.setCart(copyOfItems);
+    console.log(shopContext.cart, 'SHOP CONTEXT')
   };
 
   return (
     <>
       <StyledSingleShopGrid>
         {!context.loading &&
-          context.itemsEbay[category - 1].shops[shop].map((shop, index) => (
-            <>
+          context.itemsEbay[category - 1].shops[shop].map((shop, index) => {
+            return <>
               <SingleShopCard
                 id={shop.id}
                 path={`/shop/category${category}/${shop}/${index}`}
@@ -91,9 +93,10 @@ const SingleShop = ({ category, shop }) => {
                 onAddItemClick={onAddToCartClick}
               />
             </>
-          ))}
+          })}
       </StyledSingleShopGrid>
       <StyledModal
+      id={shop}
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="Item"
@@ -103,7 +106,7 @@ const SingleShop = ({ category, shop }) => {
         <Text
           color="primary"
           size="M"
-          text={item && item.name}
+          text={item.name}
           align="center"
         />
         <div>
@@ -123,7 +126,7 @@ const SingleShop = ({ category, shop }) => {
           <Text
             color="primary"
             size="M"
-            text={`Price ${item && item.price} £`}
+            text={`Price ${item.price} £`}
             align="center"
           />
           <Button
@@ -137,6 +140,7 @@ const SingleShop = ({ category, shop }) => {
           />
           <Button
             key={uuidv4()}
+            id={item && item.id}
             size="S"
             text={textData.shop.single.continue}
             color="primary"
