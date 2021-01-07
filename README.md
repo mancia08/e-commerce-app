@@ -256,7 +256,6 @@ A third unmet need is that a lot of these small shops around the city pride them
 - Learn to use React.
 - Make a simple but beautiful E-commerce web application.
 - Have fun.
-- Get hired in a job or internship after the Bootcamp.
 
 ## [:top:](#table-of-contents)
 
@@ -470,3 +469,4 @@ This approach gave us the possibility to write clean and professional code and w
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
 ## [:top:](#table-of-contents)
+
