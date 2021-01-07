@@ -62,7 +62,6 @@ const StyledCartLastSection = styled.div`
 `;
 
 const Cart = ({ textColor, type }) => {
-
   const shopContext = useContext(ShopContext);
 
   if (shopContext.payment) {
@@ -176,14 +175,16 @@ const Cart = ({ textColor, type }) => {
             text={textData.shop.cart.exit}
             width="parent"
           />
-          {shopContext.cart.length>0 && <Button
-            size="M"
-            color="primary"
-            text={textData.shop.cart.clear}
-            action={clearAllItems}
-            width="parent"
-          />}
-          <div>
+          {shopContext.cart.length > 0 && (
+            <>
+            <Button
+              size="M"
+              color="primary"
+              text={textData.shop.cart.clear}
+              action={clearAllItems}
+              width="parent"
+            />
+            <div>
             <Text size="M" color="dark" text={textData.shop.cart.items} />
             <Text size="M" color="primary" text={shopContext.cart.length} />
           </div>
@@ -191,19 +192,23 @@ const Cart = ({ textColor, type }) => {
             <Text size="M" color="dark" text={textData.shop.cart.price} />
             <Text size="M" color="primary" text={`${getTotalPrice()} £`} />
           </div>
+          </>
+          )}
         </StyledCartLastSection>
         {shopContext.state.isLoggedIn ? (
           <StripeCheckoutButton price={getTotalPrice()} />
         ) : (
-          <StyledCartLastSection>
-          <Button
-            width="parent"
-            size="M"
-            color="primary"
-            text={textData.shop.checkout.notLogged}
-            action={()=>{shopContext.loginIconToggle()}}
-          />
-         </StyledCartLastSection>
+          shopContext.cart.length > 0 && (
+            <Button
+              width="parent"
+              size="M"
+              color="primary"
+              text={textData.shop.checkout.notLogged}
+              action={() => {
+                shopContext.loginIconToggle();
+              }}
+            />
+          )
         )}
       </Modal>
     </>
