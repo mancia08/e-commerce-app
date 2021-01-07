@@ -22,8 +22,6 @@
 </p>
 </br>
 
-
-
 # Table of Contents
 - [:microscope: About the code](#microscope-about-the-code)
     - [Hooks](#wrench-hooks)
@@ -43,9 +41,8 @@
     - [Epics (Scrum)](#japanese_goblin-epics-(scrum))
     - [Design guidelines and ressources](#nail_care-design-guidelines-and-ressources)
     - [Git and GitHub guidelines](#dizzy-git-and-github-guidelines)
-- [:cop:License](#cop-license)
+- [:cop: License](#cop-license)
 
-</br>
 </br>
 
 # :microscope: About the code
@@ -55,7 +52,7 @@ The following are the major frameworks and technologies that we used to build ou
 - Styled Components
 - ...
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :wrench: Hooks
 By exploiting the power of React Hooks, we were able to use functional components in most cases. For instance, in the rendering UI or for handling state and logic. This approach has many advantages : 
@@ -67,7 +64,7 @@ By exploiting the power of React Hooks, we were able to use functional component
 
 In our project we mainly used the `useState`, `useEffect`, `useRef` and `useContext` hooks.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :pushpin: Context
 In our project, we decided to use React Context because it allows us to share information with any component by storing it in a central place.
@@ -78,7 +75,7 @@ To create a new Context, we used the React `createContext()`  function.
 
 To access the context value, we used `useContext()` React hook.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :telephone_receiver: APIs
 We used the following APIs in our web application:
@@ -94,7 +91,6 @@ We used the following APIs in our web application:
 | [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in#add_a_google_sign-in_button) | Google Sign-In enables users to sign into apps and authorize apps to use Google services. |
 | [Finding API (eBay)](https://developer.ebay.com/DevZone/finding/Concepts/FindingAPIGuide.html) | Used to to retrieve a list of items from a given category to display in the shops. |
 | [Shopping API (eBay)](https://developer.ebay.com/devzone/shopping/docs/Concepts/ShoppingAPIGuide.html) | Used to retrieve a single item to display in the shops. |
-|
 
 </br>
 
@@ -120,14 +116,9 @@ Once we get that response, we map through it to get all the data for each item, 
 
 What follows is a sample response of the *Shopping API* :
 
-    json:here
+    {"Timestamp":"2021-01-07T08:38:36.468Z","Ack":"Success","Build":"E1157_CORE_APILW_19146596_R1","Version":"1157","Item":{"ItemID":"114481438901","EndTime":"2021-01-25T04:20:46.000Z","ViewItemURLForNaturalSearch":"https://www.ebay.com/itm/Pickaroon-Hookaroon-Great-Tool-Moving-Rolling-Logs-Firewood-3-Handle-Sizes-/114481438901?var=","ListingType":"FixedPriceItem","Location":"Stillwater, Minnesota","PictureURL":["https://i.ebayimg.com/00/s/NjAwWDgwMA==/z/8MoAAOSwh-JeHqTU/$_57.JPG?set_id=8800005007"],"PrimaryCategoryID":"151620","PrimaryCategoryName":"Home & Garden:Yard, Garden & Outdoor Living:Garden Hand Tools & Equipment:Axes & Hatchets","BidCount":0,"ConvertedCurrentPrice":{"Value":39.0,"CurrencyID":"USD"},"ListingStatus":"Active","TimeLeft":"P17DT19H42M10S","Title":"Pickaroon Hookaroon Great Tool For Moving/Rolling Logs & Firewood 3 Handle Sizes","Country":"US","AutoPay":false,"ConditionID":1000,"ConditionDisplayName":"New","GlobalShipping":true}}
 
-<details><summary>Click to see a sample response of the <i>Shoppin API</i></summary>
-  <img width=100% src="./src/styles/images/app.png?raw=true">
-</details>
-
-
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :page_with_curl: `theme.js` and `textData.js`
 To make our project scalable and maintainable, we opted to keep everything related to the style and text inside two files.
@@ -140,38 +131,70 @@ We decided to take this approach to be able to maintain and update the project i
 
 It took a bit of time to structure these files, but we believe it was worth it and it was a great learning opportunity.
 
-[:top:](#table-of-contents)
+### Use case example
+
+1. The following object can be found inside [`textData.js`](.\src\data\textData.js) starting on line 63, and contains the value `Details` for the key `details`: 
+
+    ```javascript
+    single: {
+        continue: "Continue Shopping",
+        add: "Add to cart",
+        details: "Details",
+        },
+    ```
+    In the same manner, you can find another object in [`theme.js`](.\src\data\theme.js) starting on line 3 with a key  `primary` and value `"#33A0FF"`:
+
+    ```javascript
+    colors: {
+        primary: "#33A0FF",
+        secondary: "#33A0FF40",
+        light: "#FFFFFF",
+        dark: "#000000",
+        dark2: "#0000007A",
+        grey: "#F0F0F0",
+        red: "#FF0000",
+    },
+    ```
+2. We import both files in the [`SingleShopCard.js`](.\src\components\pages\shop\remote-shop\SingleShopCard.js) component on line 3 and 4:
+    ```javascript
+    import { textData } from "../../../../data/textData";
+    import { theme } from "../../../../data/theme";
+    ```
+3. Still on `SingleShopCard.js`, starting on line 46, we call on a `Button` component that is set up to receive props for the text to be displayed and its color, amongst other things.
+    ```javascript
+    <Button
+            id={id}
+            action={(e) => onClick(e)}
+            size="S"
+            color="primary"
+            text={textData.shop.single.details}
+        />
+    ```
+4. You can clearly see how the props `color="primary"` and `text={textData.shop.single.details}` come from `textData.js` and `theme.js`
+5. Now, if we ever want to change the color or the text displayed in this button, we only need to do a small change in a couple of lines of code. The change will be reflected in all instances of that button.
+
+## [:top:](#table-of-contents)
 
 # :floppy_disk: Installation
-1. Clone the repo
-```sh
-   git clone https://github.com/Gabriellji/e-commerce-app.git
-```
+1. Clone the repo:
+    ```sh
+    git clone https://github.com/Gabriellji/e-commerce-app.git
+    ```
 2. [Contact us](#linkedin-profiles) for guidance on how to get your own API keys.
-3. Install NPM packages
+3. Install NPM packages:
    ```sh
    npm install
    ```
 4. Enter your API keys in `.env`
-5. Run or build the app with:
+5. Run the app in the development mode with:
     - `npm start`\
     Runs the app in the development mode.\
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\
     The page will reload if you make edits.\
     You will also see any lint errors in the console.
-    - `npm run build`\
-    Builds the app for production to the `build` folder.\
-    It correctly bundles React in production mode and optimizes the build for the best performance.\
-    The build is minified and the filenames include the hashes.\
-    Your app is ready to be deployed!\
-    See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-    - `npm run eject`\
-    **Note: this is a one-way operation. Once you `eject`, you can’t go back!**\
-    If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.\
-    Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.\
-    You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-[:top:](#table-of-contents)
+
+## [:top:](#table-of-contents)
 
 # :thought_balloon: About the project
 ## :seedling: Some history
@@ -194,14 +217,15 @@ All in all, it was a very fun project, we learned a lot from it, and we will all
 - [Mancini](https://www.linkedin.com/in/mancia08/)
 - [Carlos Orellana](https://www.linkedin.com/in/carlosaore/)
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :lock: Constraints
 - Use Scrum as best as possible to manage the project.
 - Must use React.
 - It has to be some kind of web application that uses data coming from an API.
 - Time-boxed: 2 months of calendar time but just ~48 effective hours (We may have worked for a bit more).
-- Only 4 students as developers, no Scrum Master, no Product Owner, and no specific boundaries other than the constraint stated above.
+- Only 4 students as developers, one acting as a Scrum Master, and another one as a Product Owner.
+- No specific boundaries other than the constraints stated above.
 
 ## :rugby_football: Scrum Team
 We are pretending to be a Scrum team working under a fictional company called “Norris Inc.” that sells workwear through a “direct-to-consumer” business model through an online E-commerce platform. The clothes are made by a third party to our specifications.
@@ -219,7 +243,7 @@ But then there is a second unmet need. Turns out that most of these local stores
 
 A third unmet need is that a lot of these small shops around the city pride themselves in offering top-notch customer service and a lot of after-sale service. They do it because they have cultivated a very long relationship with their clients. There are a lot of cases where a clientele has been shopping for the same products in the same shop for years and years. So, if we want to host these shops under our E-commerce platform, we must also provide a way for the customer service and after-sale service to happen. We have been told that meeting this “need” is paramount to the success of the project.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :money_with_wings: Objectives
 - Learn to work in a team.
@@ -229,7 +253,7 @@ A third unmet need is that a lot of these small shops around the city pride them
 - Have fun.
 - Get hired in a job or internship after the Bootcamp.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :walking: User personas
 ### Persona #1: Buyer
@@ -280,7 +304,7 @@ At the end of that second sprint, we decided to experiment with a leaner and fas
 ### Tools
 We used Jira as our main tool to assist in the project management and Confluence to store and access all the documentation being produced (master project document, meeting notes, design guidelines, etc.) and Slack together with Google Meet as our platform for communication.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 # :link: Other information
 ## :japanese_goblin: Epics (Scrum)
@@ -295,7 +319,7 @@ We used Jira as our main tool to assist in the project management and Confluence
 - As a seller, I want to be able to log in to the webpage so I can update and maintain my store and access useful information.
 - As a seller, I want to implement marketing strategies in my shop so I can sell more products and earn more money.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :nail_care: Design guidelines and ressources
 > These are ressources and general guidelines that we decided to follow during the development of our web application.
@@ -319,7 +343,7 @@ Examples:
 - “No purchase has been made yet”
 - “Click here to proceed to the payment page”
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 ## :dizzy: Git and GitHub guidelines
 For our project we opted to follow those guidelines:
@@ -329,9 +353,9 @@ Small commits, to be able to find any problem easier and faster if we happen to 
 - Pull requests done often with small but complete features rather than far apart with very big changes to the code.
 - All pull requests are to be reviewed and approved by at least one person before being merged into the main branch.
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
 
 # :cop: License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
-[:top:](#table-of-contents)
+## [:top:](#table-of-contents)
