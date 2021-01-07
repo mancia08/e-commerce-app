@@ -121,13 +121,14 @@ const ContactContainer = () => {
         <>
           <section>
             <Text color="primary" size="L" text={textData.contact.title} />
-
+<br/>
             <ContactTitleButton
               text={textData.contact.button}
               heading={textData.contact.client}
               action={handleBuyerClicked}
               secondaryAction= {context.closeLogin}
             />
+            <br/>
             <ContactTitleButton
               text={textData.contact.button}
               heading={textData.contact.seller}

@@ -16,7 +16,7 @@ const MobileMainNavContainer = styled.div`
   position: sticky;
   top: 0;
   background-color: ${theme.colors.light};
-  z-index: 10;
+  z-index: 6;
   @media (min-width: ${theme.viewport.tablet}) {
     display: none;
     padding: 0 ${theme.spacer};
@@ -28,7 +28,7 @@ const SuperNavToggleContainer = styled.div`
   @media (min-width: ${theme.viewport.tablet}) {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 6;
     background-color: ${theme.colors.light};
     padding: 0 ${theme.spacer};
     display: block;
@@ -37,7 +37,7 @@ const SuperNavToggleContainer = styled.div`
 const NavContainer = styled.div`
   display: none;
   @media (min-width: ${theme.viewport.tablet}) {
-    z-index: 10;
+    z-index: 6;
     position: sticky;
     top: calc(4 * ${theme.spacer});
     display: block;

@@ -22,32 +22,27 @@ const StyledFooter = styled.div`
 
 const FooterTextContainer = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
   padding: ${theme.sizes.buttons.M};
   background-color: ${theme.colors.secondary};
   @media (min-width: ${theme.viewport.tablet}) {
     flex-direction: row;
-  }
-  @media (max-width: ${theme.viewport.mobile}) {
-    padding: ${theme.sizes.buttons.M} 0;
+    align-items:flex-start
   }
 `;
 
 const StyledFooterColumn = styled.div`
-  width: 40vw;
-  :nth-child(2) {
+  width: 80vw;
+  margin: ${theme.spacer};
+  /* :nth-child(2) {
     align-self: flex-end;
-  }
+  } */
   @media (min-width: ${theme.viewport.tablet}) {
-    :nth-child(2) {
+    width: 40vw;
+    /* :nth-child(2) {
       align-self: auto;
-    }
-  }
-  @media (max-width: ${theme.viewport.mobile}) {
-    width: 54vw;
-    :nth-child(3) {
-      display: none;
-    }
+    } */
   }
 `;
 
@@ -65,11 +60,6 @@ const FooterLink = styled.a`
   }
   :hover {
     cursor: pointer;
-  }
-  @media (max-width: ${theme.viewport.mobile}) {
-    p {
-      font-size: 14px;
-    }
   }
 `;
 

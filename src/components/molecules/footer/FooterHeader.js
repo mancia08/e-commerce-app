@@ -24,7 +24,7 @@ const FooterHeader = () => (
       <Text color="primary" size="XL" text={textData.homepage.title1} />
     </div>
     <div>
-      <Text color="dark" size="S" text={textData.homepage.title4} />
+      <Text color="dark" align="center" size="S" text={textData.homepage.title4} />
     </div>
   </StyledFooterHeader>
 );

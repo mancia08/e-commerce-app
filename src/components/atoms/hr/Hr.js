@@ -9,6 +9,8 @@ export const StyledHr = styled.hr`
   width: ${(p) => (p.width === "parent" ? "100%" : "auto")};
 `;
 
-const Hr = ({color, type, width}) => <StyledHr {...[color, type]} color={color} type={type} width={width} />;
+const Hr = ({ color, type, width }) => (
+  <StyledHr {...[color, type]} color={color} type={type} width={width} />
+);
 
 export default Hr;

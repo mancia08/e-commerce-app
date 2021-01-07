@@ -53,14 +53,14 @@ const SingleShopCard = ({
       <Button
         id={id}
         action={(e) => onClick(e)}
-        size="S"
+        size="M"
         color="primary"
         text={textData.shop.single.details}
       />
       <Button
         id={id}
         action={(e) => onAddItemClick(e)}
-        size="S"
+        size="M"
         color="primary"
         text={textData.shop.single.add}
       />

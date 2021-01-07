@@ -14,7 +14,10 @@ const StyledPopup = styled.div`
 const Popup = ({ feature, router }) => {
   const { category, id, name, address } = feature.properties;
   const handleClick = () =>
-    router.history.push(`/shop/category${category + 1}/${id}`);
+    {
+      router.history.push(`/shop/category${category + 1}/${id}`)
+      window.scrollTo(0,0)
+    };
   return (
     <StyledPopup id={`popup-${id}`}>
       <Text size="M" text={name} type="map" align="center" color="light" />

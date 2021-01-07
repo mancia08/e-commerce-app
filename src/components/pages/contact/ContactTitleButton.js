@@ -9,7 +9,6 @@ const ContactTitleButton = (props) => (
       size="M"
       text={props.text}
       color="primary"
-      width="parent"
     />
   </>
 );
