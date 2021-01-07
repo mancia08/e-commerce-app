@@ -5,7 +5,7 @@ import ErrorPopUp from "./error.interceptors";
 import { ShopContext } from "../context/ShopContext";
 
 export const StyledErrorService = styled.img`
-  z-index: 1;
+  z-index: 10; 
   display: none;
 `;
 
@@ -14,7 +14,8 @@ const ErrorService = () => {
 
   return (
     <>
-      {context.state.isLoggedIn && <ErrorPopUp />}
+      {/* {context.state.isLoggedIn && <ErrorPopUp />} */}
+      <ErrorPopUp />
       <StyledErrorService src={errorHandler} />
     </>
   );
