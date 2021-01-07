@@ -4,6 +4,8 @@ import { theme } from "../../../data/theme";
 import Text from "../../atoms/text/Text";
 import Hr from "../../atoms/hr/Hr";
 import { textData } from "../../../data/textData";
+import ErrorService from "../../../_helpers/error.handler.js";
+import ErrorHandler from "../../../_helpers/error.popup";
 import FooterHeader from "./FooterHeader";
 
 const StyledFooter = styled.div`
@@ -20,12 +22,14 @@ const StyledFooter = styled.div`
 
 const FooterTextContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   padding: ${theme.sizes.buttons.M};
   background-color: ${theme.colors.secondary};
   @media (min-width: ${theme.viewport.tablet}) {
     flex-direction: row;
+  }
+  @media (max-width: ${theme.viewport.mobile}) {
+    padding: ${theme.sizes.buttons.M} 0;
   }
 `;
 
@@ -39,6 +43,12 @@ const StyledFooterColumn = styled.div`
       align-self: auto;
     }
   }
+  @media (max-width: ${theme.viewport.mobile}) {
+    width: 54vw;
+    :nth-child(3) {
+      display: none;
+    }
+  }
 `;
 
 const FooterLink = styled.a`
@@ -46,50 +56,57 @@ const FooterLink = styled.a`
     color: inherit;
     text-decoration: none;
   }
-  :link, :visited, :link:active, :visited:active{
+  :link,
+  :visited,
+  :link:active,
+  :visited:active {
     color: inherit;
     text-decoration: none;
   }
   :hover {
     cursor: pointer;
   }
+  @media (max-width: ${theme.viewport.mobile}) {
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
-const Footer = () => (
-  <>
-    <Hr type="footer" />
-    <FooterHeader />
-    <Hr type="footer" />
-    <StyledFooter>
-      <FooterTextContainer>
-        {textData.footer.map((column, index) => (
-          <StyledFooterColumn key={index}>
-            {column.icon}
-            <Text
-              key={index}
-              color="dark"
-              size="M"
-              align="center"
-              text={column.title}
-            />
-            {column.links.map((line, index) => (
-              <FooterLink key={index} href={line.link} target="_blank">
-                <Text
-                  key={index}
-                  color="dark"
-                  size="S"
-                  align="center"
-                  text={line.name}
-                  type="link"
-                />
-              </FooterLink>
-            ))}
-          </StyledFooterColumn>
-        ))}
-      </FooterTextContainer>
-      <Text color="dark" size="XS" align="center" text={textData.closing} type="closing" />
-    </StyledFooter>
-  </>
-);
-
+const Footer = () => 
+    <>
+      <Hr type="footer" />
+      <FooterHeader />
+      <Hr type="footer" />
+      <StyledFooter>
+        <FooterTextContainer>
+          {textData.footer.map((column, index) => (
+            <StyledFooterColumn key={index}>
+              {column.icon}
+              <Text
+                key={index}
+                color="dark"
+                size="M"
+                align="center"
+                text={column.title}
+              />
+              {column.links.map((line, index) => (
+                <FooterLink key={index} href={line.link} target="_blank">
+                  <Text
+                    key={index}
+                    color="dark"
+                    size="S"
+                    align="center"
+                    text={line.name}
+                    type="link"
+                  />
+                </FooterLink>
+              ))}
+            </StyledFooterColumn>
+          ))}
+        </FooterTextContainer>
+        <ErrorService />
+        <ErrorHandler />
+      </StyledFooter>
+    </>;
 export default Footer;

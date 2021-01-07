@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
 import styled from "styled-components";
 import { MyContext } from "./../../../../context/APIContext";
+import { ShopContext } from './../../../../context/ShopContext';
 import { theme } from "../../../../data/theme";
 import { textData } from "../../../../data/textData";
 import SingleShopCard from "./SingleShopCard";
@@ -57,6 +58,8 @@ const SingleShop = ({ category, shop }) => {
 
   const context = useContext(MyContext);
 
+  const shopContext = useContext(ShopContext);
+
   const toggleModal = (e) => {
     const item = context.state.items[category - 1].shops[shop][e.target.id];
     setItem(item);
@@ -66,9 +69,9 @@ const SingleShop = ({ category, shop }) => {
   const onAddToCartClick = (e) => {
     let itemSelected =
       context.state.items[category - 1].shops[shop][e.target.id];
-    let copyOfItems = [...context.cart];
+    let copyOfItems = [...shopContext.cart];
     copyOfItems.push(itemSelected);
-    context.setCart(copyOfItems);
+    shopContext.setCart(copyOfItems);
   };
 
   return (

@@ -5,15 +5,11 @@ import { items } from '../data/items';
 
 export const MyContext = React.createContext();
 
-const MyAPIProvider = (props) => {
+const MyAPIProvider = ({children}) => {
 
   const [state, setState] = useState({});
 
   const [loading, setLoading] = useState(true);
-
-  const [cart, setCart] = useState('');
-
-  const [payment, setPayment] = useState(false);
 
   useEffect(() => {
     setState(items);
@@ -22,8 +18,8 @@ const MyAPIProvider = (props) => {
 
  
     return (
-      <MyContext.Provider value={{ state, setState, loading, setLoading, cart, setCart, payment, setPayment }}>
-        {props.children}
+      <MyContext.Provider value={{ state, setState, loading, setLoading }}>
+        {children}
       </MyContext.Provider>
     );
 }

@@ -30,6 +30,11 @@ const StyledContactContainer = styled.div`
       width: 50%;
     }
   }
+  @media (max-width: ${theme.viewport.mobile}) {
+    button {
+      font-size: ${theme.fonts.sizes.S};
+    }
+  }
 `;
 
 const ContactContainer = () => {
