@@ -469,3 +469,4 @@ This approach gave us the possibility to write clean and professional code and w
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
 ## [:top:](#table-of-contents)
+
