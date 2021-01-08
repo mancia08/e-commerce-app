@@ -101,7 +101,7 @@ const MyAPIProvider = ({ children }) => {
                 { id: category.id, shops: [firstShop, secondShop, thirdShop] },
               ];
               /* setItems(finalState) */;
-              if(finalState[0].id !== 0 && finalState[1].id !== 0){setLoading(false)}
+              /* if(finalState[0].id !== 0 && finalState[1].id !== 0){setLoading(false)} */
               break;
             default:
               break;
@@ -114,8 +114,8 @@ const MyAPIProvider = ({ children }) => {
                 let item = finalState[loopCategory].shops[loopShop][loopItem];
                 item={id:loopItem, name:item.name, price:item.price, imageL:item.imageL}
                 categoryArray[loopCategory].shops[loopShop].push(item)
-                setItems(categoryArray)
                 console.log(categoryArray)
+                if (loopCategory===finalState.length-1 && loopShop===finalState[loopCategory].shops.length-1 && loopItem===finalState[loopCategory].shops[loopShop].length-1) {setItems(categoryArray); setLoading(false)}
               }
 
             }
